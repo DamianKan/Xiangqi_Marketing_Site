@@ -437,7 +437,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
   "ZH-016": {
     title: "相弈象棋 产品更新 2024年8月 - 相弈象棋",
     description:
-      "查看相弈象棋 2024 年 8 月产品更新，了解导航、界面和移动端体验优化方向。",
+      "最新产品更新：为了让您的象棋体验更加顺畅，我们对网站和手机应用做了多项改进。",
     heroTitle: "相弈象棋 产品更新 2024年8月",
     sections: [
       {
@@ -466,7 +466,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
       },
       {
         title: "未来两个月的更新计划",
-        body: ["接下来两个月，我们还会继续围绕社交、沟通和自定义棋局体验推进更新。"],
+        body: [],
         list: [
           "私信系统：与其他玩家私聊，分享心得或切磋棋艺。",
           "多语言公共聊天室：系统会根据玩家的语言偏好分设不同的频道，使沟通更加顺畅。",
@@ -474,10 +474,9 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         ]
       },
       {
-        title: "结语",
+        title: "点击此处，反馈您的意见",
         body: [
-          "我们非常珍视您的反馈。欢迎分享您对这些更新和未来功能的看法。",
-          "感谢您一路陪伴相弈象棋的成长，期待在棋盘上与您继续相遇。"
+          "我们非常珍视您的反馈。欢迎分享您对这些更新和未来功能的看法。"
         ]
       }
     ]

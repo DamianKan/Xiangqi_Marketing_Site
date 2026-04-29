@@ -1,4 +1,5 @@
 ---
+import { replicaAssets } from "../../data/replica/assets";
 import type { ReplicaLocale } from "../../data/replica/types";
 
 const { locale = "zh-CN" } = Astro.props as { locale?: ReplicaLocale };
@@ -14,9 +15,19 @@ type FooterColumn = {
   links: FooterLink[];
 };
 
+type DownloadBadge = {
+  image: string;
+  imageAlt: string;
+  href: string;
+  external?: boolean;
+};
+
 type FooterContent = {
   brand: string;
   columns: FooterColumn[];
+  downloads: DownloadBadge[];
+  searchPlaceholder: string;
+  searchHref: string;
   socialLabel: string;
   socialLinks: FooterLink[];
   whatsapp: FooterLink;
@@ -42,21 +53,43 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
           { label: "象棋规则", href: "/how-to-play/" },
           { label: "棋子与走法", href: "/how-to-play-xiangqi/" },
           { label: "等级分系统", href: "/rating/" },
-          { label: "走法限制", href: "/limits/" }
+          { label: "象棋走法限制", href: "/limits/" }
         ]
       },
       {
         title: "更多",
         links: [
           { label: "商品周边", href: "/shop/" },
-          { label: "资源中心", href: "/resources/" },
+          { label: "资源", href: "/resources/" },
           { label: "公平对弈政策", href: "/fair-play/" },
-          { label: "文明交流政策", href: "/polite/" },
+          { label: "文明政策", href: "/polite/" },
           { label: "服务条款", href: "/terms/" },
           { label: "隐私政策", href: "/privacy/" }
         ]
       }
     ],
+    downloads: [
+      {
+        image: replicaAssets.downloadBadgeGoogle,
+        imageAlt: "Google Play 下载按钮",
+        href: "https://play.google.com/store/apps/details?id=com.xiangqimobile",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApk,
+        imageAlt: "安卓 APK 下载按钮",
+        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApple,
+        imageAlt: "App Store 下载按钮",
+        href: "https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460",
+        external: true
+      }
+    ],
+    searchPlaceholder: "请输入关键字",
+    searchHref: "/support-home/",
     socialLabel: "关注我们：",
     socialLinks: [
       { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com", external: true },
@@ -65,11 +98,11 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
       { label: "小红书", href: "https://www.xiaohongshu.com/user/profile/624012d80000000021025494", external: true }
     ],
     whatsapp: {
-      label: "通过 WhatsApp 联系我们",
+      label: "来 WhatsApp 和我们聊天",
       href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5",
       external: true
     },
-    copyright: "©2024 - 相弈象棋"
+    copyright: "©2024 - 相弈象棋 版权所有"
   },
   "zh-Hant": {
     brand: "Xiangqi.com 相弈象棋",
@@ -89,21 +122,43 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
           { label: "象棋規則", href: "/tcn/how-to-play/" },
           { label: "棋子與走法", href: "/tcn/how-to-play-xiangqi/" },
           { label: "等級分系統", href: "/tcn/rating/" },
-          { label: "走法限制", href: "/tcn/limits/" }
+          { label: "象棋走法限制", href: "/tcn/limits/" }
         ]
       },
       {
         title: "更多",
         links: [
           { label: "商品周邊", href: "/tcn/shop/" },
-          { label: "資源中心", href: "/tcn/resources/" },
+          { label: "資源", href: "/tcn/resources/" },
           { label: "公平對弈政策", href: "/tcn/fair-play/" },
-          { label: "文明交流政策", href: "/tcn/polite/" },
+          { label: "文明政策", href: "/tcn/polite/" },
           { label: "服務條款", href: "/terms/" },
           { label: "隱私政策", href: "/privacy/" }
         ]
       }
     ],
+    downloads: [
+      {
+        image: replicaAssets.downloadBadgeGoogle,
+        imageAlt: "Google Play 下載按鈕",
+        href: "https://play.google.com/store/apps/details?id=com.xiangqimobile",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApk,
+        imageAlt: "安卓 APK 下載按鈕",
+        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApple,
+        imageAlt: "App Store 下載按鈕",
+        href: "https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460",
+        external: true
+      }
+    ],
+    searchPlaceholder: "請輸入關鍵字",
+    searchHref: "/tcn/support-home/",
     socialLabel: "關注我們：",
     socialLinks: [
       { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com", external: true },
@@ -112,11 +167,11 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
       { label: "小紅書", href: "https://www.xiaohongshu.com/user/profile/624012d80000000021025494", external: true }
     ],
     whatsapp: {
-      label: "透過 WhatsApp 聯絡我們",
+      label: "來 WhatsApp 和我們聊天",
       href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5",
       external: true
     },
-    copyright: "©2024 - 相弈象棋"
+    copyright: "©2024 - 相弈象棋 版權所有"
   },
   en: {
     brand: "Xiangqi.com",
@@ -149,6 +204,28 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
         ]
       }
     ],
+    downloads: [
+      {
+        image: replicaAssets.downloadBadgeGoogle,
+        imageAlt: "Google Play download badge",
+        href: "https://play.google.com/store/apps/details?id=com.xiangqimobile",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApk,
+        imageAlt: "Android APK download badge",
+        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApple,
+        imageAlt: "App Store download badge",
+        href: "https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460",
+        external: true
+      }
+    ],
+    searchPlaceholder: "Search the help center",
+    searchHref: "/en/support-home/",
     socialLabel: "Follow us:",
     socialLinks: [
       { label: "YouTube", href: "https://www.youtube.com/@xiangqicom", external: true },
@@ -192,6 +269,28 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
         ]
       }
     ],
+    downloads: [
+      {
+        image: replicaAssets.downloadBadgeGoogle,
+        imageAlt: "Huy hieu Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.xiangqimobile",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApk,
+        imageAlt: "Huy hieu tai APK Android",
+        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        external: true
+      },
+      {
+        image: replicaAssets.downloadBadgeApple,
+        imageAlt: "Huy hieu App Store",
+        href: "https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460",
+        external: true
+      }
+    ],
+    searchPlaceholder: "Nhap tu khoa",
+    searchHref: "/vi/cau-hoi-thuong-gap/",
     socialLabel: "Theo doi:",
     socialLinks: [
       { label: "Facebook", href: "https://www.facebook.com/xiangqicom", external: true },
@@ -212,10 +311,11 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
 
 <footer class="replica-footer">
   <div class="replica-footer__inner">
+    <div class="replica-footer__brand">
+      <h2>{content.brand}</h2>
+    </div>
+
     <div class="replica-footer__grid">
-      <div class="replica-footer__brand">
-        <h2>{content.brand}</h2>
-      </div>
       {content.columns.map((column) => (
         <div class="replica-footer__column">
           <h3>{column.title}</h3>
@@ -229,6 +329,26 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
         </div>
       ))}
     </div>
+
+    <div class="replica-footer__downloads" aria-label="Download app">
+      {content.downloads.map((badge, index) => (
+        <a
+          class:list={["replica-store-badge", `replica-store-badge--${index + 1}`]}
+          href={badge.href}
+          {...linkAttrs(badge.external)}
+        >
+          <img src={badge.image} alt={badge.imageAlt} loading="lazy" />
+        </a>
+      ))}
+    </div>
+
+    <form class="replica-footer__search" action={content.searchHref} method="get">
+      <label class="replica-footer__search-shell">
+        <span class="replica-footer__search-icon" aria-hidden="true">⌕</span>
+        <input type="search" name="q" placeholder={content.searchPlaceholder} />
+      </label>
+    </form>
+
     <div class="replica-footer__meta">
       <p class="replica-footer__copyright">{content.copyright}</p>
       <p class="replica-footer__social">
