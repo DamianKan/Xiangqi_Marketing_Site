@@ -2,7 +2,7 @@ import { replicaAssets } from "./assets";
 import type { ReplicaPage } from "./types";
 
 const githubReleaseApkUrl =
-  "https://github.com/Littline/xiangqi_auto/releases/latest/download/Xiangqi-v2.1.4-signed-China.apk";
+  "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk";
 
 export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
   "ZH-003": {
