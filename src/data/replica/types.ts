@@ -26,6 +26,11 @@ export interface ReplicaSection {
   imageAlt?: string;
   links?: ReplicaCta[];
   list?: string[];
+  gallery?: Array<{
+    title: string;
+    image: string;
+    imageAlt?: string;
+  }>;
 }
 
 export interface ReplicaFaq {

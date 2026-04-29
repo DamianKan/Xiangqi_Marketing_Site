@@ -6,6 +6,8 @@ import { replicaPageCorrections } from "./corrections";
 import { sourcePageOverrides } from "./source-overrides";
 import { zhSourcePageOverrides } from "./zh-source-overrides";
 import { homePageOverrides } from "./home-overrides";
+import { pageOverrides } from "./page-overrides";
+import { footerReplicaPages } from "./footer-pages";
 import type { ReplicaArticleCard, ReplicaPage, ReplicaSection } from "./types";
 
 function normalizeSection(section: any): ReplicaSection {
@@ -15,7 +17,8 @@ function normalizeSection(section: any): ReplicaSection {
     image: section.image,
     imageAlt: section.imageAlt,
     links: section.links,
-    list: section.list || section.items?.map((item: any) => item.description ? `${item.title}: ${item.description}` : item.title)
+    list: section.list || section.items?.map((item: any) => item.description ? `${item.title}: ${item.description}` : item.title),
+    gallery: section.gallery
   };
 }
 
@@ -43,7 +46,8 @@ function normalizePage(page: any): ReplicaPage {
     ...(usableZhSourceOverride || {}),
     ...(usableSourceOverride || {}),
     ...(replicaPageCorrections[page.id] || {}),
-    ...(homePageOverrides[page.id as keyof typeof homePageOverrides] || {})
+    ...(homePageOverrides[page.id as keyof typeof homePageOverrides] || {}),
+    ...(pageOverrides[page.id] || {})
   };
   return {
     id: corrected.id,
@@ -64,6 +68,7 @@ function normalizePage(page: any): ReplicaPage {
 
 export const replicaPages: ReplicaPage[] = [
   ...zhReplicaPages,
+  ...footerReplicaPages,
   ...enReplicaPages,
   ...viReplicaPages
 ].map(normalizePage);

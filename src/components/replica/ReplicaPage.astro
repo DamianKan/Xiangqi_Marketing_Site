@@ -5,6 +5,10 @@ import type { ReplicaPage } from "../../data/replica/types";
 const { page } = Astro.props as { page: ReplicaPage };
 const isHome = page.type === "home";
 const playCtas = page.ctas || [];
+const isDownloadPage = page.type === "download";
+const slicedSections = page.sections.slice(page.type === "home" ? 1 : 0);
+const downloadLeadSections = isDownloadPage ? slicedSections.slice(0, 3) : [];
+const contentSections = isDownloadPage ? slicedSections.slice(3) : slicedSections;
 
 const articleHeading =
   page.locale === "en"
@@ -29,9 +33,7 @@ const articleMoreLabel =
     ? "View All"
     : page.locale === "vi"
       ? "Xem tất cả"
-      : page.locale === "zh-Hant"
-        ? "更多"
-        : "更多";
+      : "更多";
 
 const articleReadMoreLabel =
   page.locale === "en"
@@ -42,8 +44,11 @@ const articleReadMoreLabel =
         ? "閱讀更多"
         : "阅读更多";
 
-const articleIndexHref = page.locale === "en" ? "/news/" : page.locale === "vi" ? "/vi/" : "/articles/";
-const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "noreferrer" } : {});
+const articleIndexHref =
+  page.locale === "en" ? "/news/" : page.locale === "vi" ? "/vi/" : "/articles/";
+
+const linkAttrs = (external?: boolean) =>
+  external ? { target: "_blank", rel: "noreferrer" } : {};
 ---
 
 {isHome ? (
@@ -67,8 +72,8 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
     </div>
   </section>
 ) : (
-  <section class="replica-subhero">
-    <div class="replica-container">
+  <section class:list={["replica-subhero", isDownloadPage && "replica-subhero--download"]}>
+    <div class:list={["replica-container", page.type !== "home" && !isDownloadPage && "replica-container--narrow"]}>
       <p class="replica-kicker">Xiangqi.com</p>
       <h1 id="page-title">{page.heroTitle}</h1>
       {(page.heroSubtitle || page.description) && <p>{page.heroSubtitle || page.description}</p>}
@@ -93,7 +98,11 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
   <section class="replica-red replica-intro">
     <div class="replica-container replica-two-col">
       <div class="replica-intro__art">
-        <img src={page.sections[0].image || replicaAssets.intro} alt={page.sections[0].imageAlt || page.sections[0].title} loading="lazy" />
+        <img
+          src={page.sections[0].image || replicaAssets.intro}
+          alt={page.sections[0].imageAlt || page.sections[0].title}
+          loading="lazy"
+        />
       </div>
       <div class="replica-intro__copy">
         <h2>{page.sections[0].title}</h2>
@@ -104,23 +113,69 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
 )}
 
 <section class:list={["replica-content", page.type !== "home" && "replica-content--first"]}>
-  <div class="replica-container">
-    {page.type !== "home" && <p class="source-note">Source reference: <a href={page.sourceUrl}>{page.sourceUrl}</a></p>}
+  <div class:list={["replica-container", page.type !== "home" && !isDownloadPage && "replica-container--narrow"]}>
+    {isDownloadPage && downloadLeadSections.length > 0 && (
+      <div class="replica-download-grid">
+        {downloadLeadSections.map((section) => (
+          <article class="replica-download-card">
+            <div class="replica-download-card__copy">
+              <h2>{section.title}</h2>
+              {section.body.map((paragraph) => <p>{paragraph}</p>)}
+              {section.links && (
+                <div class="replica-download-card__actions">
+                  {section.links.map((link) => (
+                    <a
+                      class="replica-btn replica-btn--secondary"
+                      href={link.href}
+                      {...linkAttrs(link.external)}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            {section.image && (
+              <a
+                class="replica-download-card__badge"
+                href={section.links?.[0]?.href || "#"}
+                {...linkAttrs(section.links?.[0]?.external)}
+              >
+                <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+    )}
 
     <div class="replica-section-grid">
-      {page.sections.slice(page.type === "home" ? 1 : 0).map((section, index) => (
+      {contentSections.map((section, index) => (
         <article
           class:list={[
             "replica-section",
-            index % 2 === 1 && "replica-section--alt",
+            page.type !== "home" && "replica-section--document",
+            index % 2 === 1 && isHome && "replica-section--alt",
             isHome && index < 2 && "replica-section--feature",
             isHome && index >= 2 && "replica-section--story"
           ]}
           id={`section-${index + 1}`}
         >
-          {section.image && <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />}
+          {section.image && (
+            <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+          )}
           <div class="replica-section__body">
             <h2>{section.title}</h2>
+            {section.gallery && section.gallery.length > 0 && (
+              <div class="replica-showcase-grid">
+                {section.gallery.map((item) => (
+                  <figure class="replica-showcase-card">
+                    <figcaption>{item.title}</figcaption>
+                    <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
+                  </figure>
+                ))}
+              </div>
+            )}
             {section.body.map((paragraph) => <p>{paragraph}</p>)}
             {section.list && (
               <ul>
@@ -129,7 +184,11 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
             )}
             {section.links && (
               <p class="replica-link-row">
-                {section.links.map((link) => <a href={link.href} {...linkAttrs(link.external)}>{link.label}</a>)}
+                {section.links.map((link) => (
+                  <a href={link.href} {...linkAttrs(link.external)}>
+                    {link.label}
+                  </a>
+                ))}
               </p>
             )}
           </div>
@@ -141,10 +200,12 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
 
 {page.articleCards && page.articleCards.length > 0 && (
   <section class="replica-articles">
-    <div class="replica-container">
+    <div class:list={["replica-container", !isHome && "replica-container--narrow"]}>
       <div class="replica-section-head">
         <h2>{articleHeading}</h2>
-        <a class="replica-more-link" href={articleIndexHref}>{articleMoreLabel}</a>
+        <a class="replica-more-link" href={articleIndexHref}>
+          {articleMoreLabel}
+        </a>
       </div>
       <div class="replica-card-grid">
         {page.articleCards.map((article) => (

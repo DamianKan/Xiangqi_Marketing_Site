@@ -3,81 +3,246 @@ import type { ReplicaLocale } from "../../data/replica/types";
 
 const { locale = "zh-CN" } = Astro.props as { locale?: ReplicaLocale };
 
-const labels = {
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+};
+
+type FooterContent = {
+  brand: string;
+  columns: FooterColumn[];
+  socialLabel: string;
+  socialLinks: FooterLink[];
+  whatsapp: FooterLink;
+  copyright: string;
+};
+
+const footerContent: Record<ReplicaLocale, FooterContent> = {
   "zh-CN": {
     brand: "Xiangqi.com 相弈象棋",
-    about: "关于相弈",
-    story: "我们的故事",
-    team: "我们的团队",
-    roadmap: "产品路线图",
-    contact: "联系我们",
-    help: "帮助中心",
-    rules: "象棋规则",
-    rating: "等级分系统",
-    terms: "服务条款",
-    privacy: "隐私政策"
+    columns: [
+      {
+        title: "关于",
+        links: [
+          { label: "我们的故事", href: "/about/" },
+          { label: "我们的团队", href: "/team/" },
+          { label: "产品路线图", href: "/roadmap/" },
+          { label: "联系我们", href: "/contact/" }
+        ]
+      },
+      {
+        title: "帮助",
+        links: [
+          { label: "象棋规则", href: "/how-to-play/" },
+          { label: "棋子与走法", href: "/how-to-play-xiangqi/" },
+          { label: "等级分系统", href: "/rating/" },
+          { label: "走法限制", href: "/limits/" }
+        ]
+      },
+      {
+        title: "更多",
+        links: [
+          { label: "商品周边", href: "/shop/" },
+          { label: "资源中心", href: "/resources/" },
+          { label: "公平对弈政策", href: "/fair-play/" },
+          { label: "文明交流政策", href: "/polite/" },
+          { label: "服务条款", href: "/terms/" },
+          { label: "隐私政策", href: "/privacy/" }
+        ]
+      }
+    ],
+    socialLabel: "关注我们：",
+    socialLinks: [
+      { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com", external: true },
+      { label: "微信公众号", href: "https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A", external: true },
+      { label: "哔哩哔哩", href: "https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click", external: true },
+      { label: "小红书", href: "https://www.xiaohongshu.com/user/profile/624012d80000000021025494", external: true }
+    ],
+    whatsapp: {
+      label: "通过 WhatsApp 联系我们",
+      href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5",
+      external: true
+    },
+    copyright: "©2024 - 相弈象棋"
   },
   "zh-Hant": {
     brand: "Xiangqi.com 相弈象棋",
-    about: "關於相弈",
-    story: "我們的故事",
-    team: "我們的團隊",
-    roadmap: "產品路線圖",
-    contact: "聯絡我們",
-    help: "幫助中心",
-    rules: "象棋規則",
-    rating: "等級分系統",
-    terms: "服務條款",
-    privacy: "隱私政策"
+    columns: [
+      {
+        title: "關於",
+        links: [
+          { label: "我們的故事", href: "/tcn/about/" },
+          { label: "我們的團隊", href: "/tcn/team/" },
+          { label: "產品路線圖", href: "/tcn/roadmap/" },
+          { label: "聯絡我們", href: "/tcn/contact/" }
+        ]
+      },
+      {
+        title: "幫助",
+        links: [
+          { label: "象棋規則", href: "/tcn/how-to-play/" },
+          { label: "棋子與走法", href: "/tcn/how-to-play-xiangqi/" },
+          { label: "等級分系統", href: "/tcn/rating/" },
+          { label: "走法限制", href: "/tcn/limits/" }
+        ]
+      },
+      {
+        title: "更多",
+        links: [
+          { label: "商品周邊", href: "/tcn/shop/" },
+          { label: "資源中心", href: "/tcn/resources/" },
+          { label: "公平對弈政策", href: "/tcn/fair-play/" },
+          { label: "文明交流政策", href: "/tcn/polite/" },
+          { label: "服務條款", href: "/terms/" },
+          { label: "隱私政策", href: "/privacy/" }
+        ]
+      }
+    ],
+    socialLabel: "關注我們：",
+    socialLinks: [
+      { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com", external: true },
+      { label: "微信公眾號", href: "https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A", external: true },
+      { label: "哔哩哔哩", href: "https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click", external: true },
+      { label: "小紅書", href: "https://www.xiaohongshu.com/user/profile/624012d80000000021025494", external: true }
+    ],
+    whatsapp: {
+      label: "透過 WhatsApp 聯絡我們",
+      href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5",
+      external: true
+    },
+    copyright: "©2024 - 相弈象棋"
   },
   en: {
     brand: "Xiangqi.com",
-    about: "About Xiangqi.com",
-    story: "Our Story",
-    team: "Our Team",
-    roadmap: "Roadmap",
-    contact: "Contact",
-    help: "Help Center",
-    rules: "Rules",
-    rating: "Ratings",
-    terms: "Terms",
-    privacy: "Privacy"
+    columns: [
+      {
+        title: "About",
+        links: [
+          { label: "Our Story", href: "/about/" },
+          { label: "Our Team", href: "/team/" },
+          { label: "Roadmap", href: "/roadmap/" },
+          { label: "Contact", href: "/contact/" }
+        ]
+      },
+      {
+        title: "Help",
+        links: [
+          { label: "Help Home", href: "/en/help/" },
+          { label: "Ratings", href: "/en/help/rating/" },
+          { label: "Fair Play", href: "/en/help/fair-play/" },
+          { label: "Civility Code", href: "/en/help/politeness-code/" }
+        ]
+      },
+      {
+        title: "More",
+        links: [
+          { label: "How to Play", href: "/en/how-to-play-xiangqi/" },
+          { label: "Tournament", href: "/en/help/tournament/" },
+          { label: "Support Search", href: "/en/support-home/" },
+          { label: "Terms", href: "/terms/" }
+        ]
+      }
+    ],
+    socialLabel: "Follow us:",
+    socialLinks: [
+      { label: "YouTube", href: "https://www.youtube.com/@xiangqicom", external: true },
+      { label: "Instagram", href: "https://www.instagram.com/xiangqi_com/", external: true }
+    ],
+    whatsapp: {
+      label: "Chat with us on WhatsApp",
+      href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5",
+      external: true
+    },
+    copyright: "©2024 - Xiangqi.com"
   },
   vi: {
     brand: "Xiangqi.com Co tuong",
-    about: "Gioi thieu",
-    story: "Cau chuyen",
-    team: "Doi ngu",
-    roadmap: "Lo trinh",
-    contact: "Lien he",
-    help: "Tro giup",
-    rules: "Luat co",
-    rating: "Xep hang",
-    terms: "Dieu khoan",
-    privacy: "Quyen rieng tu"
+    columns: [
+      {
+        title: "Gioi thieu",
+        links: [
+          { label: "Cau chuyen", href: "/about/" },
+          { label: "Doi ngu", href: "/team/" },
+          { label: "Lo trinh", href: "/roadmap/" },
+          { label: "Lien he", href: "/contact/" }
+        ]
+      },
+      {
+        title: "Tro giup",
+        links: [
+          { label: "Luat co", href: "/vi/how-to-play/" },
+          { label: "Xep hang", href: "/vi/help/rating/" },
+          { label: "Cau hoi thuong gap", href: "/vi/cau-hoi-thuong-gap/" },
+          { label: "Tai App", href: "/vi/download/" }
+        ]
+      },
+      {
+        title: "Them",
+        links: [
+          { label: "Luat choi", href: "/vi/articles/luat-choi-co-tuong/" },
+          { label: "Cach di chuyen", href: "/vi/articles/cach-di-chuyen-co-tuong/" },
+          { label: "ELO Co tuong", href: "/vi/articles/elo-co-tuong/" },
+          { label: "Quyen rieng tu", href: "/privacy/" }
+        ]
+      }
+    ],
+    socialLabel: "Theo doi:",
+    socialLinks: [
+      { label: "Facebook", href: "https://www.facebook.com/xiangqicom", external: true },
+      { label: "YouTube", href: "https://www.youtube.com/@xiangqicom", external: true }
+    ],
+    whatsapp: {
+      label: "Chat voi chung toi tren WhatsApp",
+      href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5",
+      external: true
+    },
+    copyright: "©2024 - Xiangqi.com"
   }
-}[locale];
+};
+
+const content = footerContent[locale];
+const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "noreferrer" } : {});
 ---
 
 <footer class="replica-footer">
   <div class="replica-footer__inner">
-    <div>
-      <h2>{labels.brand}</h2>
-      <p>{labels.about}</p>
-      <p>
-        <a href="/about/">{labels.story}</a>
-        <a href="/about/">{labels.team}</a>
-        <a href="/about/">{labels.roadmap}</a>
-        <a href="/contact/">{labels.contact}</a>
-      </p>
+    <div class="replica-footer__grid">
+      <div class="replica-footer__brand">
+        <h2>{content.brand}</h2>
+      </div>
+      {content.columns.map((column) => (
+        <div class="replica-footer__column">
+          <h3>{column.title}</h3>
+          <nav class="replica-footer__links" aria-label={column.title}>
+            {column.links.map((link) => (
+              <a href={link.href} {...linkAttrs(link.external)}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      ))}
     </div>
-    <div>
-      <h2>{labels.help}</h2>
-      <p>
-        <a href={locale === "en" ? "/en/help/" : locale === "vi" ? "/vi/how-to-play/" : locale === "zh-Hant" ? "/tcn/how-to-play/" : "/how-to-play-xiangqi/"}>{labels.rules}</a>
-        <a href={locale === "zh-Hant" ? "/tcn/rating/" : locale === "vi" ? "/vi/help/rating/" : locale === "en" ? "/en/help/rating/" : "/rating/"}>{labels.rating}</a>
-        <a href="/terms/">{labels.terms}</a>
-        <a href="/privacy/">{labels.privacy}</a>
+    <div class="replica-footer__meta">
+      <p class="replica-footer__copyright">{content.copyright}</p>
+      <p class="replica-footer__social">
+        <span>{content.socialLabel}</span>
+        {content.socialLinks.map((link) => (
+          <a href={link.href} {...linkAttrs(link.external)}>
+            {link.label}
+          </a>
+        ))}
+      </p>
+      <p class="replica-footer__whatsapp">
+        <a href={content.whatsapp.href} {...linkAttrs(content.whatsapp.external)}>
+          {content.whatsapp.label}
+        </a>
       </p>
     </div>
   </div>
