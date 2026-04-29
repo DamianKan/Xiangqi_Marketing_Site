@@ -1,0 +1,105 @@
+---
+import { helpNav, mainNav } from "../../data/replica/navigation";
+import { localeConfigs, getLocaleConfig } from "../../data/replica/locales";
+import type { ReplicaLocale } from "../../data/replica/types";
+
+const { locale = "zh-CN" } = Astro.props as { locale?: ReplicaLocale };
+const nav = mainNav[locale];
+const currentLocale = getLocaleConfig(locale);
+const helps = helpNav[locale];
+
+const menuLabel =
+  locale === "en"
+    ? "Menu"
+    : locale === "vi"
+      ? "Menu"
+      : locale === "zh-Hant"
+        ? "選單"
+        : "菜单";
+---
+
+<header class="replica-header">
+  <div class="replica-header__inner">
+    <a class="replica-brand" href={currentLocale.route} aria-label="Xiangqi.com">
+      <span class="replica-brand__seal" aria-hidden="true">相</span>
+      <span class="replica-brand__wordmark">
+        <strong>Xiangqi.com</strong>
+        <em>{locale === "zh-Hant" ? "相弈象棋" : locale === "en" ? "Play Xiangqi" : locale === "vi" ? "Co tuong online" : "相弈象棋"}</em>
+      </span>
+    </a>
+
+    <button class="replica-menu-toggle" type="button" aria-expanded="false" aria-controls="replicaNav" aria-label={menuLabel}>
+      <span class="replica-menu-toggle__icon"><span></span><span></span><span></span></span>
+      <span class="replica-menu-toggle__label">{menuLabel}</span>
+    </button>
+
+    <nav id="replicaNav" class="replica-nav" aria-label="Primary">
+      <div class="replica-nav__item has-dropdown">
+        <button type="button" class="replica-nav__button" aria-expanded="false">
+          {nav.help}<span aria-hidden="true">⌄</span>
+        </button>
+        <div class="replica-dropdown">
+          {helps.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+      </div>
+      <a href={nav.downloadHref}>{nav.download}</a>
+      <a href={nav.howToPlayHref}>{nav.howToPlay}</a>
+      <div class="replica-nav__item has-dropdown">
+        <button type="button" class="replica-nav__button" aria-expanded="false">
+          {currentLocale.label}<span aria-hidden="true">⌄</span>
+        </button>
+        <div class="replica-dropdown replica-dropdown--language">
+          {localeConfigs.map((item) => <a href={item.route}>{item.label}</a>)}
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const header = document.querySelector(".replica-header");
+    if (!header) return;
+    const nav = header.querySelector("#replicaNav");
+    const toggle = header.querySelector(".replica-menu-toggle");
+    const dropdowns = Array.from(header.querySelectorAll(".has-dropdown"));
+
+    const closeDropdowns = (except) => {
+      dropdowns.forEach((item) => {
+        if (item === except) return;
+        item.classList.remove("is-open");
+        item.querySelector("button")?.setAttribute("aria-expanded", "false");
+      });
+    };
+
+    toggle?.addEventListener("click", () => {
+      const open = header.classList.toggle("is-menu-open");
+      toggle.setAttribute("aria-expanded", String(open));
+      if (!open) closeDropdowns();
+    });
+
+    dropdowns.forEach((item) => {
+      const button = item.querySelector("button");
+      button?.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const open = item.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", String(open));
+        closeDropdowns(item);
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target)) closeDropdowns();
+    });
+
+    nav?.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof HTMLAnchorElement) {
+        closeDropdowns();
+        header.classList.remove("is-menu-open");
+        toggle?.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>

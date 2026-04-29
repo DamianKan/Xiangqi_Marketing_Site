@@ -1,0 +1,44 @@
+---
+interface Summary {
+  what: string;
+  offers: string;
+  forWho: string;
+  howToStart: string;
+}
+
+const { summary, updatedAt, badges = [] } = Astro.props as {
+  summary: Summary;
+  updatedAt?: string;
+  badges?: string[];
+};
+---
+
+<section class="summary-card">
+  <div class="summary-header">
+    <p class="eyebrow">页面摘要块</p>
+    {updatedAt && <p class="summary-updated">最近更新：{updatedAt}</p>}
+  </div>
+  <div class="summary-grid">
+    <div>
+      <h2>页面是什么</h2>
+      <p>{summary.what}</p>
+    </div>
+    <div>
+      <h2>提供什么</h2>
+      <p>{summary.offers}</p>
+    </div>
+    <div>
+      <h2>适合谁</h2>
+      <p>{summary.forWho}</p>
+    </div>
+    <div>
+      <h2>如何开始</h2>
+      <p>{summary.howToStart}</p>
+    </div>
+  </div>
+  {badges.length > 0 && (
+    <ul class="summary-badges">
+      {badges.map((badge) => <li>{badge}</li>)}
+    </ul>
+  )}
+</section>

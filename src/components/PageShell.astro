@@ -1,0 +1,23 @@
+---
+import SiteFooter from "./SiteFooter.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<main class="page">
+  <SiteHeader />
+  <section class="section">
+    <h2>{title}</h2>
+    <p class="lead">{description}</p>
+  </section>
+  <section class="section">
+    <slot />
+  </section>
+  <SiteFooter />
+</main>

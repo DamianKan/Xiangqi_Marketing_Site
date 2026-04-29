@@ -1,0 +1,14 @@
+---
+import ReplicaLayout from "../layouts/ReplicaLayout.astro";
+import ReplicaPageView from "../components/replica/ReplicaPage.astro";
+import { getReplicaPageByRoute } from "../data/replica";
+
+const page = getReplicaPageByRoute("/");
+if (!page) {
+  throw new Error("Missing replica home page data");
+}
+---
+
+<ReplicaLayout title={page.title} description={page.description} route={page.route} locale={page.locale}>
+  <ReplicaPageView page={page} />
+</ReplicaLayout>

@@ -1,0 +1,84 @@
+---
+import type { ReplicaLocale } from "../../data/replica/types";
+
+const { locale = "zh-CN" } = Astro.props as { locale?: ReplicaLocale };
+
+const labels = {
+  "zh-CN": {
+    brand: "Xiangqi.com 相弈象棋",
+    about: "关于相弈",
+    story: "我们的故事",
+    team: "我们的团队",
+    roadmap: "产品路线图",
+    contact: "联系我们",
+    help: "帮助中心",
+    rules: "象棋规则",
+    rating: "等级分系统",
+    terms: "服务条款",
+    privacy: "隐私政策"
+  },
+  "zh-Hant": {
+    brand: "Xiangqi.com 相弈象棋",
+    about: "關於相弈",
+    story: "我們的故事",
+    team: "我們的團隊",
+    roadmap: "產品路線圖",
+    contact: "聯絡我們",
+    help: "幫助中心",
+    rules: "象棋規則",
+    rating: "等級分系統",
+    terms: "服務條款",
+    privacy: "隱私政策"
+  },
+  en: {
+    brand: "Xiangqi.com",
+    about: "About Xiangqi.com",
+    story: "Our Story",
+    team: "Our Team",
+    roadmap: "Roadmap",
+    contact: "Contact",
+    help: "Help Center",
+    rules: "Rules",
+    rating: "Ratings",
+    terms: "Terms",
+    privacy: "Privacy"
+  },
+  vi: {
+    brand: "Xiangqi.com Co tuong",
+    about: "Gioi thieu",
+    story: "Cau chuyen",
+    team: "Doi ngu",
+    roadmap: "Lo trinh",
+    contact: "Lien he",
+    help: "Tro giup",
+    rules: "Luat co",
+    rating: "Xep hang",
+    terms: "Dieu khoan",
+    privacy: "Quyen rieng tu"
+  }
+}[locale];
+---
+
+<footer class="replica-footer">
+  <div class="replica-footer__inner">
+    <div>
+      <h2>{labels.brand}</h2>
+      <p>{labels.about}</p>
+      <p>
+        <a href="/about/">{labels.story}</a>
+        <a href="/about/">{labels.team}</a>
+        <a href="/about/">{labels.roadmap}</a>
+        <a href="/contact/">{labels.contact}</a>
+      </p>
+    </div>
+    <div>
+      <h2>{labels.help}</h2>
+      <p>
+        <a href={locale === "en" ? "/en/help/" : locale === "vi" ? "/vi/how-to-play/" : locale === "zh-Hant" ? "/tcn/how-to-play/" : "/how-to-play-xiangqi/"}>{labels.rules}</a>
+        <a href={locale === "zh-Hant" ? "/tcn/rating/" : locale === "vi" ? "/vi/help/rating/" : locale === "en" ? "/en/help/rating/" : "/rating/"}>{labels.rating}</a>
+        <a href="/terms/">{labels.terms}</a>
+        <a href="/privacy/">{labels.privacy}</a>
+      </p>
+    </div>
+  </div>
+</footer>

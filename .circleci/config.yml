@@ -1,0 +1,31 @@
+version: 2.1
+
+jobs:
+  build_and_deploy:
+    docker:
+      - image: cimg/node:22.17
+
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:+2D0lcOXWJGE+eSJMhvLYSTowBYsv+A3kQUSoOU9b/s"
+
+      - run:
+          name: Trust server
+          command: |
+            mkdir -p ~/.ssh
+            ssh-keyscan -H 47.118.30.206 >> ~/.ssh/known_hosts
+
+      - run:
+          name: Deploy
+          command: |
+            scp -r dist/* root@47.118.30.206:/var/www/xiangqi/
+
+workflows:
+  deploy:
+    jobs:
+      - build_and_deploy

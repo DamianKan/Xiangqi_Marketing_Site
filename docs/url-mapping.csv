@@ -1,0 +1,11 @@
+old_url,new_url,redirect_type,status,notes
+/index.html,/,301,planned,首页合并到新首页
+/play.html,/play/,301,planned,对弈入口页迁移
+/download.html,/download/,301,planned,下载页迁移
+/how-to-play.html,/how-to-play/,301,planned,规则页迁移
+/faq.html,/faq/,301,planned,FAQ 页迁移
+/about.html,/about/,301,planned,关于页迁移
+/news.html,/news/,301,planned,新闻列表页迁移
+/news-1.html,/news/spring-release-2026/,301,planned,新闻详情页迁移
+/terms.html,/terms/,301,planned,条款页迁移
+/privacy.html,/privacy/,301,planned,隐私页迁移

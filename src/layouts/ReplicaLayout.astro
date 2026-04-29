@@ -1,0 +1,46 @@
+---
+import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
+import ReplicaFooter from "../components/replica/ReplicaFooter.astro";
+import { getLocaleConfig } from "../data/replica/locales";
+import type { ReplicaLocale } from "../data/replica/types";
+import "../styles/replica.css";
+
+interface Props {
+  title: string;
+  description: string;
+  route: string;
+  locale: ReplicaLocale;
+  image?: string;
+}
+
+const { title, description, route, locale, image = "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgxJiQqYortvS7AMw7w448gQ.png" } = Astro.props as Props;
+const localeConfig = getLocaleConfig(locale);
+const siteUrl = "https://zh.xiangqi.local";
+const canonical = new URL(route, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
+---
+
+<!doctype html>
+<html lang={localeConfig.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico" />
+  </head>
+  <body data-locale={locale} data-route={route} class:list={[route === "/" && "page-home"]}>
+    <ReplicaHeader locale={locale} />
+    <main>
+      <slot />
+    </main>
+    <ReplicaFooter locale={locale} />
+  </body>
+</html>

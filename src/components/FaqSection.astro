@@ -1,0 +1,23 @@
+---
+const { title = "常见问题", intro, items = [] } = Astro.props as {
+  title?: string;
+  intro?: string;
+  items: { question: string; answer: string }[];
+};
+---
+
+<section class="faq-section">
+  <div class="section-head">
+    <p class="eyebrow">FAQ</p>
+    <h2>{title}</h2>
+    {intro && <p>{intro}</p>}
+  </div>
+  <div class="faq-list">
+    {items.map((item) => (
+      <article class="faq-item">
+        <h3>{item.question}</h3>
+        <p>{item.answer}</p>
+      </article>
+    ))}
+  </div>
+</section>

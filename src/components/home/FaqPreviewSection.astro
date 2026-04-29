@@ -1,0 +1,20 @@
+---
+import { faqItems } from "../../../data/siteContent";
+---
+
+<section class="section" id="faq">
+  <h2>常见问题</h2>
+  <div class="faqList">
+    {
+      faqItems.map((item) => (
+        <article class="faqItem">
+          <h3>{item.q}</h3>
+          <p>{item.a}</p>
+        </article>
+      ))
+    }
+  </div>
+  <p class="sectionLink">
+    <a href="/faq/">查看全部常见问题</a>
+  </p>
+</section>

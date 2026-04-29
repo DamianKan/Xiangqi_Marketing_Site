@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#251915" />
+  <rect x="64" y="64" width="1072" height="502" rx="24" fill="#f2debb" />
+  <rect x="96" y="96" width="1008" height="438" rx="16" fill="#e1bc84" />
+  <text x="120" y="188" font-size="54" fill="#7a2817" font-family="Microsoft YaHei, PingFang SC, sans-serif">Xiangqi.com 相弈象棋</text>
+  <text x="120" y="272" font-size="88" fill="#241812" font-family="Microsoft YaHei, PingFang SC, sans-serif">中国象棋在线对弈门户</text>
+  <text x="120" y="356" font-size="34" fill="#5a4b43" font-family="Microsoft YaHei, PingFang SC, sans-serif">SEO / GEO 友好的中文内容承接、规则教程、FAQ 与下载入口</text>
+  <circle cx="940" cy="298" r="92" fill="#fbf8f2" stroke="#7a2817" stroke-width="20" />
+  <text x="940" y="324" text-anchor="middle" font-size="88" fill="#7a2817" font-family="Microsoft YaHei, PingFang SC, sans-serif">帅</text>
+</svg>

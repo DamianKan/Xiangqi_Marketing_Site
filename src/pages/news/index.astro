@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import articles from "../../data/articles.json";
+---
+
+<BaseLayout title="新闻 - 相弈象棋" description="相弈象棋本地新闻列表。" canonicalPath="/news/">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">News</p>
+      <h1>新闻</h1>
+      <div class="article-grid">
+        {articles.map((article) => (
+          <a class="article-card" href={`/news/${article.slug}/`}>
+            <p class="meta-line">{article.date}</p>
+            <h3>{article.title}</h3>
+            <p>{article.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import { articleHighlights } from "../../../data/siteContent";
+---
+
+<section class="section articleSection">
+  <h2>教学文章</h2>
+  <div class="articleList">
+    {
+      articleHighlights.map((item) => (
+        <article class="articleItem">
+          <h3>{item.title}</h3>
+          <p>{item.excerpt}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

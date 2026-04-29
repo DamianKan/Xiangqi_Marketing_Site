@@ -1,0 +1,60 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import StructuredData from "../components/StructuredData.astro";
+import "../styles/global.css";
+import site from "../data/site.json";
+
+interface MetaProps {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  h1?: string;
+  image?: string;
+  noindex?: boolean;
+  structuredData?: object | object[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  image = "/images/xiangqi-og.svg",
+  noindex = false,
+  structuredData = []
+} = Astro.props as MetaProps;
+
+const canonical = new URL(canonicalPath, site.siteUrl).toString();
+const imageUrl = new URL(image, site.siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {structuredData && <StructuredData data={structuredData} />}
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

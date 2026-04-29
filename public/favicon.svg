@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="相弈象棋">
+  <rect width="128" height="128" rx="18" fill="#7d2a17" />
+  <circle cx="64" cy="64" r="40" fill="#f8f0df" stroke="#d6b58a" stroke-width="8" />
+  <text x="64" y="76" text-anchor="middle" font-size="40" font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#7d2a17">相</text>
+</svg>

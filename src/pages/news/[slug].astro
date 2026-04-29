@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import articles from "../../data/articles.json";
+
+export function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props;
+---
+
+<BaseLayout title={`${article.title} - 相弈象棋`} description={article.description} canonicalPath={`/news/${article.slug}/`}>
+  <article class="section">
+    <div class="container content-panel">
+      <p class="eyebrow">News</p>
+      <h1>{article.title}</h1>
+      <p class="meta-line">发布：{article.date} / 更新：{article.updated} / 作者：{article.author}</p>
+      {article.body.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </article>
+</BaseLayout>

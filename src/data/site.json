@@ -1,0 +1,38 @@
+{
+  "name": "Xiangqi.com 相弈象棋",
+  "shortName": "相弈象棋",
+  "siteUrl": "http://127.0.0.1:4321",
+  "description": "相弈象棋提供中国象棋在线体验、棋力提升、规则学习和 App 下载信息。",
+  "tagline": "中国象棋在线对弈平台",
+  "organization": {
+    "name": "Xiangqi.com 相弈象棋",
+    "url": "http://127.0.0.1:4321",
+    "logo": "http://127.0.0.1:4321/favicon.svg",
+    "email": "help@xiangqi.com"
+  },
+  "languages": [
+    {
+      "label": "简中",
+      "href": "/"
+    },
+    {
+      "label": "繁中",
+      "href": "/"
+    },
+    {
+      "label": "English",
+      "href": "/"
+    },
+    {
+      "label": "Tiếng Việt",
+      "href": "/"
+    }
+  ],
+  "platforms": [
+    "Web 浏览器",
+    "iOS",
+    "Android",
+    "Windows",
+    "macOS"
+  ]
+}

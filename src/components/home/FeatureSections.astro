@@ -1,0 +1,25 @@
+---
+import { features } from "../../../data/siteContent";
+---
+
+<section class="section" id="features">
+  <div class="featureStack">
+    {
+      features.map((item, index) => (
+        <article
+          class={`featureBand ${item.theme} ${index % 2 === 1 ? "reverse" : ""}`}
+        >
+          <div class="featureInner">
+            <div class="featureText">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+            <div class="featureVisual" aria-hidden="true">
+              <span>{index % 2 === 0 ? "象" : "棋"}</span>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

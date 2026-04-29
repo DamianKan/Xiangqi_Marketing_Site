@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="wood" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f1d7ab" />
+      <stop offset="100%" stop-color="#d6a267" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#wood)" />
+  <g stroke="#8d5831" stroke-opacity="0.18">
+    <path d="M0 80h1600M0 170h1600M0 260h1600M0 350h1600M0 450h1600M0 550h1600M0 640h1600M0 730h1600M0 820h1600" />
+    <path d="M160 0v900M320 0v900M480 0v900M640 0v900M800 0v900M960 0v900M1120 0v900M1280 0v900M1440 0v900" />
+  </g>
+</svg>
