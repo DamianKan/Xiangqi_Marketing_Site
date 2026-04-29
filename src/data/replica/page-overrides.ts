@@ -1,6 +1,9 @@
 import { replicaAssets } from "./assets";
 import type { ReplicaPage } from "./types";
 
+const githubReleaseApkUrl =
+  "https://github.com/Littline/xiangqi_auto/releases/latest/download/Xiangqi-v2.1.4-signed-China.apk";
+
 export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
   "ZH-003": {
     title: "中国象棋 App 免费下载安装 | 安卓APK/谷歌应用/苹果版 - 相弈象棋",
@@ -10,7 +13,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
     ctas: [
       {
         label: "安卓 APK 下载",
-        href: "/downloads/Xiangqi-v2.1.4-signed-China.apk"
+        href: githubReleaseApkUrl
       },
       {
         label: "Google Play",
@@ -36,7 +39,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         links: [
           {
             label: "下载 APK",
-            href: "/downloads/Xiangqi-v2.1.4-signed-China.apk"
+            href: githubReleaseApkUrl
           }
         ]
       },
@@ -529,7 +532,7 @@ pageOverrides["ZH-003"] = {
   ctas: [
     {
       label: "安卓 APK 下载",
-      href: "/downloads/Xiangqi-v2.1.4-signed-China.apk"
+      href: githubReleaseApkUrl
     },
     {
       label: "Google Play",
@@ -555,7 +558,7 @@ pageOverrides["ZH-003"] = {
       links: [
         {
           label: "下载 APK",
-          href: "/downloads/Xiangqi-v2.1.4-signed-China.apk"
+          href: githubReleaseApkUrl
         }
       ]
     },
