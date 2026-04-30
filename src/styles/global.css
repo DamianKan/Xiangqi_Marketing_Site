@@ -28,6 +28,7 @@ body {
   color: var(--text);
   font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.65;
+  overflow-x: hidden;
 }
 
 a {
@@ -67,12 +68,14 @@ button {
 .brand {
   display: inline-flex;
   align-items: center;
-  min-width: 248px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .brand-logo {
   width: min(260px, 34vw);
   height: auto;
+  max-width: 100%;
 }
 
 .site-nav a,
@@ -260,6 +263,13 @@ h3 {
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
   gap: 30px;
   align-items: end;
+}
+
+.hero-grid > *,
+.split > *,
+.header-shell > *,
+.footer-shell > * {
+  min-width: 0;
 }
 
 .hero p,
@@ -491,6 +501,7 @@ h3 {
 .article-card,
 .link-card {
   padding: 24px;
+  min-width: 0;
 }
 
 .summary-header {
@@ -560,6 +571,7 @@ h3 {
 
 .meta-line {
   font-size: 14px;
+  word-break: break-word;
 }
 
 .inline-link {
@@ -694,11 +706,23 @@ code {
 
 @media (max-width: 760px) {
   .container {
-    width: min(100vw - 24px, 100%);
+    width: min(calc(100vw - 24px), 100%);
+  }
+
+  .header-shell {
+    gap: 12px;
+  }
+
+  .brand-logo {
+    width: min(210px, 62vw);
   }
 
   h1 {
     font-size: clamp(34px, 12vw, 54px);
+  }
+
+  h2 {
+    font-size: clamp(26px, 8vw, 38px);
   }
 
   .hero .container,
@@ -723,6 +747,29 @@ code {
   .summary-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .hero-actions,
+  .cta-row,
+  .inline-links {
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .content-panel,
+  .note-panel,
+  .list-panel,
+  .summary-card,
+  .feature-card,
+  .step-card,
+  .article-card,
+  .link-card,
+  .faq-item,
+  .article-content section {
+    padding: 20px 16px;
   }
 
   .phone-frame {
@@ -968,7 +1015,7 @@ code {
 @media (max-width: 560px) {
   .container,
   .mirror-container {
-    width: min(100% - 28px, 1080px);
+    width: min(calc(100vw - 16px), 100%);
   }
 
   .mirror-hero {
@@ -987,7 +1034,7 @@ code {
   }
 
   .mirror-button {
-    width: min(260px, 100%);
+    width: min(100%, 260px);
   }
 
   .intro-copy p {
