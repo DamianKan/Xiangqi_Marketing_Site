@@ -6,9 +6,14 @@ const { page } = Astro.props as { page: ReplicaPage };
 const isHome = page.type === "home";
 const playCtas = page.ctas || [];
 const isDownloadPage = page.type === "download";
+const isJourneyHelpPage = page.id === "ZH-002";
 const slicedSections = page.sections.slice(page.type === "home" ? 1 : 0);
 const downloadLeadSections = isDownloadPage ? slicedSections.slice(0, 3) : [];
 const contentSections = isDownloadPage ? slicedSections.slice(3) : slicedSections;
+const journeyIntroSection = isJourneyHelpPage ? page.sections[0] : undefined;
+const journeyRulesSection = isJourneyHelpPage ? page.sections[1] : undefined;
+const journeyStepsSection = isJourneyHelpPage ? page.sections[2] : undefined;
+const journeyMoreSection = isJourneyHelpPage ? page.sections[3] : undefined;
 
 const articleHeading =
   page.locale === "en"
@@ -51,7 +56,7 @@ const linkAttrs = (external?: boolean) =>
   external ? { target: "_blank", rel: "noreferrer" } : {};
 ---
 
-{isHome ? (
+{isJourneyHelpPage ? null : isHome ? (
   <section class="replica-hero" aria-labelledby="page-title">
     <div class="replica-hero__veil"></div>
     <div class="replica-hero__content">
@@ -112,93 +117,194 @@ const linkAttrs = (external?: boolean) =>
   </section>
 )}
 
-<section class:list={["replica-content", page.type !== "home" && "replica-content--first"]}>
-  <div class:list={["replica-container", page.type !== "home" && !isDownloadPage && "replica-container--narrow"]}>
-    {isDownloadPage && downloadLeadSections.length > 0 && (
-      <div class="replica-download-grid">
-        {downloadLeadSections.map((section) => (
-          <article class="replica-download-card">
-            <div class="replica-download-card__copy">
-              <h2>{section.title}</h2>
-              {section.body.map((paragraph) => <p>{paragraph}</p>)}
-              {section.links && (
-                <div class="replica-download-card__actions">
-                  {section.links.map((link) => (
-                    <a
-                      class="replica-btn replica-btn--secondary"
-                      href={link.href}
-                      {...linkAttrs(link.external)}
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-            {section.image && (
-              <a
-                class="replica-download-card__badge"
-                href={section.links?.[0]?.href || "#"}
-                {...linkAttrs(section.links?.[0]?.external)}
-              >
-                <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
-              </a>
-            )}
-          </article>
-        ))}
-      </div>
-    )}
+{isJourneyHelpPage ? (
+  <section class="replica-help-doc">
+    <div class="replica-help-doc__inner">
+      <h1 class="replica-help-doc__title">来 Xiangqi.com 相弈象棋，下中国象棋</h1>
+      <p class="replica-help-doc__intro">
+        与世界各地的棋手一起学习、对弈和分享。即便您是象棋新手，也没关系！
+        <a href="/team/">我们</a>
+        将随时为您提供帮助，陪伴您成长。
+      </p>
 
-    <div class="replica-section-grid">
-      {contentSections.map((section, index) => (
-        <article
-          class:list={[
-            "replica-section",
-            page.type !== "home" && "replica-section--document",
-            index % 2 === 1 && isHome && "replica-section--alt",
-            isHome && index < 2 && "replica-section--feature",
-            isHome && index >= 2 && "replica-section--story"
-          ]}
-          id={`section-${index + 1}`}
-        >
-          {section.image && (
-            <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
-          )}
-          <div class="replica-section__body">
-            <h2>{section.title}</h2>
-            {section.gallery && section.gallery.length > 0 && (
-              <div class="replica-showcase-grid">
-                {section.gallery.map((item) => (
-                  <figure class="replica-showcase-card">
-                    <figcaption>{item.title}</figcaption>
-                    <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
-                  </figure>
-                ))}
-              </div>
-            )}
-            {section.body.map((paragraph) => <p>{paragraph}</p>)}
-            {section.list && (
-              <ul>
-                {section.list.map((item) => <li>{item}</li>)}
-              </ul>
-            )}
-            {section.links && (
-              <p class="replica-link-row">
-                {section.links.map((link) => (
+      {journeyIntroSection && (
+        <article class="replica-help-doc__section">
+          <h2>{journeyIntroSection.title}</h2>
+          {journeyIntroSection.links && (
+            <ul class="replica-help-doc__link-list">
+              {journeyIntroSection.links.map((link) => (
+                <li>
                   <a href={link.href} {...linkAttrs(link.external)}>
                     {link.label}
                   </a>
-                ))}
-              </p>
-            )}
-          </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </article>
-      ))}
-    </div>
-  </div>
-</section>
+      )}
 
-{page.articleCards && page.articleCards.length > 0 && (
+      {journeyRulesSection && (
+        <article class="replica-help-doc__section">
+          <h2>{journeyRulesSection.title}</h2>
+          {journeyRulesSection.body.map((paragraph) => <p>{paragraph}</p>)}
+          {journeyRulesSection.links && (
+            <ul class="replica-help-doc__link-list replica-help-doc__link-list--compact">
+              {journeyRulesSection.links.map((link) => (
+                <li>
+                  <a href={link.href} {...linkAttrs(link.external)}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </article>
+      )}
+
+      {journeyStepsSection && (
+        <article class="replica-help-doc__section">
+          <h2>{journeyStepsSection.title}</h2>
+          <ol class="replica-help-doc__steps">
+            <li>
+              <a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>注册</a>
+            </li>
+            <li>
+              输入用户名、邮箱、密码和国家/地区。上传头像，写一段简短的自我介绍，向平台上的其他玩家介绍自己。
+              （示例：
+              <a href="https://play.xiangqi.com/member/paul" {...linkAttrs(true)}>@paul的个人页面</a>
+              。）
+            </li>
+            <li>打开收件箱，点击链接验证邮箱地址，随后登录账号。</li>
+            <li>
+              登录后进入
+              <a href="https://play.xiangqi.com/" {...linkAttrs(true)}>游戏大厅</a>
+              ：
+              <ul class="replica-help-doc__substeps">
+                <li>创建对局或选择等待对手加入的公开对局。</li>
+                <li>观看正在进行的对弈。</li>
+                <li>与平台上的其他棋手聊天</li>
+              </ul>
+            </li>
+            <li>
+              大家在畅玩时也要注意
+              <a href="/terms/">文明礼貌</a>
+              哦！快邀请好友来下棋吧！如需更详细的说明，请点击此处了解如何
+              <a href="/first-game/">开始第一盘对局</a>
+              ，并点击此处了解如何
+              <a href="/play-with-a-friend/">邀请好友对战</a>
+              。
+            </li>
+          </ol>
+        </article>
+      )}
+
+      {journeyMoreSection && (
+        <article class="replica-help-doc__section">
+          <h2>{journeyMoreSection.title}</h2>
+          {journeyMoreSection.body.map((paragraph) => <p>{paragraph}</p>)}
+          {journeyMoreSection.links && (
+            <p class="replica-link-row replica-link-row--stacked">
+              {journeyMoreSection.links.map((link) => (
+                <a href={link.href} {...linkAttrs(link.external)}>
+                  {link.label}
+                </a>
+              ))}
+            </p>
+          )}
+        </article>
+      )}
+    </div>
+  </section>
+) : (
+  <section class:list={["replica-content", page.type !== "home" && "replica-content--first"]}>
+    <div class:list={["replica-container", page.type !== "home" && !isDownloadPage && "replica-container--narrow"]}>
+      {isDownloadPage && downloadLeadSections.length > 0 && (
+        <div class="replica-download-grid">
+          {downloadLeadSections.map((section) => (
+            <article class="replica-download-card">
+              <div class="replica-download-card__copy">
+                <h2>{section.title}</h2>
+                {section.body.map((paragraph) => <p>{paragraph}</p>)}
+                {section.links && (
+                  <div class="replica-download-card__actions">
+                    {section.links.map((link) => (
+                      <a
+                        class="replica-btn replica-btn--secondary"
+                        href={link.href}
+                        {...linkAttrs(link.external)}
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {section.image && (
+                <a
+                  class="replica-download-card__badge"
+                  href={section.links?.[0]?.href || "#"}
+                  {...linkAttrs(section.links?.[0]?.external)}
+                >
+                  <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      )}
+
+      <div class="replica-section-grid">
+        {contentSections.map((section, index) => (
+          <article
+            class:list={[
+              "replica-section",
+              page.type !== "home" && "replica-section--document",
+              index % 2 === 1 && isHome && "replica-section--alt",
+              isHome && index < 2 && "replica-section--feature",
+              isHome && index >= 2 && "replica-section--story"
+            ]}
+            id={`section-${index + 1}`}
+          >
+            {section.image && (
+              <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+            )}
+            <div class="replica-section__body">
+              <h2>{section.title}</h2>
+              {section.gallery && section.gallery.length > 0 && (
+                <div class="replica-showcase-grid">
+                  {section.gallery.map((item) => (
+                    <figure class="replica-showcase-card">
+                      <figcaption>{item.title}</figcaption>
+                      <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
+                    </figure>
+                  ))}
+                </div>
+              )}
+              {section.body.map((paragraph) => <p>{paragraph}</p>)}
+              {section.list && (
+                <ul>
+                  {section.list.map((item) => <li>{item}</li>)}
+                </ul>
+              )}
+              {section.links && (
+                <p class="replica-link-row">
+                  {section.links.map((link) => (
+                    <a href={link.href} {...linkAttrs(link.external)}>
+                      {link.label}
+                    </a>
+                  ))}
+                </p>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{!isJourneyHelpPage && page.articleCards && page.articleCards.length > 0 && (
   <section class="replica-articles">
     <div class:list={["replica-container", !isHome && "replica-container--narrow"]}>
       <div class="replica-section-head">
@@ -226,7 +332,7 @@ const linkAttrs = (external?: boolean) =>
   </section>
 )}
 
-{page.faq && page.faq.length > 0 && (
+{!isJourneyHelpPage && page.faq && page.faq.length > 0 && (
   <section class="replica-faq">
     <div class="replica-container">
       <h2>{faqHeading}</h2>

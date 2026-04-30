@@ -105,6 +105,7 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
     title: "开启象棋之旅 - 相弈象棋",
     description: "相弈象棋帮助中心，包含象棋规则、棋子与走法、开始第一盘对局、AI 复盘、邀请好友、好友对战、比赛和等级分系统。",
     heroTitle: "开启象棋之旅",
+    faq: [],
     sections: [
       {
         title: "开启象棋之旅",
@@ -136,18 +137,32 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
       },
       {
         title: "开启象棋之旅",
-        body: [
-          "1. 注册。",
-          "2. 输入用户名、邮箱、密码和国家/地区。上传头像，写一段简短的自我介绍，向平台上的其他玩家介绍自己。",
-          "3. 打开收件箱，点击链接验证邮箱地址，随后登录账号。",
-          "4. 登录后进入游戏大厅：创建对局或选择等待对手加入的公开对局；观看正在进行的对弈；与平台上的其他棋手聊天。",
-          "5. 大家在畅玩时也要注意文明礼貌。快邀请好友来下棋吧！"
+        body: ["注册账号并完成邮箱验证后，就可以正式开始您的第一段相弈之旅。"],
+        list: [
+          "注册。",
+          "输入用户名、邮箱、密码和国家/地区；上传头像，并写一段简短的自我介绍。",
+          "打开收件箱，点击链接验证邮箱地址，随后登录账号。",
+          "登录后进入游戏大厅：创建对局或选择等待对手加入的公开对局、观看正在进行的对弈、与平台上的其他棋手聊天。",
+          "畅玩时也要注意文明礼貌；准备好后，就可以邀请好友一起下棋。"
+        ],
+        links: [
+          { label: "注册", href: "https://play.xiangqi.com/register", external: true },
+          { label: "@paul 的个人页面", href: "https://play.xiangqi.com/member/paul", external: true },
+          { label: "游戏大厅", href: "https://play.xiangqi.com/", external: true },
+          { label: "邀请好友对弈", href: "/invite/" },
+          { label: "开始第一盘对局", href: "/first-game/" }
         ]
       },
       {
         title: "更多信息",
         body: [
           "如需了解我们当前的发展方向，请参阅产品路线图。如需联系我们，请查看联系方式。如有需要，请参阅服务条款和隐私政策。"
+        ],
+        links: [
+          { label: "产品路线图", href: "/about/" },
+          { label: "联系方式", href: "/about/" },
+          { label: "服务条款", href: "/terms/" },
+          { label: "隐私政策", href: "/privacy/" }
         ]
       }
     ]

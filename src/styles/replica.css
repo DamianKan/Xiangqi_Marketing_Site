@@ -56,6 +56,10 @@ button {
   margin: 0 auto;
 }
 
+.replica-container--narrow {
+  width: min(860px, calc(100vw - 40px));
+}
+
 .replica-header {
   position: sticky;
   top: 0;
@@ -204,6 +208,192 @@ button {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
+}
+
+.replica-help-doc {
+  padding: 18px 0 56px;
+  background: #f5efe6;
+}
+
+.replica-help-doc__inner {
+  width: min(1240px, calc(100vw - 72px));
+  margin: 0 auto;
+}
+
+.replica-help-doc__title {
+  margin: 10px 0 48px;
+  color: #5f4a43;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 64px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.replica-help-doc__intro {
+  margin: 0 0 62px;
+  color: #5b4437;
+  font-size: 26px;
+  line-height: 1.82;
+}
+
+.replica-help-doc__section {
+  padding: 0 0 42px;
+}
+
+.replica-help-doc__section h2 {
+  margin: 0 0 16px;
+  color: #55453f;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.replica-help-doc__section p {
+  margin: 0 0 12px;
+  color: #5b4437;
+  font-size: 22px;
+  line-height: 1.84;
+}
+
+.replica-help-doc__link-list,
+.replica-help-doc__steps {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.replica-help-doc__link-list li,
+.replica-help-doc__steps li {
+  margin: 0 0 14px;
+  color: #5b4437;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+.replica-help-doc__intro a,
+.replica-help-doc__link-list a,
+.replica-help-doc__steps a,
+.replica-link-row--stacked a {
+  color: #d94b31;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-help-doc__link-list--compact li {
+  margin-bottom: 10px;
+}
+
+.replica-help-doc__steps {
+  padding-left: 28px;
+}
+
+.replica-help-doc__substeps {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.replica-help-doc__substeps li {
+  position: relative;
+  margin: 10px 0;
+  font-size: 22px;
+  color: #5b4437;
+}
+
+.replica-help-doc__substeps li::before {
+  content: "—";
+  position: absolute;
+  left: -18px;
+}
+
+.replica-link-row--stacked {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .replica-help-doc {
+    padding-top: 10px;
+  }
+
+  .replica-help-doc__inner {
+    width: min(100vw - 32px, 100%);
+  }
+
+  .replica-help-doc__title {
+    margin: 8px 0 28px;
+    font-size: 40px;
+    line-height: 1.18;
+  }
+
+  .replica-help-doc__intro {
+    margin-bottom: 38px;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+
+  .replica-help-doc__section h2 {
+    font-size: 22px;
+  }
+
+  .replica-help-doc__section p {
+    font-size: 17px;
+  }
+
+  .replica-help-doc__link-list li,
+  .replica-help-doc__steps li,
+  .replica-help-doc__substeps li {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 560px) {
+  .replica-help-doc__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-help-doc__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .replica-help-doc__intro {
+    margin-bottom: 28px;
+    font-size: 16px;
+  }
+
+  .replica-help-doc__section {
+    padding-bottom: 28px;
+  }
+
+  .replica-help-doc__section h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+
+  .replica-help-doc__section p,
+  .replica-help-doc__link-list li,
+  .replica-help-doc__steps li,
+  .replica-help-doc__substeps li {
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .replica-help-doc__link-list,
+  .replica-help-doc__steps {
+    padding-left: 20px;
+  }
+
+  .replica-help-doc__substeps {
+    padding-left: 16px;
+  }
+
+  .replica-help-doc__substeps li::before {
+    left: -14px;
+  }
 }
 
 .replica-menu-toggle {
