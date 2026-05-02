@@ -49,9 +49,9 @@ export const footerReplicaPages: ReplicaPage[] = [
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/team/",
     route: "/team/",
-    title: "我们的团队 - 相弈象棋",
-    description: "了解相弈象棋在产品、内容、社区与技术上的协作团队，以及这套本地重构站的维护方向。",
-    heroTitle: "我们的团队",
+    title: "国际团队 | 技术团队 - 相弈象棋",
+    description: "了解相弈象棋的国际团队与技术团队，包括成员职责、个人介绍与团队分工。",
+    heroTitle: "国际团队",
     sections: [
       {
         title: "团队分工",

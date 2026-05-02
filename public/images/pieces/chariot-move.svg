@@ -1,0 +1,21 @@
+<svg width="320" height="220" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="220" rx="24" fill="#fbf6ee"/>
+  <g stroke="#cdb8a4" stroke-width="2">
+    <path d="M55 35v150M95 35v150M135 35v150M175 35v150M215 35v150M255 35v150"/>
+    <path d="M55 35h200M55 72.5h200M55 110h200M55 147.5h200M55 185h200"/>
+  </g>
+  <g stroke="#6f5347" stroke-width="6" stroke-linecap="round">
+    <path d="M155 110H55"/>
+    <path d="M155 110H255"/>
+    <path d="M155 110V35"/>
+    <path d="M155 110V185"/>
+  </g>
+  <g fill="#6f5347">
+    <path d="M43 110l12-8v16z"/>
+    <path d="M267 110l-12-8v16z"/>
+    <path d="M155 23l-8 12h16z"/>
+    <path d="M155 197l-8-12h16z"/>
+  </g>
+  <circle cx="155" cy="110" r="24" fill="#5f463c"/>
+  <text x="155" y="118" text-anchor="middle" font-size="24" font-weight="700" fill="#fff8f2">车</text>
+</svg>

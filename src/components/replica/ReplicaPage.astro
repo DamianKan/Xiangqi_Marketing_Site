@@ -1,5 +1,6 @@
----
+﻿---
 import { replicaAssets } from "../../data/replica/assets";
+import { zhTeamGroups } from "../../data/replica/team";
 import type { ReplicaPage } from "../../data/replica/types";
 
 const { page } = Astro.props as { page: ReplicaPage };
@@ -7,13 +8,37 @@ const isHome = page.type === "home";
 const playCtas = page.ctas || [];
 const isDownloadPage = page.type === "download";
 const isJourneyHelpPage = page.id === "ZH-002";
+const isPlayWithFriendPage = page.id === "ZH-007";
+const isFirstGamePage = page.id === "ZH-006";
+const isPieceGuidePage = page.id === "ZH-004";
+const isTeamPage = page.id === "ZH-018";
+const isRulesPage = page.id === "ZH-005";
+const isPuzzlePage = page.id === "ZH-008";
+const isTournamentPage = page.id === "ZH-009";
+const isInviteGuidePage = page.id === "ZH-010";
+const isAnalysisPage = page.id === "ZH-010A";
+const isComputerPage = page.id === "ZH-019";
 const slicedSections = page.sections.slice(page.type === "home" ? 1 : 0);
 const downloadLeadSections = isDownloadPage ? slicedSections.slice(0, 3) : [];
 const contentSections = isDownloadPage ? slicedSections.slice(3) : slicedSections;
 const journeyIntroSection = isJourneyHelpPage ? page.sections[0] : undefined;
 const journeyRulesSection = isJourneyHelpPage ? page.sections[1] : undefined;
 const journeyStepsSection = isJourneyHelpPage ? page.sections[2] : undefined;
-const journeyMoreSection = isJourneyHelpPage ? page.sections[3] : undefined;
+const friendIntroSection = isPlayWithFriendPage ? page.sections[0] : undefined;
+const friendCreateSection = isPlayWithFriendPage ? page.sections[1] : undefined;
+const friendUsernameSection = isPlayWithFriendPage ? page.sections[2] : undefined;
+const friendEmailLeadSection = isPlayWithFriendPage ? page.sections[3] : undefined;
+const friendEmailActionSection = isPlayWithFriendPage ? page.sections[4] : undefined;
+const friendEmailInviteSection = isPlayWithFriendPage ? page.sections[5] : undefined;
+const friendAcceptIntroSection = isPlayWithFriendPage ? page.sections[6] : undefined;
+const friendOnlineSection = isPlayWithFriendPage ? page.sections[7] : undefined;
+const friendOfflineSection = isPlayWithFriendPage ? page.sections[8] : undefined;
+const friendMoreSection = isPlayWithFriendPage ? page.sections[9] : undefined;
+const puzzleIntroSection = isPuzzlePage ? page.sections[0] : undefined;
+const puzzleEditorSection = isPuzzlePage ? page.sections[1] : undefined;
+const puzzleCreateSection = isPuzzlePage ? page.sections[2] : undefined;
+const puzzlePublishSection = isPuzzlePage ? page.sections[3] : undefined;
+const puzzleCtaSection = isPuzzlePage ? page.sections[4] : undefined;
 
 const articleHeading =
   page.locale === "en"
@@ -54,9 +79,82 @@ const articleIndexHref =
 
 const linkAttrs = (external?: boolean) =>
   external ? { target: "_blank", rel: "noreferrer" } : {};
+
+const xiangqiPieces = [
+  {
+    symbol: "帅",
+    name: "帅（将）",
+    accent: "red",
+    image: "/images/pieces/general-move.svg",
+    imageAlt: "帅在九宫内前后左右移动的示意图",
+    move: "每次走一格，只能在九宫内前后左右移动。",
+    feature: "全局核心，任何时候都不能暴露在将帅照面或连续攻击下。",
+    tip: "先保帅，再谋攻。"
+  },
+  {
+    symbol: "仕",
+    name: "仕（士）",
+    accent: "dark",
+    image: "/images/pieces/advisor-move.svg",
+    imageAlt: "仕沿九宫斜线移动的示意图",
+    move: "沿九宫斜线走一格，始终不能离开九宫。",
+    feature: "贴身护将，负责补位和封锁九宫斜线。",
+    tip: "双仕齐全，防守更稳。"
+  },
+  {
+    symbol: "相",
+    name: "相（象）",
+    accent: "red",
+    image: "/images/pieces/elephant-move.svg",
+    imageAlt: "相走田字且不过河的示意图",
+    move: "走田字，对角两格；若中间有子，就会被塞象眼。",
+    feature: "不能过河，主要负责本方半场的联防和稳固。",
+    tip: "看清象眼，再决定落点。"
+  },
+  {
+    symbol: "车",
+    name: "车",
+    accent: "dark",
+    image: "/images/pieces/chariot-move.svg",
+    imageAlt: "车横竖直走的示意图",
+    move: "横竖直走，格数不限，中间不能有棋子阻挡。",
+    feature: "主力最强，适合封线、压制和远距离进攻。",
+    tip: "出车越早，通常越主动。"
+  },
+  {
+    symbol: "马",
+    name: "马",
+    accent: "red",
+    image: "/images/pieces/horse-move.svg",
+    imageAlt: "马走日字并受马腿限制的示意图",
+    move: "走日字，先直后斜；第一步被堵住就会被蹩马腿。",
+    feature: "善于穿插和制造连续战术，但特别怕被卡住马腿。",
+    tip: "落马前先看马腿。"
+  },
+  {
+    symbol: "炮",
+    name: "炮（砲）",
+    accent: "dark",
+    image: "/images/pieces/cannon-move.svg",
+    imageAlt: "炮隔子吃子的示意图",
+    move: "不吃子时像车直走；吃子时中间必须隔着恰好一个棋子。",
+    feature: "最擅长远程牵制和突然打击，中局威胁很大。",
+    tip: "有炮架时，炮的威力最大。"
+  },
+  {
+    symbol: "兵",
+    name: "兵（卒）",
+    accent: "red",
+    image: "/images/pieces/soldier-move.svg",
+    imageAlt: "兵过河前后走法变化的示意图",
+    move: "过河前只能向前一格；过河后可向前或横走，但不能后退。",
+    feature: "前期推进慢，过河后会持续压缩对方空间。",
+    tip: "残局里过河兵价值很高。"
+  }
+];
 ---
 
-{isJourneyHelpPage ? null : isHome ? (
+{isJourneyHelpPage || isPlayWithFriendPage || isFirstGamePage || isPieceGuidePage || isTeamPage || isRulesPage || isPuzzlePage || isTournamentPage || isInviteGuidePage || isAnalysisPage || isComputerPage ? null : isHome ? (
   <section class="replica-hero" aria-labelledby="page-title">
     <div class="replica-hero__veil"></div>
     <div class="replica-hero__content">
@@ -166,54 +264,865 @@ const linkAttrs = (external?: boolean) =>
         <article class="replica-help-doc__section">
           <h2>{journeyStepsSection.title}</h2>
           <ol class="replica-help-doc__steps">
-            <li>
-              <a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>注册</a>
-            </li>
-            <li>
-              输入用户名、邮箱、密码和国家/地区。上传头像，写一段简短的自我介绍，向平台上的其他玩家介绍自己。
-              （示例：
-              <a href="https://play.xiangqi.com/member/paul" {...linkAttrs(true)}>@paul的个人页面</a>
-              。）
-            </li>
-            <li>打开收件箱，点击链接验证邮箱地址，随后登录账号。</li>
-            <li>
-              登录后进入
-              <a href="https://play.xiangqi.com/" {...linkAttrs(true)}>游戏大厅</a>
-              ：
-              <ul class="replica-help-doc__substeps">
-                <li>创建对局或选择等待对手加入的公开对局。</li>
-                <li>观看正在进行的对弈。</li>
-                <li>与平台上的其他棋手聊天</li>
-              </ul>
-            </li>
-            <li>
-              大家在畅玩时也要注意
-              <a href="/terms/">文明礼貌</a>
-              哦！快邀请好友来下棋吧！如需更详细的说明，请点击此处了解如何
-              <a href="/first-game/">开始第一盘对局</a>
-              ，并点击此处了解如何
-              <a href="/play-with-a-friend/">邀请好友对战</a>
-              。
-            </li>
+            <li><a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>注册</a></li>
+            <li>输入用户名、邮箱、密码和国家/地区，完善头像与自我介绍。示例：<a href="https://play.xiangqi.com/member/paul" {...linkAttrs(true)}>@paul的个人页面</a></li>
+            <li>打开收件箱，点击验证邮件中的链接完成账号验证。</li>
+            <li>登录后进入<a href="https://play.xiangqi.com/" {...linkAttrs(true)}>游戏大厅</a>，可以创建公开对局、观看正在进行的对弈，或与其他棋手聊天。</li>
+            <li>开始对弈前，也请留意<a href="/terms/">文明礼貌</a>规则；如果想更快上手，可以继续查看<a href="/first-game/">开始第一盘对局</a>和<a href="/play-with-a-friend/">邀请好友对战</a>。</li>
           </ol>
         </article>
       )}
+    </div>
+  </section>
+) : isPuzzlePage ? (
+  <section class="replica-puzzle-page">
+    <div class="replica-puzzle-page__inner">
+      {puzzleIntroSection && (
+        <section class="replica-puzzle-page__intro">
+          <p>
+            {puzzleIntroSection.body[0]}
+            {puzzleIntroSection.links?.[0] && (
+              <>
+                {" "}
+                <a href={puzzleIntroSection.links[0].href} {...linkAttrs(puzzleIntroSection.links[0].external)}>
+                  {puzzleIntroSection.links[0].label}
+                </a>
+              </>
+            )}
+          </p>
+        </section>
+      )}
 
-      {journeyMoreSection && (
-        <article class="replica-help-doc__section">
-          <h2>{journeyMoreSection.title}</h2>
-          {journeyMoreSection.body.map((paragraph) => <p>{paragraph}</p>)}
-          {journeyMoreSection.links && (
-            <p class="replica-link-row replica-link-row--stacked">
-              {journeyMoreSection.links.map((link) => (
+      {[puzzleEditorSection, puzzleCreateSection, puzzlePublishSection].filter(Boolean).map((section) => (
+        <section class="replica-puzzle-page__feature">
+          {section?.image && (
+            <figure class="replica-puzzle-page__figure">
+              <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+            </figure>
+          )}
+          <div class="replica-puzzle-page__copy">
+            <h2>{section?.title}</h2>
+            {section?.body.map((paragraph) => (
+              paragraph.startsWith("· ") ? (
+                <p class="replica-puzzle-page__bullet">{paragraph}</p>
+              ) : (
+                <p>{paragraph}</p>
+              )
+            ))}
+          </div>
+        </section>
+      ))}
+
+      {page.faq && page.faq.length > 0 && (
+        <section class="replica-puzzle-page__faq">
+          <h2>常见问题与注意事项</h2>
+          <div class="replica-puzzle-page__faq-list">
+            {page.faq.map((item, index) => (
+              <details open={index === 0}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {puzzleCtaSection && (
+        <section class="replica-puzzle-page__cta">
+          <h2>{puzzleCtaSection.title}</h2>
+          {puzzleCtaSection.body.map((paragraph) => <p>{paragraph}</p>)}
+          {puzzleCtaSection.links?.[0] && (
+            <a
+              class="replica-puzzle-page__button"
+              href={puzzleCtaSection.links[0].href}
+              {...linkAttrs(puzzleCtaSection.links[0].external)}
+            >
+              {puzzleCtaSection.links[0].label}
+            </a>
+          )}
+        </section>
+      )}
+    </div>
+  </section>
+) : isComputerPage ? (
+  <section class="replica-computer-page">
+    <div class="replica-computer-page__inner">
+      <header class="replica-computer-page__hero">
+        <h1>如何开始人机对战？</h1>
+        <p>和电脑对战可帮助棋手练习不同等级的对局和新战术。</p>
+        <ol class="replica-computer-page__steps">
+          <li>
+            <a href="https://play.xiangqi.com/" {...linkAttrs(true)}>前往游戏大厅</a>
+          </li>
+          <li>选择电脑对手</li>
+        </ol>
+
+        <figure class="replica-computer-page__hero-figure">
+          <img src="/mirror/computer-step-hero.png" alt="人机对战等级选择界面截图" loading="lazy" />
+        </figure>
+
+        <div class="replica-computer-page__hero-notes">
+          <p>难度最低的是1级的 @petr</p>
+          <p>难度最高的是5级的 @zhixuan(稚轩)</p>
+          <p class="replica-computer-page__warm-note">温馨提示：人机对战不会影响棋手排名。</p>
+        </div>
+      </header>
+
+      <section class="replica-computer-page__section replica-computer-page__section--bordered">
+        <h2>练习</h2>
+        <p class="replica-computer-page__lead">学习虽难，但裨益良多！</p>
+        <p>
+          象棋不简单，初学者甚至可能很难击败难度最低的电脑（1级）。为此，我们设置了“悔棋”这一选项。如认为行棋错误，可随时撤销，并重新落子，直至满意为止。
+        </p>
+
+        <div class="replica-computer-page__gallery">
+          <figure class="replica-computer-page__figure">
+            <img src="/mirror/computer-practice.png" alt="悔棋功能在对局中的位置示意图" loading="lazy" />
+            <figcaption>学会用悔棋打败电脑</figcaption>
+          </figure>
+          <figure class="replica-computer-page__figure replica-computer-page__figure--secondary">
+            <img src="/mirror/computer-undo.png" alt="设置面板中的悔棋按钮示意图" loading="lazy" />
+          </figure>
+        </div>
+
+        <div class="replica-computer-page__cta-wrap">
+          <a class="replica-computer-page__cta" href="https://play.xiangqi.com/" {...linkAttrs(true)}>
+            马上与电脑对战
+          </a>
+        </div>
+      </section>
+
+      <section class="replica-computer-page__section replica-computer-page__next">
+        <h2>
+          下一步：
+          <a href="/how-to-play/">象棋规则</a>
+        </h2>
+        <ul class="replica-computer-page__next-links">
+          <li>
+            <span aria-hidden="true">❓</span>
+            <a href="/how-to-play/">象棋规则</a>
+          </li>
+          <li>
+            <a href="/how-to-play-xiangqi/">棋子与走法</a>
+          </li>
+          <li>
+            <span aria-hidden="true">✅</span>
+            <a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>创建账号</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="replica-computer-page__section">
+        <h2>技术说明：我们使用的象棋引擎</h2>
+        <p>
+          象棋网目前正在使用由 Vin 象棋团队开发的开源象棋引擎 Pikafish。它是一个非常强大的免费 UCI 象棋引擎，基于 NNUE 神经网络技术开发。Pikafish团队的官方网站在
+          <a href="http://pikafish.org/" {...linkAttrs(true)}>这里</a>。
+        </p>
+      </section>
+
+      <section class="replica-computer-page__section">
+        <h3>功能</h3>
+        <p>
+          截至目前，人机对战不限时，也不计入积分。棋手执红子，电脑执黑子。不过，我们随后也计划推出限时人机对战。由于电脑发挥的是最高水平，因此对于刚接触并仍在学习象棋的棋手来说，对手很难击败。
+        </p>
+      </section>
+
+      <section class="replica-computer-page__section">
+        <h3>展望未来</h3>
+        <p>行棋和对局分析</p>
+        <p>
+          如需了解更多我们即将推出的内容，请参阅
+          <a href="https://www.zh.xiangqi.com/roadmap/" {...linkAttrs(true)}>产品路线图</a>。
+        </p>
+      </section>
+    </div>
+  </section>
+) : isFirstGamePage ? (
+  <section class="replica-play-friend">
+    <div class="replica-play-friend__inner">
+      <header class="replica-play-friend__hero">
+        <h1>如何与好友对战？</h1>
+      </header>
+
+      {friendIntroSection && (
+        <section class="replica-play-friend__intro">
+          {friendIntroSection.body.map((paragraph) => (
+            <p>
+              {paragraph}
+              {paragraph.includes("邀请他们注册。") && friendIntroSection.links?.[0] && (
+                <>
+                  {" "}
+                  <a href={friendIntroSection.links[0].href} {...linkAttrs(friendIntroSection.links[0].external)}>
+                    {friendIntroSection.links[0].label}
+                  </a>
+                </>
+              )}
+            </p>
+          ))}
+        </section>
+      )}
+
+      {friendCreateSection && (
+        <section class="replica-play-friend__section">
+          <h2>{friendCreateSection.title}</h2>
+          <div class="replica-play-friend__split">
+            <div class="replica-play-friend__copy">
+              <h3>{friendUsernameSection?.title}</h3>
+              <ol class="replica-play-friend__steps">
+                <li>
+                  进入官网
+                  {" "}
+                  <a href={friendCreateSection.links?.[0]?.href || "https://play.xiangqi.com/"} {...linkAttrs(true)}>
+                    游戏大厅
+                  </a>
+                  。
+                </li>
+                <li>点击“+创建对局”，选择对局类型。</li>
+              </ol>
+            </div>
+            {friendUsernameSection?.image && (
+              <figure class="replica-play-friend__figure">
+                <img src={friendUsernameSection.image} alt={friendUsernameSection.imageAlt || friendUsernameSection.title} loading="lazy" />
+              </figure>
+            )}
+          </div>
+
+          <div class="replica-play-friend__split replica-play-friend__split--reverse">
+            {friendEmailLeadSection?.image && (
+              <figure class="replica-play-friend__figure">
+                <img src={friendEmailLeadSection.image} alt={friendEmailLeadSection.imageAlt || friendEmailLeadSection.title} loading="lazy" />
+              </figure>
+            )}
+            <div class="replica-play-friend__copy">
+              <h3>{friendEmailLeadSection?.title}</h3>
+              <ol class="replica-play-friend__steps replica-play-friend__steps--continued" start={3}>
+                {friendUsernameSection?.body.map((item) => (
+                  <li>{item.replace(/^\d+\.\s*/, "")}</li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {(friendEmailActionSection || friendEmailInviteSection) && (
+        <section class="replica-play-friend__section">
+          <h3>{friendEmailActionSection?.title}</h3>
+          <div class="replica-play-friend__email-layout">
+            <div class="replica-play-friend__copy">
+              {friendEmailActionSection?.body.map((paragraph) => <p>{paragraph}</p>)}
+              {friendEmailInviteSection && (
+                <>
+                  <h4>{friendEmailInviteSection.title}</h4>
+                  {friendEmailInviteSection.body.map((paragraph) => <p>{paragraph}</p>)}
+                </>
+              )}
+            </div>
+            {friendEmailInviteSection?.image && (
+              <figure class="replica-play-friend__figure replica-play-friend__figure--mail">
+                <img src={friendEmailInviteSection.image} alt={friendEmailInviteSection.imageAlt || friendEmailInviteSection.title} loading="lazy" />
+              </figure>
+            )}
+          </div>
+        </section>
+      )}
+
+      {(friendAcceptIntroSection || friendOnlineSection || friendOfflineSection) && (
+        <section class="replica-play-friend__section">
+          <h2>{friendAcceptIntroSection?.title}</h2>
+          {friendAcceptIntroSection?.body.map((paragraph) => <p class="replica-play-friend__lead">{paragraph}</p>)}
+
+          <div class="replica-play-friend__accept-grid">
+            {friendOnlineSection && (
+              <article class="replica-play-friend__accept-card">
+                <div class="replica-play-friend__copy">
+                  <h3>{friendOnlineSection.title}</h3>
+                  {friendOnlineSection.body.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+                {friendOnlineSection.image && (
+                  <figure class="replica-play-friend__figure replica-play-friend__figure--notice">
+                    <img src={friendOnlineSection.image} alt={friendOnlineSection.imageAlt || friendOnlineSection.title} loading="lazy" />
+                  </figure>
+                )}
+              </article>
+            )}
+
+            {friendOfflineSection && (
+              <article class="replica-play-friend__accept-card">
+                <div class="replica-play-friend__copy">
+                  <h3>{friendOfflineSection.title}</h3>
+                  {friendOfflineSection.body.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+                {friendOfflineSection.image && (
+                  <figure class="replica-play-friend__figure replica-play-friend__figure--offline">
+                    <img src={friendOfflineSection.image} alt={friendOfflineSection.imageAlt || friendOfflineSection.title} loading="lazy" />
+                  </figure>
+                )}
+              </article>
+            )}
+          </div>
+        </section>
+      )}
+
+      {friendMoreSection && (
+        <section class="replica-play-friend__section replica-play-friend__section--links">
+          <h2>{friendMoreSection.title}</h2>
+          <ul class="replica-play-friend__link-list">
+            {friendMoreSection.links?.map((link) => (
+              <li>
                 <a href={link.href} {...linkAttrs(link.external)}>
                   {link.label}
                 </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+  </section>
+) : isFirstGamePage ? (
+  <section class="replica-first-game-page">
+    <div class="replica-first-game-page__inner">
+      <header class="replica-first-game-page__hero">
+        <p class="replica-first-game-page__eyebrow">新手入门</p>
+        <h1>如何开始第一盘对局？</h1>
+        <p class="replica-first-game-page__lead">
+          注册账号并<a href="/how-to-play/">了解规则</a>后，即可开始首场对弈！
+        </p>
+      </header>
+
+      <section class="replica-first-game-page__section">
+        <h2>进行第一盘对局</h2>
+        <p>账号注册及象棋规则教程：</p>
+        <ul class="replica-first-game-page__links">
+          <li><a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>创建账号</a></li>
+          <li><a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>用户验证</a></li>
+          <li><a href="/how-to-play/">象棋规则</a></li>
+          <li><a href="/how-to-play-xiangqi/">棋子与走法</a></li>
+        </ul>
+      </section>
+
+      <section class="replica-first-game-page__section">
+        <h2>开始对弈</h2>
+        <p>新用户可通过若干选项开始首场对弈：</p>
+        <ol class="replica-first-game-page__option-list">
+          <li>选择对手</li>
+          <li>创建对局</li>
+          <li>人机对战</li>
+        </ol>
+
+        <div class="replica-first-game-page__cards">
+          <article class="replica-first-game-card">
+            <div class="replica-first-game-card__copy">
+              <h3>1. 选择对手</h3>
+              <p>当其他棋手创建游戏并等待对手加入时，系统将显示他们的用户名、国家/地区、积分以及对局类型。</p>
+              <p>当有人创建对局时，您将在右上角收到通知。您可以看到对手的积分、国家/地区以及对局类型。</p>
+              <p>点击“加入”开始第一盘棋！</p>
+            </div>
+          </article>
+
+          <article class="replica-first-game-card replica-first-game-card--reverse">
+            <div class="replica-first-game-card__copy">
+              <h3>2. 创建对局</h3>
+              <p>点击“+ 创建对局”。</p>
+              <p>创建对局时，可将对局自定义为：公开或私人、计分或不计分、限时或不限时；如选择限时游戏，还可设置不同局时和步时。</p>
+              <p>一旦创建对局，棋局即会于数秒后开始，准备好战斗吧！</p>
+            </div>
+          </article>
+
+          <article class="replica-first-game-card">
+            <div class="replica-first-game-card__copy">
+              <h3>3. 人机对战</h3>
+              <p>如果您想先熟悉走法，也可以先从人机对战开始，逐步练习开局、吃子和将军应对，再进入真人对局。</p>
+              <p>首盘对局结束后，还可以结合 AI 分析与复盘功能，快速回看关键失误和变化。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="replica-first-game-page__section">
+        <h2>下一步</h2>
+        <ul class="replica-first-game-page__links replica-first-game-page__links--next">
+          <li><a href="/play-with-a-friend/">好友对战</a></li>
+          <li><a href="/invite/">邀请好友对弈</a></li>
+          <li><a href="https://play.xiangqi.com/" {...linkAttrs(true)}>人机对战</a></li>
+          <li><a href="/analysis/">AI 复盘</a></li>
+        </ul>
+      </section>
+
+      <section class="replica-first-game-page__section">
+        <h2>了解更多关于象棋的信息</h2>
+        <ul class="replica-first-game-page__links replica-first-game-page__links--compact">
+          <li><a href="/how-to-play/">象棋规则</a></li>
+          <li><a href="/how-to-play-xiangqi/">棋子与走法</a></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+) : isPieceGuidePage ? (
+  <section class="replica-piece-page">
+    <div class="replica-piece-page__inner">
+      <header class="replica-piece-page__hero">
+        <div class="replica-piece-page__copy">
+          <p class="replica-piece-page__kicker">新手教程</p>
+          <h1>棋子与走法</h1>
+          <p>
+            先认识每一枚棋子的活动范围，再去练习开局和实战，会更容易建立正确的棋感。
+            中国象棋共有七种棋子，每一种都承担不同的进攻和防守职责。
+          </p>
+        </div>
+      </header>
+
+      <section class="replica-piece-page__overview">
+        <h2>看懂这七种棋子</h2>
+        <p>
+          帅、仕、相偏重防守；车、马、炮负责主要攻势；兵则通过推进逐步扩大优势。
+          只要掌握“能走到哪里、会被什么限制、适合做什么”，下棋时就不会轻易走错。
+        </p>
+      </section>
+
+      <section class="replica-piece-page__grid" aria-label="棋子说明卡片">
+        {xiangqiPieces.map((piece) => (
+          <article class="replica-piece-card">
+            <div class="replica-piece-card__media">
+              <img src={piece.image} alt={piece.imageAlt} loading="lazy" />
+            </div>
+            <div class="replica-piece-card__body">
+              <div class="replica-piece-card__head">
+                <div class:list={["replica-piece-card__badge", piece.accent === "dark" && "replica-piece-card__badge--dark"]}>
+                  {piece.symbol}
+                </div>
+                <h3>{piece.name}</h3>
+              </div>
+              <p><strong>走法：</strong>{piece.move}</p>
+              <p><strong>特点：</strong>{piece.feature}</p>
+              <p class="replica-piece-card__tip"><strong>提示：</strong>{piece.tip}</p>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <section class="replica-piece-page__notes">
+        <h2>学习顺序建议</h2>
+        <ol class="replica-piece-page__steps">
+          <li>先记住九宫、楚河汉界，以及帅、仕、相的活动范围。</li>
+          <li>再重点练车、马、炮三种主力子，理解直线、跳跃和隔子打击的差别。</li>
+          <li>最后通过兵（卒）的推进，体会“过河前后”在战略上的变化。</li>
+        </ol>
+        <p class="replica-piece-page__actions">
+          继续学习：
+          <a href="/how-to-play/">象棋规则</a>
+          <a href="/first-game/">开始第一盘对局</a>
+          <a href="https://play.xiangqi.com/" {...linkAttrs(true)}>进入游戏大厅</a>
+        </p>
+      </section>
+    </div>
+  </section>
+) : isAnalysisPage ? (
+  <section class="replica-analysis-page">
+    <div class="replica-analysis-page__inner">
+      <header class="replica-analysis-page__hero">
+        <h1>象棋软件分析 | 软件分析和对局复盘助你提升象棋技巧</h1>
+        <p>
+          在象棋的世界里，要提升自己的棋艺，单靠战术思考和练习是不够的。你必须深入了解自己的棋风，并持之以恒地自我要求进步。因此，我们非常荣幸地推出最新的分析功能。这项革命性的设计将让你的中国象棋水平更上一层楼。
+        </p>
+      </header>
+
+      <section class="replica-analysis-page__section">
+        <article class="replica-analysis-page__block">
+          <h2>掌握象棋分析：提升你的象棋水平</h2>
+          <p>
+            我们升级后的中国象棋解析棋盘，让象棋爱好者得以一步步分析自己的对局，同时获得我们先进象棋AI引擎实时的评估。不论你是探索自己最喜欢的开局、研究经典对局，还是解析书籍杂志中的棋局，这项功能将成为你最佳的象棋伙伴。
+          </p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg-KPWsgYolafC5AEwgA844AY.jpg" alt="相弈象棋分析页总览截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <h2>如何使用我们的象棋分析功能？</h2>
+          <p>点选左上角的选单，选取「分析」，你就可以进入软件分析页面，开始研究开局、拆解关键变化，或自行输入棋谱进行练习。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg2JjJqQYopLCLrwEw2AQ4xgI.jpg" alt="前往分析页面截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <p>逐步输入着法时，你会看到象棋引擎即时给出每一步的评价。画面中的绿色圆点表示引擎建议的最佳走法，方便你快速比较自己的选择与电脑判断之间的差异。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgy5rJqQYo5q2YqQQw2AQ4xAI.jpg" alt="逐步分析局面截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <p>在解析页面点选「编辑」按钮后，你就可以开启棋盘编辑器，自定义棋子位置，建立任何你想研究的局面，特别适合复习残局、拆解战术题或验证变化分支。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg-5rJqQYo4M2z2AYw2AQ4wwI.jpg" alt="编辑按钮与棋盘编辑器截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <p>当你在编辑器中设定好特定局面后，只要点选「分析」按钮，系统就会立即对当前棋形进行判断，帮助你检视胜负趋势、找到关键手段，并更快理解局面的本质。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgoaLJqQYo-L6gmwcw2AQ4xAI.jpg" alt="设定局面后开始分析截图" loading="lazy" />
+          </figure>
+        </article>
+      </section>
+
+      <section class="replica-analysis-page__section">
+        <article class="replica-analysis-page__block">
+          <h2>象棋对局复盘：深入剖析你的实战</h2>
+          <p>要进行对局后的解析，你必须先完成一场对局，或从游戏记录中开启一局棋，然后点选「复盘」按钮；系统会进一步整理关键失误、胜率波动与推荐着法，帮助你回看整盘棋的决策质量。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgm53JqQYosOO8YzDYBDjFAg.jpg" alt="复盘入口截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <p>进入复盘后，系统会自动生成完整的分析报告，把对局中的关键节点、推荐变化与双方表现整合在同一页，方便你依序回顾整场实战。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgxZ3JqQYogOua7QMw2AQ4nwU.jpg" alt="复盘报告界面截图" loading="lazy" />
+          </figure>
+        </article>
+      </section>
+
+      <section class="replica-analysis-page__section">
+        <article class="replica-analysis-page__block">
+          <h2>如何看懂象棋对局报告？</h2>
+          <p>对局走势图会透过展示整场对局中双方玩家评估走势的线图，直观呈现局势起伏，让你快速看出哪一步开始取得优势、哪一步又把局面送了回去。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgsqTJqQYo_LyS5AIw2AQ4xAI.jpg" alt="局势图与走势线图截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <p>统计数据会汇总双方的走法精准度评分、走法分类以及电脑建议着法，帮助你判断哪些回合处理得当，哪些地方则还需要进一步加强。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAggaXJqQYo9JSwrwYwngc4tQI.jpg" alt="统计数据与精准度评分截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <p>报告中的棋盘会用评估栏、着法符号与圆点标记来解释局面变化，其中玩家走法通常以橙色标示，引擎建议的最佳走法则会以绿色标示，方便你逐手对照。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgz6XJqQYo-Jq7zAMw2AQ48wQ.jpg" alt="评估栏与走法标记截图" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="replica-analysis-page__block">
+          <p>在完整复盘棋盘里，你可以按顺序回看整场对局的每一步，配合电脑建议与局势评估反复检视关键回合，从而把一次实战真正转化为稳定进步的学习过程。</p>
+          <figure class="replica-analysis-page__figure">
+            <img src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg6KbJqQYoroKxgQcw2AQ45AM.jpg" alt="完整复盘棋盘截图" loading="lazy" />
+          </figure>
+        </article>
+      </section>
+
+      <section class="replica-analysis-page__section replica-analysis-page__section--closing">
+        <article class="replica-analysis-page__block">
+          <p>
+            我们的象棋分析功能提供实时走法评估、完整对局解析，以及直观的界面，是你提升中国象棋技巧及深入剖析关键棋局的终极工具。无论你是象棋新手，或是想要研究特定开局，又或是有志成为象棋高手的爱好者，这项功能都能在你学习象棋的路上提供帮助。从今天开始，展开你成为象棋大师的旅程吧！
+          </p>
+          <p class="replica-analysis-page__next">
+            下一步：<a href="/play-with-a-friend/">挑战好友</a>
+          </p>
+        </article>
+      </section>
+    </div>
+  </section>
+) : isInviteGuidePage ? (
+  <section class="replica-invite-page">
+    <div class="replica-invite-page__inner">
+      <header class="replica-invite-page__hero">
+        <h1>如何邀请好友对弈？</h1>
+        <p>
+          请参照以下教程：
+          <br />
+          1. 前往好友列表
+          <br />
+          2. 点击邀请好友：可通过发送邮件或复制链接邀请好友
+          <br />
+          3. 好友<a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>注册</a>账号
+          <br />
+          4. 好友添加成功！
+        </p>
+      </header>
+
+      <section class="replica-invite-page__step">
+        <div class="replica-invite-page__copy">
+          <h2>1. 打开好友列表</h2>
+          <p>
+            1. <a href="https://play.xiangqi.com/account/signin" {...linkAttrs(true)}>登录</a>
+            <br />
+            2. 点击头像
+            <br />
+            3. 打开下拉菜单
+            <br />
+            4. 点击“好友”
+          </p>
+        </div>
+        <figure class="replica-invite-page__figure replica-invite-page__figure--narrow">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgq5DJqQYotIHaZTD0AziUBA.png"
+            alt="打开好友列表步骤截图"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+
+      <section class="replica-invite-page__step">
+        <div class="replica-invite-page__copy">
+          <h2>2. 向好友发送邀请</h2>
+          <p>
+            点击好友列表中的邀请按钮
+            <br />
+            随后将显示两种邀请方式：
+          </p>
+        </div>
+        <figure class="replica-invite-page__figure">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgqZHJqQYo4O6d4gcw3As4ogY.png"
+            alt="点击邀请按钮截图"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+
+      <section class="replica-invite-page__step">
+        <div class="replica-invite-page__copy">
+          <h2>A) 输入好友邮箱地址</h2>
+          <h2 class="replica-invite-page__subheading">B) 复制链接：</h2>
+          <p>
+            我在Xiangqi.com下棋！
+            <br />
+            下载象棋应用程序或在线注册。
+          </p>
+        </div>
+        <figure class="replica-invite-page__figure">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg9ZHJqQYopoaWggEwpAs4hAY.png"
+            alt="两种邀请方式截图"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+
+      <section class="replica-invite-page__step replica-invite-page__step--reverse">
+        <figure class="replica-invite-page__figure">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg05LJqQYohYHu9gcwsAs4mgo.png"
+            alt="好友收到邀请邮件截图"
+            loading="lazy"
+          />
+        </figure>
+        <div class="replica-invite-page__copy replica-invite-page__copy--center">
+          <h2>3. 好友收到邀请</h2>
+          <p>
+            好友收到邮件并根据指引
+            <a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>注册</a>
+            账号。
+          </p>
+        </div>
+      </section>
+
+      <section class="replica-invite-page__step replica-invite-page__step--reverse">
+        <figure class="replica-invite-page__figure">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAggJTJqQYooefK6Qcw3As4qgY.png"
+            alt="好友加入后可发起挑战截图"
+            loading="lazy"
+          />
+        </figure>
+        <div class="replica-invite-page__copy replica-invite-page__copy--center">
+          <h2>4. 马上对战！</h2>
+          <p>好友注册账号后，其用户名将在好友列表中显示，接着就可以向他们发起对弈挑战啦！</p>
+        </div>
+      </section>
+
+      <section class="replica-invite-page__next">
+        <div class="replica-invite-page__copy">
+          <h2>下一步：</h2>
+          <p>点击好友用户名，进入个人资料页，即可发起挑战。</p>
+          <p class="replica-invite-page__more">
+            了解更多：<a href="/play-with-a-friend/">好友对战</a>
+          </p>
+        </div>
+        <figure class="replica-invite-page__figure">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgg5XJqQYoq7OSxwUw3As47QM.png"
+            alt="进入好友个人资料页截图"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+    </div>
+  </section>
+) : isTeamPage ? (
+  <section class="replica-team-page">
+    <div class="replica-team-page__inner">
+      {zhTeamGroups.map((group) => (
+        <section class="replica-team-group">
+          <h1 class:list={["replica-team-group__title", group.title !== "国际团队" && "replica-team-group__title--sub"]}>
+            {group.title}
+          </h1>
+          <div class="replica-team-grid">
+            {group.members.map((member) => (
+              <article class="replica-team-card">
+                <div class="replica-team-card__copy">
+                  <h2>
+                    {member.name}
+                    {member.location && `（${member.location}）`}
+                  </h2>
+                  <h3>{member.role}</h3>
+                  {member.bio.map((paragraph) => <p>{paragraph}</p>)}
+                  {member.link && (
+                    <p class="replica-team-card__link">
+                      <a href={member.link.href} {...linkAttrs(member.link.external)}>
+                        {member.link.label}
+                      </a>
+                    </p>
+                  )}
+                </div>
+                <div class="replica-team-card__portrait">
+                  <img src={member.image} alt={member.imageAlt} loading="lazy" />
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+) : isTournamentPage ? (
+  <section class="replica-help-doc replica-help-doc--tournament">
+    <div class="replica-help-doc__inner">
+      <h1 class="replica-help-doc__title replica-help-doc__title--rules">在线象棋比赛 | 中国象棋比赛</h1>
+
+      {page.sections[0] && (
+        <article class="replica-help-doc__section">
+          {page.sections[0].body.map((paragraph) => <p>{paragraph}</p>)}
+        </article>
+      )}
+
+      {page.sections.slice(1).map((section) => (
+        <article class="replica-help-doc__section">
+          <h2>{section.title}</h2>
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          {section.image && (
+            <figure class="replica-help-doc__figure replica-help-doc__figure--tournament">
+              <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+            </figure>
+          )}
+          {section.list && (
+            <ul class="replica-help-doc__bullet-list">
+              {section.list.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+          {section.links && (
+            <p class="replica-help-doc__more-link">
+              {section.links.map((link, index) => (
+                <Fragment>
+                  {index > 0 && " "}
+                  <a class="replica-help-doc__accent-link" href={link.href} {...linkAttrs(link.external)}>
+                    {link.label}
+                  </a>
+                </Fragment>
               ))}
             </p>
           )}
         </article>
+      ))}
+
+      {page.faq && page.faq.length > 0 && (
+        <article class="replica-help-doc__section">
+          <h2>常见问题</h2>
+          {page.faq.map((item) => (
+            <div class="replica-help-doc__faq-item">
+              <h3 class="replica-help-doc__subheading">{item.question}</h3>
+              <p>{item.answer}</p>
+            </div>
+          ))}
+          <p class="replica-help-doc__more-link">
+            了解更多：<a class="replica-help-doc__accent-link" href="/play-with-a-friend/">❤️ 好友对战</a>
+          </p>
+        </article>
       )}
+    </div>
+  </section>
+) : isRulesPage ? (
+  <section class="replica-help-doc replica-help-doc--rules">
+    <div class="replica-help-doc__inner">
+      <h1 class="replica-help-doc__title replica-help-doc__title--rules">象棋规则</h1>
+
+      <article class="replica-help-doc__section">
+        <h2>象棋规则和对弈步骤</h2>
+        <p>
+          中国象棋是一种双人棋盘游戏，使用红黑二色棋子，棋盘由九十个点构成，其中包括“九宫”，另有楚河汉界将棋盘一分为二。
+        </p>
+      </article>
+
+      <figure class="replica-help-doc__figure replica-help-doc__figure--board">
+        <img
+          src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgoaqqqQYoxpGujQYw3As43QQ.png"
+          alt="象棋开局摆棋示意图"
+          loading="lazy"
+        />
+      </figure>
+
+      <article class="replica-help-doc__section">
+        <h2>第一步：摆棋</h2>
+        <p>
+          棋盘上一共有三十二枚棋子。红黑双方完全对称，底线依次摆放车、马、相（象）、仕（士）、帅（将）、仕（士）、相（象）、马、车。
+        </p>
+        <p>
+          两门炮放在第二排，五个兵（卒）放在第三排。按照上图摆好棋子后，就可以开始熟悉各个棋子的移动方式。
+        </p>
+        <figure class="replica-help-doc__figure replica-help-doc__figure--board replica-help-doc__figure--secondary">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgiquqqQYo9Ov_8QUw6AY4sAM.png"
+            alt="汉字棋子和图形棋子完整摆法示意图"
+            loading="lazy"
+          />
+        </figure>
+        <p class="replica-help-doc__caption">开局前汉字棋子和图形棋子完整摆法如图所示</p>
+      </article>
+
+      <article class="replica-help-doc__section">
+        <h2>第二步：了解棋子走法</h2>
+        <p>以下为象棋走法简介：</p>
+        <ul class="replica-help-doc__bullet-list">
+          <li>帅（将）每次走一格，只能在九宫内活动。</li>
+          <li>仕（士）斜走一格，也只能在九宫内移动。</li>
+          <li>相（象）走田字，不能过河；马走日字，注意蹩马腿。</li>
+          <li>车走直线；炮平时走法像车，吃子时中间必须隔一个棋子。</li>
+          <li>兵（卒）过河前只能向前，过河后可以左右移动。</li>
+        </ul>
+        <p class="replica-help-doc__more-link">
+          了解更多：<a class="replica-help-doc__accent-link" href="/how-to-play-xiangqi/">棋子与走法</a>
+        </p>
+      </article>
+
+      <article class="replica-help-doc__section">
+        <h2>第三步：了解基本规则</h2>
+        <p>开始对局前，还需要了解几个最基础的规则：</p>
+
+        <h3 class="replica-help-doc__subheading">目标</h3>
+        <ul class="replica-help-doc__bullet-list">
+          <li>率先将死对方的帅（将）即可获胜。</li>
+        </ul>
+
+        <h3 class="replica-help-doc__subheading">将军</h3>
+        <ul class="replica-help-doc__bullet-list">
+          <li>如果你的走子直接攻击到对方的帅（将），这一步就叫“将军”。</li>
+        </ul>
+
+        <h3 class="replica-help-doc__subheading">和棋与禁着</h3>
+        <p>
+          当局面重复、双方都无法推进或触发规则限制时，对局可能会判和。正式对局中，长将、长捉等行为也会受到约束。
+        </p>
+        <p class="replica-help-doc__more-link">
+          更多象棋教学：<a class="replica-help-doc__accent-link" href="/how-to-play-xiangqi/">如何下象棋</a>
+        </p>
+      </article>
     </div>
   </section>
 ) : (
@@ -304,7 +1213,7 @@ const linkAttrs = (external?: boolean) =>
   </section>
 )}
 
-{!isJourneyHelpPage && page.articleCards && page.articleCards.length > 0 && (
+{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.articleCards && page.articleCards.length > 0 && (
   <section class="replica-articles">
     <div class:list={["replica-container", !isHome && "replica-container--narrow"]}>
       <div class="replica-section-head">
@@ -332,7 +1241,7 @@ const linkAttrs = (external?: boolean) =>
   </section>
 )}
 
-{!isJourneyHelpPage && page.faq && page.faq.length > 0 && (
+{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.faq && page.faq.length > 0 && (
   <section class="replica-faq">
     <div class="replica-container">
       <h2>{faqHeading}</h2>
@@ -347,3 +1256,9 @@ const linkAttrs = (external?: boolean) =>
     </div>
   </section>
 )}
+
+
+
+
+
+

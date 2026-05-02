@@ -1,0 +1,22 @@
+<svg width="320" height="220" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="220" rx="24" fill="#fbf6ee"/>
+  <g stroke="#cdb8a4" stroke-width="2">
+    <path d="M70 40v140M110 40v140M150 40v140M190 40v140M230 40v140"/>
+    <path d="M70 40h160M70 75h160M70 110h160M70 145h160M70 180h160"/>
+  </g>
+  <rect x="110" y="75" width="80" height="70" rx="12" fill="none" stroke="#8b6758" stroke-dasharray="6 6" stroke-width="2"/>
+  <g stroke="#6f5347" stroke-width="6" stroke-linecap="round">
+    <path d="M150 110 118 78"/>
+    <path d="M150 110 182 78"/>
+    <path d="M150 110 118 142"/>
+    <path d="M150 110 182 142"/>
+  </g>
+  <g fill="#6f5347">
+    <circle cx="118" cy="78" r="6"/>
+    <circle cx="182" cy="78" r="6"/>
+    <circle cx="118" cy="142" r="6"/>
+    <circle cx="182" cy="142" r="6"/>
+  </g>
+  <circle cx="150" cy="110" r="24" fill="#5f463c"/>
+  <text x="150" y="118" text-anchor="middle" font-size="24" font-weight="700" fill="#fff8f2">仕</text>
+</svg>

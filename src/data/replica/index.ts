@@ -49,15 +49,24 @@ function normalizePage(page: any): ReplicaPage {
     ...(homePageOverrides[page.id as keyof typeof homePageOverrides] || {}),
     ...(pageOverrides[page.id] || {})
   };
+  const inviteGuideOverride: Partial<ReplicaPage> =
+    corrected.id === "ZH-010"
+      ? {
+          title: "邀请好友对弈 - 相弈象棋",
+          description:
+            "查看当前源站的邀请好友教程：打开好友列表、发送邮件或复制邀请链接，并在好友完成注册后直接发起挑战。",
+          heroTitle: "邀请好友对弈"
+        }
+      : {};
   return {
     id: corrected.id,
     locale: corrected.locale,
     sourceUrl: corrected.sourceUrl,
     route: corrected.route.endsWith("/") ? corrected.route : `${corrected.route}/`,
     type: corrected.type,
-    title: corrected.title,
-    description: corrected.description,
-    heroTitle: corrected.heroTitle,
+    title: inviteGuideOverride.title || corrected.title,
+    description: inviteGuideOverride.description || corrected.description,
+    heroTitle: inviteGuideOverride.heroTitle || corrected.heroTitle,
     heroSubtitle: corrected.heroSubtitle,
     ctas: corrected.ctas || corrected.cta || [],
     sections: (corrected.sections || []).map(normalizeSection),

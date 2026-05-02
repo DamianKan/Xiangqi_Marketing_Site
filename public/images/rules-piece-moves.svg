@@ -1,0 +1,75 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panelBg" x1="60" y1="48" x2="1140" y2="572" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAF3E8"/>
+      <stop offset="1" stop-color="#F1E4D3"/>
+    </linearGradient>
+    <filter id="softShadow" x="0" y="0" width="1200" height="620" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#8D684B" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10V0Z" fill="#E34A3A"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="620" rx="28" fill="url(#panelBg)"/>
+  <text x="600" y="72" text-anchor="middle" fill="#6B5344" font-size="38" font-weight="700" font-family="'Microsoft YaHei','PingFang SC',sans-serif">常见棋子走法示意</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="56" y="112" width="328" height="438" rx="26" fill="#FFF9F1"/>
+    <rect x="436" y="112" width="328" height="438" rx="26" fill="#FFF9F1"/>
+    <rect x="816" y="112" width="328" height="438" rx="26" fill="#FFF9F1"/>
+  </g>
+
+  <g font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+    <text x="220" y="162" text-anchor="middle" fill="#5B4437" font-size="30" font-weight="700">帅 / 将</text>
+    <text x="600" y="162" text-anchor="middle" fill="#5B4437" font-size="30" font-weight="700">仕 / 士</text>
+    <text x="980" y="162" text-anchor="middle" fill="#5B4437" font-size="30" font-weight="700">兵 / 卒</text>
+
+    <text x="220" y="514" text-anchor="middle" fill="#8A6A59" font-size="22">在九宫内前后左右各走一格</text>
+    <text x="600" y="514" text-anchor="middle" fill="#8A6A59" font-size="22">在九宫内沿斜线走一格</text>
+    <text x="980" y="514" text-anchor="middle" fill="#8A6A59" font-size="22">过河前只进，过河后可左右走</text>
+  </g>
+
+  <g transform="translate(130 208)">
+    <rect width="180" height="180" rx="16" fill="#FFF2DF" stroke="#B99169" stroke-width="3"/>
+    <line x1="60" y1="0" x2="60" y2="180" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="120" y1="0" x2="120" y2="180" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="0" y1="60" x2="180" y2="60" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="0" y1="120" x2="180" y2="120" stroke="#8A6245" stroke-width="2.5"/>
+    <circle cx="90" cy="90" r="22" fill="#FBF7F1" stroke="#B93B31" stroke-width="3"/>
+    <text x="90" y="98" text-anchor="middle" fill="#C44A3D" font-size="22" font-family="'Microsoft YaHei','PingFang SC',sans-serif">帅</text>
+    <path d="M90 84V26" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M90 96V154" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M84 90H26" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M96 90H154" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+
+  <g transform="translate(510 208)">
+    <rect width="180" height="180" rx="16" fill="#FFF2DF" stroke="#B99169" stroke-width="3"/>
+    <line x1="60" y1="0" x2="60" y2="180" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="120" y1="0" x2="120" y2="180" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="0" y1="60" x2="180" y2="60" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="0" y1="120" x2="180" y2="120" stroke="#8A6245" stroke-width="2.5"/>
+    <circle cx="90" cy="90" r="22" fill="#FBF7F1" stroke="#B93B31" stroke-width="3"/>
+    <text x="90" y="98" text-anchor="middle" fill="#C44A3D" font-size="22" font-family="'Microsoft YaHei','PingFang SC',sans-serif">仕</text>
+    <path d="M82 82L36 36" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M98 82L144 36" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M82 98L36 144" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M98 98L144 144" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+
+  <g transform="translate(890 208)">
+    <rect width="180" height="180" rx="16" fill="#FFF2DF" stroke="#B99169" stroke-width="3"/>
+    <line x1="60" y1="0" x2="60" y2="180" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="120" y1="0" x2="120" y2="180" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="0" y1="60" x2="180" y2="60" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="0" y1="120" x2="180" y2="120" stroke="#8A6245" stroke-width="2.5"/>
+    <line x1="0" y1="90" x2="180" y2="90" stroke="#D8B693" stroke-width="2" stroke-dasharray="8 7"/>
+    <circle cx="90" cy="120" r="22" fill="#FBF7F1" stroke="#B93B31" stroke-width="3"/>
+    <text x="90" y="128" text-anchor="middle" fill="#C44A3D" font-size="22" font-family="'Microsoft YaHei','PingFang SC',sans-serif">兵</text>
+    <path d="M90 114V54" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M84 120H30" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M96 120H150" stroke="#E34A3A" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+</svg>

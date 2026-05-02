@@ -1,0 +1,38 @@
+<svg width="320" height="220" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="220" rx="24" fill="#fbf6ee"/>
+  <text x="26" y="28" font-size="14" fill="#7b6559">兵过河前只能前进；过河后可前进，也可左右平走。</text>
+
+  <g transform="translate(24 42)">
+    <rect width="120" height="146" rx="18" fill="#fffaf3" stroke="#d8c7b7"/>
+    <text x="16" y="22" font-size="13" fill="#8b6758">过河前</text>
+    <g stroke="#ccb5a2" stroke-width="2">
+      <path d="M20 34v96M60 34v96M100 34v96"/>
+      <path d="M20 34h80M20 66h80M20 98h80M20 130h80"/>
+    </g>
+    <circle cx="60" cy="98" r="18" fill="#c74430"/>
+    <text x="60" y="104" text-anchor="middle" font-size="18" font-weight="700" fill="#fff8f2">兵</text>
+    <path d="M60 98V66" stroke="#d24a33" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="60" cy="66" r="6" fill="#d24a33"/>
+  </g>
+
+  <g transform="translate(176 42)">
+    <rect width="120" height="146" rx="18" fill="#fffaf3" stroke="#d8c7b7"/>
+    <text x="16" y="22" font-size="13" fill="#8b6758">过河后</text>
+    <g stroke="#ccb5a2" stroke-width="2">
+      <path d="M20 34v96M60 34v96M100 34v96"/>
+      <path d="M20 34h80M20 66h80M20 98h80M20 130h80"/>
+    </g>
+    <circle cx="60" cy="66" r="18" fill="#c74430"/>
+    <text x="60" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#fff8f2">兵</text>
+    <g stroke="#d24a33" stroke-width="5" stroke-linecap="round">
+      <path d="M60 66V34"/>
+      <path d="M60 66H20"/>
+      <path d="M60 66H100"/>
+    </g>
+    <g fill="#d24a33">
+      <circle cx="60" cy="34" r="6"/>
+      <circle cx="20" cy="66" r="6"/>
+      <circle cx="100" cy="66" r="6"/>
+    </g>
+  </g>
+</svg>
