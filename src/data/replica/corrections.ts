@@ -105,6 +105,7 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
     title: "开启象棋之旅 - 相弈象棋",
     description: "相弈象棋帮助中心，包含象棋规则、棋子与走法、开始第一盘对局、AI 复盘、邀请好友、好友对战、比赛和等级分系统。",
     heroTitle: "开启象棋之旅",
+    ctas: [],
     faq: [],
     sections: [
       {
@@ -130,9 +131,9 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
         title: "网站条例",
         body: ["帮助中心还包含行棋限制、公平对弈政策与文明守则。"],
         links: [
-          { label: "行棋限制", href: "/rules/" },
-          { label: "公平对弈政策", href: "/terms/" },
-          { label: "文明守则", href: "/terms/" }
+          { label: "行棋限制", href: "/limits/" },
+          { label: "公平对弈政策", href: "/fair-play/" },
+          { label: "文明守则", href: "/polite/" }
         ]
       },
       {
@@ -146,8 +147,8 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
           "畅玩时也要注意文明礼貌；准备好后，就可以邀请好友一起下棋。"
         ],
         links: [
-          { label: "注册", href: "https://play.xiangqi.com/register", external: true },
-          { label: "@paul 的个人页面", href: "https://play.xiangqi.com/member/paul", external: true },
+          { label: "注册", href: "https://play.xiangqi.com/account/signup", external: true },
+          { label: "@paul 的个人页面", href: "https://play.xiangqi.com/@/paul", external: true },
           { label: "游戏大厅", href: "https://play.xiangqi.com/", external: true },
           { label: "邀请好友对弈", href: "/invite/" },
           { label: "开始第一盘对局", href: "/first-game/" }
@@ -202,7 +203,7 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
           "如好友还未注册账号，邀请他们注册。",
           "如好友已注册账号，那就来看看怎么发起挑战或者接受挑战吧！"
         ],
-        links: [{ label: "注册", href: "https://play.xiangqi.com/register", external: true }]
+        links: [{ label: "注册", href: "https://play.xiangqi.com/account/signup", external: true }]
       },
       {
         title: "创建对局，☑️ 挑战",
@@ -282,6 +283,60 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
         ]
       }
     ]
+  },
+  "ZH-012": {
+    title: "象棋等级分系统 - 相弈象棋",
+    description: "我们采用埃洛（ELO）等级分系统计算棋手等级，了解评分对局、公式算法与等级分变化方式。",
+    heroTitle: "象棋等级分系统",
+    faq: [],
+    ctas: [],
+    sections: [
+      {
+        title: "象棋等级分系统",
+        body: [
+          "我们采用埃洛（ELO）等级分系统计算棋手等级。该系统广泛用于各类竞技运动，由匈牙利裔美国物理学教授阿帕德·埃洛（Arpad Elo）创立，故命名为埃洛排名。",
+          "埃洛排名系统计算的是某一棋手在整组棋手中的相对水平，即棋手在 Xiangqi.com 相弈象棋的 ELO 等级分并不代表其象棋技能的绝对水平，而是与平台其他棋手相比的相对水平。",
+          "作为衡量棋手水平的一项标准，棋手等级可能随着每场计分赛的结果而变化：棋手获胜后将从对手处赢取特定数量的积分。对弈结束后获得或失去的积分总数取决于两名棋手之间的等级差异。等级差异越大，对弈结束时交换的积分就越多。",
+          "和局时，等级较低的棋手也可从等级较高的棋手处获得若干积分，确保系统完成自我修正。即长期来看，等级过高或过低的棋手会相应地表现更好或更差，直至等级反映出他们真正的水平。"
+        ]
+      },
+      {
+        title: "算法",
+        body: [
+          "每场计分赛结束后，我们将通过下列公式计算对局中双方棋手的新等级分："
+        ],
+        list: [
+          "Rₚ ← 用户等级分",
+          "Rₒ ← 对手等级分",
+          "K ← K系数",
+          "A ← 实际对局得分",
+          "E ← 期望对局得分 = 1 / {1 + 10^[(Rₒ - Rₚ) / 400]}",
+          "Rₚ' ← 对局后更新的等级分 = Rₚ + K(A - E)"
+        ]
+      },
+      {
+        title: "更多关于象棋规则的帮助信息：",
+        body: [
+          "由此得出的等级分将反映在系统的方方面面。"
+        ],
+        links: [
+          { label: "象棋规则", href: "/how-to-play/" },
+          { label: "象棋棋子与走法", href: "/how-to-play-xiangqi/" }
+        ]
+      },
+      {
+        title: "搜索获取更多相关文章：",
+        body: []
+      }
+    ]
+  },
+  "ZH-025": {
+    title: "文明守则 - 相弈象棋",
+    description: "本网站主要有两个目标：一是传授象棋知识并帮助棋手提高棋艺，二是希望大家通过象棋结交世界各地的朋友。作为交友平台，我们希望打造一个文明友好的游戏社区。",
+    heroTitle: "文明守则",
+    faq: [],
+    ctas: [],
+    sections: []
   },
   "ZH-008": {
     title: "设置及分享自定义象棋残局 - 相弈象棋",
@@ -449,6 +504,73 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
         }
       ]
     },
+  "ZH-021": {
+    title: "行棋限制 - 相弈象棋",
+    description: "相弈象棋自动执行四条明确的行棋限制规则，包括无吃子规则、长打规则、重复无威胁行棋判和，以及禁止重复威胁四次。",
+    heroTitle: "行棋限制",
+    faq: [],
+    ctas: [],
+    sections: [
+      {
+        title: "",
+        body: [
+          "现实中，象棋比赛制定了不同规则来禁止特定的行棋模式。在现场比赛中，如有棋手投诉，通常交由裁判裁决。本网站自动执行四条明确的象棋规则，对行棋进行限制。由于我们是一款在线游戏，且系统能够掌握对局中每一步棋盘上每个棋子的位置，因此比裁判更容易执行一致的规则。对于以下规则，“威胁”一词是指（1）将军或（2）威胁将死（3）威胁无根子或（4）威胁子力更高的棋子。对于（4），子力从低到高排列如下：过河前的卒（兵） < 过河卒（兵） = 士（仕） = 象（相） < 马 = 炮（砲） < 车 < 将（帅）。"
+        ]
+      },
+      {
+        title: "规则一：无吃子规则",
+        body: [
+          "如双方走完 30 回合（共 60 步）均未吃子，则判和。系统将在对局第 50 步仍未吃子时发出警告：“棋手必须在接下来十步之内吃子，否则本局判和”。"
+        ]
+      },
+      {
+        title: "规则二：长打规则",
+        body: [
+          "进攻子不可连续十次威胁同一子，第十次攻击将触发警告“不能连续攻击同一子十次”。请见长打示例。"
+        ]
+      },
+      {
+        title: "规则三：重复无威胁行棋，判和",
+        body: [
+          "行棋模式 AB（或 ABCD 或 ABCDEF 等）重复四次判和。（注：只要先手行棋的其中一步未构成威胁，即为非威胁模式。）",
+          "一旦行棋模式重复 3 次（如 ABABAB 或 ABCDABCDABCD），系统将立即提醒双方：“行棋模式已重复三次，重复四次将判和。”",
+          "注 1：行棋模式 ABACADA 则不违规。系统防止的是重复行棋模式而非重复棋子位置。",
+          "注 2：如棋手在行棋过程中吃子，由于不能多次吃同一子，系统将重新开始计算重复条件。"
+        ]
+      },
+      {
+        title: "规则四：禁止重复威胁四次",
+        body: [
+          "根据这一规则，假设其中一方全部行棋均构成威胁，则威胁模式重复四次时，系统将禁用该模式。",
+          "若先手第 4 次开始同一行棋模式，如 AB（或 ABCD 或 ABCDEF），系统将禁用该模式。例如：重复 ABABAB 模式后下一步不可再走 A；重复 ABCDABCDABCD 模式后下一步不可再走 A。",
+          "注：行棋模式 ABACADA 则不违规。系统防止的是重复行棋模式而非重复棋子位置。"
+        ]
+      },
+      {
+        title: "反馈",
+        body: ["如对上述规则有任何反馈，请发送邮件至"],
+        links: [{ label: "help@xiangqi.com", href: "mailto:help@xiangqi.com", external: true }]
+      },
+      {
+        title: "更多关于象棋规则的帮助信息：",
+        body: [],
+        links: [
+          { label: "象棋规则", href: "/how-to-play/" },
+          { label: "象棋棋子与走法", href: "/how-to-play-xiangqi/" },
+          { label: "象棋等级系统", href: "/rating/" }
+        ]
+      },
+      {
+        title: "快来下棋吧！",
+        body: [],
+        links: [
+          { label: "好友对战", href: "/play-with-a-friend/" },
+          { label: "人机对战", href: "/computer/" },
+          { label: "在线比赛", href: "/tournament/" }
+        ]
+      }
+    ]
+  },
   "ZH-001": {
     title: "下象棋对弈游戏软件 | 中国象棋在线玩免费 | 真人人机对战 - 相弈象棋",
     description: "通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。马上进行在线象棋对战吧。",

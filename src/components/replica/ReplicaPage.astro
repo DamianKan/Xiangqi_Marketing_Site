@@ -12,12 +12,16 @@ const isPlayWithFriendPage = page.id === "ZH-007";
 const isFirstGamePage = page.id === "ZH-006";
 const isPieceGuidePage = page.id === "ZH-004";
 const isTeamPage = page.id === "ZH-018";
+const isFairPlayPage = page.id === "ZH-024";
 const isRulesPage = page.id === "ZH-005";
+const isLimitsPage = page.id === "ZH-021";
+const isRatingPage = page.id === "ZH-012";
 const isPuzzlePage = page.id === "ZH-008";
 const isTournamentPage = page.id === "ZH-009";
 const isInviteGuidePage = page.id === "ZH-010";
 const isAnalysisPage = page.id === "ZH-010A";
 const isComputerPage = page.id === "ZH-019";
+const isPolitePage = page.id === "ZH-025";
 const slicedSections = page.sections.slice(page.type === "home" ? 1 : 0);
 const downloadLeadSections = isDownloadPage ? slicedSections.slice(0, 3) : [];
 const contentSections = isDownloadPage ? slicedSections.slice(3) : slicedSections;
@@ -154,7 +158,7 @@ const xiangqiPieces = [
 ];
 ---
 
-{isJourneyHelpPage || isPlayWithFriendPage || isFirstGamePage || isPieceGuidePage || isTeamPage || isRulesPage || isPuzzlePage || isTournamentPage || isInviteGuidePage || isAnalysisPage || isComputerPage ? null : isHome ? (
+{isJourneyHelpPage || isPlayWithFriendPage || isFirstGamePage || isPieceGuidePage || isTeamPage || isFairPlayPage || isRulesPage || isLimitsPage || isRatingPage || isPuzzlePage || isTournamentPage || isInviteGuidePage || isAnalysisPage || isComputerPage || isPolitePage ? null : isHome ? (
   <section class="replica-hero" aria-labelledby="page-title">
     <div class="replica-hero__veil"></div>
     <div class="replica-hero__content">
@@ -264,14 +268,40 @@ const xiangqiPieces = [
         <article class="replica-help-doc__section">
           <h2>{journeyStepsSection.title}</h2>
           <ol class="replica-help-doc__steps">
-            <li><a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>注册</a></li>
-            <li>输入用户名、邮箱、密码和国家/地区，完善头像与自我介绍。示例：<a href="https://play.xiangqi.com/member/paul" {...linkAttrs(true)}>@paul的个人页面</a></li>
+            <li><a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>注册</a></li>
+            <li>输入用户名、邮箱、密码和国家/地区，完善头像与自我介绍。示例：<a href="https://play.xiangqi.com/@/paul" {...linkAttrs(true)}>@paul的个人页面</a></li>
             <li>打开收件箱，点击验证邮件中的链接完成账号验证。</li>
             <li>登录后进入<a href="https://play.xiangqi.com/" {...linkAttrs(true)}>游戏大厅</a>，可以创建公开对局、观看正在进行的对弈，或与其他棋手聊天。</li>
-            <li>开始对弈前，也请留意<a href="/terms/">文明礼貌</a>规则；如果想更快上手，可以继续查看<a href="/first-game/">开始第一盘对局</a>和<a href="/play-with-a-friend/">邀请好友对战</a>。</li>
+            <li>开始对弈前，也请留意<a href="/polite/">文明礼貌</a>规则；如果想更快上手，可以继续查看<a href="/first-game/">开始第一盘对局</a>和<a href="/play-with-a-friend/">邀请好友对战</a>。</li>
           </ol>
         </article>
       )}
+    </div>
+  </section>
+) : isLimitsPage ? (
+  <section class="replica-help-doc replica-help-doc--limits">
+    <div class="replica-help-doc__inner">
+      {page.sections[0]?.body.map((paragraph) => (
+        <p class="replica-help-doc__lead">{paragraph}</p>
+      ))}
+
+      {page.sections.slice(1).map((section) => (
+        <article class="replica-help-doc__section">
+          <h2>{section.title}</h2>
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          {section.links && (
+            <ul class="replica-help-doc__link-list replica-help-doc__link-list--compact">
+              {section.links.map((link) => (
+                <li>
+                  <a href={link.href} {...linkAttrs(link.external)}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
     </div>
   </section>
 ) : isPuzzlePage ? (
@@ -407,7 +437,7 @@ const xiangqiPieces = [
           </li>
           <li>
             <span aria-hidden="true">✅</span>
-            <a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>创建账号</a>
+            <a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>创建账号</a>
           </li>
         </ul>
       </section>
@@ -437,7 +467,7 @@ const xiangqiPieces = [
       </section>
     </div>
   </section>
-) : isFirstGamePage ? (
+) : isPlayWithFriendPage ? (
   <section class="replica-play-friend">
     <div class="replica-play-friend__inner">
       <header class="replica-play-friend__hero">
@@ -595,8 +625,8 @@ const xiangqiPieces = [
         <h2>进行第一盘对局</h2>
         <p>账号注册及象棋规则教程：</p>
         <ul class="replica-first-game-page__links">
-          <li><a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>创建账号</a></li>
-          <li><a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>用户验证</a></li>
+          <li><a href="https://www.zh.xiangqi.com/new-user/" {...linkAttrs(true)}>创建账号</a></li>
+          <li><a href="https://www.zh.xiangqi.com/verified/" {...linkAttrs(true)}>用户验证</a></li>
           <li><a href="/how-to-play/">象棋规则</a></li>
           <li><a href="/how-to-play-xiangqi/">棋子与走法</a></li>
         </ul>
@@ -1048,6 +1078,107 @@ const xiangqiPieces = [
       )}
     </div>
   </section>
+) : isFairPlayPage ? (
+  <section class="replica-help-doc replica-help-doc--fair-play">
+    <div class="replica-help-doc__inner">
+      <h1 class="replica-help-doc__title replica-help-doc__title--policy">公平对弈政策</h1>
+
+      <article class="replica-help-doc__section">
+        <p>
+          我们有责任为全球棋手创建并维护一个纯粹、公平的对弈平台。我们有权监测在此平台进行的所有象棋对局。
+        </p>
+        <ul class="replica-help-doc__bullet-list">
+          <li>棋手必须独立行棋</li>
+          <li>请勿通过任何方式作弊</li>
+          <li>请勿在对局时寻求他人帮助，包括父母、朋友、教练或其他棋手</li>
+          <li>请勿在对局时使用能够分析棋局的象棋引擎、软件、机器人、插件或其他工具</li>
+          <li>请勿于在线和日常对局中使用可显示最佳行棋步骤的数据库或其他资源</li>
+          <li>只可在日常对弈（非在线/实时对弈）中使用不带引擎评估的棋谱浏览器或其他棋谱</li>
+          <li>请勿在对局时进行自动分析或“错误检查”</li>
+          <li>请勿允许他人使用自己的账号</li>
+          <li>请勿使用他人账号</li>
+          <li>请勿人为操纵积分、对局或结果</li>
+          <li>请勿干扰其他棋手的对局</li>
+          <li>请勿因怀疑对手开外挂而以牙还牙。如怀疑有人作弊，请在系统举报。</li>
+        </ul>
+        <p>
+          <strong>警告：</strong>
+          若判定用户违反上述公平对弈政策，我们将关闭其账号，并把账号关闭原因标记为违反公平对弈政策。关于系统为监测玩家对弈活动与保证公平对弈而采取的完整措施，请参阅用户协议的账号终止和限制部分。
+        </p>
+      </article>
+
+      <article class="replica-help-doc__section">
+        <h2>网站管理员</h2>
+        <p>
+          网站管理员将协助我们实施公平对弈政策。如怀疑有人作弊：
+          <a class="replica-help-doc__accent-link" href="#report-abuse">举报违规行为</a>
+        </p>
+      </article>
+
+      <article class="replica-help-doc__section" id="report-abuse">
+        <h2>举报作弊棋手</h2>
+        <p>系统将封禁作弊棋手</p>
+        <p>作弊行为包括：</p>
+        <ol class="replica-help-doc__steps">
+          <li>利用象棋引擎获取行棋建议</li>
+          <li>寻求其他玩家的行棋建议，尤其是在计分赛中</li>
+          <li>利用多个账号或好友造假，以达到让自己某个账号多次获胜的目的</li>
+        </ol>
+        <p>如认为有人作弊，请点击其个人资料页举报并提供尽可能详细的信息，我们将立即进行调查。</p>
+        <p>我们现在正在开发多项网站作弊检测技术，并将在未来一段时间内继续完善相关技术。</p>
+        <p class="replica-help-doc__more-link">
+          如何举报作弊？
+          <a class="replica-help-doc__accent-link" href="#report-abuse">举报违规行为</a>
+        </p>
+      </article>
+    </div>
+  </section>
+) : isPolitePage ? (
+  <section class="replica-help-doc replica-help-doc--policy">
+    <div class="replica-help-doc__inner">
+      <h1 class="replica-help-doc__title replica-help-doc__title--policy">文明守则</h1>
+
+      <article class="replica-help-doc__section">
+        <p>
+          本网站主要有两个目标：一是传授象棋知识并帮助棋手提高棋艺，二是希望大家通过象棋结交世界各地的朋友。作为交友平台，我们希望打造一个文明友好的游戏社区。
+        </p>
+        <p>
+          对于不遵守发言守则的玩家，网站管理员可将其禁言或封号，同时其他玩家也将逐渐疏远不文明的玩家。
+        </p>
+      </article>
+
+      <article class="replica-help-doc__section">
+        <h2>那么，什么是发言守则？</h2>
+        <ul class="replica-help-doc__bullet-list">
+          <li>即使输了比赛，也要感谢对手。</li>
+          <li>请勿骚扰他人。</li>
+          <li>请勿粗言秽语。</li>
+          <li>请勿使用具仇恨性、攻击性、暴力、种族歧视、性暗示、不雅、威胁、辱骂、侮辱、骚扰、诽谤、中伤、欺骗、诈欺、侵权、淫秽、煽动、政治性、亵渎、种族挑衅或其他令人反感的语言或图像。</li>
+          <li>除非认识两个正在对弈的棋手且经他们同意，否则请勿在聊天框给棋手发送提示消息。</li>
+        </ul>
+      </article>
+
+      <article class="replica-help-doc__section">
+        <p>
+          如有任何反馈或建议，请发邮件至
+          <span class="replica-help-doc__accent-text">help@xiangqi.com</span>
+          。
+        </p>
+        <p class="replica-help-doc__signature">
+          此致，
+          <br />
+          Xiangqi.com创始人
+          <br />
+          <a class="replica-help-doc__accent-link" href="https://play.xiangqi.com/@paul" {...linkAttrs(true)}>Paul English</a>
+        </p>
+      </article>
+
+      <article class="replica-help-doc__report">
+        <strong>发现有人做出不礼貌的举动？</strong>
+        <span>举报违规行为</span>
+      </article>
+    </div>
+  </section>
 ) : isRulesPage ? (
   <section class="replica-help-doc replica-help-doc--rules">
     <div class="replica-help-doc__inner">
@@ -1123,6 +1254,73 @@ const xiangqiPieces = [
           更多象棋教学：<a class="replica-help-doc__accent-link" href="/how-to-play-xiangqi/">如何下象棋</a>
         </p>
       </article>
+    </div>
+  </section>
+) : isRatingPage ? (
+  <section class="replica-help-doc replica-help-doc--rating">
+    <div class="replica-help-doc__inner replica-help-doc__inner--rating">
+      <h1 class="replica-help-doc__title replica-help-doc__title--rating">{page.heroTitle}</h1>
+
+      {page.sections[0] && (
+        <article class="replica-help-doc__section replica-help-doc__section--rating-intro">
+          <p>
+            我们采用
+            <a
+              class="replica-help-doc__accent-link"
+              href="https://baike.baidu.com/item/%E5%9F%83%E6%B4%9B%E7%AD%89%E7%BA%A7%E5%88%86%E7%B3%BB%E7%BB%9F"
+              {...linkAttrs(true)}
+            >
+              埃洛（ELO）等级分系统
+            </a>
+            计算棋手等级。该系统广泛用于各类竞技运动，由匈牙利裔美国物理学教授阿帕德·埃洛（Arpad Elo）创立，故命名为埃洛排名。埃洛排名系统计算的是某一棋手在整组棋手中的相对水平，即棋手在Xiangqi.com相弈象棋的ELO等级分并不代表其象棋技能的绝对水平，而是与平台其他棋手相比的相对水平。
+          </p>
+          {page.sections[0].body.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+        </article>
+      )}
+
+      {page.sections[1] && (
+        <article class="replica-help-doc__section replica-help-doc__section--rating-formula">
+          <h2>{page.sections[1].title}</h2>
+          {page.sections[1].body.map((paragraph) => <p>{paragraph}</p>)}
+          {page.sections[1].list && (
+            <div class="replica-rating-formula">
+              {page.sections[1].list.map((item) => (
+                <p>{item}</p>
+              ))}
+            </div>
+          )}
+        </article>
+      )}
+
+      {page.sections[2] && (
+        <article class="replica-help-doc__section replica-help-doc__section--rating-links">
+          <p class="replica-rating-tail">由此得出的等级分将反映在系统的方方面面。</p>
+          <h3 class="replica-help-doc__subheading">{page.sections[2].title}</h3>
+          {page.sections[2].links && (
+            <div class="replica-rating-links" role="navigation" aria-label="更多关于象棋规则的帮助信息">
+              {page.sections[2].links.map((link) => (
+                <a href={link.href} {...linkAttrs(link.external)}>{link.label}</a>
+              ))}
+            </div>
+          )}
+        </article>
+      )}
+
+      {page.sections[3] && (
+        <article class="replica-help-doc__section replica-help-doc__section--rating-search">
+          <h3 class="replica-help-doc__subheading">{page.sections[3].title}</h3>
+          <form class="replica-rating-search-form" action="/support-home/" method="get">
+            <input
+              class="replica-rating-search"
+              type="search"
+              name="q"
+              placeholder="请输入关键字"
+              aria-label="搜索获取更多相关文章"
+            />
+            <button class="replica-rating-search-button" type="submit">搜索</button>
+          </form>
+        </article>
+      )}
     </div>
   </section>
 ) : (
@@ -1213,7 +1411,7 @@ const xiangqiPieces = [
   </section>
 )}
 
-{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.articleCards && page.articleCards.length > 0 && (
+{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.articleCards && page.articleCards.length > 0 && (
   <section class="replica-articles">
     <div class:list={["replica-container", !isHome && "replica-container--narrow"]}>
       <div class="replica-section-head">
@@ -1241,7 +1439,7 @@ const xiangqiPieces = [
   </section>
 )}
 
-{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.faq && page.faq.length > 0 && (
+{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.faq && page.faq.length > 0 && (
   <section class="replica-faq">
     <div class="replica-container">
       <h2>{faqHeading}</h2>

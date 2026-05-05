@@ -237,8 +237,19 @@ button {
   line-height: 1.82;
 }
 
+.replica-help-doc__lead {
+  margin: 0 0 36px;
+  color: #5b4437;
+  font-size: 22px;
+  line-height: 1.9;
+}
+
 .replica-help-doc__section {
   padding: 0 0 42px;
+}
+
+.replica-help-doc__section[id] {
+  scroll-margin-top: 112px;
 }
 
 .replica-help-doc__section h2 {
@@ -305,6 +316,10 @@ button {
   content: "—";
   position: absolute;
   left: -18px;
+}
+
+.replica-help-doc--limits {
+  padding-top: 42px;
 }
 
 .replica-play-friend {
@@ -756,6 +771,108 @@ button {
   margin-bottom: 42px;
 }
 
+.replica-help-doc--rating {
+  background: #f5efe6;
+}
+
+.replica-help-doc__inner--rating {
+  width: min(980px, calc(100vw - 56px));
+}
+
+.replica-help-doc__title--rating {
+  margin-bottom: 28px;
+  color: #5b453c;
+  font-size: clamp(40px, 5.1vw, 64px);
+  line-height: 1.1;
+}
+
+.replica-help-doc__section--rating-intro p,
+.replica-help-doc__section--rating-formula p,
+.replica-help-doc__section--rating-links p {
+  font-size: 20px;
+  line-height: 1.95;
+}
+
+.replica-help-doc__section--rating-formula h2 {
+  margin-bottom: 14px;
+}
+
+.replica-rating-formula {
+  margin-top: 12px;
+  padding: 18px 22px;
+  border-left: 3px solid #c54633;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.replica-rating-formula p {
+  margin: 0 0 10px;
+  font-family: "Cambria Math", "STIX Two Math", "Georgia", "PingFang SC", serif;
+  font-size: 20px;
+  line-height: 1.85;
+  color: #4f3d36;
+}
+
+.replica-rating-formula p:last-child {
+  margin-bottom: 0;
+}
+
+.replica-rating-tail {
+  margin-bottom: 18px;
+}
+
+.replica-rating-links {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.replica-rating-links a {
+  color: #d94b31;
+  font-size: 20px;
+  line-height: 1.7;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.replica-rating-search {
+  width: min(360px, 100%);
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(91, 69, 60, 0.22);
+  border-radius: 0;
+  background: #fff;
+  color: #4f3d36;
+  font-size: 18px;
+  outline: none;
+}
+
+.replica-rating-search::placeholder {
+  color: #9a8b85;
+}
+
+.replica-rating-search-form {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: min(460px, 100%);
+}
+
+.replica-rating-search-form .replica-rating-search {
+  flex: 1 1 auto;
+  width: auto;
+}
+
+.replica-rating-search-button {
+  min-width: 88px;
+  height: 48px;
+  border: 1px solid rgba(91, 69, 60, 0.22);
+  border-left: 0;
+  background: #f7f1ea;
+  color: #5b453c;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .replica-help-doc__faq-item + .replica-help-doc__faq-item {
   margin-top: 18px;
 }
@@ -837,6 +954,51 @@ button {
   color: #ef4136 !important;
 }
 
+.replica-help-doc__accent-text {
+  color: #ef4136;
+}
+
+.replica-help-doc__signature {
+  margin-top: 18px;
+}
+
+.replica-help-doc__signature a {
+  color: #ef4136;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.replica-help-doc__report {
+  margin-top: 14px;
+  padding-bottom: 12px;
+  color: #664f4c;
+  font-size: 22px;
+  line-height: 1.9;
+}
+
+.replica-help-doc__report strong {
+  display: block;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.replica-help-doc--policy .replica-help-doc__title {
+  margin-bottom: 34px;
+}
+
+.replica-help-doc--fair-play .replica-help-doc__title {
+  margin-bottom: 34px;
+}
+
+.replica-help-doc__section--rating-intro .replica-help-doc__accent-link,
+.replica-help-doc__section--rating-intro .replica-help-doc__accent-link:visited,
+.replica-help-doc__section--rating-intro .replica-help-doc__accent-link:hover,
+.replica-help-doc__section--rating-intro .replica-help-doc__accent-link:active {
+  color: #d94b31 !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .replica-help-doc__more-link a[href="/how-to-play-xiangqi/"] {
   color: #ef4136;
 }
@@ -846,6 +1008,75 @@ button {
   flex-wrap: wrap;
   gap: 10px 20px;
   margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .replica-help-doc {
+    padding: 16px 0 48px;
+  }
+
+  .replica-help-doc__inner {
+    width: calc(100vw - 32px);
+  }
+
+  .replica-help-doc__title {
+    margin-bottom: 28px;
+    font-size: 40px;
+    line-height: 1.16;
+  }
+
+  .replica-help-doc__intro,
+  .replica-help-doc__lead,
+  .replica-help-doc__section p,
+  .replica-help-doc__link-list li,
+  .replica-help-doc__steps li,
+  .replica-help-doc__bullet-list li,
+  .replica-help-doc__report {
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  .replica-help-doc__section h2,
+  .replica-help-doc__subheading {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .replica-help-doc__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-help-doc__title {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  .replica-help-doc__intro,
+  .replica-help-doc__lead,
+  .replica-help-doc__section p,
+  .replica-help-doc__link-list li,
+  .replica-help-doc__steps li,
+  .replica-help-doc__bullet-list li,
+  .replica-help-doc__report {
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .replica-help-doc__section {
+    padding-bottom: 28px;
+  }
+
+  .replica-help-doc__section h2,
+  .replica-help-doc__subheading {
+    font-size: 20px;
+  }
+
+  .replica-help-doc__bullet-list,
+  .replica-help-doc__steps,
+  .replica-help-doc__link-list {
+    padding-left: 20px;
+  }
 }
 
 .replica-puzzle-page {
@@ -1133,6 +1364,37 @@ button {
     font-size: 24px;
   }
 
+  .replica-help-doc__inner--rating {
+    width: calc(100vw - 40px);
+  }
+
+  .replica-help-doc__title--rating {
+    font-size: 36px;
+  }
+
+  .replica-help-doc__section--rating-intro p,
+  .replica-help-doc__section--rating-formula p,
+  .replica-help-doc__section--rating-links p,
+  .replica-rating-formula p,
+  .replica-rating-links a {
+    font-size: 17px;
+  }
+
+  .replica-rating-formula {
+    padding: 16px 18px;
+  }
+
+  .replica-rating-search {
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .replica-rating-search-button {
+    height: 44px;
+    min-width: 78px;
+    font-size: 15px;
+  }
+
   .replica-piece-page__grid {
     grid-template-columns: 1fr;
   }
@@ -1172,6 +1434,11 @@ button {
 
   .replica-help-doc__section p {
     font-size: 17px;
+  }
+
+  .replica-help-doc__lead {
+    font-size: 17px;
+    margin-bottom: 28px;
   }
 
   .replica-help-doc__subheading {
@@ -1333,6 +1600,44 @@ button {
     font-size: 20px;
   }
 
+  .replica-help-doc__inner--rating {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-help-doc__title--rating {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .replica-help-doc__section--rating-intro p,
+  .replica-help-doc__section--rating-formula p,
+  .replica-help-doc__section--rating-links p,
+  .replica-rating-formula p,
+  .replica-rating-links a {
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .replica-rating-formula {
+    margin-top: 10px;
+    padding: 14px 14px 14px 16px;
+  }
+
+  .replica-rating-search {
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .replica-rating-search-form {
+    width: 100%;
+  }
+
+  .replica-rating-search-button {
+    height: 42px;
+    min-width: 70px;
+    font-size: 14px;
+  }
+
   .replica-help-doc__inner {
     width: calc(100vw - 24px);
   }
@@ -1345,6 +1650,11 @@ button {
   .replica-help-doc__intro {
     margin-bottom: 28px;
     font-size: 16px;
+  }
+
+  .replica-help-doc__lead {
+    font-size: 16px;
+    margin-bottom: 24px;
   }
 
   .replica-help-doc__section {
@@ -2777,6 +3087,80 @@ button {
   padding-top: 44px;
 }
 
+.story-page {
+  padding: 72px 0 108px;
+  background: linear-gradient(180deg, #f7f0e7 0%, #fbf8f3 100%);
+}
+
+.story-page__article {
+  display: grid;
+  gap: 28px;
+}
+
+.story-page__eyebrow {
+  margin: 0;
+  color: #9f3229;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.story-page__article h1 {
+  margin: 0;
+  color: #5b433d;
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.18;
+}
+
+.story-page__body {
+  display: grid;
+  gap: 22px;
+}
+
+.story-page__figure {
+  margin: 14px auto 8px;
+}
+
+.story-page__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.story-page__figure--wide {
+  width: min(100%, 520px);
+}
+
+.story-page__figure--portrait {
+  width: min(100%, 290px);
+}
+
+.story-page__body p {
+  margin: 0;
+  color: #5d4944;
+  font-size: 18px;
+  line-height: 1.95;
+}
+
+.story-page__lead {
+  color: #4d3a35;
+  font-size: 20px;
+}
+
+.story-page__body a {
+  color: #a52f24;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.story-page__rule {
+  height: 1px;
+  margin-top: 4px;
+  background: rgba(110, 84, 74, 0.5);
+}
+
 .replica-download-grid {
   display: grid;
   gap: 18px;
@@ -2960,6 +3344,18 @@ button {
     padding: 20px 18px;
   }
 
+  .story-page {
+    padding: 56px 0 82px;
+  }
+
+  .story-page__body p {
+    font-size: 17px;
+  }
+
+  .story-page__figure {
+    margin-top: 8px;
+  }
+
   .replica-download-card__badge {
     justify-content: flex-start;
   }
@@ -2979,6 +3375,37 @@ button {
 }
 
 @media (max-width: 560px) {
+  .story-page {
+    padding: 44px 0 68px;
+  }
+
+  .story-page__article {
+    gap: 20px;
+  }
+
+  .story-page__article h1 {
+    font-size: 30px;
+    line-height: 1.24;
+  }
+
+  .story-page__body {
+    gap: 18px;
+  }
+
+  .story-page__figure--wide {
+    width: min(100%, 320px);
+  }
+
+  .story-page__figure--portrait {
+    width: min(100%, 170px);
+  }
+
+  .story-page__body p,
+  .story-page__lead {
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
   .replica-showcase-grid {
     grid-template-columns: 1fr;
     gap: 18px;

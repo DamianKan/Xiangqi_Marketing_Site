@@ -208,8 +208,8 @@ export const footerReplicaPages: ReplicaPage[] = [
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/fair-play/",
     route: "/fair-play/",
-    title: "公平对弈政策 - 相弈象棋",
-    description: "查看相弈象棋关于公平对弈、竞赛秩序与账号行为规范的本地说明页。",
+    title: "公平对弈政策 | 举报作弊棋手 - 相弈象棋",
+    description: "查看相弈象棋公平对弈政策、举报作弊说明，以及页面内的“举报违规行为”跳转入口。",
     heroTitle: "公平对弈政策",
     sections: [
       {

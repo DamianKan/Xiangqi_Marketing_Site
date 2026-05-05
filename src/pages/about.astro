@@ -1,13 +1,100 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import ReplicaLayout from "../layouts/ReplicaLayout.astro";
 ---
 
-<BaseLayout title="关于 - 相弈象棋" description="关于相弈象棋本地化重构项目。" canonicalPath="/about/">
-  <section class="section">
-    <div class="container content-panel">
-      <p class="eyebrow">About</p>
-      <h1>关于相弈象棋</h1>
-      <p>相弈象棋是面向中国象棋爱好者的在线体验页面。本地重构版优先保证资源本地化、中文显示正常和移动端可访问。</p>
+<ReplicaLayout
+  title="Xiangqi.com 相弈象棋创办故事 - 相弈象棋"
+  description="复刻源站当前“我们的故事”页面内容，讲述 Xiangqi.com 与相弈象棋的创办经历。"
+  route="/about/"
+  locale="zh-CN"
+>
+  <section class="story-page">
+    <div class="replica-container replica-container--narrow">
+      <article class="story-page__article">
+        <p class="story-page__eyebrow">Xiangqi.com</p>
+        <h1>相弈象棋创办故事</h1>
+
+        <div class="story-page__body">
+          <figure class="story-page__figure story-page__figure--wide">
+            <img
+              src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg8s6lqQYo4u2s-Qcw2AQ4kAM.jpg"
+              alt="Paul English 与象棋棋盘"
+              loading="lazy"
+            />
+          </figure>
+
+          <p class="story-page__lead">
+            在麻省理工学院就读的时候，我的两位越南同学教会了我下中国象棋。虽然我小时候也下过国际象棋，但自从学会中国象棋之后，我就深深迷上了这个游戏。
+            1997年，我决定创建一个网站，让人们可以在网上下中国象棋。我们最终在七个国家远程安装了
+            xiangqi.com 的服务器，并吸引了超过 10 万名用户。其中，每位用户都有单独的平台电子邮箱，拥有专属用户页面，还可以随时在用户页面上观看他人的棋局。
+          </p>
+
+          <p>
+            后来，雅虎联系上我，想和我探讨收购该网站的事宜，并提出让我管理雅虎游戏。于是，我便去了加州，与雅虎创始人
+            David Filo 见了面。他希望我留在加州为他工作，但当时我已经结婚了，我妻子不希望我们搬家，所以我拒绝了这个提议。（我记得薪酬部分包含 1997
+            年的 50000 股雅虎股票。我一直很好奇，在雅虎的鼎盛时期，那到底值多少钱）。
+          </p>
+
+          <p>
+            那时，我家里尚有两个年幼的孩子，而我已经整整一年没有领到薪水了。因此，我决定创建一家收入潜力更大的公司。凭着难以置信的运气，我和
+            Boston.com 签订了一份合同，为其提供电子商务软件服务，并借此创建了 Boston Light 软件公司。
+          </p>
+
+          <figure class="story-page__figure story-page__figure--wide">
+            <img
+              src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgm9ClqQYo4MSv8AcwgAg4qgU.jpg"
+              alt="摆放象棋棋子的近景"
+              loading="lazy"
+            />
+          </figure>
+
+          <p>
+            后来，由于忙于 Boston Light 的事务，我便把网站交给我的一个研究生去维护，但他最后在添加新功能时搞砸了，而我也一直没有时间去修复网站。
+          </p>
+
+          <figure class="story-page__figure story-page__figure--portrait">
+            <img
+              src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgos2lqQYohu_L9QUwoAY4rAQ.jpg"
+              alt="Paul English 俯身思考棋局"
+              loading="lazy"
+            />
+          </figure>
+
+          <p>
+            2020年，我决定重启 xiangqi.com，从头开始重新设计这个网站，并根据中国棋友的意见把中文版网站命名为「相弈象棋」。全新的相弈象棋是一个面向全世界中国象棋爱好者的对弈平台，旨在向国际推广中国象棋这个令我深深着迷的游戏，并以中国象棋为媒介发展跨国友谊。
+          </p>
+
+          <p>
+            另外，我还计划制作一部纪录片，片名取自 17 世纪的象棋著作《橘中秘》，拍摄地点选在纽约市唐人街。
+          </p>
+
+          <p>
+            我们诚邀您在此和世界各地的中国象棋爱好者下棋，并为我们提供宝贵的反馈意见。另外，我和团队每周六在美东时间上午 9
+            点（冬令时间：中国晚上10点；夏令时间：中国晚上9点）登录游戏进行棋聚，欢迎你到时来和我们交友及
+            <a href="https://play.xiangqi.com/" target="_blank" rel="noreferrer">下棋</a>。
+          </p>
+
+          <p>
+            Xiangqi.com的创始人是
+            <a href="https://play.xiangqi.com/@paul" target="_blank" rel="noreferrer">Paul English</a>
+            。Paul 在美国创建了五家成功的初创企业，并在麻省理工学院斯隆管理学院、哈佛商学院和斯坦福商学院教授创业课程。
+          </p>
+
+          <figure class="story-page__figure story-page__figure--wide">
+            <img
+              src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgxs_lqQYowOyArgYw6AI4wgM.jpg"
+              alt="Paul English 在棋盘前继续摆棋"
+              loading="lazy"
+            />
+          </figure>
+
+          <p>
+            点击 <a href="/team/">我们的团队</a> 查看全部团队成员。
+          </p>
+
+          <div class="story-page__rule" aria-hidden="true"></div>
+        </div>
+      </article>
     </div>
   </section>
-</BaseLayout>
+</ReplicaLayout>
