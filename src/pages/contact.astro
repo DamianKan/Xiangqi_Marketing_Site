@@ -1,0 +1,63 @@
+---
+import ReplicaLayout from "../layouts/ReplicaLayout.astro";
+
+const page = {
+  title: "联系我们 | 关注我们 - 相弈象棋",
+  description:
+    "想认识我们的团队吗？请在美东时间每周六上午9点至11点（北京时间晚上9点至11点）登录 xiangqi.com，并通过当前页提供的社交渠道、公众号二维码和邮箱与我们联系。",
+  route: "/contact/",
+  locale: "zh-CN" as const,
+  qrImage: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg47z6qwYo8PPjwwYwgAo4gAo.jpg"
+};
+
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/xiangqichess/" },
+  { label: "Instagram", href: "http://instagram.com/xiangqichess" },
+  { label: "WhatsApp", href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5" },
+  { label: "YouTube", href: "https://www.youtube.com/c/XiangqiChineseChess" },
+  { label: "Discord", href: "https://discord.gg/nDUBMUEjpc" }
+];
+---
+
+<ReplicaLayout title={page.title} description={page.description} route={page.route} locale={page.locale}>
+  <section class="replica-contact-page">
+    <div class="replica-contact-page__inner">
+      <p class="replica-contact-page__intro">
+        想认识我们的团队吗？请在美东时间每周六上午9点至11点（北京时间晚上9点至11点）登录
+        <a href="/">xiangqi.com</a>。
+      </p>
+
+      <h1 class="replica-contact-page__title">关注我们</h1>
+
+      <p class="replica-contact-page__copy">
+        在我们的
+        {socialLinks.map((link, index) => (
+          <>
+            <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+            {index < socialLinks.length - 1 ? "、" : ""}
+          </>
+        ))}
+        上关注我们的最新动态。加入我们的
+        <a href="https://discord.gg/nDUBMUEjpc" target="_blank" rel="noreferrer">Discord</a>
+        群组，结识其他玩家。
+      </p>
+
+      <figure class="replica-contact-page__figure">
+        <img
+          src={page.qrImage}
+          alt="相弈象棋微信公众号二维码"
+          width="512"
+          height="512"
+          loading="eager"
+        />
+      </figure>
+
+      <p class="replica-contact-page__caption">扫描二维码订阅我们的微信公众号。</p>
+
+      <p class="replica-contact-page__email">
+        如有任何问题或建议，请发送邮件至
+        <a href="mailto:help@xiangqi.com">help@xiangqi.com</a>。
+      </p>
+    </div>
+  </section>
+</ReplicaLayout>

@@ -19,6 +19,12 @@ export interface ReplicaCta {
   variant?: "primary" | "secondary";
 }
 
+export interface ReplicaLinkItem {
+  title: string;
+  description?: string;
+  links: ReplicaCta[];
+}
+
 export interface ReplicaSection {
   title: string;
   body: string[];
@@ -26,6 +32,7 @@ export interface ReplicaSection {
   imageAlt?: string;
   links?: ReplicaCta[];
   list?: string[];
+  items?: ReplicaLinkItem[];
   gallery?: Array<{
     title: string;
     image: string;

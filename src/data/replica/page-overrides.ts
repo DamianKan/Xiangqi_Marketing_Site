@@ -5,6 +5,42 @@ const githubReleaseApkUrl =
   "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk";
 
 export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
+  "ZH-019-legacy": {
+    sections: [
+      {
+        title: "",
+        body: [
+          "以下是我们团队计划在2024年构建的一些高级功能。我们每周仍将持续处理用户报告的错误，努力让网站和App变得完美！:)"
+        ]
+      },
+      {
+        title: "",
+        body: [],
+        list: [
+          "用户界面翻新：崭新时尚的外观，提升浏览和游玩体验。",
+          "新的手机App：支持离线人机对战和玩家对局。",
+          "私聊功能。",
+          "多频道公共聊天室。",
+          "自定义对局功能升级：创建公开挑战时可限制对手等级分；创建公开挑战后可直接挑战在线空闲玩家。",
+          "课程功能升级：引入开局课程，提高开局知识。",
+          "初学者助手：为等级分低于一定水平的玩家高亮显示一步内的潜在威胁和战术机会。",
+          "玩家统计数据：全面分析对局表现，包括随时间变化的表现、先后手对局统计、不同用时下的表现、所用开局体系分析、开局/中局/残局表现分析、战术机会把握率，以及优劣势棋胜率。"
+        ]
+      },
+      {
+        title: "",
+        body: [
+          "另请参阅我们的版本发布公告。",
+          "更多绝密功能正在酝酿中——我们想用这些功能给您带来惊喜！",
+          "如果您有其他想要的功能，请发送邮件到 help@xiangqi.com 告诉我们！"
+        ],
+        links: [
+          { label: "版本发布公告", href: "/releases/" },
+          { label: "help@xiangqi.com", href: "mailto:help@xiangqi.com" }
+        ]
+      }
+    ]
+  },
   "ZH-003": {
     title: "中国象棋 App 免费下载安装 | 安卓APK/谷歌应用/苹果版 - 相弈象棋",
     description:
@@ -417,7 +453,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         excerpt:
           "汇总社区数据、导航与界面优化，以及未来两个月的产品更新计划。",
         href: "/articles/product-update-2024-08/",
-        image: replicaAssets.article
+        image: replicaAssets.featureTwo
       },
       {
         title: "相弈象棋-新界面",
@@ -425,7 +461,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         excerpt:
           "介绍新界面的设计方向，并根据源站现有说明补全改版亮点与页面目标。",
         href: "/articles/new-interface/",
-        image: replicaAssets.article
+        image: replicaAssets.featureOne
       }
     ]
   },
@@ -474,7 +510,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
   "ZH-016": {
     title: "相弈象棋 产品更新 2024年8月 - 相弈象棋",
     description:
-      "最新产品更新：为了让您的象棋体验更加顺畅，我们对网站和手机应用做了多项改进。",
+      "您在相弈象棋的贡献。这一年，我们的社区创造了以下辉煌战绩。",
     heroTitle: "相弈象棋 产品更新 2024年8月",
     sections: [
       {
@@ -486,9 +522,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
           "分析复盘了 471,110 个局面",
           "拥有 320,294 位活跃玩家",
           "99 个国家的象棋爱好者参与其中"
-        ],
-        image: replicaAssets.featureTwo,
-        imageAlt: "相弈象棋产品更新"
+        ]
       },
       {
         title: "最新产品更新",
@@ -511,9 +545,12 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         ]
       },
       {
-        title: "点击此处，反馈您的意见",
+        title: "",
         body: [
-          "我们非常珍视您的反馈。欢迎分享您对这些更新和未来功能的看法。"
+          "我们非常珍视您的反馈！请点击此处分享您对这些更新和未来功能的看法。",
+          "感谢您一路陪伴相弈象棋的成长，期待在棋盘上与您继续相遇！",
+          "祝好，相弈象棋团队",
+          "声明：此篇为相弈象棋Xiangqi.com原创文章，转载请标明出处链接：https://www.zh.xiangqi.com/sys-nd/22.html"
         ]
       }
     ]
@@ -687,76 +724,76 @@ pageOverrides["ZH-003"] = {
         }
       ]
     },
-    {
-      title: "为什么要完成相弈象棋 App 下载",
-      body: [
-        "使用相弈象棋 App 不只是为了更方便地下棋，它也能帮助玩家持续提升棋艺、保持训练节奏，并通过实时对战与社区互动认识更多棋友。",
-        "如果您偏好通知提醒、更稳定的触控体验、快速回到未完成的对局，或者希望在手机上集中使用复盘、练习和比赛功能，App 会比网页版更合适。"
-      ],
-      list: [
-        "提升智力和思维能力：在实战中训练布局、判断和计算。",
-        "增强耐心和集中力：长局与复盘都能帮助建立稳定节奏。",
-        "促进社交互动：通过好友、聊天和比赛认识更多棋友。",
-        "传承中华传统文化：在现代设备上继续体验经典中国象棋。"
-      ],
-      links: [
-        {
-          label: "如对下载有任何问题，请发送邮件至 help@xiangqi.com",
-          href: "mailto:help@xiangqi.com"
-        }
-      ]
-    }
-  ],
-  faq: [
-    {
-      question: "相弈象棋 App 下载是否完全免费？",
-      answer:
-        "是的。安卓 APK、Google Play 和 App Store 入口都可免费下载安装，相弈象棋 App 本身不收取下载费用。"
-    },
-    {
-      question: "移动端数据会同步吗？",
-      answer:
-        "会。登录同一账号后，可同步好友、等级分、对局记录、赛事记录以及部分复盘内容。"
-    },
-    {
-      question: "没有 App 也可以玩相弈象棋吗？",
-      answer:
-        "可以。网页版支持免安装在线对弈、残局、人机练习和观战；如果更重视移动端体验，再选择安装 App。"
-    },
-    {
-      question: "为什么安卓用户有时更适合用 APK 安装？",
-      answer:
-        "对于中国大陆安卓设备，直接安装 APK 往往更稳定，也能避开部分商店访问限制。"
-    },
-    {
-      question: "Google Play 和 APK 安装有什么区别？",
-      answer:
-        "Google Play 更适合海外安卓用户，安装与更新更省心；APK 更适合需要手动安装或无法直接访问应用商店的设备。"
-    },
-    {
-      question: "App Store 版本适用于哪些设备？",
-      answer:
-        "适用于 iPhone 和 iPad。通过 App Store 安装后，可使用苹果设备常见的下载、更新和权限管理流程。"
-    },
-    {
-      question: "应用内是否支持多人游戏？",
-      answer:
-        "支持。您可以与全球其他玩家进行实时对战，也可以和好友约局、参加比赛。"
-    },
-    {
-      question: "新手可以通过 App 学习象棋吗？",
-      answer:
-        "可以。App 内提供规则学习、残局练习、人机对战和赛后分析，新手能更快熟悉基本走法与常见思路。"
-    },
-    {
-      question: "相弈象棋 App 会定期更新吗？",
-      answer:
-        "会。团队会持续更新版本，修复问题并改进功能与体验。"
-    },
-    {
-      question: "遇到下载安装问题怎么办？",
-      answer:
-        "建议先检查网络、存储空间和设备系统版本；如果仍有问题，可以发邮件到 help@xiangqi.com 联系团队。"
-    }
-  ]
+      {
+        title: "为什么要完成相弈象棋 App 下载",
+        body: [
+          "使用相弈象棋 App 不只是为了更方便地下棋，它也能帮助玩家持续提升棋艺、保持训练节奏，并通过实时对战与社区互动认识更多棋友。",
+          "如果您偏好通知提醒、更稳定的触控体验、快速回到未完成的对局，或者希望在手机上集中使用复盘、练习和比赛功能，App 会比网页版更合适。"
+        ],
+        list: [
+          "提升智力和思维能力：在实战中训练布局、判断和计算。",
+          "增强耐心和集中力：长局与复盘都能帮助建立稳定节奏。",
+          "促进社交互动：通过好友、聊天和比赛认识更多棋友。",
+          "传承中华传统文化：在现代设备上继续体验经典中国象棋。"
+        ],
+        links: [
+          {
+            label: "如对下载有任何问题，请发送邮件至 help@xiangqi.com",
+            href: "mailto:help@xiangqi.com"
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "相弈象棋 App 下载是否完全免费？",
+        answer:
+          "是的。安卓 APK、Google Play 和 App Store 入口都可免费下载安装，相弈象棋 App 本身不收取下载费用。"
+      },
+      {
+        question: "移动端数据会同步吗？",
+        answer:
+          "会。登录同一账号后，可同步好友、等级分、对局记录、赛事记录以及部分复盘内容。"
+      },
+      {
+        question: "没有 App 也可以玩相弈象棋吗？",
+        answer:
+          "可以。网页版支持免安装在线对弈、残局、人机练习和观战；如果更重视移动端体验，再选择安装 App。"
+      },
+      {
+        question: "为什么安卓用户有时更适合用 APK 安装？",
+        answer:
+          "对于中国大陆安卓设备，直接安装 APK 往往更稳定，也能避开部分商店访问限制。"
+      },
+      {
+        question: "Google Play 和 APK 安装有什么区别？",
+        answer:
+          "Google Play 更适合海外安卓用户，安装与更新更省心；APK 更适合需要手动安装或无法直接访问应用商店的设备。"
+      },
+      {
+        question: "App Store 版本适用于哪些设备？",
+        answer:
+          "适用于 iPhone 和 iPad。通过 App Store 安装后，可使用苹果设备常见的下载、更新和权限管理流程。"
+      },
+      {
+        question: "应用内是否支持多人游戏？",
+        answer:
+          "支持。您可以与全球其他玩家进行实时对战，也可以和好友约局、参加比赛。"
+      },
+      {
+        question: "新手可以通过 App 学习象棋吗？",
+        answer:
+          "可以。App 内提供规则学习、残局练习、人机对战和赛后分析，新手能更快熟悉基本走法与常见思路。"
+      },
+      {
+        question: "相弈象棋 App 会定期更新吗？",
+        answer:
+          "会。团队会持续更新版本，修复问题并改进功能与体验。"
+      },
+      {
+        question: "遇到下载安装问题怎么办？",
+        answer:
+          "建议先检查网络、存储空间和设备系统版本；如果仍有问题，可以发邮件到 help@xiangqi.com 联系团队。"
+      }
+    ]
 };

@@ -1,12 +1,212 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
+import "../styles/replica.css";
+import "../styles/privacy-source.css";
+
+const sections = [
+  {
+    title: "1. 信息收集",
+    paragraphs: [
+      "我们将收集以下用户个人信息：",
+      "系统将在用户注册账号时收集上述个人信息，以便为用户提供服务和管理账号。",
+      "用户还可直接通过应用程序发送邀请或游戏挑战来添加好友。用户填写好友的邮箱后，系统将向好友发送电子邮件，好友可通过邮件中的链接注册账号。",
+      "我们的应用程序同时具有社交功能，用户可在当前或历史对弈页面与好友或其他用户聊天，也可在大厅点击观战进行中的对局。",
+      "我们的应用程序收集用户行为数据，如注册时间。"
+    ],
+    list: ["姓名", "邮箱", "国家/地区"]
+  },
+  {
+    title: "2. 数据存储",
+    paragraphs: ["我们的数据存储在由 AWS 托管的安全服务器上。"]
+  },
+  {
+    title: "3. 用户信息收集和使用",
+    paragraphs: ["我们可能出于且仅出于以下目的收集、持有和使用用户个人信息："],
+    list: [
+      "用于技术评估，包括运营和改进应用程序、相关应用程序和相关社交媒体平台",
+      "向用户提供应用程序和平台核心功能",
+      "处理交易或正在进行的付款",
+      "与用户联系和沟通",
+      "履行我们的法律义务并解决可能存在的争议",
+      "用于分析、市场调研和业务开发，包括运营和改进应用程序、相关应用程序和相关社交媒体平台",
+      "用于广告和营销，包括向用户发送我们产品和服务的促销信息，以及我们认为用户可能感兴趣的第三方信息",
+      "内部记录保存和管理"
+    ]
+  },
+  {
+    title: "4. 向第三方披露用户个人信息",
+    paragraphs: ["我们将保证用户的数据安全。我们不会将用户个人信息披露给："],
+    list: [
+      "第三方服务供应商，以达到获取服务的目的，包括但不限于 IT 服务供应商、数据存储、托管和服务器供应商、广告矩阵、分析、错误日志、维护或解决方案供应商、营销或广告供应商、专业顾问及支付系统运营商",
+      "为使其提供服务而需要获取信息的合作方",
+      "我们的员工、承包商和/或相关实体",
+      "第三方，以达到收集和处理数据的目的"
+    ]
+  },
+  {
+    title: "5. 用户权利和个人信息管理",
+    list: [
+      "删除权：用户可随时重置日志，从而将日常数据从网站服务器中删除。",
+      "选择和同意：如用户向我们提供个人信息，则表示其同意我们根据本隐私政策收集、持有、使用和披露该信息。如未满 16 周岁，用户必须获得父母或法定监护人同意才能访问和使用我们的应用程序，并在法律允许的范围内向我们作出上述保证，并承诺父母或法定监护人已同意其向我们提供个人信息。用户可不向我们提供个人信息，但此举可能影响用户使用我们的应用程序或通过应用程序提供的产品和/或服务。",
+      "访问和数据迁移：用户可要求我们提供关于其个人信息的详细信息。用户可向我们索取关于其个人信息的副本。如可能，我们将以 CSV 格式或其他易于阅读的机器格式提供此信息。用户可随时要求我们删除其个人信息。",
+      "如用户认为我们持有的个人信息不准确、过时、不完整、不相关或具有误导性，请通过以下方式与我们联系。一经发现，我们将采取合理措施纠正不准确、不完整、具有误导性或过时的信息。",
+      "数据泄露：如适用，此应用程序中包含的材料和内容受美国版权法和商标法保护；如发生数据泄露，我们将根据上述法律进行处理。"
+    ]
+  },
+  {
+    title: "6. 政策限制",
+    paragraphs: ["我们的应用程序可能会链接至非我们运营的外部网站。请注意：我们无法控制上述网站的内容和政策，也不对其隐私政策承担责任或义务。"]
+  },
+  {
+    title: "7. 本隐私政策之变更",
+    paragraphs: ["为与时俱进，我们或将酌情更改本隐私政策。我们将采取合理措施，通过应用程序或应用推送服务告知用户相关更改。如在本政策更改后继续使用我们的应用程序，则代表用户接受我们的隐私和个人信息相关政策。"]
+  },
+  {
+    title: "8. 联系方式：",
+    paragraphs: ["Xiangqi.com", "contact@xiangqi.com"]
+  }
+];
+
+const footerColumns = [
+  {
+    title: "关于",
+    links: [
+      { label: "我们的故事", href: "/about/" },
+      { label: "我们的团队", href: "/team/" },
+      { label: "产品路线图", href: "/roadmap/" },
+      { label: "联系我们", href: "/contact/" }
+    ]
+  },
+  {
+    title: "帮助",
+    links: [
+      { label: "开启象棋之旅", href: "/help/" },
+      { label: "好友对战", href: "/play-with-a-friend/" },
+      { label: "比赛", href: "/tournament/" },
+      { label: "如何下象棋", href: "/how-to-play-xiangqi/" }
+    ]
+  },
+  {
+    title: "更多",
+    links: [
+      { label: "资源", href: "/resources/" },
+      { label: "公平对弈政策", href: "/fair-play/" },
+      { label: "文明政策", href: "/polite/" },
+      { label: "服务条款", href: "/terms/" },
+      { label: "隐私政策", href: "/privacy/" }
+    ]
+  }
+];
+
+const socialLinks = [
+  { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com" },
+  { label: "微信公众号", href: "https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A" },
+  { label: "哔哩哔哩", href: "https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click" },
+  { label: "小红书", href: "https://www.xiaohongshu.com/user/profile/624012d80000000021025494" }
+];
 ---
 
-<BaseLayout title="隐私政策 - 相弈象棋" description="相弈象棋本地页面隐私政策。" canonicalPath="/privacy/" noindex={true}>
-  <section class="section">
-    <div class="container content-panel">
-      <h1>隐私政策</h1>
-      <p>当前本地页面不加载第三方统计脚本、广告脚本或远程跟踪代码。正式上线前，应补充完整的数据收集和使用说明。</p>
-    </div>
-  </section>
-</BaseLayout>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>隐私政策 - 相弈象棋</title>
+    <meta name="keywords" content="隐私条款,用户信息,用户数据" />
+    <meta
+      name="description"
+      content="通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。"
+    />
+    <link rel="canonical" href="https://zh.xiangqi.local/privacy/" />
+    <meta property="og:title" content="隐私政策 - 相弈象棋" />
+    <meta
+      property="og:description"
+      content="通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/source-privacy/zh-logo.png" />
+    <link rel="icon" href="/source-privacy/mobile-logo.png" />
+  </head>
+  <body class="privacy-source-page privacy-source-page--zh">
+    <ReplicaHeader locale="zh-CN" />
+
+    <main class="privacy-main privacy-main--zh">
+      <article class="privacy-article privacy-shell">
+        <header class="privacy-article__header privacy-article__header--zh">
+          <p class="privacy-effective privacy-effective--zh">生效日期：2021年2月9日</p>
+          <p>
+            我们致力于为学棋和下棋之人打造专属天地。对局分为计时和不计时，玩家亦可通过不计分赛和研究对局提高棋艺，利用计分赛提高排名，系统将自动为玩家匹配技能水平相当的对手。
+          </p>
+          <p>
+            用户隐私对我们至关重要。我们可能通过应用程序、网站及其相关服务收集用户信息，但将保护其中涉及的用户隐私。
+          </p>
+        </header>
+
+        <div class="privacy-sections">
+          {sections.map((section) => (
+            <section class="privacy-section">
+              <h2>{section.title}</h2>
+              {section.paragraphs && section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              {section.list && (
+                <ul>
+                  {section.list.map((item) => <li>{item}</li>)}
+                </ul>
+              )}
+            </section>
+          ))}
+        </div>
+
+        <div class="privacy-cta privacy-cta--zh">
+          <a href="/play/" class="privacy-playfree privacy-playfree--zh">免费畅玩</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="privacy-footer privacy-footer--zh">
+      <div class="privacy-shell privacy-footer__brand">
+        <h2>Xiangqi.com 相弈象棋</h2>
+      </div>
+
+      <div class="privacy-shell privacy-footer__grid privacy-footer__grid--zh">
+        {footerColumns.map((column) => (
+          <section class="privacy-footer__column">
+            <h3>{column.title}</h3>
+            <nav aria-label={column.title}>
+              {column.links.map((link) => <a href={link.href}>{link.label}</a>)}
+            </nav>
+          </section>
+        ))}
+      </div>
+
+      <div class="privacy-shell privacy-footer__badges privacy-footer__badges--zh">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.xiangqimobile&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="/source-privacy/play-store-button.png" alt="Get it on Google Play" />
+        </a>
+        <a
+          href="https://apps.apple.com/us/app/xiangqi-com-chinese-chess/id1557911460?amp%3Bitsct=apps_box_appicon&itscg=30200"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="/source-privacy/app-store-button.png" alt="Download on the App Store" />
+        </a>
+      </div>
+
+      <div class="privacy-shell privacy-footer__meta privacy-footer__meta--zh">
+        <p>©2024 - 相弈象棋 版权所有</p>
+        <div class="privacy-socials privacy-socials--zh" aria-label="关注我们">
+          <span>关注我们：</span>
+          {socialLinks.map((item) => (
+            <a href={item.href} target="_blank" rel="noreferrer">{item.label}</a>
+          ))}
+        </div>
+        <a href="https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5" target="_blank" rel="noreferrer">
+          来WhatsApp和我们聊天
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

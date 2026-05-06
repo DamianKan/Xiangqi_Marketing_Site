@@ -1,12 +1,277 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import ReplicaLayout from "../layouts/ReplicaLayout.astro";
 ---
 
-<BaseLayout title="服务条款 - 相弈象棋" description="相弈象棋本地页面服务条款。" canonicalPath="/terms/" noindex={true}>
-  <section class="section">
-    <div class="container content-panel">
+<ReplicaLayout
+  title="服务条款 - 相弈象棋"
+  description="相弈象棋当前服务条款页面，按源站服务条款页面内容与版式进行本地复刻。"
+  route="/terms/"
+  locale="zh-CN"
+>
+  <section class="terms-page">
+    <div class="terms-page__inner">
       <h1>服务条款</h1>
-      <p>当前页面用于本地重构预览。正式上线前，应由项目方补充完整的服务范围、用户责任和免责声明。</p>
+
+      <section class="terms-page__section">
+        <h2>1. 条款</h2>
+        <p>
+          用户访问此网站即表示其同意受本服务条款、所有适用法律法规之约束，并同意承担遵守当地适用法律的责任。如用户不同意本条款任意一项，则不得使用或访问此网站。本网站所含内容受版权法和商标法保护。
+        </p>
+      </section>
+
+      <section class="terms-page__section">
+        <h2>2. 用户许可</h2>
+        <p>
+          用户仅可在本网站持有一个账号，且应仅用于非商业目的。此为许可授予，而非所有权转让，根据本许可，用户不得：
+        </p>
+        <ul>
+          <li>修改或复制本网站内容；</li>
+          <li>将上述内容用于商业目的或商业及非商业公开展示；</li>
+          <li>试图对本网站包含的软件进行反编译或逆向工程；</li>
+          <li>删除上述内容的版权或其他专利符号；</li>
+          <li>将上述内容传输给他人或通过“镜像”技术传输至其他服务器。</li>
+        </ul>
+        <p>
+          如用户违反上述规定，本许可将自动终止，且本网站保留随时终止本许可的权利。用户被终止查看上述内容或本许可终止后，用户必须销毁其下载的所有电子版及纸质版内容。
+        </p>
+      </section>
+
+      <section class="terms-page__section">
+        <h2>3. 用户注册</h2>
+        <p>用户须在本网站注册账号。用户将提供个人邮箱地址，用于登录网站。</p>
+      </section>
+
+      <section class="terms-page__section">
+        <h2>4. 免责声明</h2>
+        <p>
+          本网站资料均按“原样”提供。本网站不作出任何明示或默示保证，并在此拒绝和否认所有其他保证，包括但不限于对适销性、特定用途适用性、不侵犯知识产权或其他侵权的默示保证或条件。
+        </p>
+        <p>
+          本网站亦不就用户使用其所含内容或相关内容或其外链网站所含内容的准确性、可能结果或可靠性作出任何保证和陈述。
+        </p>
+      </section>
+
+      <section class="terms-page__section">
+        <h2>5. 责任限制</h2>
+        <p>
+          在任何情况下，本网站或其供应商均不为因使用或无法使用本网站而引起的任何损失（包括但不限于数据或利润损失或因业务中断造成的损失）承担责任。由于部分司法管辖区不允许限制默示保证或限制间接或附带损害的责任，上述限制可能不适用隶属该司法管辖区的用户。
+        </p>
+      </section>
+
+      <section class="terms-page__section">
+        <h2>6. 内容准确性</h2>
+        <p>
+          本网站所含内容可能出现技术、印刷或摄制等错误。本网站不保证所含内容之准确性、完整性或时效性。本网站可随时对所含内容进行更改，恕不另行通知。但本网站不就内容更新作出承诺。
+        </p>
+      </section>
+
+      <section class="terms-page__section">
+        <h2>7. 链接</h2>
+        <p>
+          本网站未审查与其链接的所有网站，亦不对此类外链网站内容负责。本网站包含此类链接并不代表对所链接网站的认可。用户须自行承担使用此类外链网站的风险。
+        </p>
+      </section>
+
+      <section class="terms-page__section">
+        <h2>8. 修订</h2>
+        <p>
+          本网站可随时修订应用程序服务条款，恕不另行通知。如用户使用本网站，即表示其同意受本服务条款当时版本的约束。
+        </p>
+      </section>
+
+      <div class="terms-page__cta">
+        <a href="/" class="terms-page__cta-button">免费畅玩</a>
+      </div>
     </div>
   </section>
-</BaseLayout>
+</ReplicaLayout>
+
+<style>
+  :global(body[data-route="/terms/"]) {
+    background: #ede7de;
+  }
+
+  :global(body[data-route="/terms/"] .replica-header) {
+    background: #c7352c;
+    box-shadow: none;
+  }
+
+  :global(body[data-route="/terms/"] .replica-header__inner) {
+    width: min(1440px, calc(100vw - 60px));
+    min-height: 78px;
+  }
+
+  :global(body[data-route="/terms/"] .replica-brand__seal) {
+    background: rgba(123, 24, 18, 0.9);
+    color: #fff;
+    box-shadow: none;
+  }
+
+  :global(body[data-route="/terms/"] .replica-brand__wordmark strong),
+  :global(body[data-route="/terms/"] .replica-brand__wordmark em),
+  :global(body[data-route="/terms/"] .replica-nav a),
+  :global(body[data-route="/terms/"] .replica-nav__button),
+  :global(body[data-route="/terms/"] .replica-menu-toggle__label) {
+    color: #fff;
+  }
+
+  :global(body[data-route="/terms/"] .replica-nav a:hover),
+  :global(body[data-route="/terms/"] .replica-nav__button:hover) {
+    color: #fff;
+    opacity: 0.9;
+  }
+
+  :global(body[data-route="/terms/"] .replica-dropdown) {
+    border-color: rgba(166, 44, 36, 0.15);
+  }
+
+  .terms-page {
+    background: #ede7de;
+    padding: 34px 0 0;
+  }
+
+  .terms-page__inner {
+    width: min(1180px, calc(100vw - 56px));
+    margin: 0 auto;
+    padding: 8px 0 72px;
+  }
+
+  .terms-page h1 {
+    margin: 0 0 44px;
+    color: #5b463f;
+    font-size: clamp(42px, 4vw, 70px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .terms-page__section + .terms-page__section {
+    margin-top: 42px;
+  }
+
+  .terms-page h2 {
+    margin: 0 0 22px;
+    color: #5b463f;
+    font-size: clamp(24px, 2vw, 38px);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .terms-page p,
+  .terms-page li {
+    margin: 0;
+    color: #78645c;
+    font-size: clamp(17px, 1.28vw, 24px);
+    line-height: 1.95;
+    font-weight: 400;
+  }
+
+  .terms-page p + p {
+    margin-top: 10px;
+  }
+
+  .terms-page ul {
+    margin: 6px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .terms-page li::before {
+    content: "·";
+    margin-right: 0.25em;
+  }
+
+  .terms-page__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 58px;
+  }
+
+  .terms-page__cta-button {
+    min-width: 184px;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #ff5441, #f83d32);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(166, 45, 34, 0.22);
+  }
+
+  .terms-page__cta-button:hover {
+    filter: brightness(1.03);
+  }
+
+  @media (max-width: 900px) {
+    :global(body[data-route="/terms/"] .replica-header__inner) {
+      width: min(100vw - 32px, 1040px);
+    }
+
+    .terms-page {
+      padding-top: 24px;
+    }
+
+    .terms-page__inner {
+      width: min(100vw - 40px, 900px);
+      padding-bottom: 56px;
+    }
+
+    .terms-page h1 {
+      margin-bottom: 34px;
+    }
+
+    .terms-page__section + .terms-page__section {
+      margin-top: 34px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    :global(body[data-route="/terms/"] .replica-header__inner) {
+      width: min(100vw - 20px, 520px);
+    }
+
+    .terms-page {
+      padding-top: 18px;
+    }
+
+    .terms-page__inner {
+      width: min(100vw - 28px, 520px);
+      padding-bottom: 46px;
+    }
+
+    .terms-page h1 {
+      margin-bottom: 26px;
+      font-size: 32px;
+    }
+
+    .terms-page h2 {
+      margin-bottom: 14px;
+      font-size: 22px;
+    }
+
+    .terms-page p,
+    .terms-page li {
+      font-size: 15px;
+      line-height: 1.88;
+    }
+
+    .terms-page__section + .terms-page__section {
+      margin-top: 26px;
+    }
+
+    .terms-page__cta {
+      margin-top: 36px;
+    }
+
+    .terms-page__cta-button {
+      min-width: 116px;
+      min-height: 38px;
+      font-size: 12px;
+    }
+  }
+</style>

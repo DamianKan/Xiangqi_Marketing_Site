@@ -76,25 +76,43 @@ export const footerReplicaPages: ReplicaPage[] = [
     sourceUrl: "https://www.zh.xiangqi.com/roadmap/",
     route: "/roadmap/",
     title: "产品路线图 - 相弈象棋",
-    description: "查看相弈象棋在玩法、内容、赛事和多端体验上的后续规划。",
+    description: "以下是我们团队计划在 2024 年构建的一些高级功能，我们也会持续修复用户反馈的问题。",
     heroTitle: "产品路线图",
     sections: [
       {
-        title: "近期重点",
+        title: "",
         body: [
-          "近期规划聚焦帮助中心补全、本地副本页一致性、文章页体验优化以及下载页信息梳理。",
-          "同时会继续完善教程、赛事说明、评级系统介绍与本地资源镜像能力。"
+          "以下是我们团队计划在2024年构建的一些高级功能。我们每周仍将持续处理用户报告的错误，努力让网站和App变得完美！:)"
         ]
       },
       {
-        title: "长期方向",
+        title: "",
+        body: [],
+        list: [
+          "用户界面翻新：崭新时尚的外观，提升浏览和游玩体验。",
+          "新的手机 App：支持离线人机对战和玩家对局。",
+          "私聊功能。",
+          "多频道公共聊天室。",
+          "自定义对局功能升级：创建公开挑战时可限制对手等级分；创建公开挑战后可直接挑战在线空闲玩家。",
+          "课程功能升级：引入开局课程，提高开局知识。",
+          "初学者助手：为等级分低于一定水平的玩家高亮显示一步内的潜在威胁和战术机会。",
+          "玩家统计数据：全面分析对局表现，包括随时间变化的表现、先后手对局统计、不同用时下的表现、所用开局体系分析、开局/中局/残局表现分析、战术机会把握率，以及优劣势棋胜率。"
+        ]
+      },
+      {
+        title: "",
         body: [
-          "长期会围绕多语言体验、移动端适配、内容可维护性和站内导航闭环继续打磨。",
-          "所有新增入口会优先落在本地路由中，避免用户在浏览过程中被带回外部源站。"
+          "另请参阅我们的版本发布公告。",
+          "更多绝密功能正在酝酿中——我们想用这些功能给您带来惊喜！",
+          "如果您有其他想要的功能，请发送邮件到 help@xiangqi.com 告诉我们！"
+        ],
+        links: [
+          { label: "版本发布公告", href: "/articles/product-update-2024-08/" },
+          { label: "help@xiangqi.com", href: "mailto:help@xiangqi.com" }
         ]
       }
     ],
-    faq: zhFooterFaq
+    faq: []
   }),
   buildUtilityPage({
     id: "ZH-020",
@@ -156,52 +174,220 @@ export const footerReplicaPages: ReplicaPage[] = [
     sourceUrl: "https://www.zh.xiangqi.com/shop/",
     route: "/shop/",
     title: "商品周边 - 相弈象棋",
-    description: "介绍相弈象棋周边与站内资源展示页在本地重构站中的承接方式。",
+    description: "复刻源站当前商品周边页，展示便携式中国象棋套装与 Jim Png 象棋书籍相关内容。",
     heroTitle: "商品周边",
     sections: [
       {
-        title: "页面用途",
+        title: "便携式中国象棋套装",
         body: [
-          "原站页脚中的商品入口主要承担品牌与内容延伸展示作用，本地副本页保留了这一信息结构。",
-          "当前页面以说明与导览为主，后续若补充更多周边内容，也会优先挂接到本站内路由。"
+          "源站当前商品页的主体是一套便携式中国象棋套装，配有双面棋子、棋盘、收纳袋和英文说明册。",
+          "页面同时提供 eBay 与 Amazon 购买入口，并在下半部分展示 Jim Png 的象棋书籍。"
         ]
       },
       {
-        title: "浏览建议",
+        title: "Jim Png 的象棋书籍",
         body: [
-          "如果你是第一次访问本站，建议先查看下载、规则、帮助中心与文章页，再回到周边内容页继续浏览。",
-          "这样能保证整个探索路径都留在本地站点内部，交互体验更加连续。"
+          "源站在本页集中展示了 Jim Png 已出版的象棋书籍，并通过 Amazon 作者页承接更多图书内容。",
+          "本地复刻页仅使用当前源页的图片与信息结构进行还原。"
         ]
       }
     ],
-    faq: zhFooterFaq
+    faq: []
   }),
   buildUtilityPage({
     id: "ZH-023",
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/resources/",
     route: "/resources/",
-    title: "资源中心 - 相弈象棋",
-    description: "汇总相弈象棋教程、帮助、文章与下载说明等本地可访问资源入口。",
-    heroTitle: "资源中心",
+    title: "相关资料及友情链接 - 相弈象棋",
+    description: "按源站当前资源页重构的本地副本，集中整理站内资料与外部友情链接。",
+    heroTitle: "相关资料及友情链接",
     sections: [
       {
-        title: "可用资源",
+        title: "站内资源",
         body: [
-          "资源中心适合集中承接规则页、教程页、文章列表、常见问题与下载说明等知识型内容。",
-          "在本地重构站中，这些资源已经分别映射为可直接访问的本地页面。"
+          "查看帮助和文章，继续阅读相弈象棋站内的教程、规则、资源与团队信息。"
+        ],
+        items: [
+          {
+            title: "帮助与文章",
+            description: "查看帮助和文章。",
+            links: [
+              { label: "帮助", href: "/help/" },
+              { label: "文章", href: "/articles/" }
+            ]
+          },
+          {
+            title: "国际象棋与中国象棋",
+            description: "国际象棋与中国象棋（YouTube）。",
+            links: [
+              {
+                label: "国际象棋与中国象棋",
+                href: "https://www.youtube.com/watch?v=vklqOLf6mtU",
+                external: true
+              },
+              { label: "YouTube", href: "/youtube/" }
+            ]
+          },
+          {
+            title: "象棋题库",
+            description: "可在象棋题库查看他人创建的挑战，也可自行创建挑战。",
+            links: [
+              {
+                label: "象棋题库",
+                href: "https://play.xiangqi.com/puzzles",
+                external: true
+              }
+            ]
+          },
+          {
+            title: "棋盘编辑器",
+            description: "可在棋盘编辑器创建自定义棋盘，用于文章或其他帖子。",
+            links: [
+              {
+                label: "棋盘编辑器",
+                href: "https://play.xiangqi.com/editor",
+                external: true
+              }
+            ]
+          },
+          {
+            title: "象棋图标",
+            description: "象棋图标包含了网站使用的相关图标。",
+            links: [{ label: "象棋图标", href: "/graphics/" }]
+          },
+          {
+            title: "视频制作",
+            description: "可在视频制作页面学习制作象棋视频，请参照视频范例。",
+            links: [
+              { label: "视频制作", href: "/video/" },
+              {
+                label: "视频范例",
+                href: "https://www.youtube.com/watch?v=jQL_ClxS_RE",
+                external: true
+              }
+            ]
+          },
+          {
+            title: "中文短语",
+            description: "可在中文短语版块学习对弈中常用的实用短语。",
+            links: [{ label: "中文短语", href: "/chinese/" }]
+          },
+          {
+            title: "排行榜",
+            description: "可查看全网顶级棋手排行榜，包括中国、新加坡、马来西亚、越南、美国等。",
+            links: [
+              { label: "排行榜", href: "https://play.xiangqi.com/leaders", external: true },
+              { label: "中国", href: "https://play.xiangqi.com/leaders/cn", external: true },
+              { label: "新加坡", href: "https://play.xiangqi.com/leaders/sg", external: true },
+              { label: "马来西亚", href: "https://play.xiangqi.com/leaders/my", external: true },
+              { label: "越南", href: "https://play.xiangqi.com/leaders/vn", external: true },
+              { label: "美国", href: "https://play.xiangqi.com/leaders/us", external: true }
+            ]
+          },
+          {
+            title: "产品路线图",
+            description: "查看产品路线图。",
+            links: [{ label: "产品路线图", href: "/roadmap/" }]
+          },
+          {
+            title: "团队与联系",
+            description: "认识我们的团队并获取我们的联系方式。",
+            links: [
+              { label: "我们的团队", href: "/team/" },
+              { label: "联系方式", href: "/contact/" }
+            ]
+          }
         ]
       },
       {
-        title: "继续阅读",
-        body: [
-          "如果你想系统学习，可先从“如何下象棋”与“象棋规则”开始，再阅读文章页中的操作说明与产品更新。",
-          "如果你更关注实战体验，则可以前往帮助中心查看好友对战、比赛和评级系统等说明。"
+        title: "外部链接",
+        body: [],
+        items: [
+          {
+            title: "中国象棋入门",
+            description: "中国象棋入门（Rick Knowlton）。",
+            links: [
+              {
+                label: "中国象棋入门",
+                href: "https://www.youtube.com/watch?v=kSL7JErRMx8",
+                external: true
+              },
+              {
+                label: "Rick Knowlton",
+                href: "https://play.xiangqi.com/@/rick-knowlton",
+                external: true
+              }
+            ]
+          },
+          {
+            title: "XQinEnglish.com",
+            description: "XQinEnglish.com（Jim Hau Cheng Png）。",
+            links: [
+              { label: "XQinEnglish.com", href: "http://www.xqinenglish.com/", external: true },
+              {
+                label: "Jim Hau Cheng Png",
+                href: "https://play.xiangqi.com/@/jim-png",
+                external: true
+              }
+            ]
+          },
+          {
+            title: "象棋数据库",
+            description: "象棋数据库。",
+            links: [{ label: "象棋数据库", href: "http://www.01xq.com/", external: true }]
+          },
+          {
+            title: "Reddit",
+            description: "Reddit。",
+            links: [{ label: "Reddit", href: "http://reddit.com/r/xiangqi", external: true }]
+          },
+          {
+            title: "中体象棋网",
+            description: "中体象棋网。",
+            links: [{ label: "中体象棋网", href: "http://www.gdchess.com/", external: true }]
+          },
+          {
+            title: "天下棋苑",
+            description: "天下棋苑。",
+            links: [{ label: "天下棋苑", href: "http://www.01xq.com/", external: true }]
+          },
+          {
+            title: "东萍象棋",
+            description: "东萍象棋。",
+            links: [{ label: "东萍象棋", href: "http://dpxq.com/", external: true }]
+          },
+          {
+            title: "泓弈棋牌网",
+            description: "泓弈棋牌网。",
+            links: [{ label: "泓弈棋牌网", href: "http://www.tychess.com/forum.php", external: true }]
+          },
+          {
+            title: "象棋套装",
+            description: "象棋套装（亚马逊）。",
+            links: [
+              {
+                label: "亚马逊",
+                href: "https://www.amazon.com/Xiangqi-Portable-Chinese-15-inch-Carrying/dp/B09L1K3SK3?language=zh_CN&currency=CNY",
+                external: true
+              }
+            ]
+          },
+          {
+            title: "象棋书籍",
+            description: "象棋书籍（亚马逊）。",
+            links: [
+              {
+                label: "亚马逊",
+                href: "https://www.amazon.com/Jim-Hau-Cheng-Png/e/B07SHGMFZF?qid=1593188344&ref=sr_ntt_srch_lnk_1&sr=8-1",
+                external: true
+              }
+            ]
+          }
         ]
       }
     ],
-    ctas: [{ label: "查看教学文章", href: "/articles/", variant: "primary" }],
-    faq: zhFooterFaq
+    faq: []
   }),
   buildUtilityPage({
     id: "ZH-024",
@@ -313,25 +499,43 @@ export const footerReplicaPages: ReplicaPage[] = [
     sourceUrl: "https://www.zh.xiangqi.com/tcn/roadmap/",
     route: "/tcn/roadmap/",
     title: "產品路線圖 - Xiangqi.com",
-    description: "整理繁中本地站在內容補齊與互動一致性上的規劃方向。",
+    description: "以下是我們團隊計劃在 2024 年打造的一些高級功能，同時也會持續修復使用者回報的問題。",
     heroTitle: "產品路線圖",
     sections: [
       {
-        title: "近期規劃",
+        title: "",
         body: [
-          "近期會持續補齊繁中幫助頁、說明頁與政策頁，讓頁腳導覽能完整留在本地站內。",
-          "同時會逐步改善文章呈現、下載說明與多裝置瀏覽體驗。"
+          "以下是我們團隊計劃在2024年構建的一些高級功能。我們每周仍將持續處理用戶報告的錯誤，努力讓網站和App變得完美！:)"
         ]
       },
       {
-        title: "後續方向",
+        title: "",
+        body: [],
+        list: [
+          "使用者介面翻新：以全新而時尚的外觀提升瀏覽與遊玩體驗。",
+          "新的手機 App：支援離線人機對戰與玩家對局。",
+          "私聊功能。",
+          "多頻道公共聊天室。",
+          "自訂對局功能升級：建立公開挑戰時可限制對手等級分；建立公開挑戰後可直接挑戰線上空閒玩家。",
+          "課程功能升級：引入開局課程，提升開局知識。",
+          "初學者助手：為等級分低於一定水平的玩家高亮顯示一步內的潛在威脅與戰術機會。",
+          "玩家統計數據：全面分析對局表現，包括隨時間變化的表現、先後手對局統計、不同用時下的表現、所用開局體系分析、開局/中局/殘局表現分析、戰術機會把握率，以及優劣勢棋勝率。"
+        ]
+      },
+      {
+        title: "",
         body: [
-          "後續將強化多語系一致性、本地內容可維護性與站內資訊架構的完整程度。",
-          "所有新增頁腳入口都會優先規劃本地對應頁，而不是回退到源站。"
+          "另請參閱我們的版本發布公告。",
+          "更多絕密功能正在醞釀中——我們想用這些功能給您帶來驚喜！",
+          "如果您有其他想要的功能，請發送郵件到 help@xiangqi.com 告訴我們！"
+        ],
+        links: [
+          { label: "版本發布公告", href: "/articles/product-update-2024-08/" },
+          { label: "help@xiangqi.com", href: "mailto:help@xiangqi.com" }
         ]
       }
     ],
-    faq: tcnFooterFaq
+    faq: []
   }),
   buildUtilityPage({
     id: "TCN-011",
@@ -420,25 +624,25 @@ export const footerReplicaPages: ReplicaPage[] = [
     sourceUrl: "https://www.zh.xiangqi.com/tcn/shop/",
     route: "/tcn/shop/",
     title: "商品周邊 - Xiangqi.com",
-    description: "承接繁中頁腳中的周邊與延伸資訊入口。",
+    description: "復刻源站目前的商品周邊頁，展示便攜式中國象棋套裝與 Jim Png 象棋書籍內容。",
     heroTitle: "商品周邊",
     sections: [
       {
-        title: "頁面角色",
+        title: "便攜式中國象棋套裝",
         body: [
-          "原站中的商品頁主要用於延伸品牌與內容瀏覽，本地副本頁保留這個資訊節點。",
-          "目前以導覽與說明為主，確保頁腳中的相關連結仍能在本地站內打開。"
+          "源站目前商品頁的主體是一套便攜式中國象棋套裝，包含雙面棋子、棋盤、收納袋與英文說明冊。",
+          "頁面同時提供 eBay 與 Amazon 購買入口，並在下半部展示 Jim Png 的象棋書籍。"
         ]
       },
       {
-        title: "站內瀏覽",
+        title: "Jim Png 的象棋書籍",
         body: [
-          "建議先從下載、規則、幫助與文章頁熟悉平台內容，再回到周邊頁繼續延伸閱讀。",
-          "這樣能讓整條瀏覽路徑保持在本地站內，不會中途跳回源站。"
+          "源站在本頁集中展示 Jim Png 已出版的象棋書籍，並透過 Amazon 作者頁承接更多圖書資訊。",
+          "本地復刻頁僅使用目前源頁的圖片與資訊結構進行還原。"
         ]
       }
     ],
-    faq: tcnFooterFaq
+    faq: []
   }),
   buildUtilityPage({
     id: "TCN-015",

@@ -3322,14 +3322,83 @@ button {
   height: 100%;
 }
 
+.replica-articles .replica-container--narrow .replica-card--article-list {
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  padding: 20px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 251, 245, 0.98), rgba(250, 244, 236, 0.92));
+  box-shadow: 0 12px 30px rgba(103, 72, 56, 0.08);
+}
+
+.replica-articles .replica-container--narrow .replica-card--article-list:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(103, 72, 56, 0.12);
+}
+
+.replica-articles .replica-container--narrow .replica-card--article-list .replica-card__media {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(243, 233, 220, 0.72);
+}
+
+.replica-articles .replica-container--narrow .replica-card--article-list .replica-card__media img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.replica-articles .replica-container--narrow .replica-card__content--article-list {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 4px 2px 2px 0;
+}
+
+.replica-articles .replica-container--narrow .replica-card--article-list .replica-date,
+.replica-articles .replica-container--narrow .replica-card--article-list h3,
+.replica-articles .replica-container--narrow .replica-card--article-list p,
+.replica-articles .replica-container--narrow .replica-card--article-list .replica-card__more {
+  margin: 0;
+}
+
 .replica-articles .replica-container--narrow .replica-card h3 {
   margin-top: 2px;
   font-size: 23px;
 }
 
+.replica-articles .replica-container--narrow .replica-card--article-list h3 {
+  margin-top: 0;
+  font-size: clamp(1.9rem, 2vw, 2.35rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
 .replica-articles .replica-container--narrow .replica-card p {
   font-size: 16px;
   line-height: 1.8;
+}
+
+.replica-articles .replica-container--narrow .replica-card--article-list p {
+  color: rgba(61, 45, 39, 0.9);
+  line-height: 1.9;
+}
+
+.replica-articles .replica-container--narrow .replica-card--article-list .replica-date {
+  color: rgba(147, 104, 84, 0.9);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.replica-articles .replica-container--narrow .replica-card--article-list .replica-card__more {
+  margin-top: auto;
+  padding-top: 6px;
 }
 
 @media (max-width: 900px) {
@@ -3371,6 +3440,15 @@ button {
 
   .replica-articles .replica-container--narrow .replica-card {
     grid-template-columns: 1fr;
+  }
+
+  .replica-articles .replica-container--narrow .replica-card--article-list {
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .replica-articles .replica-container--narrow .replica-card__content--article-list {
+    padding: 0;
   }
 }
 
@@ -3709,6 +3787,221 @@ button {
   }
 }
 
+.replica-roadmap-page {
+  padding: 0 0 88px;
+  background: #f4efe7;
+}
+
+.replica-announcement-page {
+  padding: 28px 0 88px;
+  background: #ede8e0;
+}
+
+.replica-announcement-page__inner {
+  width: min(980px, calc(100vw - 56px));
+  margin: 0 auto;
+}
+
+.replica-announcement-page__hero {
+  padding: 24px 0 16px;
+}
+
+.replica-announcement-page__hero h1 {
+  margin: 0;
+  color: #664f4c;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(34px, 4.2vw, 48px);
+  line-height: 1.16;
+  font-weight: 700;
+}
+
+.replica-announcement-page__section {
+  padding-top: 16px;
+}
+
+.replica-announcement-page__section h2 {
+  margin: 0 0 16px;
+  color: #000;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  font-size: 21px;
+  line-height: 1.38;
+  font-weight: 700;
+}
+
+.replica-announcement-page__section p,
+.replica-announcement-page__list li,
+.replica-announcement-page__pager a {
+  margin: 0;
+  color: #000;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.replica-announcement-page__section p {
+  margin-bottom: 14px;
+}
+
+.replica-announcement-page__list {
+  margin: 0;
+  padding-left: 48px;
+}
+
+.replica-announcement-page__list li {
+  margin-bottom: 6px;
+}
+
+.replica-announcement-page__list strong {
+  color: #d81b43;
+  font-weight: 700;
+}
+
+.replica-announcement-page__pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(102, 79, 76, 0.16);
+}
+
+.replica-announcement-page__pager a:hover {
+  text-decoration: underline;
+}
+
+.replica-release-page {
+  padding: 26px 0 88px;
+  background: #ede8e0;
+}
+
+.replica-release-page__inner {
+  width: min(980px, calc(100vw - 56px));
+  margin: 0 auto;
+}
+
+.replica-release-page__hero {
+  padding: 18px 0 8px;
+}
+
+.replica-release-page__hero p,
+.replica-release-page__entry p,
+.replica-release-page__list li {
+  margin: 0;
+  color: #000;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.replica-release-page__hero p + p {
+  margin-top: 10px;
+}
+
+.replica-release-page__entry {
+  padding-top: 18px;
+}
+
+.replica-release-page__entry h2 {
+  margin: 0 0 14px;
+  color: #000;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  font-size: 21px;
+  line-height: 1.38;
+  font-weight: 700;
+}
+
+.replica-release-page__list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.replica-release-page__list li + li {
+  margin-top: 6px;
+}
+
+.replica-roadmap-page__inner {
+  width: min(980px, calc(100vw - 56px));
+  margin: 0 auto;
+  color: #674f43;
+}
+
+.replica-roadmap-page__hero {
+  padding: 54px 0 30px;
+}
+
+.replica-roadmap-page__eyebrow {
+  margin: 0 0 14px;
+  color: #8b706c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.replica-roadmap-page__hero h1,
+.replica-roadmap-page__section h2 {
+  margin: 0;
+  color: #674f43;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.replica-roadmap-page__hero h1 {
+  font-size: clamp(44px, 5vw, 62px);
+}
+
+.replica-roadmap-page__hero p,
+.replica-roadmap-page__section p,
+.replica-roadmap-page__list li {
+  margin: 0;
+  font-size: 20px;
+  line-height: 2;
+}
+
+.replica-roadmap-page__hero h1 + p {
+  margin-top: 28px;
+}
+
+.replica-roadmap-page__section {
+  padding-top: 44px;
+}
+
+.replica-roadmap-page__section--bordered {
+  border-top: 1px solid #231815;
+}
+
+.replica-roadmap-page__section h2 {
+  font-size: 40px;
+}
+
+.replica-roadmap-page__list {
+  margin: 18px 0 0;
+  padding-left: 30px;
+}
+
+.replica-roadmap-page__meta-link {
+  margin: -8px 0 18px;
+}
+
+.replica-roadmap-page__meta-link a {
+  color: #c93e2d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  font-weight: 700;
+}
+
+.replica-roadmap-page__links {
+  margin-top: 12px !important;
+}
+
+.replica-roadmap-page a {
+  color: #c93e2d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
 .replica-computer-page {
   padding: 0 0 88px;
   background: #f4efe7;
@@ -3882,6 +4175,57 @@ button {
 }
 
 @media (max-width: 960px) {
+  .replica-announcement-page {
+    padding-bottom: 64px;
+  }
+
+  .replica-announcement-page__inner {
+    width: min(100vw - 36px, 920px);
+  }
+
+  .replica-announcement-page__hero h1 {
+    font-size: 38px;
+  }
+
+  .replica-announcement-page__list {
+    padding-left: 34px;
+  }
+
+  .replica-release-page {
+    padding-bottom: 64px;
+  }
+
+  .replica-release-page__inner {
+    width: min(100vw - 36px, 920px);
+  }
+
+  .replica-roadmap-page {
+    padding-bottom: 64px;
+  }
+
+  .replica-roadmap-page__inner {
+    width: min(100vw - 36px, 920px);
+  }
+
+  .replica-roadmap-page__hero {
+    padding-top: 34px;
+  }
+
+  .replica-roadmap-page__hero p,
+  .replica-roadmap-page__section p,
+  .replica-roadmap-page__list li {
+    font-size: 17px;
+    line-height: 1.88;
+  }
+
+  .replica-roadmap-page__section {
+    padding-top: 38px;
+  }
+
+  .replica-roadmap-page__section h2 {
+    font-size: 34px;
+  }
+
   .replica-computer-page {
     padding-bottom: 64px;
   }
@@ -3921,6 +4265,111 @@ button {
 }
 
 @media (max-width: 640px) {
+  .replica-announcement-page {
+    padding: 20px 0 52px;
+  }
+
+  .replica-announcement-page__inner {
+    width: calc(100vw - 28px);
+  }
+
+  .replica-announcement-page__hero {
+    padding: 12px 0 8px;
+  }
+
+  .replica-announcement-page__hero h1 {
+    font-size: 30px;
+  }
+
+  .replica-announcement-page__section {
+    padding-top: 14px;
+  }
+
+  .replica-announcement-page__section h2 {
+    font-size: 19px;
+  }
+
+  .replica-announcement-page__section p,
+  .replica-announcement-page__list li,
+  .replica-announcement-page__pager a {
+    font-size: 14px;
+    line-height: 1.82;
+  }
+
+  .replica-announcement-page__list {
+    padding-left: 24px;
+  }
+
+  .replica-announcement-page__pager {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 18px;
+  }
+
+  .replica-release-page {
+    padding: 18px 0 52px;
+  }
+
+  .replica-release-page__inner {
+    width: calc(100vw - 28px);
+  }
+
+  .replica-release-page__hero p,
+  .replica-release-page__entry p,
+  .replica-release-page__list li {
+    font-size: 14px;
+    line-height: 1.82;
+  }
+
+  .replica-release-page__entry {
+    padding-top: 14px;
+  }
+
+  .replica-release-page__entry h2 {
+    font-size: 19px;
+  }
+
+  .replica-roadmap-page {
+    padding-bottom: 44px;
+  }
+
+  .replica-roadmap-page__inner {
+    width: calc(100vw - 28px);
+  }
+
+  .replica-roadmap-page__hero {
+    padding: 18px 0 24px;
+  }
+
+  .replica-roadmap-page__hero h1 {
+    font-size: 30px;
+  }
+
+  .replica-roadmap-page__hero h1 + p {
+    margin-top: 16px;
+  }
+
+  .replica-roadmap-page__hero p,
+  .replica-roadmap-page__section p,
+  .replica-roadmap-page__list li {
+    font-size: 15px;
+    line-height: 1.82;
+  }
+
+  .replica-roadmap-page__section {
+    padding-top: 26px;
+  }
+
+  .replica-roadmap-page__section h2 {
+    font-size: 26px;
+  }
+
+  .replica-roadmap-page__list {
+    margin-top: 12px;
+    padding-left: 24px;
+  }
+
   .replica-computer-page {
     padding-bottom: 44px;
   }
@@ -3994,6 +4443,592 @@ button {
 
   .replica-computer-page__next-links {
     margin-top: 10px;
+  }
+}
+
+.replica-contact-page {
+  padding: 28px 0 72px;
+  background: #ede8e0;
+}
+
+.replica-contact-page__inner {
+  width: min(1240px, calc(100vw - 72px));
+  margin: 0 auto;
+}
+
+.replica-contact-page__intro,
+.replica-contact-page__copy,
+.replica-contact-page__email {
+  margin: 0;
+  color: #664f4c;
+  font-size: 21px;
+  line-height: 1.88;
+}
+
+.replica-contact-page__intro a,
+.replica-contact-page__copy a,
+.replica-contact-page__email a {
+  color: #be342d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-contact-page__title {
+  margin: 52px 0 26px;
+  color: #664f4c;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(48px, 5.8vw, 76px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.replica-contact-page__copy {
+  max-width: 1080px;
+}
+
+.replica-contact-page__figure {
+  width: min(100%, 460px);
+  margin: 76px auto 0;
+}
+
+.replica-contact-page__figure img {
+  width: 100%;
+  height: auto;
+}
+
+.replica-contact-page__caption {
+  margin: 30px 0 0;
+  color: #664f4c;
+  text-align: center;
+  font-size: 21px;
+  line-height: 1.88;
+}
+
+.replica-contact-page__email {
+  margin-top: 48px;
+}
+
+@media (max-width: 960px) {
+  .replica-contact-page {
+    padding: 24px 0 56px;
+  }
+
+  .replica-contact-page__inner {
+    width: min(100vw - 40px, 920px);
+  }
+
+  .replica-contact-page__intro,
+  .replica-contact-page__copy,
+  .replica-contact-page__caption,
+  .replica-contact-page__email {
+    font-size: 18px;
+    line-height: 1.82;
+  }
+
+  .replica-contact-page__title {
+    margin-top: 40px;
+  }
+
+  .replica-contact-page__figure {
+    width: min(100%, 360px);
+    margin-top: 56px;
+  }
+
+  .replica-contact-page__email {
+    margin-top: 38px;
+  }
+}
+
+@media (max-width: 640px) {
+  .replica-contact-page {
+    padding: 18px 0 44px;
+  }
+
+  .replica-contact-page__inner {
+    width: calc(100vw - 28px);
+  }
+
+  .replica-contact-page__intro,
+  .replica-contact-page__copy,
+  .replica-contact-page__caption,
+  .replica-contact-page__email {
+    font-size: 15px;
+    line-height: 1.82;
+  }
+
+  .replica-contact-page__title {
+    margin: 28px 0 18px;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .replica-contact-page__figure {
+    width: min(100%, 250px);
+    margin-top: 34px;
+  }
+
+  .replica-contact-page__caption {
+    margin-top: 18px;
+  }
+
+.replica-contact-page__email {
+  margin-top: 26px;
+  }
+}
+
+.replica-shop-page {
+  padding: 28px 0 84px;
+  background: #ede8e0;
+}
+
+.replica-shop-page__inner {
+  width: min(1360px, calc(100vw - 56px));
+  margin: 0 auto;
+}
+
+.replica-shop-page__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  gap: 38px 54px;
+  align-items: start;
+}
+
+.replica-shop-page__gallery {
+  display: grid;
+  gap: 18px;
+}
+
+.replica-shop-page__gallery-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.replica-shop-page__gallery-stage {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.replica-shop-page__gallery-figure {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.replica-shop-page__gallery-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.replica-shop-page__gallery-input:nth-of-type(1):checked ~ .replica-shop-page__gallery-stage .replica-shop-page__gallery-figure--1,
+.replica-shop-page__gallery-input:nth-of-type(2):checked ~ .replica-shop-page__gallery-stage .replica-shop-page__gallery-figure--2,
+.replica-shop-page__gallery-input:nth-of-type(3):checked ~ .replica-shop-page__gallery-stage .replica-shop-page__gallery-figure--3,
+.replica-shop-page__gallery-input:nth-of-type(4):checked ~ .replica-shop-page__gallery-stage .replica-shop-page__gallery-figure--4 {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.replica-shop-page__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.replica-shop-page__thumb {
+  display: block;
+  cursor: pointer;
+  background: #fff;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.replica-shop-page__thumb:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(77, 42, 31, 0.08);
+}
+
+.replica-shop-page__thumb img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.replica-shop-page__copy {
+  padding-top: 10px;
+  color: #664f4c;
+}
+
+.replica-shop-page__eyebrow {
+  margin: 0 0 14px;
+  color: #be342d;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.replica-shop-page__copy h1,
+.replica-shop-page__books h2 {
+  margin: 0 0 18px;
+  font-size: clamp(36px, 4.2vw, 52px);
+  line-height: 1.14;
+  font-weight: 700;
+}
+
+.replica-shop-page__books h2 {
+  font-size: clamp(28px, 3vw, 40px);
+}
+
+.replica-shop-page__copy h1 a,
+.replica-shop-page__books h2 a,
+.replica-shop-page__availability a,
+.replica-shop-page__books-outro a {
+  color: #be342d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-shop-page__copy p,
+.replica-shop-page__feature-list li,
+.replica-shop-page__books-copy p,
+.replica-shop-page__books-outro {
+  margin: 0;
+  color: #664f4c;
+  font-size: 20px;
+  line-height: 1.9;
+}
+
+.replica-shop-page__feature-list {
+  margin: 18px 0 0;
+  padding-left: 24px;
+}
+
+.replica-shop-page__feature-list li + li {
+  margin-top: 4px;
+}
+
+.replica-shop-page__availability {
+  margin-top: 18px !important;
+}
+
+.replica-shop-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.replica-shop-page__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 148px;
+  min-height: 48px;
+  padding: 12px 26px;
+  background: #be342d;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.replica-shop-page__action--secondary {
+  background: #fff;
+  color: #664f4c;
+  border: 1px solid rgba(102, 79, 76, 0.18);
+}
+
+.replica-shop-page__books {
+  margin-top: 84px;
+}
+
+.replica-shop-page__books-figure {
+  margin: 28px 0 0;
+}
+
+.replica-shop-page__books-figure img {
+  width: 100%;
+  height: auto;
+}
+
+.replica-shop-page__books-outro {
+  margin-top: 24px;
+}
+
+.replica-resource-page {
+  padding: 34px 0 88px;
+  background: #ece6de;
+}
+
+.replica-resource-page__inner {
+  width: min(1120px, calc(100vw - 52px));
+  margin: 0 auto;
+}
+
+.replica-resource-page__hero {
+  margin-bottom: 34px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(85, 62, 53, 0.78);
+}
+
+.replica-resource-page__eyebrow {
+  margin: 0 0 12px;
+  color: #7a6058;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.replica-resource-page__hero h1 {
+  margin: 0;
+  color: #664f4c;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1.08;
+  font-weight: 700;
+}
+
+.replica-resource-page__lead {
+  max-width: 48rem;
+  margin: 18px 0 0;
+  color: #6d5650;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.replica-resource-page__group + .replica-resource-page__group {
+  margin-top: 44px;
+}
+
+.replica-resource-page__group-head h2 {
+  margin: 0 0 12px;
+  color: #664f4c;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.24;
+}
+
+.replica-resource-page__group-head p,
+.replica-resource-page__item p {
+  margin: 0;
+  color: #664f4c;
+  font-size: 20px;
+  line-height: 1.92;
+}
+
+.replica-resource-page__items {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.replica-resource-page__item {
+  position: relative;
+  padding: 18px 0 18px 28px;
+  border-top: 1px solid rgba(85, 62, 53, 0.18);
+}
+
+.replica-resource-page__item::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  color: #664f4c;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.replica-resource-page__item h3 {
+  margin: 0 0 6px;
+  color: #664f4c;
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.replica-resource-page__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 10px;
+}
+
+.replica-resource-page__links a {
+  color: #be342d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 960px) {
+  .replica-resource-page {
+    padding: 24px 0 64px;
+  }
+
+  .replica-resource-page__inner {
+    width: min(100vw - 36px, 980px);
+  }
+
+  .replica-resource-page__lead,
+  .replica-resource-page__group-head p,
+  .replica-resource-page__item p {
+    font-size: 18px;
+    line-height: 1.84;
+  }
+
+  .replica-resource-page__item h3 {
+    font-size: 22px;
+  }
+
+  .replica-shop-page {
+    padding: 24px 0 56px;
+  }
+
+  .replica-shop-page__inner {
+    width: min(100vw - 36px, 980px);
+  }
+
+  .replica-shop-page__hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .replica-shop-page__gallery-stage {
+    min-height: 520px;
+  }
+
+  .replica-shop-page__copy p,
+  .replica-shop-page__feature-list li,
+  .replica-shop-page__books-copy p,
+  .replica-shop-page__books-outro {
+    font-size: 17px;
+    line-height: 1.86;
+  }
+
+  .replica-shop-page__books {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .replica-resource-page {
+    padding: 18px 0 44px;
+  }
+
+  .replica-resource-page__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-resource-page__hero {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+  }
+
+  .replica-resource-page__hero h1 {
+    font-size: 30px;
+  }
+
+  .replica-resource-page__lead,
+  .replica-resource-page__group-head p,
+  .replica-resource-page__item p {
+    font-size: 15px;
+    line-height: 1.82;
+  }
+
+  .replica-resource-page__group-head h2 {
+    font-size: 24px;
+  }
+
+  .replica-resource-page__item {
+    padding: 14px 0 14px 20px;
+  }
+
+  .replica-resource-page__item::before {
+    top: 14px;
+    font-size: 22px;
+  }
+
+  .replica-resource-page__item h3 {
+    font-size: 18px;
+  }
+
+  .replica-resource-page__links {
+    gap: 8px 12px;
+    margin-top: 8px;
+  }
+
+  .replica-shop-page {
+    padding: 18px 0 42px;
+  }
+
+  .replica-shop-page__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-shop-page__gallery {
+    gap: 12px;
+  }
+
+  .replica-shop-page__gallery-stage {
+    min-height: 360px;
+  }
+
+  .replica-shop-page__thumbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .replica-shop-page__copy h1 {
+    margin-bottom: 14px;
+    font-size: 30px;
+  }
+
+  .replica-shop-page__books h2 {
+    margin-bottom: 12px;
+    font-size: 24px;
+  }
+
+  .replica-shop-page__copy p,
+  .replica-shop-page__feature-list li,
+  .replica-shop-page__books-copy p,
+  .replica-shop-page__books-outro {
+    font-size: 15px;
+    line-height: 1.82;
+  }
+
+  .replica-shop-page__feature-list {
+    margin-top: 14px;
+    padding-left: 20px;
+  }
+
+  .replica-shop-page__actions {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .replica-shop-page__action {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    font-size: 15px;
+  }
+
+  .replica-shop-page__books {
+    margin-top: 42px;
+  }
+
+  .replica-shop-page__books-figure {
+    margin-top: 18px;
+  }
+
+  .replica-shop-page__books-outro {
+    margin-top: 18px;
   }
 }
 

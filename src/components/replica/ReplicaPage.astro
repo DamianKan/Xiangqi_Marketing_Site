@@ -20,8 +20,14 @@ const isPuzzlePage = page.id === "ZH-008";
 const isTournamentPage = page.id === "ZH-009";
 const isInviteGuidePage = page.id === "ZH-010";
 const isAnalysisPage = page.id === "ZH-010A";
-const isComputerPage = page.id === "ZH-019";
+const isProductUpdatePage = page.id === "ZH-016";
+const isReleasesPage = page.id === "ZH-026";
+const isRoadmapPage = page.id === "ZH-019" || page.id === "TCN-010";
+const isComputerPage = page.id === "ZH-027" || page.route === "/computer/";
 const isPolitePage = page.id === "ZH-025";
+const isShopPage = page.id === "ZH-022" || page.id === "TCN-014";
+const isResourcesPage = page.route === "/resources/";
+const isArticleIndexPage = page.route === "/articles/";
 const slicedSections = page.sections.slice(page.type === "home" ? 1 : 0);
 const downloadLeadSections = isDownloadPage ? slicedSections.slice(0, 3) : [];
 const contentSections = isDownloadPage ? slicedSections.slice(3) : slicedSections;
@@ -43,6 +49,23 @@ const puzzleEditorSection = isPuzzlePage ? page.sections[1] : undefined;
 const puzzleCreateSection = isPuzzlePage ? page.sections[2] : undefined;
 const puzzlePublishSection = isPuzzlePage ? page.sections[3] : undefined;
 const puzzleCtaSection = isPuzzlePage ? page.sections[4] : undefined;
+const roadmapIntroSection = isRoadmapPage ? page.sections[0] : undefined;
+const roadmapPlanSection = isRoadmapPage ? page.sections[1] : undefined;
+const roadmapNoteSection = isRoadmapPage ? page.sections[2] : undefined;
+const releasesIntroSection = isReleasesPage ? page.sections[0] : undefined;
+const releaseEntrySections = isReleasesPage ? page.sections.slice(1) : [];
+const shouldHideSectionTitle = (sectionTitle: string | undefined, index: number) =>
+  (page.id === "ZH-016" && index === 3) || !sectionTitle;
+const splitHighlightedNumber = (item: string) => {
+  const match = item.match(/\d[\d,]*/);
+  if (!match || match.index === undefined) return undefined;
+
+  return {
+    before: item.slice(0, match.index),
+    value: match[0],
+    after: item.slice(match.index + match[0].length)
+  };
+};
 
 const articleHeading =
   page.locale === "en"
@@ -83,6 +106,80 @@ const articleIndexHref =
 
 const linkAttrs = (external?: boolean) =>
   external ? { target: "_blank", rel: "noreferrer" } : {};
+
+const shopGallery = [
+  {
+    id: "shop-gallery-1",
+    src: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg_uCqqQYo6vu8xQIw7wM49AM.jpg"
+  },
+  {
+    id: "shop-gallery-2",
+    src: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg_uCqqQYo9PXgmwUw9AM4-wI.jpg"
+  },
+  {
+    id: "shop-gallery-3",
+    src: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg_uCqqQYoqrmGnwIw9AM42AI.jpg"
+  },
+  {
+    id: "shop-gallery-4",
+    src: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg_uCqqQYo1KG8ggMwtgM49AM.jpg"
+  }
+];
+
+const shopGalleryAlt =
+  page.locale === "zh-Hant"
+    ? "便攜式中國象棋套裝商品圖"
+    : "便携式中国象棋套装商品图";
+
+const shopBooksImage = "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg1uSqqQYonZudKjCcCzjZBA.png";
+const shopProductLink = "https://www.ebay.com/itm/255210619470?hash=item3b6bbd024e%3Ag%3A~u8AAOSwHC9hgwvj";
+const shopAmazonLink = "https://www.amazon.com/Xiangqi-Portable-Chinese-15-inch-Carrying/dp/B09L1K3SK3?language=zh_CN&currency=CNY";
+const shopBooksLink = "https://www.amazon.com/Jim-Hau-Cheng-Png/e/B07SHGMFZF?qid=1593188344&ref=sr_ntt_srch_lnk_1&sr=8-1";
+
+const shopCopy =
+  page.locale === "zh-Hant"
+    ? {
+        eyebrow: "Xiangqi.com Shop",
+        title: "便攜式中國象棋套裝",
+        intro:
+          "源站當前頁面展示的是一套便攜式中國象棋套裝，採用雙面棋子設計，一面為漢字，一面為國際符號，方便不同玩家閱讀與對弈。",
+        features: [
+          "32 枚實心棋子，棋子直徑約 3.7 公分。",
+          "2 個小收納袋，可分開放置紅黑雙方棋子。",
+          "1 張耐用棋盤，方便展開後直接對弈。",
+          "1 個便攜式收納袋，可一併收納棋盤與棋子。",
+          "附中國象棋英文說明冊，含圖解與基本規則。"
+        ],
+        availability: "可前往 Amazon 查看更多商品資訊：",
+        buyEbay: "前往 eBay",
+        buyAmazon: "前往 Amazon",
+        booksTitle: "Jim Png 的象棋書籍",
+        booksIntro: "Jim 目前已出版多本象棋書籍，源站在本頁也集中展示了相關圖書資訊。",
+        booksOutro: "想了解 Jim Png 的全部象棋書籍，請前往 Amazon 查看。",
+        galleryLabel: "商品圖片切換",
+        booksAlt: "Jim Png 象棋書籍展示圖"
+      }
+    : {
+        eyebrow: "Xiangqi.com Shop",
+        title: "便携式中国象棋套装",
+        intro:
+          "源站当前页面展示的是一套便携式中国象棋套装，采用双面棋子设计，一面为汉字，一面为国际符号，方便不同玩家阅读与对弈。",
+        features: [
+          "32 枚实心棋子，棋子直径约 3.7 厘米。",
+          "2 个小收纳袋，可分开存放红黑双方棋子。",
+          "1 张耐用棋盘，展开后即可直接对弈。",
+          "1 个便携式收纳袋，可一并收纳棋盘与棋子。",
+          "附中国象棋英文说明册，含图解与基本规则。"
+        ],
+        availability: "可前往 Amazon 查看更多商品信息：",
+        buyEbay: "前往 eBay",
+        buyAmazon: "前往 Amazon",
+        booksTitle: "Jim Png 的象棋书籍",
+        booksIntro: "Jim 目前已出版多本象棋书籍，源站在本页也集中展示了相关图书信息。",
+        booksOutro: "想了解 Jim Png 的全部象棋书籍，请前往 Amazon 查看。",
+        galleryLabel: "商品图片切换",
+        booksAlt: "Jim Png 象棋书籍展示图"
+      };
 
 const xiangqiPieces = [
   {
@@ -158,7 +255,7 @@ const xiangqiPieces = [
 ];
 ---
 
-{isJourneyHelpPage || isPlayWithFriendPage || isFirstGamePage || isPieceGuidePage || isTeamPage || isFairPlayPage || isRulesPage || isLimitsPage || isRatingPage || isPuzzlePage || isTournamentPage || isInviteGuidePage || isAnalysisPage || isComputerPage || isPolitePage ? null : isHome ? (
+{isJourneyHelpPage || isPlayWithFriendPage || isFirstGamePage || isPieceGuidePage || isTeamPage || isFairPlayPage || isRulesPage || isLimitsPage || isRatingPage || isPuzzlePage || isTournamentPage || isInviteGuidePage || isAnalysisPage || isProductUpdatePage || isReleasesPage || isRoadmapPage || isComputerPage || isPolitePage || isShopPage || isResourcesPage ? null : isHome ? (
   <section class="replica-hero" aria-labelledby="page-title">
     <div class="replica-hero__veil"></div>
     <div class="replica-hero__content">
@@ -374,97 +471,108 @@ const xiangqiPieces = [
       )}
     </div>
   </section>
-) : isComputerPage ? (
-  <section class="replica-computer-page">
-    <div class="replica-computer-page__inner">
-      <header class="replica-computer-page__hero">
-        <h1>如何开始人机对战？</h1>
-        <p>和电脑对战可帮助棋手练习不同等级的对局和新战术。</p>
-        <ol class="replica-computer-page__steps">
-          <li>
-            <a href="https://play.xiangqi.com/" {...linkAttrs(true)}>前往游戏大厅</a>
-          </li>
-          <li>选择电脑对手</li>
-        </ol>
-
-        <figure class="replica-computer-page__hero-figure">
-          <img src="/mirror/computer-step-hero.png" alt="人机对战等级选择界面截图" loading="lazy" />
-        </figure>
-
-        <div class="replica-computer-page__hero-notes">
-          <p>难度最低的是1级的 @petr</p>
-          <p>难度最高的是5级的 @zhixuan(稚轩)</p>
-          <p class="replica-computer-page__warm-note">温馨提示：人机对战不会影响棋手排名。</p>
-        </div>
+) : isProductUpdatePage ? (
+  <section class="replica-announcement-page">
+    <div class="replica-announcement-page__inner">
+      <header class="replica-announcement-page__hero">
+        <h1>{page.heroTitle}</h1>
       </header>
 
-      <section class="replica-computer-page__section replica-computer-page__section--bordered">
-        <h2>练习</h2>
-        <p class="replica-computer-page__lead">学习虽难，但裨益良多！</p>
-        <p>
-          象棋不简单，初学者甚至可能很难击败难度最低的电脑（1级）。为此，我们设置了“悔棋”这一选项。如认为行棋错误，可随时撤销，并重新落子，直至满意为止。
-        </p>
+      {contentSections.map((section, index) => (
+        <section class="replica-announcement-page__section">
+          {!shouldHideSectionTitle(section.title, index) && <h2>{section.title}</h2>}
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          {section.list && (
+            <ul class="replica-announcement-page__list">
+              {section.list.map((item) => {
+                const highlighted = index === 0 ? splitHighlightedNumber(item) : undefined;
 
-        <div class="replica-computer-page__gallery">
-          <figure class="replica-computer-page__figure">
-            <img src="/mirror/computer-practice.png" alt="悔棋功能在对局中的位置示意图" loading="lazy" />
-            <figcaption>学会用悔棋打败电脑</figcaption>
-          </figure>
-          <figure class="replica-computer-page__figure replica-computer-page__figure--secondary">
-            <img src="/mirror/computer-undo.png" alt="设置面板中的悔棋按钮示意图" loading="lazy" />
-          </figure>
-        </div>
+                return (
+                  <li>
+                    {highlighted ? (
+                      <>
+                        <span>{highlighted.before}</span>
+                        <strong>{highlighted.value}</strong>
+                        <span>{highlighted.after}</span>
+                      </>
+                    ) : (
+                      item
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </section>
+      ))}
 
-        <div class="replica-computer-page__cta-wrap">
-          <a class="replica-computer-page__cta" href="https://play.xiangqi.com/" {...linkAttrs(true)}>
-            马上与电脑对战
-          </a>
-        </div>
-      </section>
+      <nav class="replica-announcement-page__pager" aria-label="文章导航">
+        <a href="/articles/import-game-notation/">上一篇 棋谱导入的格式说明</a>
+        <a href="/articles/new-interface/">下一篇 相弈象棋-新界面</a>
+      </nav>
+    </div>
+  </section>
+) : isReleasesPage ? (
+  <section class="replica-release-page">
+    <div class="replica-release-page__inner">
+      <header class="replica-release-page__hero">
+        {releasesIntroSection?.body.map((paragraph) => <p>{paragraph}</p>)}
+      </header>
 
-      <section class="replica-computer-page__section replica-computer-page__next">
-        <h2>
-          下一步：
-          <a href="/how-to-play/">象棋规则</a>
-        </h2>
-        <ul class="replica-computer-page__next-links">
-          <li>
-            <span aria-hidden="true">❓</span>
-            <a href="/how-to-play/">象棋规则</a>
-          </li>
-          <li>
-            <a href="/how-to-play-xiangqi/">棋子与走法</a>
-          </li>
-          <li>
-            <span aria-hidden="true">✅</span>
-            <a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>创建账号</a>
-          </li>
-        </ul>
-      </section>
+      {releaseEntrySections.map((section) => (
+        <section class="replica-release-page__entry">
+          <h2>{section.title}</h2>
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          {section.list && (
+            <ol class="replica-release-page__list">
+              {section.list.map((item) => <li>{item}</li>)}
+            </ol>
+          )}
+        </section>
+      ))}
+    </div>
+  </section>
+) : isRoadmapPage ? (
+  <section class="replica-roadmap-page">
+    <div class="replica-roadmap-page__inner">
+      <header class="replica-roadmap-page__hero">
+        <p class="replica-roadmap-page__eyebrow">Xiangqi.com</p>
+        <h1>{page.heroTitle}</h1>
+        {roadmapIntroSection?.body.map((paragraph) => <p>{paragraph}</p>)}
+      </header>
 
-      <section class="replica-computer-page__section">
-        <h2>技术说明：我们使用的象棋引擎</h2>
-        <p>
-          象棋网目前正在使用由 Vin 象棋团队开发的开源象棋引擎 Pikafish。它是一个非常强大的免费 UCI 象棋引擎，基于 NNUE 神经网络技术开发。Pikafish团队的官方网站在
-          <a href="http://pikafish.org/" {...linkAttrs(true)}>这里</a>。
-        </p>
-      </section>
+      {roadmapPlanSection && (
+        <section class="replica-roadmap-page__section replica-roadmap-page__section--bordered">
+          {roadmapPlanSection.body.map((paragraph) => <p>{paragraph}</p>)}
+          {roadmapPlanSection.list && (
+            <ol class="replica-roadmap-page__list">
+              {roadmapPlanSection.list.map((item) => <li>{item}</li>)}
+            </ol>
+          )}
+        </section>
+      )}
 
-      <section class="replica-computer-page__section">
-        <h3>功能</h3>
-        <p>
-          截至目前，人机对战不限时，也不计入积分。棋手执红子，电脑执黑子。不过，我们随后也计划推出限时人机对战。由于电脑发挥的是最高水平，因此对于刚接触并仍在学习象棋的棋手来说，对手很难击败。
-        </p>
-      </section>
-
-      <section class="replica-computer-page__section">
-        <h3>展望未来</h3>
-        <p>行棋和对局分析</p>
-        <p>
-          如需了解更多我们即将推出的内容，请参阅
-          <a href="https://www.zh.xiangqi.com/roadmap/" {...linkAttrs(true)}>产品路线图</a>。
-        </p>
-      </section>
+      {roadmapNoteSection && (
+        <section class="replica-roadmap-page__section">
+          {roadmapNoteSection.body[0] && <p>{roadmapNoteSection.body[0]}</p>}
+          {roadmapNoteSection.links?.[0] && (
+            <p class="replica-roadmap-page__meta-link">
+              <a href={roadmapNoteSection.links[0].href} {...linkAttrs(roadmapNoteSection.links[0].external)}>
+                {roadmapNoteSection.links[0].label}
+              </a>
+            </p>
+          )}
+          {roadmapNoteSection.body[1] && <p>{roadmapNoteSection.body[1]}</p>}
+          {roadmapNoteSection.body[2] && <p>{roadmapNoteSection.body[2]}</p>}
+          {roadmapNoteSection.links?.[1] && (
+            <p class="replica-roadmap-page__meta-link">
+              <a href={roadmapNoteSection.links[1].href} {...linkAttrs(roadmapNoteSection.links[1].external)}>
+                {roadmapNoteSection.links[1].label}
+              </a>
+            </p>
+          )}
+        </section>
+      )}
     </div>
   </section>
 ) : isPlayWithFriendPage ? (
@@ -608,6 +716,99 @@ const xiangqiPieces = [
           </ul>
         </section>
       )}
+    </div>
+  </section>
+) : isComputerPage ? (
+  <section class="replica-computer-page">
+    <div class="replica-computer-page__inner">
+      <header class="replica-computer-page__hero">
+        <h1>如何开始人机对战？</h1>
+        <p>和电脑对战可帮助棋手练习不同等级的对局和新战术。</p>
+        <ol class="replica-computer-page__steps">
+          <li>
+            <a href="https://play.xiangqi.com/" {...linkAttrs(true)}>前往游戏大厅</a>
+          </li>
+          <li>选择电脑对手</li>
+        </ol>
+
+        <figure class="replica-computer-page__hero-figure">
+          <img src="/mirror/computer-step-hero.png" alt="人机对战等级选择界面截图" loading="lazy" />
+        </figure>
+
+        <div class="replica-computer-page__hero-notes">
+          <p>难度最低的是1级的 @petr</p>
+          <p>难度最高的是5级的 @zhixuan(稚轩)</p>
+          <p class="replica-computer-page__warm-note">温馨提示：人机对战不会影响棋手排名。</p>
+        </div>
+      </header>
+
+      <section class="replica-computer-page__section replica-computer-page__section--bordered">
+        <h2>练习</h2>
+        <p class="replica-computer-page__lead">学习虽难，但裨益良多！</p>
+        <p>
+          象棋不简单，初学者甚至可能很难击败难度最低的电脑（1级）。为此，我们设置了“悔棋”这一选项。如认为行棋错误，可随时撤销，并重新落子，直至满意为止。
+        </p>
+
+        <div class="replica-computer-page__gallery">
+          <figure class="replica-computer-page__figure">
+            <img src="/mirror/computer-practice.png" alt="悔棋功能在对局中的位置示意图" loading="lazy" />
+            <figcaption>学会用悔棋打败电脑</figcaption>
+          </figure>
+          <figure class="replica-computer-page__figure replica-computer-page__figure--secondary">
+            <img src="/mirror/computer-undo.png" alt="设置面板中的悔棋按钮示意图" loading="lazy" />
+          </figure>
+        </div>
+
+        <div class="replica-computer-page__cta-wrap">
+          <a class="replica-computer-page__cta" href="https://play.xiangqi.com/" {...linkAttrs(true)}>
+            马上与电脑对战
+          </a>
+        </div>
+      </section>
+
+      <section class="replica-computer-page__section replica-computer-page__next">
+        <h2>
+          下一步：
+          <a href="/how-to-play/">象棋规则</a>
+        </h2>
+        <ul class="replica-computer-page__next-links">
+          <li>
+            <span aria-hidden="true">❓</span>
+            <a href="/how-to-play/">象棋规则</a>
+          </li>
+          <li>
+            <a href="/how-to-play-xiangqi/">棋子与走法</a>
+          </li>
+          <li>
+            <span aria-hidden="true">✅</span>
+            <a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>创建账号</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="replica-computer-page__section">
+        <h2>技术说明：我们使用的象棋引擎</h2>
+        <p>
+          象棋网目前正在使用由 Vin 象棋团队开发的开源象棋引擎 Pikafish。它是一个非常强大的免费 UCI 象棋引擎，基于 NNUE 神经网络技术开发。Pikafish团队的官方网站在
+          <a href="http://pikafish.org/" {...linkAttrs(true)}>这里</a>。
+        </p>
+      </section>
+
+      <section class="replica-computer-page__section">
+        <h3>功能</h3>
+        <p>
+          截至目前，人机对战不限时，也不计入积分。棋手执红子，电脑执黑子。不过，我们随后也计划推出限时人机对战。由于电脑发挥的是最高水平，因此对于刚接触并仍在学习象棋的棋手来说，对手很难击败。
+        </p>
+      </section>
+
+      <section class="replica-computer-page__section">
+        <h3>展望未来</h3>
+        <p>行棋和对局分析</p>
+        <p>
+          如需了解更多我们即将推出的内容，请参阅
+          <a href="https://www.zh.xiangqi.com/roadmap/" {...linkAttrs(true)}>产品路线图</a>。
+        </p>
+      </section>
     </div>
   </section>
 ) : isFirstGamePage ? (
@@ -1179,6 +1380,118 @@ const xiangqiPieces = [
       </article>
     </div>
   </section>
+) : isShopPage ? (
+  <section class="replica-shop-page">
+    <div class="replica-shop-page__inner">
+      <section class="replica-shop-page__hero">
+        <div class="replica-shop-page__gallery">
+          {shopGallery.map((image, index) => (
+            <input
+              type="radio"
+              name={`shop-gallery-${page.id}`}
+              id={`${page.id}-${image.id}`}
+              class="replica-shop-page__gallery-input"
+              checked={index === 0}
+            />
+          ))}
+
+          <div class="replica-shop-page__gallery-stage" aria-label={shopCopy.galleryLabel}>
+            {shopGallery.map((image, index) => (
+              <figure class:list={["replica-shop-page__gallery-figure", `replica-shop-page__gallery-figure--${index + 1}`]}>
+                <img src={image.src} alt={`${shopGalleryAlt} ${index + 1}`} loading={index === 0 ? "eager" : "lazy"} />
+              </figure>
+            ))}
+          </div>
+
+          <div class="replica-shop-page__thumbs" role="tablist" aria-label={shopCopy.galleryLabel}>
+            {shopGallery.map((image, index) => (
+              <label class="replica-shop-page__thumb" for={`${page.id}-${image.id}`} role="tab" aria-label={`${shopGalleryAlt} ${index + 1}`}>
+                <img src={image.src} alt="" loading="lazy" />
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div class="replica-shop-page__copy">
+          <p class="replica-shop-page__eyebrow">{shopCopy.eyebrow}</p>
+          <h1>
+            <a href={shopProductLink} {...linkAttrs(true)}>{shopCopy.title}</a>
+          </h1>
+          <p>{shopCopy.intro}</p>
+          <ul class="replica-shop-page__feature-list">
+            {shopCopy.features.map((item) => <li>{item}</li>)}
+          </ul>
+          <p class="replica-shop-page__availability">
+            {shopCopy.availability}
+            <a href={shopAmazonLink} {...linkAttrs(true)}>Amazon</a>
+          </p>
+          <div class="replica-shop-page__actions">
+            <a class="replica-shop-page__action" href={shopProductLink} {...linkAttrs(true)}>
+              {shopCopy.buyEbay}
+            </a>
+            <a class="replica-shop-page__action replica-shop-page__action--secondary" href={shopAmazonLink} {...linkAttrs(true)}>
+              {shopCopy.buyAmazon}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="replica-shop-page__books">
+        <div class="replica-shop-page__books-copy">
+          <h2>
+            <a href={shopBooksLink} {...linkAttrs(true)}>{shopCopy.booksTitle}</a>
+          </h2>
+          <p>{shopCopy.booksIntro}</p>
+        </div>
+
+        <figure class="replica-shop-page__books-figure">
+          <img src={shopBooksImage} alt={shopCopy.booksAlt} loading="lazy" />
+        </figure>
+
+        <p class="replica-shop-page__books-outro">
+          {shopCopy.booksOutro}
+          <a href={shopBooksLink} {...linkAttrs(true)}>Amazon</a>
+        </p>
+      </section>
+    </div>
+  </section>
+) : isResourcesPage ? (
+  <section class="replica-resource-page">
+    <div class="replica-resource-page__inner">
+      <header class="replica-resource-page__hero">
+        <p class="replica-resource-page__eyebrow">Xiangqi.com</p>
+        <h1>{page.heroTitle}</h1>
+        {page.description && <p class="replica-resource-page__lead">{page.description}</p>}
+      </header>
+
+      {contentSections.map((section) => (
+        <section class="replica-resource-page__group">
+          <div class="replica-resource-page__group-head">
+            <h2>{section.title}</h2>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+
+          {section.items && section.items.length > 0 && (
+            <ul class="replica-resource-page__items">
+              {section.items.map((item) => (
+                <li class="replica-resource-page__item">
+                  <h3>{item.title}</h3>
+                  {item.description && <p>{item.description}</p>}
+                  <p class="replica-resource-page__links">
+                    {item.links.map((link) => (
+                      <a href={link.href} {...linkAttrs(link.external)}>
+                        {link.label}
+                      </a>
+                    ))}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
+    </div>
+  </section>
 ) : isRulesPage ? (
   <section class="replica-help-doc replica-help-doc--rules">
     <div class="replica-help-doc__inner">
@@ -1375,11 +1688,11 @@ const xiangqiPieces = [
           >
             {section.image && (
               <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
-            )}
-            <div class="replica-section__body">
-              <h2>{section.title}</h2>
-              {section.gallery && section.gallery.length > 0 && (
-                <div class="replica-showcase-grid">
+          )}
+          <div class="replica-section__body">
+            {!shouldHideSectionTitle(section.title, index) && <h2>{section.title}</h2>}
+            {section.gallery && section.gallery.length > 0 && (
+              <div class="replica-showcase-grid">
                   {section.gallery.map((item) => (
                     <figure class="replica-showcase-card">
                       <figcaption>{item.title}</figcaption>
@@ -1411,7 +1724,7 @@ const xiangqiPieces = [
   </section>
 )}
 
-{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.articleCards && page.articleCards.length > 0 && (
+{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isProductUpdatePage && !isReleasesPage && !isRoadmapPage && !isComputerPage && !isShopPage && !isResourcesPage && page.articleCards && page.articleCards.length > 0 && (
   <section class="replica-articles">
     <div class:list={["replica-container", !isHome && "replica-container--narrow"]}>
       <div class="replica-section-head">
@@ -1422,16 +1735,18 @@ const xiangqiPieces = [
       </div>
       <div class="replica-card-grid">
         {page.articleCards.map((article) => (
-          <a class="replica-card" href={article.href}>
+          <a class:list={["replica-card", isArticleIndexPage && "replica-card--article-list"]} href={article.href}>
             {article.image && (
               <div class="replica-card__media">
                 <img src={article.image} alt={article.title} loading="lazy" />
               </div>
             )}
-            {article.date && <p class="replica-date">{article.date}</p>}
-            <h3>{article.title}</h3>
-            <p>{article.excerpt}</p>
-            <span class="replica-card__more">{articleReadMoreLabel}</span>
+            <div class:list={["replica-card__content", isArticleIndexPage && "replica-card__content--article-list"]}>
+              {article.date && <p class="replica-date">{article.date}</p>}
+              <h3>{article.title}</h3>
+              <p>{article.excerpt}</p>
+              <span class="replica-card__more">{articleReadMoreLabel}</span>
+            </div>
           </a>
         ))}
       </div>
@@ -1439,7 +1754,7 @@ const xiangqiPieces = [
   </section>
 )}
 
-{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isComputerPage && page.faq && page.faq.length > 0 && (
+{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isProductUpdatePage && !isReleasesPage && !isRoadmapPage && !isComputerPage && !isShopPage && !isResourcesPage && page.faq && page.faq.length > 0 && (
   <section class="replica-faq">
     <div class="replica-container">
       <h2>{faqHeading}</h2>

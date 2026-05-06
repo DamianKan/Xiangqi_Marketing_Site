@@ -50,16 +50,12 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
       },
       {
         title: "中国象棋残局游戏",
-        image: replicaAssets.board,
-        imageAlt: "中国象棋残局与棋盘界面",
         body: [
           "精选中国象棋残局闯关，透过相弈象棋软件平台在线玩中国象棋残局小游戏提升下象棋水平。玩家还可使用自定义象棋残局功能自行设计及命名题目，然后分享予他人挑战。"
         ]
       },
       {
         title: "全球象棋在线赛事",
-        image: replicaAssets.featureTwo,
-        imageAlt: "相弈象棋赛事与活动",
         body: [
           "参与象棋在线赛事，和全球中国象棋高手进行中国象棋对弈决一高下！在线象棋赛事采用现实中国象棋赛事常见的积分循环制，配备自动配对及排名功能。"
         ]
@@ -623,8 +619,6 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
       },
       {
         title: "中国象棋残局游戏",
-        image: replicaAssets.board,
-        imageAlt: "中国象棋残局棋盘",
         body: [
           "精选中国象棋残局闯关，透过相弈象棋软件平台在线玩中国象棋残局小游戏提升下象棋水平。",
           "相弈象棋软件平台题库包括大量中国象棋残局题目，汇聚了从初级到高级的各种中国象棋残局挑战，覆盖各种经典或罕见的象棋棋局情况，让中国象棋游戏爱好者一方面享受在线象棋游戏闯关的乐趣，另一方面透过象棋线上残局小游戏练习中国象棋对战战术。",
@@ -633,8 +627,6 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
       },
       {
         title: "全球象棋在线赛事",
-        image: replicaAssets.featureTwo,
-        imageAlt: "相弈象棋赛事活动",
         body: [
           "参与象棋在线赛事，和全球中国象棋高手进行中国象棋对弈决一高下。在在线象棋赛事中采用现实中国象棋赛事常见的积分循环制，配备自动配对及排名功能。",
           "相弈象棋软件平台的在线象棋赛事为棋手们提供了一个展示实力与交流棋艺的舞台。相弈象棋会每周举办中国象棋在线比赛，吸引大量中国象棋爱好者参与。在线象棋赛事分为不同级别，包括业余组、专业组等，象棋玩家可以根据自己的象棋水平选择参赛。"

@@ -9,6 +9,7 @@ import { homePageOverrides } from "./home-overrides";
 import { pageOverrides } from "./page-overrides";
 import { footerReplicaPages } from "./footer-pages";
 import type { ReplicaArticleCard, ReplicaPage, ReplicaSection } from "./types";
+import { resourceReplicaPages } from "./resource-pages";
 
 function normalizeSection(section: any): ReplicaSection {
   return {
@@ -18,6 +19,7 @@ function normalizeSection(section: any): ReplicaSection {
     imageAlt: section.imageAlt,
     links: section.links,
     list: section.list || section.items?.map((item: any) => item.description ? `${item.title}: ${item.description}` : item.title),
+    items: section.items,
     gallery: section.gallery
   };
 }
@@ -78,6 +80,7 @@ function normalizePage(page: any): ReplicaPage {
 export const replicaPages: ReplicaPage[] = [
   ...zhReplicaPages,
   ...footerReplicaPages,
+  ...resourceReplicaPages,
   ...enReplicaPages,
   ...viReplicaPages
 ].map(normalizePage);
