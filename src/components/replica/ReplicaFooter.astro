@@ -26,8 +26,6 @@ type FooterContent = {
   brand: string;
   columns: FooterColumn[];
   downloads: DownloadBadge[];
-  searchPlaceholder: string;
-  searchHref: string;
   socialLabel: string;
   socialLinks: FooterLink[];
   whatsapp: FooterLink;
@@ -88,8 +86,6 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
         external: true
       }
     ],
-    searchPlaceholder: "请输入关键字",
-    searchHref: "/support-home/",
     socialLabel: "关注我们：",
     socialLinks: [
       { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com", external: true },
@@ -157,8 +153,6 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
         external: true
       }
     ],
-    searchPlaceholder: "請輸入關鍵字",
-    searchHref: "/tcn/support-home/",
     socialLabel: "關注我們：",
     socialLinks: [
       { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com", external: true },
@@ -224,8 +218,6 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
         external: true
       }
     ],
-    searchPlaceholder: "Search the help center",
-    searchHref: "/en/support-home/",
     socialLabel: "Follow us:",
     socialLinks: [
       { label: "YouTube", href: "https://www.youtube.com/@xiangqicom", external: true },
@@ -289,8 +281,6 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
         external: true
       }
     ],
-    searchPlaceholder: "Nhap tu khoa",
-    searchHref: "/vi/cau-hoi-thuong-gap/",
     socialLabel: "Theo doi:",
     socialLinks: [
       { label: "Facebook", href: "https://www.facebook.com/xiangqicom", external: true },
@@ -341,13 +331,6 @@ const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "
         </a>
       ))}
     </div>
-
-    <form class="replica-footer__search" action={content.searchHref} method="get">
-      <label class="replica-footer__search-shell">
-        <span class="replica-footer__search-icon" aria-hidden="true">⌕</span>
-        <input type="search" name="q" placeholder={content.searchPlaceholder} />
-      </label>
-    </form>
 
     <div class="replica-footer__meta">
       <p class="replica-footer__copyright">{content.copyright}</p>
