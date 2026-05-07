@@ -7,6 +7,12 @@ const { locale = "zh-CN" } = Astro.props as { locale?: ReplicaLocale };
 const nav = mainNav[locale];
 const currentLocale = getLocaleConfig(locale);
 const helps = helpNav[locale];
+const localeHomeHrefs: Record<ReplicaLocale, string> = {
+  "zh-CN": "/",
+  "zh-Hant": "https://www.zh.xiangqi.com/tcn/",
+  en: "https://www.xiangqi.com/",
+  vi: "https://www.vn.xiangqi.com/"
+};
 
 const menuLabel =
   locale === "en"
@@ -49,7 +55,11 @@ const menuLabel =
           {currentLocale.label}<span aria-hidden="true">⌄</span>
         </button>
         <div class="replica-dropdown replica-dropdown--language">
-          {localeConfigs.map((item) => <a href={item.route}>{item.label}</a>)}
+          {localeConfigs.map((item) => (
+            <a href={localeHomeHrefs[item.locale]}>
+              {item.label}
+            </a>
+          ))}
         </div>
       </div>
     </nav>
