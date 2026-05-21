@@ -1,0 +1,19 @@
+---
+const target = "/sys-nr/";
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>正在跳转 - 相弈象棋</title>
+  </head>
+  <body>
+    <p><a href={target}>前往教学文章页</a></p>
+    <script>
+      window.location.replace("/sys-nr/");
+    </script>
+  </body>
+</html>

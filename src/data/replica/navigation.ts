@@ -32,14 +32,14 @@ export const mainNav = {
     help: "帮助",
     download: "下载 App",
     howToPlay: "如何下象棋",
-    downloadHref: "/download/",
+    downloadHref: "/mobile/",
     howToPlayHref: "/how-to-play-xiangqi/"
   },
   "zh-Hant": {
     help: "幫助",
     download: "下載 App",
     howToPlay: "如何下象棋",
-    downloadHref: "/tcn/download/",
+    downloadHref: "/tcn/mobile/",
     howToPlayHref: "/tcn/how-to-play/"
   },
   en: {
@@ -53,7 +53,7 @@ export const mainNav = {
     help: "Tro giup",
     download: "Tai App",
     howToPlay: "Cach choi",
-    downloadHref: "/vi/download/",
+    downloadHref: "/vi/mobile/",
     howToPlayHref: "/vi/how-to-play/"
   }
 } satisfies Record<

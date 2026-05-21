@@ -1,5 +1,6 @@
 ﻿---
 import { replicaAssets } from "../../data/replica/assets";
+import { howToAuthors } from "../../data/replica/howto-authors";
 import { zhTeamGroups } from "../../data/replica/team";
 import type { ReplicaPage } from "../../data/replica/types";
 
@@ -10,24 +11,52 @@ const isDownloadPage = page.type === "download";
 const isJourneyHelpPage = page.id === "ZH-002";
 const isPlayWithFriendPage = page.id === "ZH-007";
 const isFirstGamePage = page.id === "ZH-006";
+const isNewUserPage = page.id === "ZH-020";
+const isSysSignupPage = page.id === "ZH-036" || page.route === "/sys-signup/";
+const isVerifiedPage = page.id === "ZH-035";
 const isPieceGuidePage = page.id === "ZH-004";
+const isHowToPlayGuidePage = page.id === "ZH-028";
+const isOpeningPrinciplesArticlePage = page.id === "ZH-029";
+const isMidgamePrinciplesArticlePage = page.id === "ZH-030";
+const isEndgamePrinciplesArticlePage = page.id === "ZH-031";
+const isSituationEvaluationArticlePage = page.id === "ZH-032";
+const isTenWaysImproveArticlePage = page.id === "ZH-034";
+const isSmotheredCannonPage = page.id === "ZH-040" || page.route === "/smothered-cannon/";
+const isWhiteFacedGeneralPage = page.id === "ZH-041" || page.route === "/white-faced-general/";
+const isEarthPage = page.id === "ZH-042" || page.route === "/earth/";
+const isKillPatternHelpPage = isSmotheredCannonPage || isWhiteFacedGeneralPage;
+const isLongformArticlePage =
+  isOpeningPrinciplesArticlePage ||
+  isMidgamePrinciplesArticlePage ||
+  isEndgamePrinciplesArticlePage ||
+  isSituationEvaluationArticlePage ||
+  isTenWaysImproveArticlePage;
 const isTeamPage = page.id === "ZH-018";
 const isFairPlayPage = page.id === "ZH-024";
 const isRulesPage = page.id === "ZH-005";
 const isLimitsPage = page.id === "ZH-021";
 const isRatingPage = page.id === "ZH-012";
+const isMarkPage = page.id === "ZH-011A" || page.route === "/mark/";
+const isMarkersHelpPage = page.id === "ZH-011" || page.route === "/help/markers/" || page.route === "/help/markers.html";
+const isAnnotationHelpPage = page.id === "ZH-043" || page.route === "/help/annotation.html";
 const isPuzzlePage = page.id === "ZH-008";
 const isTournamentPage = page.id === "ZH-009";
 const isInviteGuidePage = page.id === "ZH-010";
 const isAnalysisPage = page.id === "ZH-010A";
 const isProductUpdatePage = page.id === "ZH-016";
+const isNewInterfacePage = page.id === "ZH-017";
 const isReleasesPage = page.id === "ZH-026";
 const isRoadmapPage = page.id === "ZH-019" || page.id === "TCN-010";
 const isComputerPage = page.id === "ZH-027" || page.route === "/computer/";
 const isPolitePage = page.id === "ZH-025";
+const isBugsPage = page.id === "ZH-037" || page.route === "/bugs/";
+const isReportPage = page.id === "ZH-038" || page.route === "/report/";
+const isSlashPage = page.id === "ZH-039" || page.route === "/slash/";
+const isContributorsPage = page.id === "ZH-044" || page.route === "/contributors/";
 const isShopPage = page.id === "ZH-022" || page.id === "TCN-014";
 const isResourcesPage = page.route === "/resources/";
-const isArticleIndexPage = page.route === "/articles/";
+const isArticleIndexPage = page.route === "/sys-nr/";
+const howToAuthorProfiles = isHowToPlayGuidePage ? howToAuthors[page.id as keyof typeof howToAuthors] ?? [] : [];
 const slicedSections = page.sections.slice(page.type === "home" ? 1 : 0);
 const downloadLeadSections = isDownloadPage ? slicedSections.slice(0, 3) : [];
 const contentSections = isDownloadPage ? slicedSections.slice(3) : slicedSections;
@@ -49,11 +78,19 @@ const puzzleEditorSection = isPuzzlePage ? page.sections[1] : undefined;
 const puzzleCreateSection = isPuzzlePage ? page.sections[2] : undefined;
 const puzzlePublishSection = isPuzzlePage ? page.sections[3] : undefined;
 const puzzleCtaSection = isPuzzlePage ? page.sections[4] : undefined;
+const newUserIntroSection = isNewUserPage ? page.sections[0] : undefined;
+const newUserStartSection = isNewUserPage ? page.sections[1] : undefined;
+const newUserNowSection = isNewUserPage ? page.sections[2] : undefined;
+const newUserLearnSection = isNewUserPage ? page.sections[3] : undefined;
+const newUserNextSection = isNewUserPage ? page.sections[4] : undefined;
 const roadmapIntroSection = isRoadmapPage ? page.sections[0] : undefined;
 const roadmapPlanSection = isRoadmapPage ? page.sections[1] : undefined;
 const roadmapNoteSection = isRoadmapPage ? page.sections[2] : undefined;
 const releasesIntroSection = isReleasesPage ? page.sections[0] : undefined;
 const releaseEntrySections = isReleasesPage ? page.sections.slice(1) : [];
+const smotheredIntroSection = isKillPatternHelpPage ? page.sections[0] : undefined;
+const smotheredConditionSection = isKillPatternHelpPage ? page.sections[1] : undefined;
+const smotheredExampleSection = isKillPatternHelpPage ? page.sections[2] : undefined;
 const shouldHideSectionTitle = (sectionTitle: string | undefined, index: number) =>
   (page.id === "ZH-016" && index === 3) || !sectionTitle;
 const splitHighlightedNumber = (item: string) => {
@@ -66,6 +103,8 @@ const splitHighlightedNumber = (item: string) => {
     after: item.slice(match.index + match[0].length)
   };
 };
+
+const stripLeadingSectionNumber = (item: string) => item.replace(/^\d+(?:\.\d+)?\.\s*/, "");
 
 const articleHeading =
   page.locale === "en"
@@ -102,10 +141,17 @@ const articleReadMoreLabel =
         : "阅读更多";
 
 const articleIndexHref =
-  page.locale === "en" ? "/news/" : page.locale === "vi" ? "/vi/" : "/articles/";
+  page.locale === "en" ? "/news/" : page.locale === "vi" ? "/vi/" : "/sys-nr/";
 
 const linkAttrs = (external?: boolean) =>
   external ? { target: "_blank", rel: "noreferrer" } : {};
+
+const reportPageImages = {
+  reportButton: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgu9zTqQYow5GDqgYw3As4uAM.png",
+  reportDialog: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAggN3TqQYoz7LfgQEwpgU49Ac.jpg",
+  blockAction: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAght7TqQYoquGC4wcw3As4xAM.png",
+  muteAction: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgx97TqQYo7-Cy1QYw3As4vAM.png"
+};
 
 const shopGallery = [
   {
@@ -181,6 +227,98 @@ const shopCopy =
         booksAlt: "Jim Png 象棋书籍展示图"
       };
 
+const contributorsEntries = [
+  {
+    index: "1.",
+    highlight: "皮卡鱼（Pikafish）团队",
+    text: " - 创建了开源的皮卡鱼（Pikafish）引擎，相弈象棋多个功能均使用了该引擎。"
+  },
+  {
+    index: "2.",
+    highlight: "@Joep",
+    text: " - 为英语使用者制作了多个象棋教程视频，也为平台开发提出了宝贵的建议。"
+  },
+  {
+    index: "3.",
+    highlight: "@lweis5170",
+    text: " - 积极创建题目和对局注解，也为平台开发提出了宝贵的建议。"
+  },
+  {
+    index: "4.",
+    highlight: "@inlandtaipan",
+    text: " - 积极创建题目和对局注解，也为平台开发提出了宝贵的建议。"
+  },
+  {
+    index: "5.",
+    highlight: "@alexzhao",
+    text: " - 积极创建题目和对局注解，也为平台开发提出了宝贵的建议。"
+  },
+  {
+    index: "6.",
+    highlight: "@弑神者",
+    text: " - 积极创建题目和对局注解。"
+  }
+] as const;
+
+const slashCommands = [
+  { command: "/help", text: "列出所有斜杠命令" },
+  { command: "/help COMMAND", text: "详细说明COMMAND命令的作用" },
+  { command: "/bio USER", text: "显示用户个人资料页的简介，如无则显示“此用户未设置简介”。" },
+  { command: "/block USER", text: "屏蔽此用户，设置后互不可见。如需解除屏蔽，请至此用户的个人资料页进行操作。" },
+  { command: "/board STYLE", text: "切换棋盘设计风格（如有多款棋盘设计可供选择）。" },
+  {
+    command: "/challenge USER [GAME-TIMER MOVE-TIMER MY-COLOR]",
+    text: "向此用户发起挑战，可设置局时、步时及执子颜色，系统默认设置为局时10分钟，步时2分钟，发起挑战者执红子"
+  },
+  { command: "/dark", text: "切换至深色模式" },
+  {
+    command: "/edit",
+    prefix: "以当前棋盘为初始位置，在",
+    linkLabel: "棋盘编辑器",
+    linkHref: "https://play.xiangqi.com/editor",
+    suffix: "中打开新棋盘"
+  },
+  { command: "/flip", text: "翻转棋盘，可指定红方在上或黑方在上" },
+  { command: "/friend USER", text: "向此用户发送好友请求" },
+  {
+    command: "/gif SEARCH",
+    text: "在Giphy中搜索动图，查看前5个结果，选择其中一个发送（随后搜索结果将折叠，只显示前5个结果）。"
+  },
+  { command: "/goto USER", text: "转至此用户当前所在房间。" },
+  { command: "/ha", text: "在聊天界面中随机生成HAHA字符动画" },
+  { command: "/LANGUAGE", text: "切换网站语言（目前仅设英文和中文，添加其他语言后将提供更多选项）" },
+  { command: "/light", text: "切换至浅色模式" },
+  { command: "/logout", text: "退出网站登录，将弹出确认对话框。" },
+  {
+    command: "/love",
+    prefix: "可在一着好棋之后发送",
+    linkLabel: "爱心动画",
+    linkHref: "https://codepen.io/vivinantony/pen/gbENBB",
+    suffix:
+      "。每个用户每盘对局仅可使用1次，且每盘对局所有用户总共只能使用10次。超过次数限制后，/love命令将仅输出三个心形图标，不会生成动画。此功能为P2。"
+  },
+  {
+    command: "/moves",
+    text:
+      "显示所有行棋记录（最终我们将在聊天界面中添加“行棋记录”按钮）；之后我们将为此命令添加语言选项，用户可按需选择语言，例如：/moves en表示英文行棋注释（如C c5c7），/moves cn则表示中文行棋注释（如C2+5) 等。如未指定语言，系统将按照用户最后一次设置生成注释。"
+  },
+  {
+    command: "/mute USER",
+    text: "将此用户静音；如操作用户为正在对弈的棋手，则相当于房间内所有其他玩家在离开之前都对此用户设置了静音。如需解除静音，请至此用户的个人资料页进行操作。"
+  },
+  { command: "/pieces STYLE", text: "切换棋子样式（如有多款棋子样式可供选择）" },
+  {
+    command: "/record",
+    text: "记录对弈双方的对局记录（胜、负、和），列出红方对局结果例如：若Paul持红子，Walter持黑子，则显示为“Paul vs Walter：5胜10负2和”。"
+  },
+  { command: "/shrug MESSAGE", text: "在发送的消息中附上表情包¯\\_(ツ)_/¯，向好友致意。:-)" },
+  { command: "/time", text: "显示对弈双方的当地时间。" },
+  {
+    command: "/who",
+    text: "分行列出在此房间的玩家，包含用户名、国旗/区旗、积分、当地时间、上次对弈时间。按积分由高到低排列。（最终我们将在聊天界面中添加“所有玩家”按钮）"
+  }
+] as const;
+
 const xiangqiPieces = [
   {
     symbol: "帅",
@@ -255,7 +393,263 @@ const xiangqiPieces = [
 ];
 ---
 
-{isJourneyHelpPage || isPlayWithFriendPage || isFirstGamePage || isPieceGuidePage || isTeamPage || isFairPlayPage || isRulesPage || isLimitsPage || isRatingPage || isPuzzlePage || isTournamentPage || isInviteGuidePage || isAnalysisPage || isProductUpdatePage || isReleasesPage || isRoadmapPage || isComputerPage || isPolitePage || isShopPage || isResourcesPage ? null : isHome ? (
+{isSlashPage ? (
+  <section class="slash-page">
+    <header class="slash-header">
+      <div class="slash-shell slash-header__inner">
+        <a class="slash-header__brand" href="/">
+          <img src={replicaAssets.logo} alt="相弈象棋的logo" loading="eager" />
+        </a>
+
+        <nav class="slash-header__nav" aria-label="斜杠命令页面导航">
+          <details class="slash-header__dropdown">
+            <summary>帮助</summary>
+            <div class="slash-header__menu">
+              <a href="/help/">开启象棋之旅</a>
+              <a href="/play-with-a-friend/">好友对战</a>
+              <a href="/how-to-create-puzzle/">自定义残局</a>
+              <a href="/tournament/">比赛</a>
+            </div>
+          </details>
+
+          <a href="/mobile/">下载APP</a>
+          <a href="/how-to-play-xiangqi/">如何下象棋</a>
+
+          <details class="slash-header__dropdown slash-header__dropdown--language">
+            <summary>简中</summary>
+            <div class="slash-header__menu">
+              <a href="/tcn/">繁中</a>
+              <a href="/en/">English</a>
+              <a href="/vi/">Tiếng Việt</a>
+            </div>
+          </details>
+        </nav>
+      </div>
+    </header>
+
+    <div class="slash-shell slash-page__content">
+      <div class="slash-page__title-wrap">
+        <h1>{page.heroTitle}</h1>
+      </div>
+
+      <div class="slash-page__panel">
+        <p>
+          我们即将推出一系列斜杠命令，用户可直接在聊天中输入相关命令。因此，用户不仅能用聊天输入框给其他用户发送消息，还可直接给系统发送消息和请求。
+        </p>
+        <p>
+          以下是我们当前正在开发的斜杠命令。如对斜杠命令有其他想法，请发送邮件至
+          <a href="mailto:help@xiangqi.com">help@xiangqi.com</a>
+          ，谢谢！
+        </p>
+
+        <ul class="slash-command-list">
+          {slashCommands.map((item) => (
+            <li>
+              <span class="slash-command-list__command">{item.command}</span>
+              <span class="slash-command-list__separator">——</span>
+              {"text" in item ? (
+                <span>{item.text}</span>
+              ) : (
+                <span>
+                  {item.prefix}
+                  <a href={item.linkHref} target="_blank" rel="noreferrer">
+                    {item.linkLabel}
+                  </a>
+                  {item.suffix}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <footer class="slash-footer">
+      <div class="slash-shell slash-footer__inner">
+        <h2>Xiangqi.com 相弈象棋</h2>
+
+        <div class="slash-footer__grid">
+          <div>
+            <h3>关于</h3>
+            <nav aria-label="关于">
+              <a href="/about/">我们的故事</a>
+              <a href="/team/">我们的团队</a>
+              <a href="/roadmap/">产品路线图</a>
+              <a href="/contact/">联系我们</a>
+            </nav>
+          </div>
+
+          <div>
+            <h3>帮助</h3>
+            <nav aria-label="帮助">
+              <a href="/how-to-play/">象棋规则</a>
+              <a href="/pieces-and-moves/">棋子与走法</a>
+              <a href="/rating/">等级分系统</a>
+              <a href="/limits/">象棋走法限制</a>
+            </nav>
+          </div>
+
+          <div>
+            <h3>更多</h3>
+            <nav aria-label="更多">
+              <a href="/shop/">商品周边</a>
+              <a href="/resources/">资源</a>
+              <a href="/fair-play/">公平对弈政策</a>
+              <a href="/polite/">文明政策</a>
+              <a href="/terms/">服务条款</a>
+              <a href="/privacy/">隐私政策</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="slash-footer__downloads" aria-label="下载应用">
+          <a href="https://play.google.com/store/apps/details?id=com.xiangqimobile" target="_blank" rel="noreferrer">
+            <img src={replicaAssets.downloadBadgeGoogle} alt="Google Play 下载按钮" loading="lazy" />
+          </a>
+          <a href="/apk/Xiangqi-v2.1.4-signed-China.apk">
+            <img src={replicaAssets.downloadBadgeApk} alt="安卓 APK 下载按钮" loading="lazy" />
+          </a>
+          <a href="https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460" target="_blank" rel="noreferrer">
+            <img src={replicaAssets.downloadBadgeApple} alt="App Store 下载按钮" loading="lazy" />
+          </a>
+        </div>
+
+        <div class="slash-footer__meta">
+          <p>©2024 - 相弈象棋 版权所有</p>
+          <p>
+            关注我们：
+            <a href="https://www.zhihu.com/people/-xiangqi-com" target="_blank" rel="noreferrer">知乎</a>
+            <a href="https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A" target="_blank" rel="noreferrer">微信公众号</a>
+            <a href="https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click" target="_blank" rel="noreferrer">哔哩哔哩</a>
+            <a href="https://www.xiaohongshu.com/user/profile/624012d80000000021025494" target="_blank" rel="noreferrer">小红书</a>
+          </p>
+          <p>
+            <a href="https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5" target="_blank" rel="noreferrer">来WhatsApp和我们聊天</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </section>
+) : isContributorsPage ? (
+  <section class="contributors-page">
+    <header class="slash-header">
+      <div class="slash-shell slash-header__inner">
+        <a class="slash-header__brand" href="/">
+          <img src={replicaAssets.logo} alt="相弈象棋的logo" loading="eager" />
+        </a>
+
+        <nav class="slash-header__nav" aria-label="贡献者页面导航">
+          <details class="slash-header__dropdown">
+            <summary>帮助</summary>
+            <div class="slash-header__menu">
+              <a href="/help/">开启象棋之旅</a>
+              <a href="/play-with-a-friend/">好友对战</a>
+              <a href="/how-to-create-puzzle/">自定义残局</a>
+              <a href="/tournament/">比赛</a>
+            </div>
+          </details>
+
+          <a href="/mobile/">下载APP</a>
+          <a href="/how-to-play-xiangqi/">如何下象棋</a>
+
+          <details class="slash-header__dropdown slash-header__dropdown--language">
+            <summary>简中</summary>
+            <div class="slash-header__menu">
+              <a href="/tcn/">繁中</a>
+              <a href="/en/">English</a>
+              <a href="/vi/">Tiếng Việt</a>
+            </div>
+          </details>
+        </nav>
+      </div>
+    </header>
+
+    <div class="contributors-page__content">
+      <div class="contributors-page__inner">
+        <div class="contributors-page__title-wrap">
+          <h1>{page.heroTitle}</h1>
+        </div>
+
+        <div class="contributors-page__panel">
+          <p>{page.sections[0]?.body[0]}</p>
+          {contributorsEntries.map((entry) => (
+            <p class="contributors-page__entry">
+              <span class="contributors-page__index">{entry.index}</span>
+              <span class="contributors-page__highlight">{entry.highlight}</span>
+              <span>{entry.text}</span>
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <footer class="slash-footer">
+      <div class="slash-shell slash-footer__inner">
+        <h2>Xiangqi.com 相弈象棋</h2>
+
+        <div class="slash-footer__grid">
+          <div>
+            <h3>关于</h3>
+            <nav aria-label="关于">
+              <a href="/about/">我们的故事</a>
+              <a href="/team/">我们的团队</a>
+              <a href="/roadmap/">产品路线图</a>
+              <a href="/contact/">联系我们</a>
+            </nav>
+          </div>
+
+          <div>
+            <h3>帮助</h3>
+            <nav aria-label="帮助">
+              <a href="/how-to-play/">象棋规则</a>
+              <a href="/pieces-and-moves/">棋子与走法</a>
+              <a href="/rating/">等级分系统</a>
+              <a href="/limits/">象棋走法限制</a>
+            </nav>
+          </div>
+
+          <div>
+            <h3>更多</h3>
+            <nav aria-label="更多">
+              <a href="/shop/">商品周边</a>
+              <a href="/resources/">资源</a>
+              <a href="/fair-play/">公平对弈政策</a>
+              <a href="/polite/">文明政策</a>
+              <a href="/terms/">服务条款</a>
+              <a href="/privacy/">隐私政策</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="slash-footer__downloads" aria-label="下载应用">
+          <a href="https://play.google.com/store/apps/details?id=com.xiangqimobile" target="_blank" rel="noreferrer">
+            <img src={replicaAssets.downloadBadgeGoogle} alt="Google Play 下载按钮" loading="lazy" />
+          </a>
+          <a href="/apk/Xiangqi-v2.1.4-signed-China.apk">
+            <img src={replicaAssets.downloadBadgeApk} alt="安卓 APK 下载按钮" loading="lazy" />
+          </a>
+          <a href="https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460" target="_blank" rel="noreferrer">
+            <img src={replicaAssets.downloadBadgeApple} alt="App Store 下载按钮" loading="lazy" />
+          </a>
+        </div>
+
+        <div class="slash-footer__meta">
+          <p>©2024 - 相弈象棋 版权所有</p>
+          <p>
+            关注我们：
+            <a href="https://www.zhihu.com/people/-xiangqi-com" target="_blank" rel="noreferrer">知乎</a>
+            <a href="https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A" target="_blank" rel="noreferrer">微信公众号</a>
+            <a href="https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click" target="_blank" rel="noreferrer">哔哩哔哩</a>
+            <a href="https://www.xiaohongshu.com/user/profile/624012d80000000021025494" target="_blank" rel="noreferrer">小红书</a>
+          </p>
+          <p>
+            <a href="https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5" target="_blank" rel="noreferrer">来WhatsApp和我们聊天</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </section>
+) : isContributorsPage || isJourneyHelpPage || isPlayWithFriendPage || isFirstGamePage || isNewUserPage || isSysSignupPage || isVerifiedPage || isPieceGuidePage || isHowToPlayGuidePage || isLongformArticlePage || isKillPatternHelpPage || isTeamPage || isFairPlayPage || isRulesPage || isLimitsPage || isRatingPage || isMarkPage || isMarkersHelpPage || isPuzzlePage || isTournamentPage || isInviteGuidePage || isAnalysisPage || isProductUpdatePage || isNewInterfacePage || isReleasesPage || isRoadmapPage || isComputerPage || isPolitePage || isBugsPage || isReportPage || isShopPage || isResourcesPage ? null : isHome ? (
   <section class="replica-hero" aria-labelledby="page-title">
     <div class="replica-hero__veil"></div>
     <div class="replica-hero__content">
@@ -275,7 +669,7 @@ const xiangqiPieces = [
       </div>
     </div>
   </section>
-) : (
+) : !isEarthPage ? (
   <section class:list={["replica-subhero", isDownloadPage && "replica-subhero--download"]}>
     <div class:list={["replica-container", page.type !== "home" && !isDownloadPage && "replica-container--narrow"]}>
       <p class="replica-kicker">Xiangqi.com</p>
@@ -296,7 +690,7 @@ const xiangqiPieces = [
       )}
     </div>
   </section>
-)}
+) : null}
 
 {page.type === "home" && page.sections[0] && (
   <section class="replica-red replica-intro">
@@ -316,7 +710,7 @@ const xiangqiPieces = [
   </section>
 )}
 
-{isJourneyHelpPage ? (
+{isSlashPage || isContributorsPage ? null : isJourneyHelpPage ? (
   <section class="replica-help-doc">
     <div class="replica-help-doc__inner">
       <h1 class="replica-help-doc__title">来 Xiangqi.com 相弈象棋，下中国象棋</h1>
@@ -365,7 +759,7 @@ const xiangqiPieces = [
         <article class="replica-help-doc__section">
           <h2>{journeyStepsSection.title}</h2>
           <ol class="replica-help-doc__steps">
-            <li><a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>注册</a></li>
+            <li><a href="/sys-signup/">注册</a></li>
             <li>输入用户名、邮箱、密码和国家/地区，完善头像与自我介绍。示例：<a href="https://play.xiangqi.com/@/paul" {...linkAttrs(true)}>@paul的个人页面</a></li>
             <li>打开收件箱，点击验证邮件中的链接完成账号验证。</li>
             <li>登录后进入<a href="https://play.xiangqi.com/" {...linkAttrs(true)}>游戏大厅</a>，可以创建公开对局、观看正在进行的对弈，或与其他棋手聊天。</li>
@@ -507,9 +901,42 @@ const xiangqiPieces = [
       ))}
 
       <nav class="replica-announcement-page__pager" aria-label="文章导航">
-        <a href="/articles/import-game-notation/">上一篇 棋谱导入的格式说明</a>
-        <a href="/articles/new-interface/">下一篇 相弈象棋-新界面</a>
+        <a href="/sys-nd/23.html">上一篇 棋谱导入的格式说明</a>
+        <a href="/sys-nd/20.html">下一篇 相弈象棋-新界面</a>
       </nav>
+    </div>
+  </section>
+) : isNewInterfacePage ? (
+  <section class="replica-interface-page">
+    <div class="replica-interface-page__inner">
+      <header class="replica-interface-page__hero">
+        <h1>{page.heroTitle}</h1>
+      </header>
+
+      {contentSections.map((section, index) => (
+        <section class="replica-interface-page__section">
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          {section.image && (
+            <figure class="replica-interface-page__figure">
+              <img src={section.image} alt={section.imageAlt || page.heroTitle} loading={index === 1 ? "eager" : "lazy"} />
+            </figure>
+          )}
+          {section.links?.map((link) => (
+            <p class="replica-interface-page__link">
+              <a href={link.href} {...linkAttrs(link.external)}>
+                {link.label}
+              </a>
+            </p>
+          ))}
+        </section>
+      ))}
+
+      <p class="replica-interface-page__copyright">
+        聲明：此篇為相弈象棋Xiangqi.com原創文章，轉載請標明出處鏈接：
+        <a href="https://www.zh.xiangqi.com/sys-nd/20.html" target="_blank" rel="noreferrer">
+          https://www.zh.xiangqi.com/sys-nd/20.html
+        </a>
+      </p>
     </div>
   </section>
 ) : isReleasesPage ? (
@@ -781,7 +1208,7 @@ const xiangqiPieces = [
           </li>
           <li>
             <span aria-hidden="true">✅</span>
-            <a href="https://play.xiangqi.com/register" {...linkAttrs(true)}>创建账号</a>
+            <a href="/new-user/">创建账号</a>
           </li>
         </ul>
       </section>
@@ -811,6 +1238,289 @@ const xiangqiPieces = [
       </section>
     </div>
   </section>
+) : isNewUserPage ? (
+  <section class="replica-new-user-page">
+    <div class="replica-new-user-page__inner">
+        <header class="replica-new-user-page__hero">
+          <h1>创建账号</h1>
+          {newUserIntroSection && (
+            <p class="replica-new-user-page__lead">
+              以下是账号
+              <a href="/sys-signup/">注册</a>
+              和创建教程，快来下棋并把 Xiangqi.com 相弈象棋分享给好友吧！
+            </p>
+          )}
+        </header>
+
+      {newUserStartSection && (
+        <section class="replica-new-user-page__section">
+          <h2>开始</h2>
+
+          <div class="replica-new-user-page__stage">
+            <div class="replica-new-user-page__copy">
+              <ol class="replica-new-user-page__steps">
+                <li>点击“注册/登录”或“登录”注册账号。</li>
+              </ol>
+            </div>
+            <figure class="replica-new-user-page__media">
+              <img
+                src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgyrjFqQYokMadyQUwmwY4oAQ.png"
+                alt="创建账号第一步：点击 Signup / Login 或 Login"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+
+          <div class="replica-new-user-page__stage replica-new-user-page__stage--reverse">
+            <figure class="replica-new-user-page__media">
+              <img
+                src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgk7nFqQYozOOrRjClBTjeBA.png"
+                alt="创建账号第二步：切换到注册页并填写账号信息"
+                loading="lazy"
+              />
+            </figure>
+            <div class="replica-new-user-page__copy">
+              <ol class="replica-new-user-page__steps replica-new-user-page__steps--continued" start="2">
+                <li>如未成功，请点击“注册”按钮。</li>
+                <li>
+                  输入个人信息完成注册：
+                  <ul class="replica-new-user-page__bullet-list">
+                    <li>电子邮箱</li>
+                    <li>用户名</li>
+                    <li>密码</li>
+                    <li>所在国家/地区</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {newUserNowSection && (
+        <section class="replica-new-user-page__section">
+          <h2>现在可以...</h2>
+          <ul class="replica-new-user-page__links">
+            <li>
+              <a href="/verified/">用户验证</a>
+            </li>
+            <li>
+              <a href="/play-with-a-friend/">好友对战</a>
+            </li>
+            <li>
+              <a href="/computer/">人机对战</a>
+            </li>
+          </ul>
+        </section>
+      )}
+
+      {newUserLearnSection && (
+        <section class="replica-new-user-page__section">
+          <h2>学习...</h2>
+          <p class="replica-new-user-page__inline-links">
+            <a href="/how-to-play/">象棋规则</a>
+            <a href="/how-to-play-xiangqi/">棋子与走法</a>
+          </p>
+        </section>
+      )}
+
+      {newUserNextSection && (
+        <section class="replica-new-user-page__section replica-new-user-page__section--next">
+          <p>
+            下一步：
+            <a href="/verified/">验证账号</a>
+          </p>
+        </section>
+      )}
+    </div>
+  </section>
+) : isSysSignupPage ? (
+  <section class="replica-signup-page">
+    <div class="replica-signup-page__inner">
+      <h1 class="replica-signup-page__sr-only">注册</h1>
+      <form class="replica-signup-page__form" action="#" method="post" novalidate data-replica-signup-form>
+        <div class="replica-signup-page__row">
+          <label class="replica-signup-page__label" for="signup-account">
+            <span>账号</span>
+            <span class="replica-signup-page__required-mark" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="signup-account"
+            class="replica-signup-page__input"
+            type="text"
+            placeholder="账号"
+            autocomplete="username"
+            required
+            aria-required="true"
+            data-field-label="账号"
+          />
+        </div>
+        <div class="replica-signup-page__row">
+          <label class="replica-signup-page__label" for="signup-password">
+            <span>密码</span>
+            <span class="replica-signup-page__required-mark" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="signup-password"
+            class="replica-signup-page__input"
+            type="password"
+            placeholder="密码"
+            autocomplete="new-password"
+            required
+            aria-required="true"
+            data-field-label="密码"
+          />
+        </div>
+        <div class="replica-signup-page__row">
+          <label class="replica-signup-page__label" for="signup-confirm">
+            <span>确认密码</span>
+            <span class="replica-signup-page__required-mark" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="signup-confirm"
+            class="replica-signup-page__input"
+            type="password"
+            placeholder="确认密码"
+            autocomplete="new-password"
+            required
+            aria-required="true"
+            data-field-label="确认密码"
+          />
+        </div>
+        <div class="replica-signup-page__row replica-signup-page__row--hidden" aria-hidden="true">
+          <label class="replica-signup-page__label" for="signup-captcha">验证码</label>
+          <div class="replica-signup-page__captcha-wrap">
+            <input
+              id="signup-captcha"
+              class="replica-signup-page__input"
+              type="text"
+              placeholder="请输入验证码"
+              maxlength="4"
+            />
+          </div>
+        </div>
+        <div class="replica-signup-page__actions">
+          <button class="replica-signup-page__submit" type="submit">注册</button>
+        </div>
+        <p class="replica-signup-page__status" data-signup-status aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+) : isVerifiedPage ? (
+  <section class="replica-help-doc replica-help-doc--verified">
+    <div class="replica-help-doc__inner replica-help-doc__inner--verified">
+      <p class="replica-help-doc__verified-intro">
+        我们希望打造一个开放、美好的社区，迎接每个独一无二且真实的用户。
+      </p>
+      <p class="replica-help-doc__verified-intro replica-help-doc__verified-intro--secondary">
+        那我们怎么知道每个用户都是真实存在的呢？答案就是验证账号！
+      </p>
+
+      <article class="replica-help-doc__section replica-help-doc__section--verified">
+        <h2>若账号未经验证会如何？</h2>
+        <p>如账号未通过验证，用户名旁边将显示灰色标记（和推特一样）。</p>
+        <p>未验证账号的用户不能发起挑战或创建私人游戏。</p>
+        <div class="replica-verified-gallery replica-verified-gallery--status">
+          <figure class="replica-verified-gallery__figure">
+            <img
+              src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg96-FqQYo6-2zugYw2go41gU.png"
+              alt="未验证账号状态示意图"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="replica-verified-gallery__figure">
+            <img
+              src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgorDFqQYo8-zSFTDcCziuBg.png"
+              alt="未验证账号限制示意图"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </article>
+
+      <article class="replica-help-doc__section replica-help-doc__section--verified replica-verified-split">
+        <div class="replica-verified-split__copy">
+        <h2>账号验证步骤</h2>
+        <p>
+          <a href="/new-user/" class="replica-help-doc__accent-link">创建账号</a>
+          后，用户可在页面顶部找到“验证”按钮。
+        </p>
+        <p>
+          用户可随时通过点击“验证”按钮、点击“创建游戏”页面中的验证链接或进入个人资料页完成账号验证。点击验证后，系统将跳转至验证页面，用户可在其中获取更多信息。
+        </p>
+        </div>
+        <figure class="replica-verified-split__figure">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg_bPFqQYosO2BkwIw3As42AQ.png"
+            alt="账号验证按钮与入口示意图"
+            loading="lazy"
+          />
+        </figure>
+      </article>
+
+      <article class="replica-help-doc__section replica-help-doc__section--verified replica-verified-split">
+        <div class="replica-verified-split__copy">
+          <h3>重新发送激活邮件</h3>
+          <p>
+            注册账号时，用户将收到一封主题为“Xiangqi.com——激活账号”的邮件。如未收到上述邮件，请点击重新发送激活邮件并完成账号设置。
+          </p>
+          <p>
+            通过点击邮件中的链接，用户即可登录账号，开始发起私密对局并挑战好友。
+          </p>
+        </div>
+        <figure class="replica-verified-split__figure replica-verified-split__figure--narrow">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg17TFqQYo1MSBhwEw3As41AU.png"
+            alt="重新发送激活邮件示意图"
+            loading="lazy"
+          />
+        </figure>
+      </article>
+
+      <article class="replica-help-doc__section replica-help-doc__section--verified replica-verified-split">
+        <div class="replica-verified-split__copy">
+          <h3>更新邮箱地址</h3>
+          <p>
+            大部分用户可能有多个邮箱地址。如果忘记或输入错误的邮箱地址，不用担心！
+          </p>
+          <p>用户可在点击“验证”后更新邮箱地址和密码。</p>
+        </div>
+        <figure class="replica-verified-split__figure replica-verified-split__figure--narrow">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgk7XFqQYotJ6Q6wMw3As4_Qk.png"
+            alt="更新邮箱地址示意图"
+            loading="lazy"
+          />
+        </figure>
+      </article>
+
+      <article class="replica-help-doc__section replica-help-doc__section--verified">
+        <h2>未来动向…</h2>
+        <p>
+          部分用户愿意透露自己的真实身份。通过认证后，系统将在其用户名旁添加蓝色标记（和推特一样）。
+        </p>
+        <p>
+          蓝标认证用户还将获得参加
+          <a href="/tournament/">锦标赛</a>
+          、斩获现金大奖的资格！
+        </p>
+        <p>我们还将很快推出全新排行榜，显示名列前茅的认证用户。</p>
+        <p>用户在个人资料页完成以下步骤（即将推出）后，即可成为认证用户：</p>
+        <ul class="replica-help-doc__bullet-list">
+          <li>通过邮箱和/或短信完成验证。</li>
+          <li>提供全名、半身照和真实国籍。</li>
+          <li>提供简短的自我介绍，包括比赛历史、师从何人以及加入的象棋组织。</li>
+          <li>提供至少一类社交媒体（推特、Instagram、脸书、领英等）或个人网站链接。</li>
+          <li>用户可自行决定是否将其中任何一项发布到我们的社区或仅与我们的网站管理员共享。</li>
+          <li>手持写有用户名及“xiangqi.com”的标牌拍摄半身照并上传。</li>
+        </ul>
+        <p class="replica-help-doc__verified-contact">
+          如对上述内容有任何反馈，请发送邮件至
+          <a href="mailto:help@xiangqi.com">help@xiangqi.com</a>
+        </p>
+      </article>
+    </div>
+  </section>
 ) : isFirstGamePage ? (
   <section class="replica-first-game-page">
     <div class="replica-first-game-page__inner">
@@ -826,8 +1536,8 @@ const xiangqiPieces = [
         <h2>进行第一盘对局</h2>
         <p>账号注册及象棋规则教程：</p>
         <ul class="replica-first-game-page__links">
-          <li><a href="https://www.zh.xiangqi.com/new-user/" {...linkAttrs(true)}>创建账号</a></li>
-          <li><a href="https://www.zh.xiangqi.com/verified/" {...linkAttrs(true)}>用户验证</a></li>
+          <li><a href="/new-user/">创建账号</a></li>
+          <li><a href="/verified/">用户验证</a></li>
           <li><a href="/how-to-play/">象棋规则</a></li>
           <li><a href="/how-to-play-xiangqi/">棋子与走法</a></li>
         </ul>
@@ -888,6 +1598,265 @@ const xiangqiPieces = [
           <li><a href="/how-to-play-xiangqi/">棋子与走法</a></li>
         </ul>
       </section>
+    </div>
+  </section>
+) : isHowToPlayGuidePage ? (
+  <section class="replica-howto-page">
+    <div class="replica-howto-page__inner">
+      <header class="replica-howto-page__hero">
+        <p class="replica-howto-page__eyebrow">新手教程</p>
+        <h1>{page.heroTitle}</h1>
+        {page.heroSubtitle && <p class="replica-howto-page__lede">{page.heroSubtitle}</p>}
+        <div class="replica-howto-page__langlinks">
+          <a href="/tcn/how-to-play-xiangqi/">繁體中文</a>
+          <a href="https://www.xiangqi.com/how-to-play-xiangqi" {...linkAttrs(true)}>English</a>
+          <a href="https://www.xiangqi.com/es/how-to-play-xiangqi" {...linkAttrs(true)}>Español</a>
+        </div>
+      </header>
+
+      <div class="replica-howto-page__layout">
+        <aside class="replica-howto-page__toc">
+          <h2>{page.sections[0]?.title}</h2>
+          <ol>
+            {page.sections[0]?.list?.map((item, index) => (
+              <li><a href={`#howto-section-${index + 1}`}>{stripLeadingSectionNumber(item)}</a></li>
+            ))}
+          </ol>
+        </aside>
+
+        <div class="replica-howto-page__content">
+          <section class="replica-howto-page__authors">
+            <h2>{page.sections[1]?.title}</h2>
+            <div class="replica-howto-page__authorgrid">
+              {howToAuthorProfiles.length > 0
+                ? howToAuthorProfiles.map((author) => (
+                    <article class="replica-howto-page__authorcard">
+                      <div class="replica-howto-page__authormedia">
+                        <img src={author.image} alt={author.imageAlt} loading="lazy" />
+                      </div>
+                      <div class="replica-howto-page__authorcopy">
+                        <h3>{author.name}</h3>
+                        <p>{author.role}</p>
+                      </div>
+                    </article>
+                  ))
+                : page.sections[1]?.body.map((item) => (
+                    <div class="replica-howto-page__authorcard">{item}</div>
+                  ))}
+            </div>
+          </section>
+
+          {page.sections.slice(2).map((section, index) => (
+            <section class="replica-howto-page__section" id={`howto-section-${index + 1}`}>
+              <h2>{section.title}</h2>
+              <div class="replica-howto-page__copy">
+                {(section.metaPrefix || section.metaLinks || section.metaSuffix) && (
+                  <p class="replica-howto-page__meta">
+                    {section.metaPrefix}
+                    {section.metaLinks?.map((link, metaIndex) => (
+                      <>
+                        {metaIndex > 0 && "；"}
+                        <a class="replica-howto-page__meta-link" href={link.href} {...linkAttrs(link.external)}>
+                          {link.label}
+                        </a>
+                      </>
+                    ))}
+                    {section.metaSuffix}
+                  </p>
+                )}
+                {section.body.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+                {section.list && section.list.length > 0 && (
+                  <ol class="replica-howto-page__list">
+                    {section.list.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ol>
+                )}
+                {section.subSections?.map((subSection) => (
+                  <section class="replica-howto-page__subsection">
+                    <h3>{subSection.title}</h3>
+                    {subSection.body.map((paragraph) => (
+                      <p>{paragraph}</p>
+                    ))}
+                    {subSection.list && subSection.list.length > 0 && (
+                      <ol class="replica-howto-page__list">
+                        {subSection.list.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ol>
+                    )}
+                  </section>
+                ))}
+              </div>
+              {section.image && (
+                <figure class="replica-howto-page__figure">
+                  <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+                </figure>
+              )}
+              {section.links && section.links.length > 0 && (
+                <div class="replica-howto-page__links">
+                  {section.links.map((link) => (
+                    <a class="replica-howto-page__link" href={link.href} {...linkAttrs(link.external)}>
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </section>
+          ))}
+
+          <section class="replica-howto-page__next">
+            <p>继续阅读</p>
+            <div class="replica-howto-page__nextlinks">
+              <a href="/pieces-and-moves/">棋子与走法</a>
+              <a href="/how-to-play/">象棋规则</a>
+              <a href="/first-game/">开始第一盘对局</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+) : isKillPatternHelpPage ? (
+  <section class="replica-smothered-page">
+    <div class="replica-smothered-page__inner" id={isWhiteFacedGeneralPage ? "white-faced-general-top" : "smothered-cannon-top"}>
+      <header class="replica-smothered-page__hero">
+        <h1>{page.heroTitle}</h1>
+      </header>
+
+      {smotheredIntroSection && (
+        <section class="replica-smothered-page__intro">
+          {smotheredIntroSection.body.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+          {smotheredIntroSection.image && (
+            <figure class="replica-smothered-page__lead-figure">
+              <img
+                src={smotheredIntroSection.image}
+                alt={smotheredIntroSection.imageAlt || smotheredIntroSection.title}
+                loading="eager"
+              />
+            </figure>
+          )}
+        </section>
+      )}
+
+      {smotheredConditionSection && (
+        <section class="replica-smothered-page__section replica-smothered-page__section--conditions">
+          <div class="replica-smothered-page__rule"></div>
+          <div class="replica-smothered-page__copy">
+            <p class="replica-smothered-page__section-title">{smotheredConditionSection.title}</p>
+            {smotheredConditionSection.list?.map((item) => (
+              <p>{item}</p>
+            ))}
+            {smotheredConditionSection.body.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {smotheredExampleSection && (
+        <section class="replica-smothered-page__section replica-smothered-page__section--examples">
+          <h2>{smotheredExampleSection.title}</h2>
+          <div class="replica-smothered-page__example-grid">
+            {smotheredExampleSection.gallery?.map((item) => (
+              <article class="replica-smothered-page__example-card">
+                <figure class="replica-smothered-page__example-figure">
+                  <img src={item.image} alt={item.imageAlt || item.title} loading="lazy" />
+                </figure>
+                <h3>{item.title}</h3>
+                <span class="replica-smothered-page__example-pill">挑战题目</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </section>
+) : isEarthPage ? (
+  <section class="replica-earth-page">
+    <div class="replica-earth-page__inner">
+      <header class="replica-earth-page__header">
+        <h1>{page.heroTitle}</h1>
+      </header>
+
+      <div class="replica-earth-page__content">
+        {page.sections[0]?.body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      {page.sections[0]?.image && (
+        <figure class="replica-earth-page__figure">
+          <img
+            src={page.sections[0].image}
+            alt={page.sections[0].imageAlt || page.sections[0].title}
+            loading="lazy"
+          />
+        </figure>
+      )}
+    </div>
+  </section>
+) : isLongformArticlePage ? (
+  <section class="story-page story-page--article-detail">
+    <div class="replica-container replica-container--narrow">
+      <article class="story-page__article">
+        <p class="story-page__eyebrow">教学文章</p>
+        <h1>{page.heroTitle}</h1>
+        <p class="story-page__meta">{page.heroSubtitle}</p>
+        <div class="story-page__body">
+          {page.sections[0]?.body[0] && <p class="story-page__lead">{page.sections[0].body[0]}</p>}
+          <div class="story-page__rule"></div>
+          {page.sections.slice(1).map((section) => (
+            <section class="story-page__section">
+              <h2>{section.title}</h2>
+              {section.image && section.imagePlacement === "after-first-paragraph" ? (
+                <>
+                  {section.body[0] && <p>{section.body[0]}</p>}
+                  <figure class="story-page__figure story-page__figure--wide">
+                    <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+                    {section.imageCaption && <figcaption>{section.imageCaption}</figcaption>}
+                  </figure>
+                  {section.body.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+                </>
+              ) : (
+                <>
+                  {section.body.map((paragraph) => <p>{paragraph}</p>)}
+                  {section.image && (
+                    <figure class="story-page__figure story-page__figure--wide">
+                      <img src={section.image} alt={section.imageAlt || section.title} loading="lazy" />
+                      {section.imageCaption && <figcaption>{section.imageCaption}</figcaption>}
+                    </figure>
+                  )}
+                </>
+              )}
+              {section.table && section.table.length > 0 && (
+                <div class="story-page__table-wrap">
+                  <table class="story-page__table">
+                    <tbody>
+                      {section.table.map((row, rowIndex) => (
+                        <tr>
+                          {row.map((cell) => (rowIndex === 0 ? <th>{cell}</th> : <td>{cell}</td>))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+              {section.links && section.links.length > 0 && (
+                <div class:list={["story-page__links", section.title.includes("上一篇") && "story-page__links--stacked"]}>
+                  {section.links.map((link) => (
+                    <a href={link.href} {...linkAttrs(link.external)}>
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </section>
+          ))}
+        </div>
+      </article>
     </div>
   </section>
 ) : isPieceGuidePage ? (
@@ -1072,7 +2041,7 @@ const xiangqiPieces = [
           <br />
           2. 点击邀请好友：可通过发送邮件或复制链接邀请好友
           <br />
-          3. 好友<a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>注册</a>账号
+          3. 好友<a href="/sys-signup/">注册</a>账号
           <br />
           4. 好友添加成功！
         </p>
@@ -1149,7 +2118,7 @@ const xiangqiPieces = [
           <h2>3. 好友收到邀请</h2>
           <p>
             好友收到邮件并根据指引
-            <a href="https://play.xiangqi.com/account/signup" {...linkAttrs(true)}>注册</a>
+            <a href="/sys-signup/">注册</a>
             账号。
           </p>
         </div>
@@ -1279,6 +2248,87 @@ const xiangqiPieces = [
       )}
     </div>
   </section>
+) : isReportPage ? (
+  <section class="replica-report-page">
+    <div class="replica-report-page__inner">
+      <header class="replica-report-page__hero">
+        <h1>举报违规行为</h1>
+        <p>很多优秀的人在此汇聚一堂，但互联网世界难免鱼龙混杂。</p>
+        <h2>如发现他人出现以下行为：</h2>
+        <ul class="replica-report-page__bullet-list">
+          <li>传播低俗、淫秽或色情内容，包括文字、图片、链接等</li>
+          <li>冒犯、威胁或故意歧视任一种族、性别、性取向等</li>
+          <li>诽谤、威胁或恶意针对用户</li>
+          <li>发送“垃圾邮件”（未经批准发送商业网站链接等）</li>
+          <li>对局时作弊、故意拖延时间、中途退出或粗暴对待对手</li>
+        </ul>
+        <p class="replica-report-page__lead">请举报出现上述行为的玩家！</p>
+      </header>
+
+      <section class="replica-report-page__section replica-report-page__section--report">
+        <div class="replica-report-page__section-heading">
+          <h2>举报</h2>
+          <p>点击对方用户名，进入个人资料页。</p>
+        </div>
+
+        <figure class="replica-report-page__figure replica-report-page__figure--wide">
+          <img src={reportPageImages.reportButton} alt="个人资料页中的举报按钮示意图" loading="eager" />
+        </figure>
+
+        <div class="replica-report-page__report-grid">
+          <div class="replica-report-page__report-copy">
+            <p>点击（!）举报，请在弹出的窗口中选择举报原因。</p>
+          </div>
+
+          <figure class="replica-report-page__figure replica-report-page__figure--dialog">
+            <img src={reportPageImages.reportDialog} alt="举报弹窗与举报原因列表示意图" loading="lazy" />
+          </figure>
+
+          <div class="replica-report-page__report-details">
+            <p>选择举报原因，并在文本框中填写简要说明。</p>
+            <p>请提供举报人认为可能相关的链接。</p>
+            <p>选择举报原因后，单击提交。</p>
+
+            <h3>我们将认真审核举报内容。</h3>
+            <p>我们将创建举报人数据库，收到举报后由专门的团队即刻开展调查。</p>
+            <p>如被举报达到一定次数，系统将标记、审核且可能关闭或暂停被举报人的账号。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="replica-report-page__section replica-report-page__section--split">
+        <div class="replica-report-page__copy">
+          <h2>屏蔽</h2>
+          <p>若遭他人骚扰，可点击其个人资料页上的“屏蔽”按钮将其屏蔽。</p>
+          <p>遭屏蔽的用户无法向您发送消息或发起挑战。</p>
+          <p>若此人尝试向您发送信息或发起挑战，其将收到已被屏蔽的通知。</p>
+        </div>
+
+        <figure class="replica-report-page__figure replica-report-page__figure--split">
+          <img src={reportPageImages.blockAction} alt="个人资料页中的屏蔽按钮示意图" loading="lazy" />
+        </figure>
+      </section>
+
+      <section class="replica-report-page__section replica-report-page__section--split">
+        <div class="replica-report-page__copy">
+          <h2>静音</h2>
+          <p>您还可将聊天和通知静音以及在游戏大厅聊天信息推送视图中隐藏其他用户。</p>
+        </div>
+
+        <figure class="replica-report-page__figure replica-report-page__figure--split">
+          <img src={reportPageImages.muteAction} alt="个人资料页中的静音按钮示意图" loading="lazy" />
+        </figure>
+      </section>
+
+      <p class="replica-report-page__footer-note">
+        请查看我们的
+        <a href="/polite/" class="replica-report-page__accent-link">文明</a>
+        和
+        <a href="/fair-play/" class="replica-report-page__accent-link">公平对弈政策</a>
+        ，了解更多关于本社区的信息。
+      </p>
+    </div>
+  </section>
 ) : isFairPlayPage ? (
   <section class="replica-help-doc replica-help-doc--fair-play">
     <div class="replica-help-doc__inner">
@@ -1312,7 +2362,7 @@ const xiangqiPieces = [
         <h2>网站管理员</h2>
         <p>
           网站管理员将协助我们实施公平对弈政策。如怀疑有人作弊：
-          <a class="replica-help-doc__accent-link" href="#report-abuse">举报违规行为</a>
+          <a class="replica-help-doc__accent-link" href="/report/">举报违规行为</a>
         </p>
       </article>
 
@@ -1329,7 +2379,7 @@ const xiangqiPieces = [
         <p>我们现在正在开发多项网站作弊检测技术，并将在未来一段时间内继续完善相关技术。</p>
         <p class="replica-help-doc__more-link">
           如何举报作弊？
-          <a class="replica-help-doc__accent-link" href="#report-abuse">举报违规行为</a>
+          <a class="replica-help-doc__accent-link" href="/report/">举报违规行为</a>
         </p>
       </article>
     </div>
@@ -1376,7 +2426,7 @@ const xiangqiPieces = [
 
       <article class="replica-help-doc__report">
         <strong>发现有人做出不礼貌的举动？</strong>
-        <span>举报违规行为</span>
+        <a class="replica-help-doc__accent-link" href="/report/">举报违规行为</a>
       </article>
     </div>
   </section>
@@ -1490,6 +2540,42 @@ const xiangqiPieces = [
           )}
         </section>
       ))}
+    </div>
+  </section>
+) : isBugsPage ? (
+  <section class="replica-bugs-page">
+    <div class="replica-bugs-page__inner">
+      <h1 class="replica-bugs-page__title">{page.heroTitle}</h1>
+
+      <p class="replica-bugs-page__lead">如遇系统出错，请发送邮件至<a href="mailto:help@xiangqi.com?subject=报错">help@xiangqi.com</a>。</p>
+
+      <article class="replica-bugs-page__section">
+        {page.sections[0]?.body.map((paragraph) =>
+          paragraph.includes("help@xiangqi.com") ? (
+            <p>
+              为帮助我们更快解决问题，用户可填写报错模板，点击“
+              <a href="mailto:help@xiangqi.com?subject=报错">help@xiangqi.com</a>
+              ”发送邮件。
+            </p>
+          ) : (
+            <p>{paragraph}</p>
+          )
+        )}
+      </article>
+
+      <section class="replica-bugs-page__closing">
+        <div class="replica-bugs-page__closing-copy">
+          {page.sections[1]?.body.map((paragraph, index) => (
+            <p class:list={[index === 1 && "replica-bugs-page__thanks"]}>{paragraph}</p>
+          ))}
+        </div>
+
+        {page.sections[1]?.image && (
+          <figure class="replica-bugs-page__figure">
+            <img src={page.sections[1].image} alt={page.sections[1].imageAlt || page.heroTitle} loading="lazy" />
+          </figure>
+        )}
+      </section>
     </div>
   </section>
 ) : isRulesPage ? (
@@ -1636,6 +2722,102 @@ const xiangqiPieces = [
       )}
     </div>
   </section>
+) : isMarkPage ? (
+  <section class="replica-help-doc replica-help-doc--mark">
+    <div class="replica-help-doc__inner replica-help-doc__inner--mark">
+      <h1 class="replica-help-doc__title replica-help-doc__title--mark">{page.heroTitle}</h1>
+
+      {page.sections[0]?.body.map((paragraph) => <p class="replica-help-doc__lead">{paragraph}</p>)}
+
+      {page.sections[1]?.links && (
+        <article class="replica-help-doc__section replica-help-doc__section--mark-links">
+          <h3 class="replica-help-doc__subheading">{page.sections[1].title}</h3>
+          <div class="replica-rating-links" role="navigation" aria-label={page.sections[1].title}>
+            {page.sections[1].links?.map((link) => (
+              <a class="replica-help-doc__accent-link" href={link.href} {...linkAttrs(link.external)}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </article>
+      )}
+
+      <article class="replica-help-doc__section replica-help-doc__section--mark-search">
+        <h3 class="replica-help-doc__subheading">搜索获取更多相关文章：</h3>
+        <form class="replica-rating-search-form" action="/support-home/" method="get">
+          <input
+            class="replica-rating-search"
+            type="search"
+            name="q"
+            placeholder="请输入关键字"
+            aria-label="搜索获取更多相关文章"
+          />
+          <button class="replica-rating-search-button" type="submit">搜索</button>
+        </form>
+      </article>
+    </div>
+  </section>
+) : isMarkersHelpPage ? (
+  <section class="replica-markers-page">
+    <div class="replica-markers-page__inner">
+      {page.sections.map((section, index) => (
+        <article
+          class:list={[
+            "replica-markers-page__section",
+            index === 0 && "replica-markers-page__section--intro",
+            index === page.sections.length - 1 && "replica-markers-page__section--settings"
+          ]}
+        >
+          <div class="replica-markers-page__copy">
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          {section.image && (
+            <figure class="replica-markers-page__figure">
+              <img src={section.image} alt={section.imageAlt || page.title} loading={index < 2 ? "eager" : "lazy"} />
+            </figure>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+) : isAnnotationHelpPage ? (
+  <section class="replica-annotation-page">
+    <div class="replica-annotation-page__inner">
+      {page.sections.map((section, index) => (
+        <article
+          class:list={[
+            "replica-annotation-page__section",
+            section.title && section.title !== "Xiangqi.com" && "replica-annotation-page__section--headed",
+            section.links?.some((link) => link.label === "进入注释功能") && "replica-annotation-page__section--cta"
+          ]}
+        >
+          {section.title && section.title !== "Xiangqi.com" && <h2>{section.title}</h2>}
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          {section.image && (
+            <figure class:list={["replica-annotation-page__figure", index === 0 && "replica-annotation-page__figure--hero"]}>
+              <img src={section.image} alt={section.imageAlt || section.title || page.title} loading={index < 2 ? "eager" : "lazy"} />
+            </figure>
+          )}
+          {section.links && section.links.length > 0 && (
+            <div class="replica-annotation-page__links">
+              {section.links.map((link) => (
+                <a
+                  class:list={[
+                    "replica-annotation-page__link",
+                    link.label === "进入注释功能" && "replica-annotation-page__link--button"
+                  ]}
+                  href={link.href}
+                  {...linkAttrs(link.external)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
 ) : (
   <section class:list={["replica-content", page.type !== "home" && "replica-content--first"]}>
     <div class:list={["replica-container", page.type !== "home" && !isDownloadPage && "replica-container--narrow"]}>
@@ -1724,7 +2906,7 @@ const xiangqiPieces = [
   </section>
 )}
 
-{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isProductUpdatePage && !isReleasesPage && !isRoadmapPage && !isComputerPage && !isShopPage && !isResourcesPage && page.articleCards && page.articleCards.length > 0 && (
+{!isSlashPage && !isContributorsPage && !isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isSysSignupPage && !isVerifiedPage && !isPieceGuidePage && !isHowToPlayGuidePage && !isKillPatternHelpPage && !isTeamPage && !isRulesPage && !isRatingPage && !isMarkPage && !isMarkersHelpPage && !isPuzzlePage && !isTournamentPage && !isProductUpdatePage && !isNewInterfacePage && !isReleasesPage && !isRoadmapPage && !isComputerPage && !isShopPage && !isResourcesPage && page.articleCards && page.articleCards.length > 0 && (
   <section class="replica-articles">
     <div class:list={["replica-container", !isHome && "replica-container--narrow"]}>
       <div class="replica-section-head">
@@ -1754,7 +2936,7 @@ const xiangqiPieces = [
   </section>
 )}
 
-{!isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isPieceGuidePage && !isTeamPage && !isRulesPage && !isRatingPage && !isPuzzlePage && !isTournamentPage && !isProductUpdatePage && !isReleasesPage && !isRoadmapPage && !isComputerPage && !isShopPage && !isResourcesPage && page.faq && page.faq.length > 0 && (
+{!isSlashPage && !isContributorsPage && !isJourneyHelpPage && !isPlayWithFriendPage && !isFirstGamePage && !isSysSignupPage && !isVerifiedPage && !isPieceGuidePage && !isHowToPlayGuidePage && !isKillPatternHelpPage && !isTeamPage && !isRulesPage && !isRatingPage && !isMarkPage && !isMarkersHelpPage && !isPuzzlePage && !isTournamentPage && !isProductUpdatePage && !isNewInterfacePage && !isReleasesPage && !isRoadmapPage && !isComputerPage && !isShopPage && !isResourcesPage && page.faq && page.faq.length > 0 && (
   <section class="replica-faq">
     <div class="replica-container">
       <h2>{faqHeading}</h2>
@@ -1770,8 +2952,768 @@ const xiangqiPieces = [
   </section>
 )}
 
+<script>
+  document.querySelectorAll('a[href="/how-to-play-xiangqi/"]').forEach((anchor) => {
+    if (anchor.textContent?.includes("棋子与走法")) {
+      anchor.setAttribute("href", "/pieces-and-moves/");
+    }
+  });
 
+  const signupForm = document.querySelector('[data-replica-signup-form]');
+  const signupStatus = document.querySelector('[data-signup-status]');
 
+  if (signupForm instanceof HTMLFormElement && signupStatus instanceof HTMLElement) {
+    const accountInput = signupForm.querySelector('#signup-account');
+    const passwordInput = signupForm.querySelector('#signup-password');
+    const confirmInput = signupForm.querySelector('#signup-confirm');
 
+    const clearState = (input: Element | null) => {
+      if (!(input instanceof HTMLInputElement)) return;
+      input.classList.remove('is-invalid');
+      input.removeAttribute('aria-invalid');
+    };
 
+    const setInvalid = (input: Element | null) => {
+      if (!(input instanceof HTMLInputElement)) return;
+      input.classList.add('is-invalid');
+      input.setAttribute('aria-invalid', 'true');
+    };
 
+    signupForm.querySelectorAll('.replica-signup-page__input').forEach((input) => {
+      input.addEventListener('input', () => clearState(input));
+    });
+
+    signupForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      signupStatus.textContent = '';
+      signupStatus.classList.remove('is-error', 'is-success');
+
+      const inputs = [accountInput, passwordInput, confirmInput].filter(
+        (input) => input instanceof HTMLInputElement
+      );
+
+      inputs.forEach((input) => clearState(input));
+
+      const emptyInput = inputs.find((input) => !input.value.trim());
+      if (emptyInput) {
+        setInvalid(emptyInput);
+        signupStatus.textContent = `请填写${emptyInput.dataset.fieldLabel || '必填项'}。`;
+        signupStatus.classList.add('is-error');
+        emptyInput.focus();
+        return;
+      }
+
+      if (passwordInput instanceof HTMLInputElement && confirmInput instanceof HTMLInputElement) {
+        if (passwordInput.value !== confirmInput.value) {
+          setInvalid(passwordInput);
+          setInvalid(confirmInput);
+          signupStatus.textContent = '两次输入的密码不一致，请重新确认。';
+          signupStatus.classList.add('is-error');
+          confirmInput.focus();
+          return;
+        }
+      }
+
+      signupStatus.textContent = '当前页面为本地复刻版，已完成前端校验，但未连接真实注册服务。';
+      signupStatus.classList.add('is-success');
+    });
+  }
+</script>
+
+<style is:global>
+  body.page-slash {
+    background: rgb(237, 232, 224);
+  }
+
+  body.page-slash .replica-header,
+  body.page-slash .replica-footer,
+  body.page-contributors .replica-header,
+  body.page-contributors .replica-footer {
+    display: none;
+  }
+
+  .slash-page {
+    color: rgb(102, 79, 76);
+    background: rgb(237, 232, 224);
+  }
+
+  .slash-shell {
+    width: min(1440px, calc(100% - 3rem));
+    margin: 0 auto;
+  }
+
+  .slash-header,
+  .slash-footer {
+    background: rgb(190, 52, 45);
+    color: #fff;
+  }
+
+  .slash-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0.85rem 0;
+  }
+
+  .slash-header__brand {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  .slash-header__brand img {
+    width: clamp(180px, 20vw, 320px);
+    display: block;
+  }
+
+  .slash-header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+    font-size: 1.05rem;
+  }
+
+  .slash-header__nav a,
+  .slash-header__dropdown summary {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .slash-header__dropdown {
+    position: relative;
+  }
+
+  .slash-header__dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .slash-header__dropdown summary::after {
+    content: " ▾";
+    font-size: 0.8em;
+  }
+
+  .slash-header__menu {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    left: 0;
+    min-width: 12rem;
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem;
+    background: rgb(190, 52, 45);
+    box-shadow: 0 14px 28px rgba(59, 20, 18, 0.22);
+    z-index: 10;
+  }
+
+  .slash-header__dropdown--language .slash-header__menu {
+    right: 0;
+    left: auto;
+  }
+
+  .slash-header__play {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .slash-header__play img {
+    width: 8.6rem;
+    display: block;
+  }
+
+  .slash-page__content {
+    padding: clamp(2.5rem, 6vw, 5rem) 0 0;
+  }
+
+  .slash-page__title-wrap {
+    padding-bottom: 1.5rem;
+  }
+
+  .slash-page__title-wrap h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 4vw, 3.15rem);
+    line-height: 1.1;
+    color: rgb(102, 79, 76);
+  }
+
+  .slash-page__panel {
+    border-top: 1px solid #000;
+    padding: 1.65rem 0 4rem;
+    font-size: 1.07rem;
+    line-height: 2;
+  }
+
+  .slash-page__panel p {
+    margin: 0 0 1rem;
+  }
+
+  .slash-page__panel a,
+  .slash-command-list a,
+  .slash-footer a {
+    color: rgb(190, 52, 45);
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+  }
+
+  .slash-command-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.15rem 0 0;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .slash-command-list li {
+    text-align: left;
+  }
+
+  .slash-command-list__command {
+    font-weight: 500;
+  }
+
+  .slash-command-list__separator {
+    margin: 0 0.12rem;
+  }
+
+  .slash-footer__inner {
+    padding: 3.3rem 0 1.2rem;
+  }
+
+  .slash-footer h2 {
+    margin: 0 0 2.2rem;
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.25rem);
+    color: #fff;
+  }
+
+  .slash-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .slash-footer__grid h3 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    color: #fff;
+  }
+
+  .slash-footer__grid nav {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .slash-footer__grid a,
+  .slash-footer__meta a {
+    color: #fff;
+  }
+
+  .slash-footer__downloads {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 2.75rem 0 1.5rem;
+  }
+
+  .slash-footer__downloads img {
+    height: auto;
+    max-width: 9.5rem;
+    display: block;
+  }
+
+  .slash-footer__meta {
+    display: grid;
+    gap: 0.55rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.75;
+    padding-top: 0.35rem;
+  }
+
+  .slash-footer__meta p {
+    margin: 0;
+  }
+
+  .slash-footer__meta p a + a {
+    margin-left: 0.55rem;
+  }
+
+  @media (max-width: 960px) {
+    .slash-shell {
+      width: min(100%, calc(100% - 2rem));
+    }
+
+    .slash-header__inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .slash-header__nav {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 1rem 1.25rem;
+    }
+
+    .slash-header__menu {
+      position: static;
+      margin-top: 0.65rem;
+      box-shadow: none;
+      padding: 0.75rem 0 0.2rem 1rem;
+    }
+
+    .slash-footer__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .slash-page__panel {
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .slash-header__brand img {
+      width: min(15.5rem, 100%);
+    }
+
+    .slash-header__play img {
+      width: 7.5rem;
+    }
+
+    .slash-footer__downloads {
+      gap: 1rem;
+    }
+
+    .slash-footer__downloads img {
+      max-width: 8.4rem;
+    }
+  }
+
+  .contributors-page {
+    color: rgb(102, 79, 76);
+    background: rgb(237, 232, 224);
+  }
+
+  .contributors-page__content {
+    padding: clamp(1.4rem, 3vw, 2.25rem) 0 0;
+  }
+
+  .contributors-page__inner {
+    width: min(75.2%, 1160px);
+    margin: 0 auto;
+  }
+
+  .contributors-page__title-wrap h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 4vw, 3.15rem);
+    line-height: 1.1;
+    color: rgb(102, 79, 76);
+  }
+
+  .contributors-page__panel {
+    border-top: 1px solid #000;
+    padding: 1.7rem 0 4rem;
+    font-size: 1.06rem;
+    line-height: 2;
+  }
+
+  .contributors-page__panel p {
+    margin: 0 0 0.4rem;
+  }
+
+  .contributors-page__entry {
+    display: block;
+  }
+
+  .contributors-page__index {
+    color: rgb(102, 79, 76);
+  }
+
+  .contributors-page__highlight {
+    color: rgb(190, 52, 45);
+    font-weight: 700;
+  }
+
+  @media (max-width: 960px) {
+    .contributors-page__inner {
+      width: min(100% - 2rem, 920px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contributors-page__content {
+      padding-top: 1rem;
+    }
+
+    .contributors-page__inner {
+      width: min(100% - 1.25rem, 920px);
+    }
+
+    .contributors-page__panel {
+      font-size: 1rem;
+      line-height: 1.9;
+      padding-bottom: 3.2rem;
+    }
+  }
+
+  .replica-smothered-page {
+    padding: clamp(2.2rem, 4vw, 3.25rem) 0 clamp(4rem, 8vw, 6rem);
+  }
+
+  .replica-smothered-page__inner {
+    width: min(75.2%, 1160px);
+    margin: 0 auto;
+    color: rgb(102, 79, 76);
+  }
+
+  .replica-smothered-page__hero h1 {
+    margin: 0 0 clamp(1.4rem, 3vw, 2.4rem);
+    font-size: clamp(2.25rem, 4.2vw, 3.15rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .replica-smothered-page__intro,
+  .replica-smothered-page__copy {
+    font-size: 1.08rem;
+    line-height: 1.95;
+  }
+
+  .replica-smothered-page__intro p,
+  .replica-smothered-page__copy p {
+    margin: 0 0 1rem;
+  }
+
+  .replica-smothered-page__lead-figure {
+    width: min(40%, 21rem);
+    margin: 1.1rem auto 0;
+  }
+
+  .replica-smothered-page__lead-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .replica-smothered-page__section--conditions {
+    margin-top: 1.7rem;
+  }
+
+  .replica-smothered-page__rule {
+    border-top: 1px solid #000;
+    margin-bottom: 1.7rem;
+  }
+
+  .replica-smothered-page__section-title {
+    margin-bottom: 1rem;
+  }
+
+  .replica-smothered-page__section--examples {
+    margin-top: clamp(2.7rem, 5vw, 3.8rem);
+  }
+
+  .replica-smothered-page__section--examples h2 {
+    margin: 0 0 1.9rem;
+    text-align: center;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .replica-smothered-page__example-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.4rem, 2.2vw, 2.2rem);
+  }
+
+  .replica-smothered-page__example-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .replica-smothered-page__example-figure {
+    width: 100%;
+    margin: 0;
+  }
+
+  .replica-smothered-page__example-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .replica-smothered-page__example-card h3 {
+    margin: 1rem 0 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  .replica-smothered-page__example-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.7rem;
+    margin-top: 1rem;
+    padding: 0.55rem 1.45rem;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-size: 0.95rem;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  @media (max-width: 960px) {
+    .replica-smothered-page__inner {
+      width: min(100% - 2rem, 880px);
+    }
+
+    .replica-smothered-page__example-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .replica-smothered-page__example-figure {
+      max-width: 24rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .replica-smothered-page__intro,
+    .replica-smothered-page__copy {
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .replica-smothered-page__lead-figure {
+      width: min(78%, 18rem);
+    }
+
+    .replica-smothered-page__section--examples h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .replica-smothered-page__example-card h3 {
+      font-size: 1.15rem;
+    }
+  }
+
+  .replica-annotation-page {
+    padding: clamp(1rem, 2vw, 1.8rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+
+  .replica-annotation-page__inner {
+    width: min(100% - 2rem, 920px);
+    margin: 0 auto;
+    color: #664f4c;
+  }
+
+  .replica-annotation-page__section {
+    padding: clamp(1.1rem, 2.8vw, 2rem) 0;
+    border-bottom: 1px solid rgba(102, 79, 76, 0.3);
+  }
+
+  .replica-annotation-page__section:last-child {
+    border-bottom: 0;
+  }
+
+  .replica-annotation-page__section--headed {
+    padding-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .replica-annotation-page__section h2 {
+    margin: 0 0 1rem;
+    color: #664f4c;
+    font-size: clamp(1.8rem, 3.4vw, 2.35rem);
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  .replica-annotation-page__section p {
+    margin: 0;
+    font-size: clamp(1rem, 1.6vw, 1.08rem);
+    line-height: 2;
+  }
+
+  .replica-annotation-page__section p + p {
+    margin-top: 0.8rem;
+  }
+
+  .replica-annotation-page__figure {
+    margin: 1.35rem auto 0;
+  }
+
+  .replica-annotation-page__figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .replica-annotation-page__figure--hero {
+    margin-top: 1.6rem;
+  }
+
+  .replica-annotation-page__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .replica-annotation-page__link {
+    color: #be342d;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .replica-annotation-page__link:hover {
+    text-decoration: underline;
+  }
+
+  .replica-annotation-page__link--button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.7rem 1.45rem;
+    border-radius: 999px;
+    background: #2f2b29;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .replica-annotation-page__link--button:hover {
+    background: #4a4542;
+    text-decoration: none;
+  }
+
+  .replica-annotation-page__section--cta {
+    text-align: left;
+  }
+
+  .replica-markers-page {
+    padding: clamp(1.25rem, 2.4vw, 2rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+
+  .replica-markers-page__inner {
+    width: min(75.2%, 1080px);
+    margin: 0 auto;
+    color: #664f4c;
+  }
+
+  .replica-markers-page__section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(1.8rem, 3.6vw, 2.8rem) 0;
+  }
+
+  .replica-markers-page__section--intro {
+    padding-top: 0;
+  }
+
+  .replica-markers-page__section:not(.replica-markers-page__section--intro) {
+    border-top: 1px solid rgba(102, 79, 76, 0.3);
+  }
+
+  .replica-markers-page__section--settings .replica-markers-page__figure {
+    width: min(68%, 26rem);
+    justify-self: center;
+  }
+
+  .replica-markers-page__copy p {
+    margin: 0;
+    font-size: clamp(1rem, 1.45vw, 1.08rem);
+    line-height: 2;
+  }
+
+  .replica-markers-page__copy p + p {
+    margin-top: 0.85rem;
+  }
+
+  .replica-markers-page__figure {
+    margin: 0;
+  }
+
+  .replica-markers-page__figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 640px) {
+    .replica-markers-page__copy p {
+      line-height: 1.9;
+    }
+
+    .replica-annotation-page {
+      padding-top: 0.2rem;
+    }
+
+    .replica-annotation-page__inner {
+      width: min(100% - 1.25rem, 920px);
+    }
+
+    .replica-annotation-page__section {
+      padding: 1rem 0 1.4rem;
+    }
+
+    .replica-annotation-page__section h2 {
+      font-size: 1.55rem;
+    }
+
+    .replica-annotation-page__section p {
+      line-height: 1.9;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .replica-markers-page__inner {
+      width: min(100% - 2rem, 920px);
+    }
+
+    .replica-markers-page__section {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      padding: 1.5rem 0 1.8rem;
+    }
+
+    .replica-markers-page__section--settings .replica-markers-page__figure {
+      width: min(82%, 24rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .replica-markers-page {
+      padding-top: 0.4rem;
+    }
+
+    .replica-markers-page__inner {
+      width: min(100% - 1.25rem, 920px);
+    }
+
+    .replica-markers-page__section {
+      gap: 1rem;
+      padding: 1.1rem 0 1.35rem;
+    }
+
+    .replica-markers-page__section--settings .replica-markers-page__figure {
+      width: min(100%, 18rem);
+    }
+  }
+</style>

@@ -58,7 +58,7 @@ const commonFaq: ReplicaFaq[] = [
   {
     question: "Xiangqi.com có ứng dụng di động không?",
     answer:
-      "Có. Trang /vi/download/ giới thiệu lựa chọn chơi trên trình duyệt, Google Play, App Store và gói APK khi người dùng Android cần cài thủ công.",
+      "Có. Trang /vi/mobile/ giới thiệu lựa chọn chơi trên trình duyệt, Google Play, App Store và gói APK khi người dùng Android cần cài thủ công.",
   },
 ];
 
@@ -120,7 +120,7 @@ export const viReplicaPages: ReplicaPage[] = [
     heroTitle: "Chơi cờ tướng online ngay hôm nay",
     cta: [
       { label: "Chơi online", href: "https://play.xiangqi.com/", variant: "primary" },
-      { label: "Tải ứng dụng", href: "/vi/download/", variant: "download" },
+      { label: "Tải ứng dụng", href: "/vi/mobile/", variant: "download" },
       { label: "Học cách chơi", href: "/vi/how-to-play/", variant: "secondary" },
     ],
     sections: [
@@ -219,7 +219,7 @@ export const viReplicaPages: ReplicaPage[] = [
     id: "VI-003",
     locale: "vi",
     sourceUrl: "https://www.vn.xiangqi.com/mobile",
-    route: "/vi/download/",
+    route: "/vi/mobile/",
     type: "download",
     title: "Tải Xiangqi.com | Cờ tướng trên Android, iOS và web",
     description:
@@ -283,7 +283,7 @@ export const viReplicaPages: ReplicaPage[] = [
     heroTitle: "Câu hỏi thường gặp",
     cta: [
       { label: "Học cách chơi", href: "/vi/how-to-play/", variant: "secondary" },
-      { label: "Tải ứng dụng", href: "/vi/download/", variant: "download" },
+      { label: "Tải ứng dụng", href: "/vi/mobile/", variant: "download" },
     ],
     sections: [
       {

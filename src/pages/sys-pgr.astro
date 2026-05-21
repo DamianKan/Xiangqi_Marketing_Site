@@ -1,0 +1,416 @@
+---
+import ReplicaLayout from "../layouts/ReplicaLayout.astro";
+import { replicaAssets } from "../data/replica/assets";
+
+const title = "下象棋对弈游戏软件 | 中国象棋在线玩免费 | 真人人机对战 - 相弈象棋";
+const description =
+  "复刻相弈象棋源站当前 sys-pgr 页面内容，包含关于、帮助、更多栏目，三个下载按钮，以及源站当前页展示的搜索与社媒入口。";
+
+const pageColumns = [
+  {
+    title: "关于",
+    links: [
+      { label: "我们的故事", href: "/about/" },
+      { label: "我们的团队", href: "/team/" },
+      { label: "产品路线图", href: "/roadmap/" },
+      { label: "联系我们", href: "/contact/" }
+    ]
+  },
+  {
+    title: "帮助",
+    links: [
+      { label: "象棋规则", href: "/how-to-play/" },
+      { label: "棋子与走法", href: "/pieces-and-moves/" },
+      { label: "等级分系统", href: "/rating/" },
+      { label: "象棋走法限制", href: "/limits/" }
+    ]
+  },
+  {
+    title: "更多",
+    links: [
+      { label: "商品周边", href: "/shop/" },
+      { label: "资源", href: "/resources/" },
+      { label: "公平对弈政策", href: "/fair-play/" },
+      { label: "文明政策", href: "/polite/" },
+      { label: "服务条款", href: "/terms/" },
+      { label: "隐私政策", href: "/privacy/" }
+    ]
+  }
+] as const;
+
+const downloads = [
+  {
+    label: "Google Play",
+    href: "https://play.google.com/store/apps/details?id=com.xiangqimobile",
+    image: replicaAssets.downloadBadgeGoogle,
+    imageAlt: "Google Play 下载按钮"
+  },
+  {
+    label: "Android APK",
+    href: "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+    image: replicaAssets.downloadBadgeApk,
+    imageAlt: "Android APK 下载按钮"
+  },
+  {
+    label: "App Store",
+    href: "https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460",
+    image: replicaAssets.downloadBadgeApple,
+    imageAlt: "App Store 下载按钮"
+  }
+] as const;
+
+const socialLinks = [
+  { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com" },
+  { label: "微信公众号", href: "https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A" },
+  { label: "哔哩哔哩", href: "https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click" },
+  { label: "小红书", href: "https://www.xiaohongshu.com/user/profile/624012d80000000021025494" }
+] as const;
+
+const whatsappLink = "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5";
+
+const searchTargets = [
+  ...pageColumns.flatMap((group) =>
+    group.links.map((link) => ({
+      href: link.href,
+      keywords: [link.label, group.title]
+    }))
+  ),
+  { href: "/sys-pgr/", keywords: ["sys-pgr", "相弈象棋", "xiangqi.com"] }
+];
+---
+
+<ReplicaLayout title={title} description={description} route="/sys-pgr/" locale="zh-CN" hideFooter={true}>
+  <section class="sys-pgr-page">
+    <div class="sys-pgr-page__lead" aria-hidden="true"></div>
+
+    <div class="sys-pgr-page__panel">
+      <div class="sys-pgr-page__inner">
+        <h1>Xiangqi.com 相弈象棋</h1>
+
+        <div class="sys-pgr-page__columns" aria-label="sys-pgr 页面导航">
+          {pageColumns.map((group) => (
+            <section class="sys-pgr-page__column">
+              <h2>{group.title}</h2>
+              <ul>
+                {group.links.map((link) => (
+                  <li>
+                    <a href={link.href}>{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+
+        <div class="sys-pgr-page__downloads" aria-label="应用下载">
+          {downloads.map((item) => (
+            <a href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
+              <img src={item.image} alt={item.imageAlt} loading="lazy" />
+            </a>
+          ))}
+        </div>
+
+        <form class="sys-pgr-page__search" data-search-form>
+          <label>
+            <span class="sys-pgr-page__search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M16.5 16.5L21 21"></path>
+              </svg>
+            </span>
+            <input
+              type="search"
+              name="q"
+              placeholder="请输入关键字"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="请输入关键字"
+            />
+          </label>
+        </form>
+
+        <div class="sys-pgr-page__meta">
+          <p class="sys-pgr-page__copyright">©2024 - 相弈象棋 版权所有</p>
+
+          <p class="sys-pgr-page__social">
+            <span>关注我们：</span>
+            {socialLinks.map((item) => (
+              <a href={item.href} target="_blank" rel="noreferrer">
+                {item.label}
+              </a>
+            ))}
+          </p>
+
+          <p class="sys-pgr-page__whatsapp">
+            <a href={whatsappLink} target="_blank" rel="noreferrer">来WhatsApp和我们聊天</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ searchTargets }}>
+    (() => {
+      const form = document.querySelector("[data-search-form]");
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const input = form.querySelector('input[name="q"]');
+      if (!(input instanceof HTMLInputElement)) return;
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const query = input.value.trim().toLowerCase();
+        if (!query) return;
+
+        const match = searchTargets.find((item) =>
+          item.keywords.some((keyword) => keyword.toLowerCase().includes(query) || query.includes(keyword.toLowerCase()))
+        );
+
+        if (match) {
+          window.location.href = match.href;
+          return;
+        }
+
+        input.setCustomValidity("未找到对应页面，请尝试栏目名称或页面标题。");
+        input.reportValidity();
+      });
+
+      input.addEventListener("input", () => {
+        input.setCustomValidity("");
+      });
+    })();
+  </script>
+</ReplicaLayout>
+
+<style is:global>
+  body[data-route="/sys-pgr/"] {
+    background: #ede8e0;
+  }
+
+  body[data-route="/sys-pgr/"] main {
+    min-height: 0;
+  }
+
+  .sys-pgr-page {
+    background: #ede8e0;
+  }
+
+  .sys-pgr-page__lead {
+    min-height: clamp(28px, 8vw, 156px);
+    background: #e7e1d7;
+  }
+
+  .sys-pgr-page__panel {
+    background: #be342d;
+    color: #fff;
+  }
+
+  .sys-pgr-page__inner {
+    width: min(1080px, calc(100vw - 40px));
+    margin: 0 auto;
+    padding: clamp(42px, 7vw, 78px) 0 26px;
+  }
+
+  .sys-pgr-page h1 {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(2rem, 2.6vw, 3.25rem);
+    line-height: 1.15;
+    color: #fffdf9;
+  }
+
+  .sys-pgr-page__columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: clamp(44px, 6vw, 76px);
+  }
+
+  .sys-pgr-page__column {
+    text-align: center;
+  }
+
+  .sys-pgr-page__column h2 {
+    margin: 0;
+    font-size: clamp(1.25rem, 1.6vw, 1.75rem);
+    line-height: 1.25;
+    color: #fff;
+  }
+
+  .sys-pgr-page__column ul {
+    margin: 34px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sys-pgr-page__column li + li {
+    margin-top: 16px;
+  }
+
+  .sys-pgr-page__column a,
+  .sys-pgr-page__social a,
+  .sys-pgr-page__whatsapp a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .sys-pgr-page__downloads {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(20px, 4vw, 72px);
+    margin-top: clamp(44px, 5vw, 74px);
+    flex-wrap: wrap;
+  }
+
+  .sys-pgr-page__downloads a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sys-pgr-page__downloads img {
+    width: auto;
+    max-width: clamp(132px, 15vw, 188px);
+    height: auto;
+    display: block;
+  }
+
+  .sys-pgr-page__search {
+    margin: clamp(28px, 4vw, 38px) auto 0;
+    width: min(916px, 100%);
+  }
+
+  .sys-pgr-page__search label {
+    position: relative;
+    display: block;
+  }
+
+  .sys-pgr-page__search input {
+    width: 100%;
+    height: clamp(44px, 4.1vw, 60px);
+    padding: 0 18px 0 54px;
+    border: 0;
+    border-radius: 999px;
+    background: #fff;
+    color: #7a756f;
+    font: inherit;
+    outline: none;
+  }
+
+  .sys-pgr-page__search input::placeholder {
+    color: #c2bdb8;
+  }
+
+  .sys-pgr-page__search-icon {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    width: 22px;
+    height: 22px;
+    color: #ef4136;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .sys-pgr-page__search-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sys-pgr-page__meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+    margin-top: 28px;
+    font-size: clamp(0.95rem, 1vw, 1.125rem);
+  }
+
+  .sys-pgr-page__meta p {
+    margin: 0;
+  }
+
+  .sys-pgr-page__copyright {
+    text-align: left;
+    color: rgba(255, 244, 241, 0.8);
+  }
+
+  .sys-pgr-page__social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 14px;
+    text-align: center;
+  }
+
+  .sys-pgr-page__social span {
+    font-weight: 600;
+  }
+
+  .sys-pgr-page__whatsapp {
+    text-align: right;
+  }
+
+  @media (max-width: 900px) {
+    .sys-pgr-page__columns {
+      gap: 28px 18px;
+    }
+
+    .sys-pgr-page__meta {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .sys-pgr-page__copyright,
+    .sys-pgr-page__whatsapp {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .sys-pgr-page__inner {
+      width: min(100%, calc(100vw - 28px));
+      padding-top: 28px;
+    }
+
+    .sys-pgr-page__columns {
+      grid-template-columns: 1fr;
+      margin-top: 32px;
+      gap: 30px;
+    }
+
+    .sys-pgr-page__column ul {
+      margin-top: 24px;
+    }
+
+    .sys-pgr-page__column li + li {
+      margin-top: 12px;
+    }
+
+    .sys-pgr-page__downloads {
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .sys-pgr-page__downloads img {
+      max-width: min(100%, 272px);
+    }
+
+    .sys-pgr-page__downloads a {
+      width: 100%;
+    }
+
+    .sys-pgr-page__social {
+      gap: 4px 12px;
+    }
+  }
+</style>

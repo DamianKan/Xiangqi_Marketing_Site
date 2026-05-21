@@ -8,7 +8,7 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
     heroTitle: "马上进行中国象棋\n在线对战吧！",
     ctas: [
       { label: "在线对弈", href: "https://play.xiangqi.com/", external: true, variant: "primary" },
-      { label: "下载 App", href: "/download/", variant: "primary" }
+      { label: "下载 App", href: "/mobile/", variant: "primary" }
     ],
     sections: [
       {
@@ -78,21 +78,21 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
         title: "棋谱导入的格式说明",
         date: "教学文章",
         excerpt: "纯文本格式、PGN 格式、回合编号和标题信息的导入说明。",
-        href: "/articles/import-game-notation/",
+        href: "/sys-nd/23.html",
         image: replicaAssets.article
       },
       {
         title: "相弈象棋 产品更新 2024年8月",
         date: "产品更新",
         excerpt: "社区数据、导航栏、界面和移动体验的更新说明。",
-        href: "/articles/product-update-2024-08/",
+        href: "/sys-nd/22.html",
         image: replicaAssets.featureTwo
       },
       {
         title: "相弈象棋-新界面",
         date: "产品设计",
         excerpt: "新界面改版重点，以及向用户征集反馈的入口。",
-        href: "/articles/new-interface/",
+        href: "/sys-nd/20.html",
         image: replicaAssets.featureOne
       }
     ]
@@ -118,8 +118,9 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
           { label: "好友对战", href: "/play-with-a-friend/" },
           { label: "人机对战", href: "/computer/" },
           { label: "在线比赛", href: "/tournament/" },
+          { label: "象棋徽章", href: "/badges/" },
           { label: "自定义残局", href: "/how-to-create-puzzle/" },
-          { label: "下载APP", href: "/download/" },
+          { label: "下载APP", href: "/mobile/" },
           { label: "象棋等级分系统", href: "/rating/" }
         ]
       },
@@ -573,7 +574,7 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
     heroTitle: "马上进行中国象棋\n在线对战吧！",
     ctas: [
       { label: "在线对弈", href: "https://play.xiangqi.com/", external: true, variant: "primary" },
-      { label: "下载 App", href: "/download/", variant: "secondary" }
+      { label: "下载 App", href: "/mobile/", variant: "secondary" }
     ],
     sections: [
       {
@@ -673,21 +674,21 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
         title: "棋谱导入的格式说明",
         date: "2024-08-30",
         excerpt: "说明纯文本格式与 PGN 格式的导入写法，适合需要导入棋谱、复盘或分享对局的用户。",
-        href: "/articles/import-game-notation/",
+        href: "/sys-nd/23.html",
         image: replicaAssets.article
       },
       {
         title: "相弈象棋 产品更新 2024年8月",
         date: "2024-08-15",
         excerpt: "汇总平台近期上线与优化的功能，包含界面、对局体验和产品细节更新。",
-        href: "/articles/product-update-2024-08/",
+        href: "/sys-nd/22.html",
         image: replicaAssets.featureTwo
       },
       {
         title: "相弈象棋新界面",
         date: "2024-07-20",
         excerpt: "介绍新界面即将带来的主要变化与体验升级，说明本轮改版的重点内容。",
-        href: "/articles/new-interface/",
+        href: "/sys-nd/20.html",
         image: replicaAssets.featureOne
       }
     ],
@@ -709,5 +710,64 @@ export const replicaPageCorrections: Record<string, Partial<ReplicaPage>> = {
         answer: "如果您在在线下象棋时遇到任何问题，可以查看相弈象棋平台的帮助中心或联系客服支持，以获得帮助和解决方案。如果对于在线下象棋有任何意见，也欢迎联络我们，我们会尽力确保玩家下象棋时体验良好、流畅无误。"
       }
     ]
+  },
+  "ZH-020": {
+    title: "创建账号 - 相弈象棋",
+    description: "以下是账号注册和创建教程，快来下棋并把 Xiangqi.com 相弈象棋分享给好友吧！",
+    heroTitle: "创建账号",
+    faq: [],
+    ctas: [],
+    sections: [
+      {
+        title: "创建账号",
+        body: [
+          "以下是账号注册和创建教程，快来下棋并把 Xiangqi.com 相弈象棋分享给好友吧！"
+        ],
+        links: [
+          { label: "注册", href: "https://play.xiangqi.com/register", external: true }
+        ]
+      },
+      {
+        title: "开始",
+        body: [],
+        list: [
+          "点击“注册/登录”或“登录”注册账号。",
+          "如未成功，请点击“注册”按钮。",
+          "输入个人信息完成注册：电子邮箱、用户名、密码、所在国家/地区。"
+        ]
+      },
+      {
+        title: "现在可以…",
+        body: [],
+        links: [
+          { label: "用户验证", href: "/verified/" },
+          { label: "好友对战", href: "/play-with-a-friend/" },
+          { label: "人机对战", href: "/computer/" }
+        ]
+      },
+      {
+        title: "学习…",
+        body: [],
+        links: [
+          { label: "象棋规则", href: "/how-to-play/" },
+          { label: "棋子与走法", href: "/how-to-play-xiangqi/" }
+        ]
+      },
+      {
+        title: "下一步",
+        body: [],
+        links: [
+          { label: "验证账号", href: "/verified/" }
+        ]
+      }
+    ]
+  },
+  "ZH-035": {
+    title: "用户验证 - 相弈象棋",
+    description: "了解相弈象棋账号验证的作用、验证步骤、重新发送激活邮件、更新邮箱地址，以及未来认证用户的功能规划。",
+    heroTitle: "用户验证",
+    faq: [],
+    ctas: [],
+    sections: []
   }
 };

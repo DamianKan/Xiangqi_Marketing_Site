@@ -5,7 +5,15 @@ import { replicaPages } from "../data/replica";
 
 export function getStaticPaths() {
   return replicaPages
-    .filter((page) => page.route !== "/" && page.route !== "/contact/")
+    .filter(
+      (page) =>
+        page.route !== "/" &&
+        page.route !== "/contact/" &&
+        page.route !== "/help/markers.html" &&
+        page.route !== "/sys-nr/" &&
+        page.route !== "/articles/10-xiangqi-opening-principles.html" &&
+        page.route !== "/articles/10-xiangqi-midgame-principles.html"
+    )
     .map((page) => ({
       params: { slug: page.route.replace(/^\/|\/$/g, "") },
       props: { page }

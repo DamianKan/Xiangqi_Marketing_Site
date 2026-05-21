@@ -444,7 +444,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         date: "2025-06-03",
         excerpt:
           "介绍相弈象棋支持的棋谱导入格式，包括纯文本走法与 PGN 格式的基本要求。",
-        href: "/articles/import-game-notation/",
+        href: "/sys-nd/23.html",
         image: replicaAssets.article
       },
       {
@@ -452,7 +452,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         date: "2024-09-06",
         excerpt:
           "汇总社区数据、导航与界面优化，以及未来两个月的产品更新计划。",
-        href: "/articles/product-update-2024-08/",
+        href: "/sys-nd/22.html",
         image: replicaAssets.featureTwo
       },
       {
@@ -460,7 +460,7 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
         date: "2024-08-08",
         excerpt:
           "介绍新界面的设计方向，并根据源站现有说明补全改版亮点与页面目标。",
-        href: "/articles/new-interface/",
+        href: "/sys-nd/20.html",
         image: replicaAssets.featureOne
       }
     ]
@@ -593,6 +593,68 @@ export const pageOverrides: Record<string, Partial<ReplicaPage>> = {
       }
     ]
   }
+};
+
+pageOverrides["ZH-017"] = {
+  sourceUrl: "https://www.zh.xiangqi.com/sys-nd/20.html",
+  route: "/sys-nd/20.html",
+  title: "相弈象棋-新界面 - 相弈象棋",
+  description: "相弈象棋即将迎来重大更新，为广大象棋爱好者带来了焕然一新的使用体验。",
+  heroTitle: "相弈象棋-新界面",
+  ctas: [{ label: "返回文章列表", href: "/sys-nr/", variant: "secondary" }],
+  sections: [
+    {
+      title: "",
+      body: ["相弈象棋即将迎来重大更新，为广大象棋爱好者带来了焕然一新的使用体验。以下是此次更新的几个主要亮点："]
+    },
+    {
+      title: "",
+      body: [],
+      image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgw4aEtQYowPbwsQEwkQg4vwQ.png",
+      imageAlt: "相弈象棋新界面预览图 1"
+    },
+    {
+      title: "",
+      body: [],
+      image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg_YeEtQYox4Ge8Acw8Qk4gQU.png",
+      imageAlt: "相弈象棋新界面预览图 2"
+    },
+    {
+      title: "",
+      body: [],
+      image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg4tODtQYoi_uGkwEw9wk4hgU.png",
+      imageAlt: "相弈象棋新界面预览图 3"
+    },
+    {
+      title: "",
+      body: [],
+      image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg6oiEtQYonM6CxgQw5Qg4pgQ.png",
+      imageAlt: "相弈象棋新界面预览图 4"
+    },
+    {
+      title: "",
+      body: [],
+      image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg_IiEtQYo4KLA9QEwlAk4iwU.png",
+      imageAlt: "相弈象棋新界面预览图 5"
+    },
+    {
+      title: "",
+      body: [],
+      image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgsdSDtQYovMeftQUw0Ag45AQ.png",
+      imageAlt: "相弈象棋新界面预览图 6"
+    },
+    {
+      title: "",
+      body: [],
+      links: [
+        {
+          label: "点击此链接，反馈您的意见",
+          href: "https://wj.qq.com/s2/15009735/db53/",
+          external: true
+        }
+      ]
+    }
+  ]
 };
 
 pageOverrides["ZH-003"] = {
@@ -795,5 +857,58 @@ pageOverrides["ZH-003"] = {
         answer:
           "建议先检查网络、存储空间和设备系统版本；如果仍有问题，可以发邮件到 help@xiangqi.com 联系团队。"
       }
-    ]
+  ]
+};
+
+pageOverrides["ZH-004"] = {
+  sourceUrl: "https://www.zh.xiangqi.com/pieces-and-moves/",
+  route: "/pieces-and-moves/",
+  title: "中国象棋棋子与走法 - 相弈象棋",
+  description: "下象棋的第一步是认识每个棋子及其在棋盘中的走法，了解九宫、楚河汉界，以及常见的吃子与限制规则。",
+  heroTitle: "棋子与走法"
+};
+pageOverrides["ZH-011"] = {
+  route: "/help/markers.html",
+  title: "在棋盘上画箭头和标记 - 相弈象棋",
+  description: "学习如何在相弈象棋的棋盘上画箭头和标记，并在对局、题目、注释和分析界面中把走法可视化。",
+  heroTitle: "在棋盘上画箭头和标记 - 相弈象棋",
+  sections: [
+    {
+      title: "",
+      body: [
+        "如果您想向朋友、教练或学生可视化地展示棋局走法，您可以使用我们的标记箭头！",
+        "在本教程中，我们将向您展示如何使用鼠标在棋盘上绘制箭头并突出显示位置。"
+      ]
+    },
+    {
+      title: "",
+      body: ["您可以在对局、题目、注释和分析等界面中的棋盘上，通过标记箭头把走法可视化。让我们以分析界面为例进行说明。"],
+      image: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgxPLXrQYooOeq1wYwywI47QY.jpg",
+      imageAlt: "分析界面中的棋盘标记示意图"
+    },
+    {
+      title: "",
+      body: ["在棋盘上画箭头：右击起始位置并长按，拖动鼠标到目标位置松开。"],
+      image: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgooLYrQYoiLC4WDCADziICA.jpg",
+      imageAlt: "在棋盘上画箭头的操作示意图"
+    },
+    {
+      title: "",
+      body: ["在棋盘上标记点位或棋子：只需右击棋盘里的点位即可。"],
+      image: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg8IXYrQYozZSgpQQwgA84iAg.jpg",
+      imageAlt: "在棋盘上标记点位或棋子的示意图"
+    },
+    {
+      title: "",
+      body: ["清除棋盘上的所有标记：左键单击棋盘上的任意点位，标记就会消失。"],
+      image: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg4ofYrQYopa7_mAcwgA84iAg.jpg",
+      imageAlt: "清除棋盘上所有标记的示意图"
+    },
+    {
+      title: "",
+      body: ["您可以在设置中，设置是否开启画箭头和标记的功能。"],
+      image: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg2ojYrQYo9P7DvwcwyAY4lAU.jpg",
+      imageAlt: "设置中开启画箭头和标记功能的示意图"
+    }
+  ]
 };

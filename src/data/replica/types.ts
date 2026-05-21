@@ -28,8 +28,19 @@ export interface ReplicaLinkItem {
 export interface ReplicaSection {
   title: string;
   body: string[];
+  metaPrefix?: string;
+  metaLinks?: ReplicaCta[];
+  metaSuffix?: string;
+  subSections?: Array<{
+    title: string;
+    body: string[];
+    list?: string[];
+  }>;
   image?: string;
   imageAlt?: string;
+  imageCaption?: string;
+  imagePlacement?: "after-first-paragraph" | "after-body";
+  table?: string[][];
   links?: ReplicaCta[];
   list?: string[];
   items?: ReplicaLinkItem[];

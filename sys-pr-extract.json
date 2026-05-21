@@ -1,0 +1,2098 @@
+{
+  "pageName": "产品展示",
+  "fullUrl": "https://www.zh.xiangqi.com/pr.jsp",
+  "row744": {
+    "id": 744,
+    "colId": 12,
+    "flag": 3,
+    "pattern": {
+      "pc": {
+        "wt": 0,
+        "ab": 1,
+        "ai": 0,
+        "l": 1,
+        "rb": {
+          "y": 0
+        },
+        "e": {
+          "t": 1
+        },
+        "b": {
+          "y": 0
+        },
+        "awpt": 0,
+        "awpb": 0,
+        "awpl": 0.124,
+        "awpr": 0.124,
+        "pt": 0,
+        "pb": 0,
+        "pl": 0.124,
+        "pr": 0.124,
+        "isHover": 0,
+        "isOpenAnimation": 0,
+        "mt": 0,
+        "mb": 0,
+        "ml": 0,
+        "mr": 0,
+        "st": 0,
+        "isSticky": false,
+        "rowHeight": 0,
+        "rowHeightType": 0,
+        "useColV2": false,
+        "rowHeightV2": false
+      },
+      "mobi": {
+        "l": 1,
+        "rb": {
+          "y": 0
+        },
+        "e": {
+          "t": 0
+        },
+        "b": {
+          "y": 0
+        },
+        "mh": false,
+        "mt": 0,
+        "mb": 0,
+        "ml": 0,
+        "mr": 0,
+        "st": 0,
+        "isSticky": false,
+        "rowHeight": 0,
+        "rowHeightType": 0,
+        "useColV2": false,
+        "rowHeightV2": false,
+        "cot": 0,
+        "pt": 0,
+        "pr": 0,
+        "pb": 0,
+        "pl": 0
+      }
+    },
+    "cols": [
+      {
+        "type": 0,
+        "mIds": [
+          5
+        ],
+        "rIds": [],
+        "pattern": {
+          "mo": -1,
+          "g": 0,
+          "b": {
+            "y": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "mbg": {
+            "y": 0
+          },
+          "mb2": {
+            "y": 0
+          },
+          "mm": {
+            "t": 0
+          },
+          "mm2": {
+            "t": 0
+          },
+          "m": {
+            "mt": 0,
+            "mr": 0,
+            "mb": 0,
+            "ml": 0
+          },
+          "fixed": false,
+          "sa": {
+            "open": 0,
+            "dir": 0,
+            "dt": 0,
+            "dis": -1,
+            "ot": 0,
+            "o": -1,
+            "t": 0,
+            "rt": 0,
+            "rs": 0,
+            "re": 50,
+            "rn": 1,
+            "bs": 5,
+            "st": 0,
+            "sv": -1,
+            "es": 0.5,
+            "ssv": -1,
+            "sev": -1,
+            "bt": 0
+          },
+          "br": 0,
+          "mbrt": 0,
+          "mbr": 0,
+          "colHeight": 0,
+          "colHeightType": 0,
+          "mColHeight": 0,
+          "mColHeightType": 0,
+          "al": [
+            {
+              "t": 0,
+              "c": 1,
+              "d": 0,
+              "r": 0,
+              "o": 0,
+              "s": 0.6,
+              "tg": 0,
+              "i": 0
+            },
+            {
+              "s": 1,
+              "c": -1,
+              "t": 0,
+              "d": 0,
+              "r": 0,
+              "o": 0,
+              "tg": 0,
+              "i": 0
+            }
+          ],
+          "hoverB": {
+            "y": 0
+          },
+          "hoverBg": {
+            "y": 0
+          },
+          "hoverMaskBg": {
+            "y": 0
+          },
+          "hoverBgEffect": 0,
+          "bs": 0,
+          "mbs": 0,
+          "hoverBs": 0,
+          "hoverIm": {
+            "mt": 0,
+            "mr": 0,
+            "mb": 0,
+            "ml": 0
+          },
+          "initialIm": {
+            "mt": 0,
+            "mr": 0,
+            "mb": 0,
+            "ml": 0
+          },
+          "hoverEffect": 0,
+          "showContentInMobi": 0,
+          "hoverBr": 0,
+          "mt": 0,
+          "mr": 0,
+          "mb": 0,
+          "ml": 0,
+          "pc": {
+            "hoc": 0,
+            "colHeightV2": false,
+            "isVwUnit": false
+          },
+          "mobi": {
+            "hoc": -1,
+            "colHeightV2": false,
+            "isVwUnit": false
+          }
+        },
+        "hoverMIds": [],
+        "index": 0,
+        "id": 1,
+        "colContentType": 0,
+        "hoverColContentType": 0,
+        "freeModules": [],
+        "hoverFreeModules": []
+      }
+    ],
+    "type": 2,
+    "organ": {
+      "at": 0
+    },
+    "colsMaxId": 1
+  },
+  "modules": {
+    "module642": {
+      "id": 642,
+      "type": 1,
+      "style": 7,
+      "flag": 0,
+      "name": "图片",
+      "prop1": "ABUIABAEGAAg7ca5sAYohJ2dgAIw9x847wI",
+      "prop2": 1,
+      "prop3": {
+        "ide": "AGQIAhIA",
+        "ib": false,
+        "nf": false,
+        "lt": 0,
+        "ln": "简中",
+        "url": "https://www.zh.xiangqi.com/",
+        "reqArgs": ""
+      },
+      "prop4": 0,
+      "prop5": "相弈象棋的logo",
+      "prop7": {
+        "mcf": -1,
+        "br": 0,
+        "o": 0,
+        "st": 0,
+        "sx": 0,
+        "sy": 0,
+        "sb": 6,
+        "ss": 0,
+        "sc": "rgba(0, 0, 0, 0.20)",
+        "sm": {
+          "w": 0,
+          "h": 0,
+          "l": 0,
+          "t": 0
+        },
+        "ci": {
+          "w": 290,
+          "h": 26,
+          "l": 0,
+          "t": 0
+        },
+        "nid": "",
+        "brt": 0,
+        "niw": 0,
+        "nih": 0,
+        "nsrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAg7ca5sAYohJ2dgAIw9x847wI.png"
+      },
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.00392156862745098,
+          "mr": 0.6316526610644257,
+          "ml": 0,
+          "mb": 0.00390625,
+          "width": 0.35350753991720874,
+          "useLeft": true,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02666,
+          "mr": 0.03733,
+          "ml": 0.03733,
+          "mb": 0,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "privatePattern": {
+        "pc": {
+          "ina": false,
+          "ap": 1,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "st": 0
+        },
+        "mobi": {
+          "ap": -1,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "br": 0,
+          "o": 0,
+          "sht": 0,
+          "sx": 0,
+          "sy": 0,
+          "sb": 6,
+          "sc": "rgba(0, 0, 0, 0.20)",
+          "brt": 0,
+          "ot": 0,
+          "st": 0
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "w": 4087,
+      "h": 367,
+      "psrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAg7ca5sAYohJ2dgAIw9x847wI.png",
+      "isBannerModule": false,
+      "rowType": 3
+    },
+    "module731": {
+      "id": 731,
+      "type": 1,
+      "style": 6,
+      "flag": 0,
+      "name": "文本",
+      "prop3": [],
+      "prop5": [],
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.005484859324326146,
+          "mr": 0,
+          "ml": 0,
+          "mb": 0,
+          "width": 0.3322123004139562,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02666,
+          "mr": 0.03733,
+          "ml": 0.03733,
+          "mb": 0.01333,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "content": "<div style=\"text-align: center;\"><a href=\"https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5\" target=\"_blank\" rel=\"nofollow\" &nbsp;style=\"font-family: aktiv-grotesk; text-align: center; display: block; text-decoration: none;\" style=\"font-size: 16px; font-family: 微软雅黑; text-align: left;\"><u style=\"color: rgb(255, 255, 255);\">来WhatsApp和我们聊天</u></a><span style=\"color: rgb(102, 102, 102);\"><br></span></div>",
+      "privatePattern": {
+        "pc": {
+          "fts": {
+            "t": 0
+          },
+          "ap": 2,
+          "ft": 0,
+          "fmax": -1,
+          "fmin": -1,
+          "ec": 0,
+          "fr": -1,
+          "frs": -1
+        },
+        "mobi": {
+          "cs": 0,
+          "csf": false
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "isBannerModule": false,
+      "rowType": 4,
+      "inRowField": "footerRowIds"
+    },
+    "module1648": {
+      "id": 1648,
+      "type": 1,
+      "style": 7,
+      "flag": 0,
+      "name": "图片",
+      "prop1": "ABUIABAEGAAgjdyVqQYogqDfuAcw7QY4hAI",
+      "prop2": 0,
+      "prop3": {
+        "ide": "AGcI/////w8SQWh0dHBzOi8vYXBwcy5hcHBsZS5jb20vYXBwL3hpYW5ncWktY29tLWNoaW5lc2UtY2hlc3MvaWQxNTU3OTExNDYw",
+        "ib": true,
+        "nf": false,
+        "lt": 0,
+        "ln": "https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460",
+        "url": "https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460",
+        "reqArgs": ""
+      },
+      "prop4": 0,
+      "prop5": "",
+      "prop7": {
+        "mcf": -1,
+        "br": 0,
+        "o": 0,
+        "st": 0,
+        "sx": 0,
+        "sy": 0,
+        "sb": 6,
+        "ss": 0,
+        "sc": "rgba(0, 0, 0, 0.20)",
+        "sm": {
+          "w": 0,
+          "h": 0,
+          "l": 0,
+          "t": 0
+        },
+        "ci": {
+          "w": 154,
+          "h": 46,
+          "l": 0,
+          "t": 0
+        },
+        "nid": "",
+        "brt": 0,
+        "niw": 0,
+        "nih": 0,
+        "nsrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAgjdyVqQYogqDfuAcw7QY4hAI.png"
+      },
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02641014608560248,
+          "mr": 0.6354166666666666,
+          "ml": 0,
+          "mb": 0,
+          "width": 0.09108279124778237,
+          "useLeft": true,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.08,
+          "mr": 0.19999666666666666,
+          "ml": 0.22666333333333333,
+          "mb": 0,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "privatePattern": {
+        "pc": {
+          "ina": false,
+          "ap": 0,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "st": 0
+        },
+        "mobi": {
+          "ap": -1,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "br": 0,
+          "o": 0,
+          "sht": 0,
+          "sx": 0,
+          "sy": 0,
+          "sb": 6,
+          "sc": "rgba(0, 0, 0, 0.20)",
+          "brt": 0,
+          "ot": 0,
+          "st": 0
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "w": 877,
+      "h": 260,
+      "psrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAgjdyVqQYogqDfuAcw7QY4hAI.png",
+      "isBannerModule": false,
+      "rowType": 1
+    },
+    "module1643": {
+      "id": 1643,
+      "type": 1,
+      "style": 6,
+      "flag": 0,
+      "name": "文本",
+      "prop3": [],
+      "prop5": [],
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02014055360911345,
+          "mr": 0,
+          "ml": 0,
+          "mb": 0,
+          "width": 0.24982140745121229,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02666,
+          "mr": 0.03733,
+          "ml": 0.03733,
+          "mb": 0.01333,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "content": "<div style=\"text-align: center; line-height: 2;\"><p align=\"center\" style=\"color: rgb(51, 51, 51); font-size: 16px;\"><b><span style=\"color: rgb(255, 255, 255);\"><font face=\"微软雅黑, Microsoft YaHei\" style=\"font-size: 20px;\">关于</font></span></b></p><p align=\"center\" style=\"color: rgb(51, 51, 51); font-size: 16px;\"></p><p align=\"center\" style=\"color: rgb(51, 51, 51); font-size: 16px;\"><span style=\"color: rgb(255, 255, 255);\"><font face=\"微软雅黑, Microsoft YaHei\"> </font></span></p><p align=\"center\" style=\"font-size: 16px;\"><font color=\"#ffffff\" face=\"微软雅黑, Microsoft YaHei\"><u><a href=\"https://www.zh.xiangqi.com/about/\" _ltype=\"100\" _lide=\"AGQIjQESAA==\" _lname=\"我们的故事\" target=\"_self\" _srchref=\"h-col-141.html\" _reqargs>我们的故事</a></u></font></p><p align=\"center\" style=\"font-size: 16px;\"><font color=\"#ffffff\" face=\"微软雅黑, Microsoft YaHei\"><u><a href=\"https://www.zh.xiangqi.com/team/\" _ltype=\"100\" _lide=\"AGQIjwESAA==\" _lname=\"我们的团队\" target=\"_self\" _srchref=\"h-col-143.html\" _reqargs>我们的团队</a></u></font></p><p align=\"center\" style=\"font-size: 16px;\"><font color=\"#ffffff\" face=\"微软雅黑, Microsoft YaHei\"><u><a href=\"https://www.zh.xiangqi.com/roadmap/\" _ltype=\"100\" _lide=\"AGQIkAESAA==\" _lname=\"产品路线图\" target=\"_self\" _srchref=\"h-col-144.html\" _reqargs>产品路线图</a></u></font></p><p align=\"center\" style=\"color: rgb(51, 51, 51); font-size: 16px;\"></p><p align=\"center\" style=\"font-size: 16px;\"><font color=\"#ffffff\" face=\"微软雅黑, Microsoft YaHei\"><u><a href=\"https://www.zh.xiangqi.com/contact/\" _ltype=\"100\" _lide=\"AGQIkQESAA==\" _lname=\"联系我们\" target=\"_self\" _srchref=\"h-col-145.html\" _reqargs>联系我们</a></u></font></p></div>",
+      "privatePattern": {
+        "pc": {
+          "fts": {
+            "t": 0
+          },
+          "ap": 2,
+          "ft": 0,
+          "fmax": -1,
+          "fmin": -1,
+          "ec": 0,
+          "fr": -1,
+          "frs": -1
+        },
+        "mobi": {
+          "cs": 0,
+          "csf": false
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "isBannerModule": false,
+      "rowType": 1
+    },
+    "module1644": {
+      "id": 1644,
+      "type": 1,
+      "style": 6,
+      "flag": 0,
+      "name": "文本",
+      "prop3": [],
+      "prop5": [],
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02014055360911345,
+          "mr": 0,
+          "ml": 0,
+          "mb": 0,
+          "width": 0.24982140745121229,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02666,
+          "mr": 0.03733,
+          "ml": 0.03733,
+          "mb": 0.01333,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "content": "<div style=\"text-align: center; color: rgb(102, 102, 102); line-height: 2;\"><p align=\"center\" style=\"font-size: 16px;\"><font face=\"微软雅黑, Microsoft YaHei\"><b><span style=\"color: rgb(255, 255, 255); font-size: 20px;\">帮助</span></b></font></p><p align=\"center\" style=\"font-size: 16px;\"><span style=\"color: rgb(255, 255, 255);\"><font face=\"微软雅黑, Microsoft YaHei\"> </font></span></p><p align=\"center\" style=\"font-size: 16px;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/how-to-play/\" _ltype=\"100\" _lide=\"AGQIlAESAA==\" _lname=\"象棋规则\" target=\"_self\" _srchref=\"h-col-148.html\" _reqargs>象棋规则</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/pieces-and-moves/\" _ltype=\"100\" _lide=\"AGQIlQESAA==\" _lname=\"棋子与走法\" target=\"_self\" _srchref=\"h-col-149.html\" _reqargs>棋子与走法</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/rating/\" _ltype=\"100\" _lide=\"AGQIlgESAA==\" _lname=\"等级分系统\" target=\"_self\" _srchref=\"h-col-150.html\" _reqargs>等级分系统</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/limits/\" _ltype=\"100\" _lide=\"AGQIlwESAA==\" _lname=\"象棋走法限制\" target=\"_self\" _srchref=\"h-col-151.html\" _reqargs>象棋走法限制</a></span></u></font></p></div>",
+      "privatePattern": {
+        "pc": {
+          "fts": {
+            "t": 0
+          },
+          "ap": 2,
+          "ft": 0,
+          "fmax": -1,
+          "fmin": -1,
+          "ec": 0,
+          "fr": -1,
+          "frs": -1
+        },
+        "mobi": {
+          "cs": 0,
+          "csf": false
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "isBannerModule": false,
+      "rowType": 1
+    },
+    "module1642": {
+      "id": 1642,
+      "type": 1,
+      "style": 6,
+      "flag": 0,
+      "name": "文本",
+      "prop3": [],
+      "prop5": [],
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.032679738562091505,
+          "mr": 0,
+          "ml": 0,
+          "mb": 0,
+          "width": 0.7494855115316381,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02666,
+          "mr": 0.03733,
+          "ml": 0.03733,
+          "mb": 0.01333,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "content": "<div style=\"text-align: center; color: rgb(102, 102, 102); line-height: 2;\"><b style=\"color: rgb(255, 255, 255); font-size: 36px;\">Xiangqi.com 相弈象棋</b><br></div>",
+      "privatePattern": {
+        "pc": {
+          "fts": {
+            "t": 0
+          },
+          "ap": 2,
+          "ft": 0,
+          "fmax": -1,
+          "fmin": -1,
+          "ec": 0,
+          "fr": -1,
+          "frs": -1
+        },
+        "mobi": {
+          "cs": 0,
+          "csf": false
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "isBannerModule": false,
+      "rowType": 1
+    },
+    "module1647": {
+      "id": 1647,
+      "type": 1,
+      "style": 7,
+      "flag": 0,
+      "name": "图片",
+      "prop1": "ABUIABAEGAAgkPWlqQYo7oqLuAMwhQM4gQE",
+      "prop2": 0,
+      "prop3": {
+        "ide": "AHkIABAAGhtBQlVJQUJCS0dBQWdrYkd0dkFZb3I5Yktwd0kiEFhpYW5ncWktdjIuMC5hcGsqAltdMAA=",
+        "ib": false,
+        "nf": false,
+        "lt": 0,
+        "ln": "Xiangqi-v2.0.apk",
+        "url": "javascript: JZ.transformForLinkFunc(\"fileDownload\", {\"jumpIde\":\"AHkIABAAGhtBQlVJQUJCS0dBQWdrYkd0dkFZb3I5Yktwd0kiEFhpYW5ncWktdjIuMC5hcGsqAltdMAA=\"});",
+        "reqArgs": ""
+      },
+      "prop4": 0,
+      "prop5": "",
+      "prop7": {
+        "mcf": -1,
+        "br": 0,
+        "o": 0,
+        "st": 0,
+        "sx": 0,
+        "sy": 0,
+        "sb": 6,
+        "ss": 0,
+        "sc": "rgba(0, 0, 0, 0.20)",
+        "sm": {
+          "w": 0,
+          "h": 0,
+          "l": 0,
+          "t": 0
+        },
+        "ci": {
+          "w": 141,
+          "h": 47,
+          "l": 0,
+          "t": 0
+        },
+        "nid": "",
+        "brt": 0,
+        "niw": 0,
+        "nih": 0,
+        "nsrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAgkPWlqQYo7oqLuAMwhQM4gQE.png"
+      },
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02588768004589506,
+          "mr": 0.33854166666666674,
+          "ml": 0.328125,
+          "mb": 0,
+          "width": 0.08327794204612655,
+          "useLeft": true,
+          "useRight": false,
+          "mlV2": 0.08188571850975754,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.07999333333333333,
+          "mr": 0.19199666666666665,
+          "ml": 0.22399666666666665,
+          "mb": 0,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "privatePattern": {
+        "pc": {
+          "ina": false,
+          "ap": 0,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "st": 0
+        },
+        "mobi": {
+          "ap": -1,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "br": 0,
+          "o": 0,
+          "sht": 0,
+          "sx": 0,
+          "sy": 0,
+          "sb": 6,
+          "sc": "rgba(0, 0, 0, 0.20)",
+          "brt": 0,
+          "ot": 0,
+          "st": 0
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "w": 389,
+      "h": 129,
+      "psrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAgkPWlqQYo7oqLuAMwhQM4gQE.png",
+      "isBannerModule": false,
+      "rowType": 1
+    },
+    "module1649": {
+      "id": 1649,
+      "type": 1,
+      "style": 29,
+      "flag": 0,
+      "name": "全站搜索",
+      "prop0": 5,
+      "prop1": "请输入关键字",
+      "prop2": 0,
+      "prop3": [],
+      "prop4": 0,
+      "prop5": [],
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.013071895424836602,
+          "mr": 0.07004778453518679,
+          "ml": 0.07265421372719372,
+          "mb": 0,
+          "width": 0.6425369603784743,
+          "useLeft": false,
+          "useRight": true,
+          "mlV2": 0,
+          "mrV2": 0.05248405854883599,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.08,
+          "mr": 0.01733,
+          "ml": 0.01733,
+          "mb": 0,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "privatePattern": {
+        "pc": {
+          "pcht": 0,
+          "if": {
+            "y": 0
+          },
+          "tf": {
+            "y": 0
+          }
+        },
+        "mobi": {
+          "if": {
+            "y": 0
+          },
+          "tf": {
+            "y": 0
+          }
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "blob0": {},
+      "isBannerModule": false,
+      "rowType": 1,
+      "searchRangeList": {
+        "产品名称": 0,
+        "产品参数": 1,
+        "产品详情": 2,
+        "文章标题": 3,
+        "文章详情": 4,
+        "栏目标题": 11,
+        "栏目图文": 8,
+        "图册名称": 9,
+        "下载文件名称": 10
+      }
+    },
+    "module2100": {
+      "id": 2100,
+      "type": 1,
+      "style": 6,
+      "flag": 0,
+      "name": "文本",
+      "prop3": [],
+      "prop5": [],
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.005484859324326146,
+          "mr": 0,
+          "ml": 0,
+          "mb": 0,
+          "width": 0.3322123004139562,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02666,
+          "mr": 0.03733,
+          "ml": 0.03733,
+          "mb": 0.01333,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "content": "<div style=\"text-align: center;\"><font color=\"#ffffff\" style=\"font-size: 16px;\">关注我们： <u><a href=\"https://www.zhihu.com/people/-xiangqi-com\" _ltype=\"103\" _lide=\"AGcI/////w8SKWh0dHBzOi8vd3d3LnpoaWh1LmNvbS9wZW9wbGUvLXhpYW5ncWktY29t\" target=\"_blank\" _srchref=\"https://www.zhihu.com/people/-xiangqi-com\" _reqargs>知乎</a></u>  <u><a href=\"https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A\" _ltype=\"103\" _lide=\"AGcI/////w8SMWh0dHBzOi8vbXAud2VpeGluLnFxLmNvbS9zL1NNOXNIUXBfOURlWkctdkV2RC1NN0E=\" target=\"_blank\" _srchref=\"https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A\" _reqargs>微信公众号</a></u>  <u><a href=\"https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click\" _ltype=\"103\" _lide=\"AGcI/////w8SVWh0dHBzOi8vc3BhY2UuYmlsaWJpbGkuY29tLzM0OTMyNTc1MjQ4MDgwODk/c3BtX2lkX2Zyb209MzMzLjMzNy5zZWFyY2gtY2FyZC5hbGwuY2xpY2s=\" target=\"_blank\" _srchref=\"https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click\" _reqargs>哔哩哔哩</a></u>  <u><a href=\"https://www.xiaohongshu.com/user/profile/624012d80000000021025494\" _ltype=\"103\" _lide=\"AGcI/////w8SQWh0dHBzOi8vd3d3LnhpYW9ob25nc2h1LmNvbS91c2VyL3Byb2ZpbGUvNjI0MDEyZDgwMDAwMDAwMDIxMDI1NDk0\" target=\"_blank\" _srchref=\"https://www.xiaohongshu.com/user/profile/624012d80000000021025494\" _reqargs>小红书</a></u></font></div>",
+      "privatePattern": {
+        "pc": {
+          "fts": {
+            "t": 0
+          },
+          "ap": 2,
+          "ft": 0,
+          "fmax": -1,
+          "fmin": -1,
+          "ec": 0,
+          "fr": -1,
+          "frs": -1
+        },
+        "mobi": {
+          "cs": 0,
+          "csf": false
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "funst": true,
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "isBannerModule": false,
+      "rowType": 4,
+      "inRowField": "footerRowIds"
+    },
+    "module1645": {
+      "id": 1645,
+      "type": 1,
+      "style": 6,
+      "flag": 0,
+      "name": "文本",
+      "prop3": [],
+      "prop5": [],
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.021707951728235704,
+          "mr": 0,
+          "ml": 0,
+          "mb": 0,
+          "width": 0.24982140745121229,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.02666,
+          "mr": 0.03733,
+          "ml": 0.03733,
+          "mb": 0.01333,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "content": "<div style=\"text-align: center; color: #666\"><p align=\"center\" style=\"font-size: 16px;\"></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><font face=\"微软雅黑, Microsoft YaHei\"><b><span style=\"color: rgb(255, 255, 255);\"><font style=\"font-size: 20px;\">更多</font></span></b></font></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><span style=\"color: rgb(255, 255, 255);\"><font face=\"微软雅黑, Microsoft YaHei\"> </font></span></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/shop/\" _ltype=\"100\" _lide=\"AGQImAESAA==\" _lname=\"商品周边\" target=\"_self\" _srchref=\"h-col-152.html\" _reqargs>商品周边</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/resources/\" _ltype=\"100\" _lide=\"AGQImQESAA==\" _lname=\"资源\" target=\"_self\" _srchref=\"h-col-153.html\" _reqargs>资源</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/fair-play/\" _ltype=\"100\" _lide=\"AGQImgESAA==\" _lname=\"公平对弈政策\" target=\"_self\" _srchref=\"h-col-154.html\" _reqargs>公平对弈政策</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/polite/\" _ltype=\"100\" _lide=\"AGQImwESAA==\" _lname=\"发言政策\" target=\"_self\" _srchref=\"h-col-155.html\" _reqargs>文明政策</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/terms/\" _ltype=\"100\" _lide=\"AGQInQESAA==\" _lname=\"服务条款\" target=\"_self\" _srchref=\"h-col-157.html\" _reqargs>服务条款</a></span></u><u></u></font></p><p align=\"center\" style=\"font-size: 16px; line-height: 2;\"><font face=\"微软雅黑, Microsoft YaHei\"><u><span style=\"color: rgb(255, 255, 255);\"><a href=\"https://www.zh.xiangqi.com/privacy/\" _ltype=\"100\" _lide=\"AGQIngESAA==\" _lname=\"隐私政策\" target=\"_self\" _srchref=\"h-col-158.html\" _reqargs>隐私政策</a></span></u></font></p><p align=\"center\" style=\"font-size: 16px;\"></p></div>",
+      "privatePattern": {
+        "pc": {
+          "fts": {
+            "t": 0
+          },
+          "ap": 2,
+          "ft": 0,
+          "fmax": -1,
+          "fmin": -1,
+          "ec": 0,
+          "fr": -1,
+          "frs": -1
+        },
+        "mobi": {
+          "cs": 0,
+          "csf": false
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "isBannerModule": false,
+      "rowType": 1
+    },
+    "module1646": {
+      "id": 1646,
+      "type": 1,
+      "style": 7,
+      "flag": 0,
+      "name": "图片",
+      "prop1": "ABUIABAEGAAghdyVqQYo0s_K9AMw7QY4hAI",
+      "prop2": 0,
+      "prop3": {
+        "ide": "AGcI/////w8SP2h0dHBzOi8vcGxheS5nb29nbGUuY29tL3N0b3JlL2FwcHMvZGV0YWlscz9pZD1jb20ueGlhbmdxaW1vYmlsZQ==",
+        "ib": true,
+        "nf": false,
+        "lt": 0,
+        "ln": "https://play.google.com/store/apps/details?id=com.xiangqimobile",
+        "url": "https://play.google.com/store/apps/details?id=com.xiangqimobile",
+        "reqArgs": ""
+      },
+      "prop4": 0,
+      "prop5": "",
+      "prop7": {
+        "mcf": -1,
+        "br": 0,
+        "o": 0,
+        "st": 0,
+        "sx": 0,
+        "sy": 0,
+        "sb": 6,
+        "ss": 0,
+        "sc": "rgba(0, 0, 0, 0.20)",
+        "sm": {
+          "w": 0,
+          "h": 0,
+          "l": 0,
+          "t": 0
+        },
+        "ci": {
+          "w": 153,
+          "h": 45,
+          "l": 0,
+          "t": 0
+        },
+        "nid": "",
+        "brt": 0,
+        "niw": 0,
+        "nih": 0,
+        "nsrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAghdyVqQYo0s_K9AMw7QY4hAI.png"
+      },
+      "blob0": {
+        "jumpMode": 0
+      },
+      "pattern": {
+        "pc": {
+          "by": 1,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.026932612125309896,
+          "mr": 0,
+          "ml": 0.6375,
+          "mb": 0,
+          "width": 0.0905653459491425,
+          "useLeft": false,
+          "useRight": true,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        },
+        "mobi": {
+          "by": 1,
+          "bf": {
+            "y": 0
+          },
+          "bb": {
+            "y": 0
+          },
+          "mf": {
+            "y": 0
+          },
+          "bht": 0,
+          "b": {
+            "y": 0
+          },
+          "s": {
+            "t": 0
+          },
+          "bg": {
+            "y": 0
+          },
+          "r": {
+            "t": 0
+          },
+          "rf": 0,
+          "mt": 0.07999333333333333,
+          "mr": 0.19732999999999998,
+          "ml": 0.22399666666666668,
+          "mb": 0,
+          "width": -1,
+          "useLeft": false,
+          "useRight": false,
+          "mlV2": 0,
+          "mrV2": 0,
+          "isUseCustom": true
+        }
+      },
+      "privatePattern": {
+        "pc": {
+          "ina": false,
+          "ap": 0,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "st": 0
+        },
+        "mobi": {
+          "ap": -1,
+          "hff": -1,
+          "wff": -1,
+          "lr": 1,
+          "hp": -1,
+          "br": 0,
+          "o": 0,
+          "sht": 0,
+          "sx": 0,
+          "sy": 0,
+          "sb": 6,
+          "sc": "rgba(0, 0, 0, 0.20)",
+          "brt": 0,
+          "ot": 0,
+          "st": 0
+        }
+      },
+      "commProp": {
+        "al": [
+          {
+            "t": 0
+          },
+          {
+            "t": 0
+          }
+        ],
+        "pa": {
+          "mt": 0,
+          "t": 0
+        },
+        "an": {
+          "t": 0
+        },
+        "im": 0,
+        "ps": {
+          "t": 0,
+          "o": 2
+        },
+        "ls": {
+          "st": 0
+        },
+        "more": {
+          "moreType": 0
+        },
+        "sa": {
+          "open": 0,
+          "dir": 0,
+          "dt": 0,
+          "dis": -1,
+          "ot": 0,
+          "o": -1,
+          "t": 0,
+          "rt": 0,
+          "rs": 0,
+          "re": 50,
+          "rn": 1,
+          "bs": 5,
+          "st": 0,
+          "sv": -1,
+          "es": 0.5,
+          "ssv": -1,
+          "sev": -1,
+          "bt": 0,
+          "tat": 0,
+          "tac": ""
+        },
+        "cal": [
+          {
+            "t": 0
+          }
+        ],
+        "unst": true
+      },
+      "w": 877,
+      "h": 260,
+      "psrc": "//31680567.s21i.faiusr.com/4/2/ABUIABAEGAAghdyVqQYo0s_K9AMw7QY4hAI.png",
+      "isBannerModule": false,
+      "rowType": 1
+    }
+  }
+}

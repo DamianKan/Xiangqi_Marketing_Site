@@ -64,10 +64,10 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(251, 247, 240, 0.86);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(80, 46, 28, 0.08);
-  box-shadow: 0 14px 34px rgba(98, 26, 22, 0.08);
+  background: #c7352c;
+  backdrop-filter: none;
+  border-bottom: 0;
+  box-shadow: none;
 }
 
 .replica-header::after {
@@ -95,16 +95,26 @@ button {
   gap: 40px;
 }
 
-.replica-brand img {
-  width: 265px;
-  height: auto;
-  filter: drop-shadow(0 8px 16px rgba(70, 23, 20, 0.2));
-}
-
 .replica-brand {
   display: inline-flex;
   align-items: center;
   gap: 14px;
+}
+
+.replica-brand__icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  filter: drop-shadow(0 8px 16px rgba(70, 23, 20, 0.2));
+}
+
+.replica-brand__title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .replica-brand__seal {
@@ -153,10 +163,18 @@ button {
 
 .replica-nav a,
 .replica-nav__button {
-  color: var(--replica-text);
+  color: #fff;
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0.01em;
+}
+
+.replica-menu-toggle {
+  color: #fff;
+}
+
+.replica-menu-toggle__icon span {
+  background: currentColor;
 }
 
 .replica-nav__button {
@@ -210,6 +228,20 @@ button {
   transform: translateX(-50%) translateY(0);
 }
 
+body[data-route="/report/"] .replica-header {
+  background: rgba(190, 52, 45, 0.98);
+  backdrop-filter: none;
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+body[data-route="/report/"] .replica-brand__wordmark strong,
+body[data-route="/report/"] .replica-brand__wordmark em,
+body[data-route="/report/"] .replica-nav a,
+body[data-route="/report/"] .replica-nav__button {
+  color: #fff;
+}
+
 .replica-help-doc {
   padding: 18px 0 56px;
   background: #f5efe6;
@@ -235,6 +267,288 @@ button {
   color: #5b4437;
   font-size: 26px;
   line-height: 1.82;
+}
+
+.replica-howto-page {
+  padding: 2.5rem 1.25rem 4.5rem;
+}
+
+.replica-howto-page__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.replica-howto-page__hero {
+  max-width: 980px;
+  margin: 0 auto 2.5rem;
+  padding: 2.2rem 2rem 1.8rem;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.98), rgba(248, 241, 233, 0.96));
+  border: 1px solid rgba(130, 92, 76, 0.12);
+  box-shadow: 0 24px 60px rgba(78, 45, 37, 0.08);
+}
+
+.replica-howto-page__eyebrow {
+  margin: 0 0 0.75rem;
+  color: #b63b34;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+.replica-howto-page__hero h1 {
+  margin: 0;
+  color: #664f4c;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.22;
+}
+
+.replica-howto-page__lede {
+  margin: 1.25rem 0 0;
+  color: #705956;
+  font-size: 1.08rem;
+  line-height: 2;
+}
+
+.replica-howto-page__langlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.replica-howto-page__langlinks a,
+.replica-howto-page__link,
+.replica-howto-page__nextlinks a {
+  color: #be342d;
+  text-decoration: none;
+}
+
+.replica-howto-page__langlinks a:hover,
+.replica-howto-page__link:hover,
+.replica-howto-page__nextlinks a:hover {
+  text-decoration: underline;
+}
+
+.replica-howto-page__layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 1.5rem 2rem;
+  align-items: start;
+}
+
+.replica-howto-page__toc,
+.replica-howto-page__authors,
+.replica-howto-page__section,
+.replica-howto-page__next {
+  border-radius: 28px;
+  background: rgba(255, 250, 245, 0.94);
+  border: 1px solid rgba(130, 92, 76, 0.12);
+  box-shadow: 0 20px 50px rgba(78, 45, 37, 0.06);
+}
+
+.replica-howto-page__toc {
+  position: sticky;
+  top: 88px;
+  padding: 1.4rem 1.25rem;
+}
+
+.replica-howto-page__toc h2,
+.replica-howto-page__authors h2,
+.replica-howto-page__section h2 {
+  margin: 0 0 1rem;
+  color: #664f4c;
+  font-size: clamp(1.3rem, 2vw, 1.85rem);
+}
+
+.replica-howto-page__toc ol,
+.replica-howto-page__list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.replica-howto-page__toc li,
+.replica-howto-page__list li {
+  color: #705956;
+  line-height: 1.9;
+}
+
+.replica-howto-page__toc a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.replica-howto-page__toc a:hover {
+  color: #be342d;
+}
+
+.replica-howto-page__content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.replica-howto-page__authors,
+.replica-howto-page__section {
+  padding: 1.8rem;
+}
+
+.replica-howto-page__authorgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.replica-howto-page__authorcard {
+  display: grid;
+  grid-template-columns: 136px minmax(0, 1fr);
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  background: rgba(190, 52, 45, 0.06);
+  color: #664f4c;
+  line-height: 1.8;
+}
+
+.replica-howto-page__authormedia {
+  width: 100%;
+  max-width: 132px;
+}
+
+.replica-howto-page__authormedia img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+  background: #f4ece2;
+  box-shadow: 0 14px 32px rgba(78, 45, 37, 0.1);
+}
+
+.replica-howto-page__authorcopy h3 {
+  margin: 0 0 0.35rem;
+  color: #664f4c;
+  font-size: 1.35rem;
+}
+
+.replica-howto-page__authorcopy p {
+  margin: 0;
+  color: #705956;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.replica-howto-page__copy p {
+  margin: 0 0 1rem;
+  color: #705956;
+  line-height: 2;
+  font-size: 1.02rem;
+}
+
+.replica-howto-page__meta {
+  margin: 0 0 1rem;
+  color: #705956;
+  line-height: 2;
+  font-size: 1.02rem;
+}
+
+.replica-howto-page__meta-link {
+  color: #be342d;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.replica-howto-page__subsection + .replica-howto-page__subsection {
+  margin-top: 1.6rem;
+}
+
+.replica-howto-page__subsection h3 {
+  margin: 0 0 0.85rem;
+  color: #664f4c;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.replica-howto-page__figure {
+  margin: 1.25rem 0 0;
+}
+
+.replica-howto-page__figure img {
+  display: block;
+  width: 100%;
+  border-radius: 22px;
+  background: #f6eee5;
+}
+
+.replica-howto-page__links,
+.replica-howto-page__nextlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.1rem;
+  margin-top: 1rem;
+}
+
+.replica-howto-page__next {
+  padding: 1.4rem 1.6rem;
+}
+
+.replica-howto-page__next p {
+  margin: 0 0 0.75rem;
+  color: #664f4c;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .replica-howto-page__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .replica-howto-page__toc {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .replica-howto-page {
+    padding: 1.5rem 0.9rem 3rem;
+  }
+
+  .replica-howto-page__hero,
+  .replica-howto-page__authors,
+  .replica-howto-page__section,
+  .replica-howto-page__next,
+  .replica-howto-page__toc {
+    border-radius: 22px;
+  }
+
+  .replica-howto-page__hero,
+  .replica-howto-page__authors,
+  .replica-howto-page__section {
+    padding: 1.35rem;
+  }
+
+  .replica-howto-page__authorgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .replica-howto-page__authorcard {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+
+  .replica-howto-page__authormedia {
+    max-width: 92px;
+  }
+
+  .replica-howto-page__authorcopy h3 {
+    font-size: 1.15rem;
+  }
+
+  .replica-howto-page__copy p,
+  .replica-howto-page__list li,
+  .replica-howto-page__toc li {
+    font-size: 0.98rem;
+  }
 }
 
 .replica-help-doc__lead {
@@ -299,6 +613,89 @@ button {
   padding-left: 28px;
 }
 
+.replica-bugs-page {
+  padding: 18px 0 56px;
+  background: #ede8e0;
+}
+
+.replica-bugs-page__inner {
+  width: min(1240px, calc(100vw - 72px));
+  margin: 0 auto;
+}
+
+.replica-bugs-page__title {
+  margin: 10px 0 48px;
+  color: #664f4c;
+  font-size: 64px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.replica-bugs-page__lead,
+.replica-bugs-page__section p,
+.replica-bugs-page__closing-copy p {
+  color: #664f4c;
+  line-height: 1.84;
+}
+
+.replica-bugs-page__lead {
+  margin: 0 0 34px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.replica-bugs-page__lead a,
+.replica-bugs-page__section a {
+  color: #be342d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-bugs-page__section {
+  padding: 34px 0 28px;
+  border-bottom: 1px solid rgba(36, 25, 21, 0.9);
+}
+
+.replica-bugs-page__section p {
+  margin: 0 0 14px;
+  font-size: 30px;
+}
+
+.replica-bugs-page__section p:last-child {
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.replica-bugs-page__closing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  align-items: center;
+  gap: 28px;
+  padding: 30px 0 0;
+}
+
+.replica-bugs-page__closing-copy p {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.replica-bugs-page__thanks {
+  font-size: 30px !important;
+}
+
+.replica-bugs-page__figure {
+  width: min(180px, 100%);
+  margin: 0 auto;
+}
+
+.replica-bugs-page__figure img {
+  width: 100%;
+  height: auto;
+}
+
 .replica-help-doc__substeps {
   margin: 10px 0 0;
   padding-left: 20px;
@@ -320,6 +717,101 @@ button {
 
 .replica-help-doc--limits {
   padding-top: 42px;
+}
+
+.replica-badges-page {
+  padding: 34px 0 82px;
+  background: #ede8e0;
+}
+
+.replica-badges-page__inner {
+  width: min(1400px, calc(100vw - 56px));
+  margin: 0 auto;
+}
+
+.replica-badges-page__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.replica-badges-page__intro {
+  max-width: 1120px;
+  margin: 0 0 64px;
+  color: #664f4c;
+  font-size: 20px;
+  line-height: 2;
+}
+
+.replica-badges-group + .replica-badges-group {
+  margin-top: 58px;
+}
+
+.replica-badges-group__title,
+.replica-badges-more h2 {
+  margin: 0 0 28px;
+  color: #664f4c;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.replica-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 42px 78px;
+}
+
+.replica-badge-card {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+}
+
+.replica-badge-card img {
+  width: 108px;
+  height: auto;
+}
+
+.replica-badge-card__copy h3 {
+  margin: 0 0 10px;
+  color: #664f4c;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.replica-badge-card__copy p {
+  margin: 0;
+  color: #664f4c;
+  font-size: 20px;
+  line-height: 1.9;
+}
+
+.replica-badges-more {
+  margin-top: 78px;
+}
+
+.replica-badges-more__links {
+  display: grid;
+  gap: 12px;
+}
+
+.replica-badges-more__links a {
+  color: #c93e2d;
+  font-size: 20px;
+  line-height: 1.85;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
 }
 
 .replica-play-friend {
@@ -472,6 +964,253 @@ button {
   color: #664f4c;
   font-size: 21px;
   line-height: 1.8;
+}
+
+.replica-new-user-page {
+  padding: 18px 0 60px;
+  background: #f5efe6;
+}
+
+.replica-new-user-page__inner {
+  width: min(1240px, calc(100vw - 72px));
+  margin: 0 auto;
+}
+
+.replica-new-user-page__hero {
+  margin-bottom: 40px;
+}
+
+.replica-new-user-page__hero h1 {
+  margin: 0 0 28px;
+  color: #5f4a43;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.replica-new-user-page__lead,
+.replica-new-user-page__section p,
+.replica-new-user-page__steps li,
+.replica-new-user-page__links li {
+  margin: 0;
+  color: #5b4437;
+  font-size: 22px;
+  line-height: 1.84;
+}
+
+.replica-new-user-page__section {
+  margin-bottom: 28px;
+}
+
+.replica-new-user-page__section h2 {
+  margin: 0 0 14px;
+  color: #55453f;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.replica-new-user-page__lead a,
+.replica-new-user-page__links a,
+.replica-new-user-page__inline-links a,
+.replica-new-user-page__section--next a {
+  color: #d94b31;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-new-user-page__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.98fr);
+  align-items: start;
+  gap: 44px;
+  margin-top: 16px;
+}
+
+.replica-new-user-page__stage + .replica-new-user-page__stage {
+  margin-top: 34px;
+}
+
+.replica-new-user-page__stage--reverse {
+  grid-template-columns: minmax(460px, 0.9fr) minmax(0, 0.82fr);
+}
+
+.replica-new-user-page__copy {
+  min-width: 0;
+}
+
+.replica-new-user-page__media {
+  margin: 0;
+}
+
+.replica-new-user-page__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.replica-new-user-page__steps,
+.replica-new-user-page__links {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.replica-new-user-page__steps--continued {
+  margin-top: 78px;
+}
+
+.replica-new-user-page__steps li,
+.replica-new-user-page__links li {
+  margin-bottom: 10px;
+}
+
+.replica-new-user-page__bullet-list {
+  margin: 10px 0 0;
+  padding-left: 28px;
+}
+
+.replica-new-user-page__bullet-list li {
+  margin-bottom: 8px;
+  color: #5b4437;
+  font-size: 22px;
+  line-height: 1.82;
+}
+
+.replica-new-user-page__inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.replica-new-user-page__section--next {
+  margin-bottom: 0;
+}
+
+.replica-signup-page {
+  padding: 10px 0 56px;
+  background: #ede8e0;
+}
+
+.replica-signup-page__inner {
+  width: min(75.2vw, 1180px);
+  margin: 0 auto;
+}
+
+.replica-signup-page__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.replica-signup-page__form {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 0;
+}
+
+.replica-signup-page__row {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.replica-signup-page__row--hidden {
+  display: none;
+}
+
+.replica-signup-page__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #5d4a41;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.replica-signup-page__required-mark {
+  color: #ef4136;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.replica-signup-page__input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid #d5cec6;
+  border-radius: 0;
+  background: #fff;
+  color: #4f4038;
+  font-size: 16px;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.replica-signup-page__input::placeholder {
+  color: #8d837d;
+}
+
+.replica-signup-page__input:focus {
+  border-color: #ef4136;
+  box-shadow: 0 0 0 1px rgba(239, 65, 54, 0.08);
+}
+
+.replica-signup-page__input.is-invalid {
+  border-color: #cf3f35;
+}
+
+.replica-signup-page__captcha-wrap {
+  width: 100%;
+}
+
+.replica-signup-page__actions {
+  padding-left: 124px;
+  margin-top: -2px;
+}
+
+.replica-signup-page__submit {
+  width: min(100%, 980px);
+  min-height: 46px;
+  padding: 10px 28px;
+  border: 0;
+  border-radius: 0;
+  background: #ef4136;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.replica-signup-page__submit:hover {
+  background: #e33d33;
+}
+
+.replica-signup-page__status {
+  min-height: 22px;
+  margin: 12px 0 0 124px;
+  color: #5d4a41;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.replica-signup-page__status.is-error {
+  color: #cf3f35;
+}
+
+.replica-signup-page__status.is-success {
+  color: #4d6752;
 }
 
 .replica-first-game-page {
@@ -982,6 +1721,104 @@ button {
   text-underline-offset: 5px;
 }
 
+.replica-help-doc--verified {
+  padding-top: 34px;
+}
+
+.replica-help-doc__inner--verified {
+  width: min(1280px, calc(100vw - 72px));
+}
+
+.replica-help-doc__verified-intro {
+  margin: 0 0 28px;
+  color: #664f4c;
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.replica-help-doc__verified-intro--secondary {
+  margin-bottom: 42px;
+  font-size: 24px;
+  line-height: 2;
+  font-weight: 400;
+}
+
+.replica-help-doc__section--verified {
+  padding-bottom: 52px;
+}
+
+.replica-help-doc__section--verified h2,
+.replica-help-doc__section--verified h3 {
+  margin: 0 0 18px;
+  color: #664f4c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.replica-help-doc__section--verified p {
+  margin: 0 0 12px;
+  color: #664f4c;
+  font-size: 22px;
+  line-height: 2;
+}
+
+.replica-help-doc__section--verified a,
+.replica-help-doc__verified-contact a {
+  color: #d94b31;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-help-doc__verified-contact {
+  margin-top: 18px;
+}
+
+.replica-verified-gallery {
+  display: grid;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.replica-verified-gallery--status {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.replica-verified-gallery__figure,
+.replica-verified-split__figure {
+  margin: 0;
+}
+
+.replica-verified-gallery__figure img,
+.replica-verified-split__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.replica-verified-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 28px 44px;
+  align-items: start;
+}
+
+.replica-verified-split__copy {
+  min-width: 0;
+}
+
+.replica-verified-split__figure {
+  align-self: start;
+}
+
+.replica-verified-split__figure--narrow {
+  max-width: 320px;
+  justify-self: start;
+}
+
 .replica-help-doc--policy .replica-help-doc__title {
   margin-bottom: 34px;
 }
@@ -1040,6 +1877,49 @@ button {
   .replica-help-doc__subheading {
     font-size: 24px;
   }
+
+  .replica-help-doc__inner--verified {
+    width: calc(100vw - 32px);
+  }
+
+  .replica-help-doc__verified-intro {
+    margin-bottom: 18px;
+    font-size: 22px;
+  }
+
+  .replica-help-doc__verified-intro--secondary {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+
+  .replica-help-doc__section--verified {
+    padding-bottom: 36px;
+  }
+
+  .replica-help-doc__section--verified h2,
+  .replica-help-doc__section--verified h3 {
+    font-size: 24px;
+  }
+
+  .replica-help-doc__section--verified p {
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  .replica-verified-gallery--status,
+  .replica-verified-split {
+    grid-template-columns: 1fr;
+  }
+
+  .replica-verified-split {
+    gap: 18px;
+  }
+
+  .replica-verified-split__figure,
+  .replica-verified-split__figure--narrow {
+    max-width: min(420px, 100%);
+  }
 }
 
 @media (max-width: 560px) {
@@ -1076,6 +1956,287 @@ button {
   .replica-help-doc__steps,
   .replica-help-doc__link-list {
     padding-left: 20px;
+  }
+
+  .replica-help-doc__inner--verified {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-help-doc__verified-intro {
+    margin-bottom: 14px;
+    font-size: 20px;
+    line-height: 1.55;
+  }
+
+  .replica-help-doc__verified-intro--secondary {
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .replica-help-doc__section--verified {
+    padding-bottom: 28px;
+  }
+
+  .replica-help-doc__section--verified h2,
+  .replica-help-doc__section--verified h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+
+  .replica-help-doc__section--verified p {
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .replica-help-doc__verified-contact {
+    margin-top: 14px;
+  }
+
+  .replica-verified-gallery {
+    gap: 16px;
+    margin-top: 20px;
+  }
+}
+
+.replica-report-page {
+  background: #ede8e0;
+  padding: 46px 0 56px;
+}
+
+.replica-report-page__inner {
+  width: min(1080px, calc(100vw - 72px));
+  margin: 0 auto;
+}
+
+.replica-report-page__hero {
+  padding-bottom: 26px;
+  border-bottom: 1px solid #000;
+}
+
+.replica-report-page__hero h1,
+.replica-report-page__section h2,
+.replica-report-page__report-details h3 {
+  margin: 0;
+  color: #664f4c;
+  font-weight: 700;
+}
+
+.replica-report-page__hero h1 {
+  font-size: 62px;
+  line-height: 1.06;
+}
+
+.replica-report-page__hero h2,
+.replica-report-page__section h2 {
+  font-size: 34px;
+  line-height: 1.25;
+}
+
+.replica-report-page__hero p,
+.replica-report-page__hero li,
+.replica-report-page__section p {
+  margin: 0;
+  color: #664f4c;
+  font-size: 22px;
+  line-height: 1.86;
+}
+
+.replica-report-page__hero > p,
+.replica-report-page__hero > h2,
+.replica-report-page__lead {
+  margin-top: 14px;
+}
+
+.replica-report-page__bullet-list {
+  margin: 8px 0 0;
+  padding-left: 32px;
+}
+
+.replica-report-page__bullet-list li + li {
+  margin-top: 4px;
+}
+
+.replica-report-page__lead,
+.replica-report-page__report-details h3 {
+  font-weight: 700;
+}
+
+.replica-report-page__section {
+  padding: 20px 0 30px;
+}
+
+.replica-report-page__section-heading {
+  margin-bottom: 10px;
+}
+
+.replica-report-page__section-heading p {
+  margin-top: 4px;
+}
+
+.replica-report-page__figure {
+  margin: 0;
+}
+
+.replica-report-page__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.replica-report-page__figure--wide {
+  max-width: 692px;
+}
+
+.replica-report-page__report-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(300px, 1fr);
+  gap: 8px 44px;
+  align-items: start;
+  margin-top: 6px;
+}
+
+.replica-report-page__report-copy {
+  grid-column: 1 / -1;
+}
+
+.replica-report-page__figure--dialog {
+  width: min(100%, 250px);
+  margin-left: 86px;
+}
+
+.replica-report-page__report-details {
+  align-self: start;
+  padding-top: 10px;
+}
+
+.replica-report-page__report-details p + p {
+  margin-top: 10px;
+}
+
+.replica-report-page__report-details h3 {
+  margin-top: 38px;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.replica-report-page__section--split {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(360px, 1fr);
+  gap: 34px 52px;
+  align-items: center;
+}
+
+.replica-report-page__copy p + p {
+  margin-top: 14px;
+}
+
+.replica-report-page__figure--split {
+  max-width: 694px;
+}
+
+.replica-report-page__footer-note {
+  margin: 8px 0 0;
+  color: #664f4c;
+  font-size: 31px;
+  line-height: 1.45;
+  text-align: center;
+  font-weight: 700;
+}
+
+.replica-report-page__accent-link {
+  color: #be342d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .replica-report-page {
+    padding: 28px 0 44px;
+  }
+
+  .replica-report-page__inner {
+    width: calc(100vw - 32px);
+  }
+
+  .replica-report-page__hero h1 {
+    font-size: 42px;
+  }
+
+  .replica-report-page__hero h2,
+  .replica-report-page__section h2 {
+    font-size: 26px;
+  }
+
+  .replica-report-page__hero p,
+  .replica-report-page__hero li,
+  .replica-report-page__section p {
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  .replica-report-page__report-grid,
+  .replica-report-page__section--split {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .replica-report-page__figure--dialog {
+    width: min(100%, 300px);
+    margin-left: 0;
+  }
+
+  .replica-report-page__report-details {
+    padding-top: 0;
+  }
+
+  .replica-report-page__report-details h3 {
+    margin-top: 24px;
+    font-size: 20px;
+  }
+
+  .replica-report-page__footer-note {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .replica-report-page__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-report-page__hero {
+    padding-bottom: 18px;
+  }
+
+  .replica-report-page__hero h1 {
+    font-size: 31px;
+  }
+
+  .replica-report-page__hero h2,
+  .replica-report-page__section h2 {
+    font-size: 20px;
+  }
+
+  .replica-report-page__hero p,
+  .replica-report-page__hero li,
+  .replica-report-page__section p {
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .replica-report-page__bullet-list {
+    padding-left: 20px;
+  }
+
+  .replica-report-page__section {
+    padding: 16px 0 22px;
+  }
+
+  .replica-report-page__footer-note {
+    font-size: 18px;
+    line-height: 1.7;
   }
 }
 
@@ -1301,6 +2462,67 @@ button {
     padding: 20px 0 52px;
   }
 
+  .replica-new-user-page {
+    padding: 12px 0 46px;
+  }
+
+  .replica-new-user-page__inner {
+    width: calc(100vw - 32px);
+  }
+
+  .replica-new-user-page__lead,
+  .replica-new-user-page__section p,
+  .replica-new-user-page__steps li,
+  .replica-new-user-page__links li,
+  .replica-new-user-page__bullet-list li {
+    font-size: 17px;
+  }
+
+  .replica-new-user-page__section h2 {
+    font-size: 24px;
+  }
+
+  .replica-new-user-page__stage,
+  .replica-new-user-page__stage--reverse {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .replica-new-user-page__stage + .replica-new-user-page__stage {
+    margin-top: 24px;
+  }
+
+  .replica-new-user-page__steps--continued {
+    margin-top: 0;
+  }
+
+  .replica-signup-page {
+    padding-bottom: 46px;
+  }
+
+  .replica-signup-page__inner {
+    width: calc(100vw - 32px);
+  }
+
+  .replica-signup-page__row {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .replica-signup-page__label,
+  .replica-signup-page__input,
+  .replica-signup-page__submit {
+    font-size: 17px;
+  }
+
+  .replica-signup-page__actions {
+    padding-left: 110px;
+  }
+
+  .replica-signup-page__status {
+    margin-left: 110px;
+  }
+
   .replica-first-game-page__inner {
     width: calc(100vw - 28px);
   }
@@ -1519,6 +2741,81 @@ button {
 }
 
 @media (max-width: 560px) {
+  .replica-new-user-page__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-new-user-page__hero h1 {
+    margin-bottom: 18px;
+    font-size: 31px;
+  }
+
+  .replica-new-user-page__lead,
+  .replica-new-user-page__section p,
+  .replica-new-user-page__steps li,
+  .replica-new-user-page__links li,
+  .replica-new-user-page__bullet-list li {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .replica-new-user-page__section {
+    margin-bottom: 22px;
+  }
+
+  .replica-new-user-page__section h2 {
+    font-size: 20px;
+  }
+
+  .replica-new-user-page__steps,
+  .replica-new-user-page__links {
+    padding-left: 20px;
+  }
+
+  .replica-new-user-page__bullet-list {
+    padding-left: 24px;
+  }
+
+  .replica-signup-page {
+    padding-bottom: 38px;
+  }
+
+  .replica-signup-page__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-signup-page__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .replica-signup-page__label,
+  .replica-signup-page__input,
+  .replica-signup-page__submit {
+    font-size: 16px;
+  }
+
+  .replica-signup-page__input {
+    min-height: 48px;
+  }
+
+  .replica-signup-page__actions {
+    padding-left: 0;
+    margin-top: 2px;
+  }
+
+  .replica-signup-page__submit {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .replica-signup-page__status {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
   .replica-first-game-page__inner {
     width: calc(100vw - 22px);
   }
@@ -3061,9 +4358,77 @@ button {
   line-height: 1.18;
 }
 
+.story-page__meta {
+  margin: -10px 0 0;
+  color: #7a6159;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
 .story-page__body {
   display: grid;
   gap: 22px;
+}
+
+.story-page__section {
+  display: grid;
+  gap: 14px;
+}
+
+.story-page__section h2 {
+  margin: 0;
+  color: #664f4c;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.3;
+}
+
+.story-page__table-wrap {
+  margin-top: 18px;
+  overflow-x: auto;
+}
+
+.story-page__table {
+  width: min(100%, 420px);
+  border-collapse: collapse;
+  background: rgba(255, 251, 245, 0.98);
+  border: 1px solid rgba(126, 91, 74, 0.18);
+}
+
+.story-page__table th,
+.story-page__table td {
+  padding: 12px 16px;
+  border: 1px solid rgba(126, 91, 74, 0.18);
+  color: #664f4c;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.story-page__table th {
+  background: #efe6db;
+  font-weight: 700;
+}
+
+.story-page__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  margin-top: 18px;
+}
+
+.story-page__links a {
+  color: #9f3229;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.story-page__links a:hover {
+  text-decoration: underline;
+}
+
+.story-page__links--stacked {
+  display: grid;
+  gap: 10px;
 }
 
 .story-page__figure {
@@ -3074,6 +4439,14 @@ button {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.story-page__figure figcaption {
+  margin-top: 10px;
+  color: #6e5650;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
 }
 
 .story-page__figure--wide {
@@ -3369,6 +4742,16 @@ button {
     font-size: 17px;
   }
 
+  .story-page__table {
+    width: 100%;
+  }
+
+  .story-page__table th,
+  .story-page__table td {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
   .story-page__figure {
     margin-top: 8px;
   }
@@ -3414,6 +4797,11 @@ button {
     line-height: 1.24;
   }
 
+  .story-page__meta {
+    margin-top: -6px;
+    font-size: 15px;
+  }
+
   .story-page__body {
     gap: 18px;
   }
@@ -3430,6 +4818,19 @@ button {
   .story-page__lead {
     font-size: 16px;
     line-height: 1.85;
+  }
+
+  .story-page__figure figcaption {
+    font-size: 15px;
+  }
+
+  .story-page__table th,
+  .story-page__table td {
+    font-size: 15px;
+  }
+
+  .story-page__links a {
+    font-size: 16px;
   }
 
   .replica-showcase-grid {
@@ -4123,6 +5524,38 @@ button {
 }
 
 @media (max-width: 960px) {
+  .replica-badges-page {
+    padding: 24px 0 60px;
+  }
+
+  .replica-badges-page__inner {
+    width: min(100vw - 36px, 1060px);
+  }
+
+  .replica-badges-page__intro,
+  .replica-badge-card__copy p,
+  .replica-badges-more__links a {
+    font-size: 18px;
+    line-height: 1.84;
+  }
+
+  .replica-badges-grid {
+    gap: 32px 34px;
+  }
+
+  .replica-badge-card {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .replica-badge-card img {
+    width: 92px;
+  }
+
+  .replica-badge-card__copy h3 {
+    font-size: 18px;
+  }
+
   .replica-announcement-page {
     padding-bottom: 64px;
   }
@@ -4213,6 +5646,65 @@ button {
 }
 
 @media (max-width: 640px) {
+  .replica-badges-page {
+    padding: 18px 0 44px;
+  }
+
+  .replica-badges-page__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-badges-page__intro {
+    margin-bottom: 42px;
+    font-size: 15px;
+    line-height: 1.82;
+  }
+
+  .replica-badges-group + .replica-badges-group {
+    margin-top: 38px;
+  }
+
+  .replica-badges-group__title,
+  .replica-badges-more h2 {
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+
+  .replica-badges-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .replica-badge-card {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  .replica-badge-card img {
+    width: 74px;
+  }
+
+  .replica-badge-card__copy h3 {
+    margin-bottom: 6px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .replica-badge-card__copy p,
+  .replica-badges-more__links a {
+    font-size: 15px;
+    line-height: 1.82;
+  }
+
+  .replica-badges-more {
+    margin-top: 44px;
+  }
+
+  .replica-badges-more__links {
+    gap: 8px;
+  }
+
   .replica-announcement-page {
     padding: 20px 0 52px;
   }
@@ -4526,6 +6018,139 @@ button {
   }
 }
 
+.replica-admins-page {
+  padding: 26px 0 84px;
+  background: #ede8e0;
+}
+
+.replica-admins-page__inner {
+  width: min(100vw - 72px, 1440px);
+  margin: 0 auto;
+}
+
+.replica-admins-page__title {
+  margin: 16px 0 0;
+  color: #664f4c;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(44px, 4.5vw, 76px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.replica-admins-page__body {
+  margin-top: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.9);
+}
+
+.replica-admins-page__body p {
+  margin: 0;
+  color: #664f4c;
+  font-size: 24px;
+  line-height: 1.95;
+}
+
+.replica-admins-page__body a {
+  color: #be342d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-admins-search {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding-top: 48px;
+}
+
+.replica-admins-search__label {
+  margin: 0;
+  color: #664f4c;
+  font-size: 24px;
+  line-height: 2;
+  text-align: center;
+}
+
+.replica-admins-search__field {
+  width: min(100%, 640px);
+  display: grid;
+  grid-template-columns: 1fr 56px;
+  align-items: center;
+  border: 1px solid #c5b9ab;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.replica-admins-search__field input {
+  width: 100%;
+  height: 56px;
+  padding: 0 18px;
+  border: 0;
+  color: #8f8279;
+  background: transparent;
+  font: inherit;
+  font-size: 18px;
+}
+
+.replica-admins-search__field input:disabled {
+  opacity: 1;
+  -webkit-text-fill-color: #8f8279;
+  cursor: default;
+}
+
+.replica-admins-search__field input::placeholder {
+  color: #8f8279;
+}
+
+.replica-admins-search__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  color: #8d8177;
+}
+
+.replica-admins-search__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+body[data-route="/admins/"] .replica-header {
+  background: rgba(190, 52, 45, 0.98);
+  backdrop-filter: none;
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+body[data-route="/admins/"] .replica-brand__wordmark strong,
+body[data-route="/admins/"] .replica-brand__wordmark em,
+body[data-route="/admins/"] .replica-nav a,
+body[data-route="/admins/"] .replica-nav__button {
+  color: #fff;
+}
+
+body[data-route="/admins/"] .replica-menu-toggle {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body[data-route="/admins/"] .replica-menu-toggle__icon span {
+  background: currentColor;
+}
+
+body[data-route="/admins/"] .replica-dropdown {
+  background: #be342d;
+}
+
+body[data-route="/admins/"] .replica-dropdown a {
+  color: #fff;
+}
+
 .replica-shop-page {
   padding: 28px 0 84px;
   background: #ede8e0;
@@ -4834,6 +6459,29 @@ button {
     font-size: 22px;
   }
 
+  .replica-admins-page {
+    padding: 20px 0 64px;
+  }
+
+  .replica-admins-page__inner {
+    width: min(100vw - 40px, 1000px);
+  }
+
+  .replica-admins-page__body {
+    margin-top: 34px;
+    padding-bottom: 36px;
+  }
+
+  .replica-admins-page__body p,
+  .replica-admins-search__label {
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  .replica-admins-search {
+    padding-top: 36px;
+  }
+
   .replica-shop-page {
     padding: 24px 0 56px;
   }
@@ -4911,6 +6559,54 @@ button {
     margin-top: 8px;
   }
 
+  .replica-admins-page {
+    padding: 16px 0 46px;
+  }
+
+  .replica-admins-page__inner {
+    width: calc(100vw - 28px);
+  }
+
+  .replica-admins-page__title {
+    margin-top: 10px;
+    font-size: 34px;
+    letter-spacing: -0.02em;
+  }
+
+  .replica-admins-page__body {
+    margin-top: 24px;
+    padding-bottom: 28px;
+  }
+
+  .replica-admins-page__body p,
+  .replica-admins-search__label {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .replica-admins-search {
+    gap: 12px;
+    padding-top: 28px;
+  }
+
+  .replica-admins-search__field {
+    grid-template-columns: 1fr 50px;
+  }
+
+  .replica-admins-search__field input,
+  .replica-admins-search__icon {
+    height: 50px;
+  }
+
+  .replica-admins-search__field input {
+    padding: 0 14px;
+    font-size: 15px;
+  }
+
+  .replica-admins-search__icon {
+    width: 50px;
+  }
+
   .replica-shop-page {
     padding: 18px 0 42px;
   }
@@ -4980,5 +6676,269 @@ button {
   }
 }
 
+@media (max-width: 900px) {
+  .replica-bugs-page__title {
+    margin-bottom: 34px;
+    font-size: 42px;
+  }
+
+  .replica-bugs-page__lead,
+  .replica-bugs-page__section p {
+    font-size: 24px;
+  }
+
+  .replica-bugs-page__section p:last-child,
+  .replica-bugs-page__closing-copy p {
+    font-size: 18px;
+  }
+
+  .replica-bugs-page__thanks {
+    font-size: 24px !important;
+  }
+
+  .replica-bugs-page__closing {
+    grid-template-columns: minmax(0, 1fr) 144px;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .replica-bugs-page {
+    padding-bottom: 40px;
+  }
+
+  .replica-bugs-page__inner {
+    width: min(1240px, calc(100vw - 40px));
+  }
+
+  .replica-bugs-page__title {
+    margin-bottom: 24px;
+    font-size: 34px;
+  }
+
+  .replica-bugs-page__lead {
+    margin-bottom: 24px;
+    font-size: 20px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .replica-bugs-page__section {
+    padding: 20px 0 18px;
+  }
+
+  .replica-bugs-page__section p {
+    font-size: 20px;
+    line-height: 1.72;
+  }
+
+  .replica-bugs-page__section p:last-child,
+  .replica-bugs-page__closing-copy p {
+    font-size: 16px;
+  }
+
+  .replica-bugs-page__closing {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 22px;
+  }
+
+  .replica-bugs-page__thanks {
+    font-size: 20px !important;
+  }
+
+  .replica-bugs-page__figure {
+    width: min(132px, 100%);
+    margin-left: 0;
+  }
+}
+
+.replica-earth-page {
+  padding: clamp(32px, 5vw, 72px) 0 clamp(56px, 7vw, 104px);
+}
+
+.replica-earth-page__inner {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 6vw, 148px);
+}
+
+.replica-earth-page__header h1 {
+  margin: 0;
+  color: rgb(102, 79, 76);
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.14;
+}
+
+.replica-earth-page__content {
+  margin-top: clamp(22px, 2.8vw, 34px);
+}
+
+.replica-earth-page__content p {
+  margin: 0;
+  color: rgb(102, 79, 76);
+  font-size: 18px;
+  line-height: 2;
+  text-align: left;
+}
+
+.replica-earth-page__content p + p {
+  margin-top: 8px;
+}
+
+.replica-earth-page__figure {
+  width: min(100%, 624px);
+  margin: clamp(28px, 4vw, 52px) auto 0;
+}
+
+.replica-earth-page__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .replica-earth-page__inner {
+    padding: 0 24px;
+  }
+
+  .replica-earth-page__content p {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .replica-earth-page__figure {
+    width: min(100%, 320px);
+    margin-top: 24px;
+  }
+}
 
 
+
+.replica-interface-page {
+  padding: 42px 0 72px;
+  background: #ede8e0;
+}
+
+.replica-interface-page__inner {
+  width: min(1120px, calc(100vw - 56px));
+  margin: 0 auto;
+}
+
+.replica-interface-page__hero {
+  margin-bottom: 22px;
+}
+
+.replica-interface-page__hero h1 {
+  margin: 0;
+  color: #664f4c;
+  font-size: clamp(34px, 4.9vw, 66px);
+  line-height: 1.14;
+  font-weight: 700;
+}
+
+.replica-interface-page__section {
+  margin-top: 18px;
+}
+
+.replica-interface-page__section p,
+.replica-interface-page__copyright {
+  margin: 0;
+  color: #6e5248;
+  font-size: 18px;
+  line-height: 2.1;
+}
+
+.replica-interface-page__figure {
+  margin: 0;
+}
+
+.replica-interface-page__figure img {
+  width: 100%;
+  display: block;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.replica-interface-page__link {
+  text-align: center;
+}
+
+.replica-interface-page__link a,
+.replica-interface-page__copyright a {
+  color: #c63e2f;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.replica-interface-page__copyright {
+  margin-top: 28px;
+}
+
+.replica-chinese-page {
+  min-height: 52vh;
+  padding: clamp(28px, 5vw, 56px) 0 clamp(72px, 9vw, 140px);
+  background: #f7f2eb;
+}
+
+.replica-chinese-page__inner {
+  width: min(1120px, calc(100vw - 56px));
+  margin: 0 auto;
+}
+
+.replica-chinese-page__title {
+  margin: 0;
+  color: #6a5148;
+  font-size: clamp(34px, 4.8vw, 72px);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 960px) {
+  .replica-interface-page__inner {
+    width: min(100vw - 36px, 920px);
+  }
+
+  .replica-chinese-page__inner {
+    width: min(100vw - 36px, 920px);
+  }
+}
+
+@media (max-width: 560px) {
+  .replica-interface-page {
+    padding: 32px 0 56px;
+  }
+
+  .replica-interface-page__hero {
+    margin-bottom: 18px;
+  }
+
+  .replica-interface-page__section {
+    margin-top: 14px;
+  }
+
+  .replica-interface-page__section p,
+  .replica-interface-page__copyright {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+
+  .replica-chinese-page {
+    min-height: 44vh;
+    padding: 24px 0 56px;
+  }
+
+  .replica-chinese-page__inner {
+    width: calc(100vw - 24px);
+  }
+
+  .replica-chinese-page__title {
+    font-size: 30px;
+    letter-spacing: -0.02em;
+  }
+}

@@ -45,6 +45,26 @@ function buildUtilityPage(seed: UtilityPageSeed): ReplicaPage {
 
 export const footerReplicaPages: ReplicaPage[] = [
   buildUtilityPage({
+    id: "ZH-039",
+    locale: "zh-CN",
+    sourceUrl: "https://www.zh.xiangqi.com/slash/",
+    route: "/slash/",
+    title: "斜杠命令 - 相弈象棋",
+    description:
+      "我们即将推出一系列斜杠命令，用户可直接在聊天中输入相关命令。因此，用户不仅能用聊天输入框给其他用户发送消息，还可直接给系统发送消息和请求。",
+    heroTitle: "斜杠命令",
+    sections: [
+      {
+        title: "斜杠命令",
+        body: [
+          "我们即将推出一系列斜杠命令，用户可直接在聊天中输入相关命令。因此，用户不仅能用聊天输入框给其他用户发送消息，还可直接给系统发送消息和请求。",
+          "以下是我们当前正在开发的斜杠命令。如对斜杠命令有其他想法，请发送邮件至 help@xiangqi.com，谢谢！"
+        ]
+      }
+    ],
+    faq: []
+  }),
+  buildUtilityPage({
     id: "ZH-018",
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/team/",
@@ -107,7 +127,7 @@ export const footerReplicaPages: ReplicaPage[] = [
           "如果您有其他想要的功能，请发送邮件到 help@xiangqi.com 告诉我们！"
         ],
         links: [
-          { label: "版本发布公告", href: "/articles/product-update-2024-08/" },
+      { label: "版本发布公告", href: "/sys-nd/22.html" },
           { label: "help@xiangqi.com", href: "mailto:help@xiangqi.com" }
         ]
       }
@@ -214,7 +234,7 @@ export const footerReplicaPages: ReplicaPage[] = [
             description: "查看帮助和文章。",
             links: [
               { label: "帮助", href: "/help/" },
-              { label: "文章", href: "/articles/" }
+              { label: "文章", href: "/sys-nr/" }
             ]
           },
           {
@@ -442,6 +462,85 @@ export const footerReplicaPages: ReplicaPage[] = [
     faq: zhFooterFaq
   }),
   buildUtilityPage({
+    id: "ZH-037",
+    locale: "zh-CN",
+    sourceUrl: "https://www.zh.xiangqi.com/bugs/",
+    route: "/bugs/",
+    title: "如何报错？ - 相弈象棋",
+    description:
+      "如遇系统出错，请发送邮件至help@xiangqi.com。我们乐于学习，精进不休。有时我们也会犯错，用户或将不时看到错误。但进步最快的方法就是从错误中学习！为帮助我们更快解决问题，用户可填写报错模板，点击“help@xiangqi.com”发送邮件。",
+    heroTitle: "如何报错？",
+    sections: [
+      {
+        title: "",
+        body: [
+          "我们乐于学习, 精进不休。",
+          "有时我们也会犯错，用户或将不时看到错误。",
+          "但进步最快的方法就是从错误中学习！",
+          "为帮助我们更快解决问题，用户可填写报错模板，点击“help@xiangqi.com”发送邮件。"
+        ]
+      },
+      {
+        title: "",
+        body: ["我们将迅速（约2-5个工作日）处理报错邮件。", "感谢您的耐心等待！"],
+        image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgiNfTqQYo4KvrsAYwjAc4jAc.png",
+        imageAlt: "相弈象棋 bugs 页面中的报错邮件插图"
+      }
+    ],
+    faq: []
+  }),
+  buildUtilityPage({
+    id: "ZH-038",
+    locale: "zh-CN",
+    sourceUrl: "https://www.zh.xiangqi.com/report/",
+    route: "/report/",
+    title: "举报违规行为 - 相弈象棋",
+    description:
+      "很多优秀的人在此汇聚一堂，但互联网世界难免鱼龙混杂。如发现他人出现传播低俗内容、冒犯威胁、恶意针对用户、发送垃圾邮件、对局作弊或粗暴对待对手等行为，请举报出现上述行为的玩家。",
+    heroTitle: "举报违规行为",
+    sections: [
+      {
+        title: "",
+        body: [
+          "很多优秀的人在此汇聚一堂，但互联网世界难免鱼龙混杂。",
+          "如发现他人出现以下行为：",
+          "传播低俗、淫秽或色情内容，包括文字、图片、链接等",
+          "冒犯、威胁或故意歧视任一种族、性别、性取向等",
+          "诽谤、威胁或恶意针对用户",
+          "发送“垃圾邮件”（未经批准发送商业网站链接等）",
+          "对局时作弊、故意拖延时间、中途退出或粗暴对待对手",
+          "请举报出现上述行为的玩家！"
+        ]
+      },
+      {
+        title: "举报",
+        body: [
+          "点击对方用户名，进入个人资料页。",
+          "点击（!）举报，请在弹出的窗口中选择举报原因。",
+          "选择举报原因，并在文本框中填写简要说明。",
+          "请提供举报人认为可能相关的链接。",
+          "选择举报原因后，单击提交。",
+          "我们将认真审核举报内容。",
+          "我们将创建举报人数据库，收到举报后由专门的团队即刻开展调查。",
+          "如被举报达到一定次数，系统将标记、审核且可能关闭或暂停被举报人的账号。"
+        ]
+      },
+      {
+        title: "屏蔽",
+        body: [
+          "若遭他人骚扰，可点击其个人资料页上的“屏蔽”按钮将其屏蔽。",
+          "遭屏蔽的用户无法向您发送消息或发起挑战。",
+          "若此人尝试向您发送信息或发起挑战，其将收到已被屏蔽的通知。"
+        ]
+      },
+      {
+        title: "静音",
+        body: ["您还可将聊天和通知静音以及在游戏大厅聊天信息推送视图中隐藏其他用户。"]
+      }
+    ],
+    faq: []
+  }),
+  buildUtilityPage({
     id: "TCN-008",
     locale: "zh-Hant",
     sourceUrl: "https://www.zh.xiangqi.com/tcn/about/",
@@ -530,7 +629,7 @@ export const footerReplicaPages: ReplicaPage[] = [
           "如果您有其他想要的功能，請發送郵件到 help@xiangqi.com 告訴我們！"
         ],
         links: [
-          { label: "版本發布公告", href: "/articles/product-update-2024-08/" },
+      { label: "版本發布公告", href: "/sys-nd/22.html" },
           { label: "help@xiangqi.com", href: "mailto:help@xiangqi.com" }
         ]
       }
@@ -668,7 +767,7 @@ export const footerReplicaPages: ReplicaPage[] = [
         ]
       }
     ],
-    ctas: [{ label: "查看繁中文章", href: "/articles/", variant: "primary" }],
+    ctas: [{ label: "查看繁中文章", href: "/sys-nr/", variant: "primary" }],
     faq: tcnFooterFaq
   }),
   buildUtilityPage({

@@ -22,6 +22,7 @@ export type ReplicaSection = {
   body: string[];
   kind?: "seo" | "hero" | "help-menu" | "steps" | "article" | "download" | "cards";
   list?: string[];
+  links?: ReplicaCta[];
   items?: Array<{
     title: string;
     href?: string;
@@ -76,13 +77,14 @@ const zhHelpMenu = [
   { title: "棋子与棋盘", href: "/how-to-play-xiangqi/", description: "从棋盘结构到各棋子的移动限制。" },
   { title: "开始第一盘", href: "/first-game/", description: "注册、进入大厅、匹配和完成第一盘。" },
   { title: "AI 复盘", href: "/analysis/", description: "对局结束后查看引擎建议和关键变化。" },
+  { title: "行棋标记", href: "/mark/", description: "标记关键着法，方便在对局结束后回看和讨论。" },
   { title: "邀请好友", href: "/invite/", description: "生成邀请链接并分享给好友。" },
   { title: "好友对战", href: "/play-with-a-friend/", description: "创建私人房间或加入好友对局。" },
   { title: "人机对战", href: "/computer/", description: "选择电脑难度，先用练习局熟悉规则。" },
   { title: "比赛", href: "/tournament/", description: "报名、签到、配对、积分和排名说明。" },
-  { title: "徽章", href: "/support-home/", description: "查看个人荣誉、任务和平台成就入口。" },
+  { title: "徽章", href: "/badges/", description: "查看个人荣誉、任务和平台成就入口。" },
   { title: "残局", href: "/how-to-create-puzzle/", description: "挑战题库或创建自定义残局。" },
-  { title: "下载 APP", href: "/download/", description: "查看移动端下载入口和安装说明。" },
+  { title: "下载 APP", href: "/mobile/", description: "查看移动端下载入口和安装说明。" },
   { title: "等级分", href: "/rating/", description: "了解 Elo 评分、排行榜和匹配参考。" },
 ];
 
@@ -90,7 +92,7 @@ const tcnHelpMenu = [
   { title: "開始第一盤", href: "/tcn/first-game/", description: "從登入、進入大廳到完成首局對弈。" },
   { title: "比賽", href: "/tcn/tournament/", description: "報名、簽到、配對、積分與名次說明。" },
   { title: "等級分", href: "/tcn/rating/", description: "了解評分變化、排行榜與配對參考。" },
-  { title: "下載 APP", href: "/tcn/download/", description: "查看手機和平板上的下載入口。" },
+  { title: "下載 APP", href: "/tcn/mobile/", description: "查看手機和平板上的下載入口。" },
   { title: "象棋規則", href: "/tcn/how-to-play/", description: "棋盤、棋子走法、將軍與勝負。" },
   { title: "幫助搜尋", href: "/tcn/support-home/", description: "以關鍵字查找常見操作教學。" },
 ];
@@ -98,21 +100,21 @@ const tcnHelpMenu = [
 const zhArticleCards: ReplicaArticleCard[] = [
   {
     title: "棋谱导入的格式说明",
-    href: "/articles/import-game-notation/",
+    href: "/sys-nd/23.html",
     date: "2024-08-30",
     description: "纯文本格式与 PGN 格式的棋谱导入说明。",
     imageAlt: "棋谱导入文章缩略图",
   },
   {
     title: "相弈象棋 产品更新 2024年8月",
-    href: "/articles/product-update-2024-08/",
+    href: "/sys-nd/22.html",
     date: "2024-08-15",
     description: "您在相弈象棋的贡献。这一年，我们的社区创造了以下辉煌战绩。",
     imageAlt: "产品更新文章缩略图",
   },
   {
     title: "相弈象棋-新界面",
-    href: "/articles/new-interface/",
+    href: "/sys-nd/20.html",
     date: "2024-07-20",
     description: "相弈象棋即将迎来重大更新，为广大象棋爱好者带来了焕然一新的使用体验。",
     imageAlt: "新界面文章缩略图",
@@ -489,7 +491,7 @@ function articleSections(title: string, paragraphs: string[]): ReplicaSection[] 
       title: "文章导航",
       body: ["详情页保留返回列表和继续阅读入口。"],
       items: [
-        { title: "返回教学文章", href: "/articles/", description: "查看全部教学文章卡片。" },
+        { title: "返回教学文章", href: "/sys-nr/", description: "查看全部教学文章卡片。" },
         { title: "如何下象棋", href: "/how-to-play-xiangqi/", description: "继续阅读入门教程。" },
       ],
     },
@@ -507,7 +509,7 @@ const pages: ReplicaPage[] = [
     description:
       "通过相弈象棋软件平台轻松实现线上中国象棋对弈，支持真人对战、人机对战、残局、赛事、等级分和多设备体验。",
     heroTitle: "马上进行中国象棋\n在线对战吧！",
-    cta: [playCta, { label: "下载 App", href: "/download/", variant: "secondary" }],
+    cta: [playCta, { label: "下载 App", href: "/mobile/", variant: "secondary" }],
     sections: [
       {
         id: "home-hero",
@@ -538,7 +540,7 @@ const pages: ReplicaPage[] = [
     id: "ZH-003",
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/mobile/",
-    route: "/download/",
+    route: "/mobile/",
     type: "download",
     title: "下载 App - 相弈象棋",
     description: "下载相弈象棋 App，或使用免安装网页版进行在线对弈、人机练习、残局和赛事。",
@@ -677,6 +679,36 @@ const pages: ReplicaPage[] = [
     ]),
   },
   {
+    id: "ZH-011A",
+    locale: "zh-CN",
+    sourceUrl: "https://www.zh.xiangqi.com/mark/",
+    route: "/mark/",
+    type: "help-detail",
+    title: "行棋标记 - 相弈象棋",
+    description: "学习如何使用“标记”功能记住关键着法，并在对局结束后回顾和讨论行棋步骤。",
+    heroTitle: "行棋标记",
+    cta: [],
+    sections: [
+      {
+        id: "mark-intro",
+        title: "行棋标记",
+        body: [
+          "学习象棋最好的方法是实战，并在对局结束后回顾和讨论行棋步骤。 在对弈过程中，如果碰到一步想在一局终了后讨论的棋，可通过“标记”功能记住行棋编号和当前棋子位置。 对局结束后，标记的行棋编号将显示在聊天窗口中。所有查看这一对局的用户都可以点击标记的行棋编号，移动棋子的位置，以便讨论棋局。 更重要的是，这些讨论发生在对弈结束之后，而非对弈期间，避免了注意力的分散。"
+        ],
+      },
+      {
+        id: "mark-links",
+        title: "更多关于象棋规则的帮助信息：",
+        body: [],
+        links: [
+          { label: "象棋规则", href: "/how-to-play/" },
+          { label: "象棋棋子与走法", href: "/pieces-and-moves/" },
+          { label: "象棋等级系统", href: "/rating/" },
+        ],
+      },
+    ],
+  },
+  {
     id: "ZH-011",
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/help/markers.html",
@@ -714,10 +746,49 @@ const pages: ReplicaPage[] = [
     sections: helpIndexSections(zhHelpMenu, "搜索结果项目"),
   },
   {
+    id: "ZH-020",
+    locale: "zh-CN",
+    sourceUrl: "https://www.zh.xiangqi.com/new-user/",
+    route: "/new-user/",
+    type: "help-detail",
+    title: "创建账号 - 相弈象棋",
+    description: "以下是账号注册和创建教程，了解如何注册账号、完成个人信息填写，并继续前往用户验证、好友对战和人机对战。",
+    heroTitle: "创建账号",
+    cta: [],
+    sections: [],
+    faq: [],
+  },
+  {
+    id: "ZH-036",
+    locale: "zh-CN",
+    sourceUrl: "https://www.zh.xiangqi.com/sys-signup/",
+    route: "/sys-signup/",
+    type: "help-detail",
+    title: "注册 - 相弈象棋",
+    description: "通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。马上进行在线象棋对战吧！作为最国际化的线上象棋对战游戏平台，相弈象棋软件平台上有着来自世界各地超过四十个国家的棋手，是借助象棋对弈结交国际友人的最佳选择。玩家可以在网页版或手机 app 象棋在线平台根据个人喜好选择中国象棋真人对战或中国象棋人机对战进行象棋在线对弈。",
+    heroTitle: "注册",
+    cta: [],
+    sections: [],
+    faq: [],
+  },
+  {
+    id: "ZH-035",
+    locale: "zh-CN",
+    sourceUrl: "https://www.zh.xiangqi.com/verified/",
+    route: "/verified/",
+    type: "help-detail",
+    title: "用户验证 - 相弈象棋",
+    description: "了解相弈象棋账号验证的作用、验证步骤、重新发送激活邮件、更新邮箱地址，以及未来认证用户的功能规划。",
+    heroTitle: "用户验证",
+    cta: [],
+    sections: [],
+    faq: [],
+  },
+  {
     id: "ZH-014",
     locale: "zh-CN",
-    sourceUrl: "https://www.zh.xiangqi.com/articles/",
-    route: "/articles/",
+    sourceUrl: "https://www.zh.xiangqi.com/sys-nr/",
+    route: "/sys-nr/",
     type: "article-list",
     title: "教学文章 - 相弈象棋",
     description: "浏览棋谱导入的格式说明、产品更新与新界面等相弈象棋相关文章。",
@@ -730,12 +801,12 @@ const pages: ReplicaPage[] = [
     id: "ZH-015",
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/articles/import-game-notation/",
-    route: "/articles/import-game-notation/",
+    route: "/sys-nd/23.html",
     type: "article-detail",
     title: "棋谱导入的格式说明 - 相弈象棋",
     description: "纯文本格式与 PGN 格式的棋谱导入说明。",
     heroTitle: "棋谱导入的格式说明",
-    cta: [{ label: "返回文章列表", href: "/articles/", variant: "secondary" }],
+    cta: [{ label: "返回文章列表", href: "/sys-nr/", variant: "secondary" }],
     sections: articleSections("棋谱导入的格式说明", [
       "纯文本格式",
       "1. 炮二平五，马8进7       // 从走法开始输入",
@@ -755,12 +826,12 @@ const pages: ReplicaPage[] = [
     id: "ZH-016",
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/sys-nd/22.html",
-    route: "/articles/product-update-2024-08/",
+    route: "/sys-nd/22.html",
     type: "article-detail",
     title: "相弈象棋 产品更新 2024年8月",
     description: "您在相弈象棋的贡献。这一年，我们的社区创造了以下辉煌战绩。",
     heroTitle: "相弈象棋 产品更新 2024年8月",
-    cta: [{ label: "返回文章列表", href: "/articles/", variant: "secondary" }],
+    cta: [{ label: "返回文章列表", href: "/sys-nr/", variant: "secondary" }],
     sections: [
       {
         id: "contribution",
@@ -815,13 +886,13 @@ const pages: ReplicaPage[] = [
   {
     id: "ZH-017",
     locale: "zh-CN",
-    sourceUrl: "https://www.zh.xiangqi.com/articles/new-interface/",
-    route: "/articles/new-interface/",
+    sourceUrl: "https://www.zh.xiangqi.com/sys-nd/20.html",
+    route: "/sys-nd/20.html",
     type: "article-detail",
     title: "相弈象棋-新界面",
     description: "相弈象棋即将迎来重大更新，为广大象棋爱好者带来了焕然一新的使用体验。",
     heroTitle: "相弈象棋-新界面",
-    cta: [{ label: "返回文章列表", href: "/articles/", variant: "secondary" }],
+    cta: [{ label: "返回文章列表", href: "/sys-nr/", variant: "secondary" }],
     sections: articleSections("相弈象棋-新界面", [
       "相弈象棋即将迎来重大更新，为广大象棋爱好者带来了焕然一新的使用体验。",
       "以下是此次更新的几个主要亮点：",
@@ -908,7 +979,7 @@ const pages: ReplicaPage[] = [
     title: "Xiangqi.com 相弈象棋 - 中國象棋線上玩",
     description: "繁中首頁按源站結構承接線上對弈、下載、教學文章、FAQ、SEO 長文和多裝置體驗。",
     heroTitle: "馬上進行中國象棋\n線上對戰吧！",
-    cta: [tcnPlayCta, { label: "下載 App", href: "/tcn/download/", variant: "secondary" }],
+    cta: [tcnPlayCta, { label: "下載 App", href: "/tcn/mobile/", variant: "secondary" }],
     sections: [
       { id: "home-hero", kind: "hero", title: "繁中首頁首屏", body: ["紅色導航、主視覺、棋盤和兩個 CTA 對照繁中源站復刻。"] },
       ...tcnHomeSeoSections,
@@ -979,7 +1050,7 @@ const pages: ReplicaPage[] = [
     id: "TCN-006",
     locale: "zh-Hant",
     sourceUrl: "https://www.zh.xiangqi.com/tcn/mobile/",
-    route: "/tcn/download/",
+    route: "/tcn/mobile/",
     type: "download",
     title: "下載 App - 相弈象棋",
     description: "繁中下載頁，保留 APK、Google Play、App Store 入口和安裝說明。",

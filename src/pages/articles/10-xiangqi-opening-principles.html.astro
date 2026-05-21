@@ -1,0 +1,15 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+import ReplicaPageView from "../../components/replica/ReplicaPage.astro";
+import { getReplicaPageByRoute } from "../../data/replica";
+
+const page = getReplicaPageByRoute("/articles/10-xiangqi-opening-principles.html");
+
+if (!page) {
+  throw new Error("Opening principles article page is missing.");
+}
+---
+
+<ReplicaLayout title={page.title} description={page.description} route={page.route} locale={page.locale}>
+  <ReplicaPageView page={page} />
+</ReplicaLayout>

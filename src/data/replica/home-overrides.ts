@@ -8,7 +8,7 @@ export const homePageOverrides = {
         date: "2024-08-30",
         excerpt:
           "纯文本格式 炮二平五，马8进7 // 从走法开始输入 马二进三，车9平8 车一平二，马2进3 兵七进一，卒7进1 …… 从开局开始输入走法 不支持多个变招（分支） PGN 格式 [Game \"Chinese Chess\"] // 必须包含这一行标题 ...",
-        href: "/articles/import-game-notation/",
+        href: "/sys-nd/23.html",
         image: replicaAssets.article
       },
       {
@@ -16,7 +16,7 @@ export const homePageOverrides = {
         date: "2024-08-15",
         excerpt:
           "您在相弈象棋的贡献 这一年，我们的社区创造了以下辉煌战绩：完成了 6,227,308 场棋局，破解了 894,221 道象棋题目，分析复盘了 471,110 个局面，拥有 320,294 位活跃玩家，99个国家的象棋爱好者参与其中。最新产品更新 为了让您的象棋体验更加顺畅，我们对网站和手机应用做了多项改进：全新导航栏：无论您是在网站还是手机应用，导航栏现在随时可见，方便您快速切换页面。简洁的界面：页面...",
-        href: "/articles/product-update-2024-08/",
+        href: "/sys-nd/22.html",
         image: replicaAssets.featureTwo
       },
       {
@@ -24,7 +24,7 @@ export const homePageOverrides = {
         date: "2024-07-20",
         excerpt:
           "相弈象棋即将迎来重大更新，为广大象棋爱好者带来了焕然一新的使用体验。以下是此次更新的几个主要亮点：点击此链接，反馈您的意见。",
-        href: "/articles/new-interface/",
+        href: "/sys-nd/20.html",
         image: replicaAssets.featureOne
       }
     ],

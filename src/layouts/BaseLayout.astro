@@ -1,8 +1,9 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
+import ReplicaFooter from "../components/replica/ReplicaFooter.astro";
 import StructuredData from "../components/StructuredData.astro";
 import "../styles/global.css";
+import "../styles/replica.css";
 import site from "../data/site.json";
 
 interface MetaProps {
@@ -50,11 +51,11 @@ const imageUrl = new URL(image, site.siteUrl).toString();
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {structuredData && <StructuredData data={structuredData} />}
   </head>
-  <body>
-    <Header />
+  <body data-locale="zh-CN" data-route={canonicalPath}>
+    <ReplicaHeader locale="zh-CN" />
     <main>
       <slot />
     </main>
-    <Footer />
+    <ReplicaFooter locale="zh-CN" />
   </body>
 </html>

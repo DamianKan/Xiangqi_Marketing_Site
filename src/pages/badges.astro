@@ -1,0 +1,111 @@
+---
+import ReplicaLayout from "../layouts/ReplicaLayout.astro";
+
+const pageTitle = "象棋徽章 - 相弈象棋";
+const pageDescription =
+  "通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。马上进行在线象棋对战吧！作为最国际化的线上象棋对战游戏平台，相弈象棋软件平台上有着来自世界各地超过四十个国家的棋手，是借助象棋对弈结交国际友人的最佳选择。玩家可以在网页版或手机 app 象棋在线平台根据个人喜好选择中国象棋真人对战或中国象棋人机对战进行象棋在线对弈。";
+
+const limitedBadges = [
+  {
+    title: "周游列国",
+    description: "本月至少与五个国家的棋手对弈，即可获得此徽章。",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgt8PJqQYoosrsyAYw6QI46QI.png"
+  },
+  {
+    title: "节节高升",
+    description: "本月积分至少上升20分，即可获得此徽章！",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAglcTJqQYo0MqOxgYw6QI46QI.png"
+  },
+  {
+    title: "势如破竹",
+    description: "连胜五场或以上，即可获得此徽章！",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgw8XJqQYo3NmCcTDpAjjpAg.png"
+  },
+  {
+    title: "稳中求胜",
+    description: "连续至少四周每周获胜一次，即可获得此徽章。",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgzMXJqQYohqHCgAYw6QI46QI.png"
+  },
+  {
+    title: "速战速决",
+    description: "本月在5分钟限时对弈中至少获胜一次，即可获得此徽章。",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg3cXJqQYo4LOB2wYw6QI46QI.png"
+  }
+];
+
+const permanentBadges = [
+  {
+    title: "兵神",
+    description: "用卒（兵）将死对方，即可获得此徽章。",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg08fJqQYo_Or5zAMw6QI46QI.png"
+  },
+  {
+    title: "炮神",
+    description: "用炮（砲）将死对方，即可获得此徽章。",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg2sfJqQYo4K3b9wQw6QI46QI.png"
+  },
+  {
+    title: "车神",
+    description: "用车将死对方，即可获得此徽章。",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg4cfJqQYov5ubdDDpAjjpAg.png"
+  },
+  {
+    title: "马神",
+    description: "用马将死对方，即可获得此徽章。",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg5sfJqQYozOegzgUw6QI46QI.png"
+  },
+  {
+    title: "孙子",
+    description: "用卒（兵）、车、炮（砲）、马各将死对方一次，即可获得此徽章！",
+    image: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg7MfJqQYo2qL-mAIw6QI46QI.png"
+  }
+];
+---
+
+<ReplicaLayout title={pageTitle} description={pageDescription} route="/badges/" locale="zh-CN">
+  <section class="replica-badges-page">
+    <div class="replica-badges-page__inner">
+      <h1 class="replica-badges-page__title">象棋徽章</h1>
+      <p class="replica-badges-page__intro">想在个人资料页点亮红色的象棋徽章吗？走过路过不要错过！</p>
+
+      <section class="replica-badges-group" aria-labelledby="limited-badges-title">
+        <h2 id="limited-badges-title" class="replica-badges-group__title">限时徽章</h2>
+        <div class="replica-badges-grid">
+          {limitedBadges.map((badge) => (
+            <article class="replica-badge-card">
+              <img src={badge.image} alt={badge.title} loading="lazy" />
+              <div class="replica-badge-card__copy">
+                <h3>{badge.title}</h3>
+                <p>{badge.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="replica-badges-group" aria-labelledby="permanent-badges-title">
+        <h2 id="permanent-badges-title" class="replica-badges-group__title">永久徽章</h2>
+        <div class="replica-badges-grid">
+          {permanentBadges.map((badge) => (
+            <article class="replica-badge-card">
+              <img src={badge.image} alt={badge.title} loading="lazy" />
+              <div class="replica-badge-card__copy">
+                <h3>{badge.title}</h3>
+                <p>{badge.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="replica-badges-more" aria-labelledby="badges-more-title">
+        <h2 id="badges-more-title">查看更多关于象棋规则的信息</h2>
+        <div class="replica-badges-more__links">
+          <a href="/how-to-play/">❓ 象棋规则</a>
+          <a href="/how-to-play-xiangqi/">棋子与走法</a>
+          <a href="/rating/">☝️ 象棋等级分系统</a>
+        </div>
+      </section>
+    </div>
+  </section>
+</ReplicaLayout>

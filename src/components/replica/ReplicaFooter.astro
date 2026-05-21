@@ -76,7 +76,7 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
       {
         image: replicaAssets.downloadBadgeApk,
         imageAlt: "安卓 APK 下载按钮",
-        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        href: "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
         external: true
       },
       {
@@ -143,7 +143,7 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
       {
         image: replicaAssets.downloadBadgeApk,
         imageAlt: "安卓 APK 下載按鈕",
-        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        href: "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
         external: true
       },
       {
@@ -208,7 +208,7 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
       {
         image: replicaAssets.downloadBadgeApk,
         imageAlt: "Android APK download badge",
-        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        href: "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
         external: true
       },
       {
@@ -248,7 +248,7 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
           { label: "Luat co", href: "/vi/how-to-play/" },
           { label: "Xep hang", href: "/vi/help/rating/" },
           { label: "Cau hoi thuong gap", href: "/vi/cau-hoi-thuong-gap/" },
-          { label: "Tai App", href: "/vi/download/" }
+          { label: "Tai App", href: "/vi/mobile/" }
         ]
       },
       {
@@ -271,7 +271,7 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
       {
         image: replicaAssets.downloadBadgeApk,
         imageAlt: "Huy hieu tai APK Android",
-        href: "https://github.com/Littline/xiangqi_auto/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
+        href: "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk",
         external: true
       },
       {
@@ -294,6 +294,8 @@ const footerContent: Record<ReplicaLocale, FooterContent> = {
     copyright: "©2024 - Xiangqi.com"
   }
 };
+
+footerContent["zh-CN"].columns[1].links[1].href = "/pieces-and-moves/";
 
 const content = footerContent[locale];
 const linkAttrs = (external?: boolean) => (external ? { target: "_blank", rel: "noreferrer" } : {});

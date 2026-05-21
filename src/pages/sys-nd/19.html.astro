@@ -1,0 +1,434 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+
+const title = "马来西亚冠军州属诞生！黎德志全胜获最佳个人 - 相弈象棋";
+const description =
+  "2024年马来西亚全国团体象棋锦标赛于6月15日至6月17日，在柔佛居銮举行。本赛事是官方年度赛事，每队由各州精英组成，包括三位公开组棋手和一位少年棋手。近年来，赛事规则从少年必须对阵少年，改为队内可以自由调整台次，这展示了少年棋手的实力丝毫不逊色于公开组棋手。马来西亚的象棋发展态势良好。";
+
+const shareItems = [
+  "微信",
+  "新浪微博",
+  "QQ",
+  "QQ空间",
+  "豆瓣网",
+  "百度贴吧",
+  "复制链接",
+  "脸书",
+  "X",
+  "领英"
+] as const;
+
+const articleImages = [
+  {
+    src: "/mirror/sys-nd-19/opening-ceremony-1.jpg",
+    alt: "20240615-开幕仪式3.jpg",
+    width: 1200
+  },
+  {
+    src: "/mirror/sys-nd-19/opening-ceremony-2.jpg",
+    alt: "20240615-开幕仪式4.jpg",
+    width: 1200
+  },
+  {
+    src: "/mirror/sys-nd-19/kedah-champion.jpg",
+    alt: "20240617-闭幕颁奖冠军吉打-1024x768.jpg",
+    width: 1024
+  },
+  {
+    src: "/mirror/sys-nd-19/penang-runner-up.jpg",
+    alt: "20240617-闭幕颁奖亚军槟城-1024x768.jpg",
+    width: 1024
+  },
+  {
+    src: "/mirror/sys-nd-19/negeri-sembilan-third.jpg",
+    alt: "20240617-闭幕颁奖季军森美兰1-1024x768.jpg",
+    width: 1024
+  },
+  {
+    src: "/mirror/sys-nd-19/best-adult.jpg",
+    alt: "20240617-闭幕颁奖最佳成人运动员森美兰黎德志-1024x768.jpg",
+    width: 1024
+  },
+  {
+    src: "/mirror/sys-nd-19/best-youth.jpg",
+    alt: "20240617-闭幕颁奖最佳少年运动员雪兰莪李虢綕-1024x768.jpg",
+    width: 1024
+  },
+  {
+    src: "/mirror/sys-nd-19/results-summary.jpg",
+    alt: "成绩总结-第35届全国象棋团体锦标赛_1-724x1024.jpg",
+    width: 724
+  }
+] as const;
+---
+
+<ReplicaLayout
+  title={title}
+  description={description}
+  route="/sys-nd/19.html"
+  locale="zh-CN"
+  image="/mirror/sys-nd-19/kedah-champion.jpg"
+>
+  <section class="news-article-page">
+    <div class="news-article-page__shell">
+      <article class="news-article-page__article">
+        <header class="news-article-page__header">
+          <p class="news-article-page__eyebrow">新闻资讯</p>
+          <h1>马来西亚冠军州属诞生！黎德志全胜获最佳个人</h1>
+        </header>
+
+        <div class="news-article-page__content">
+          <p>
+            <strong>2024年马来西亚全国团体象棋锦标赛</strong>于6月15日至6月17日，在柔佛居銮举行。本赛事是官方年度赛事，每队由各州精英组成，包括三位公开组棋手和一位少年棋手。近年来，赛事规则从少年必须对阵少年，改为队内可以自由调整台次，这展示了少年棋手的实力丝毫不逊色于公开组棋手。马来西亚的象棋发展态势良好。
+          </p>
+
+          <h2>开幕仪式</h2>
+
+          <figure class="news-article-page__figure news-article-page__figure--wide">
+            <img
+              src={articleImages[0].src}
+              alt={articleImages[0].alt}
+              width={articleImages[0].width}
+              loading="eager"
+            />
+          </figure>
+
+          <figure class="news-article-page__figure news-article-page__figure--wide">
+            <img
+              src={articleImages[1].src}
+              alt={articleImages[1].alt}
+              width={articleImages[1].width}
+              loading="lazy"
+            />
+            <figcaption>挂帅仪式</figcaption>
+          </figure>
+
+          <h2>比赛亮点</h2>
+
+          <p>
+            <strong>夺冠热门森美兰，开局失利，无缘冠亚军决赛</strong>。森美兰队伍拥有2位象棋大师及青年组冠军，是本次比赛的豪华队伍。但是，森美兰队在第一轮和第二轮，分别与布城队战和，败给柔佛A队。尽管后续三连胜，仍然无缘冠亚军争夺赛。
+          </p>
+
+          <p>
+            <strong>上届团体冠军吉隆坡也无缘决赛。</strong>吉隆坡队在预赛阶段，输给了本次比赛的冠军（吉大队）及亚军（槟城队），无缘冠亚军决赛。
+          </p>
+
+          <p>
+            <strong>吉打队势不可挡，四连胜提前闯进决赛</strong>。作为上一届的团体亚军，吉打队在本次比赛中取得四连胜，提前一轮锁定决赛席位。在决赛中，吉打队与槟城队势均力敌，双方战和并进入加赛。最终在加赛环节，双方仍然无法分出胜负。根据附加赛和棋黑胜的规则，吉打队艰难获得本次比赛的冠军。
+          </p>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[2].src}
+              alt={articleImages[2].alt}
+              width={articleImages[2].width}
+              loading="lazy"
+            />
+            <figcaption>团体冠军 - 吉打</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[3].src}
+              alt={articleImages[3].alt}
+              width={articleImages[3].width}
+              loading="lazy"
+            />
+            <figcaption>团体亚军 - 槟城</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[4].src}
+              alt={articleImages[4].alt}
+              width={articleImages[4].width}
+              loading="lazy"
+            />
+            <figcaption>团体季军 - 森美兰</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[5].src}
+              alt={articleImages[5].alt}
+              width={articleImages[5].width}
+              loading="lazy"
+            />
+            <figcaption>最佳成人 - 黎德志</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[6].src}
+              alt={articleImages[6].alt}
+              width={articleImages[6].width}
+              loading="lazy"
+            />
+            <figcaption>最佳少年 - 李虢志</figcaption>
+          </figure>
+
+          <h2>成绩</h2>
+
+          <figure class="news-article-page__figure news-article-page__figure--results">
+            <img
+              src={articleImages[7].src}
+              alt={articleImages[7].alt}
+              width={articleImages[7].width}
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div class="news-article-page__notice">
+          <span>聲明：此篇為相弈象棋Xiangqi.com原創文章，轉載請標明出處鏈接：</span>
+          <a href="https://www.zh.xiangqi.com/sys-nd/19.html" target="_blank" rel="noreferrer">
+            https://www.zh.xiangqi.com/sys-nd/19.html
+          </a>
+        </div>
+
+        <div class="news-article-page__share">
+          <span class="news-article-page__share-label">分享</span>
+          <div class="news-article-page__share-list">
+            {shareItems.map((item) => (
+              <span>{item}</span>
+            ))}
+          </div>
+        </div>
+
+        <nav class="news-article-page__pager" aria-label="文章上下篇">
+          <a href="/sys-nd/20.html">上一篇　相弈象棋-新界面</a>
+          <a href="/sys-nd/18.html">下一篇　马来西亚象棋盛会 · 两代棋王组合夺冠</a>
+        </nav>
+      </article>
+    </div>
+  </section>
+</ReplicaLayout>
+
+<style is:global>
+  body[data-route="/sys-nd/19.html"] {
+    background: #ede8e0;
+  }
+
+  body[data-route="/sys-nd/19.html"] main {
+    min-height: 0;
+  }
+
+  .news-article-page {
+    padding: 34px 0 72px;
+    background:
+      linear-gradient(180deg, rgba(237, 232, 224, 0.96) 0%, rgba(237, 232, 224, 1) 100%);
+  }
+
+  .news-article-page__shell {
+    width: min(1240px, calc(100vw - 32px));
+    margin: 0 auto;
+  }
+
+  .news-article-page__article {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 54px) clamp(18px, 3vw, 44px) clamp(28px, 4vw, 44px);
+    background: #f8f4ef;
+    border: 1px solid rgba(204, 192, 181, 0.55);
+    box-shadow: 0 16px 48px rgba(102, 79, 76, 0.08);
+  }
+
+  .news-article-page__header h1 {
+    margin: 0;
+    color: #664f4c;
+    font-size: clamp(1.95rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .news-article-page__eyebrow {
+    margin: 0 0 12px;
+    color: #be342d;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .news-article-page__content {
+    margin-top: clamp(22px, 3vw, 30px);
+    color: #4c403c;
+  }
+
+  .news-article-page__content p {
+    margin: 0;
+    font-size: clamp(1rem, 1.35vw, 1.125rem);
+    line-height: 2;
+  }
+
+  .news-article-page__content p + p,
+  .news-article-page__content figure + p,
+  .news-article-page__content p + figure,
+  .news-article-page__content h2 + p,
+  .news-article-page__content figure + h2 {
+    margin-top: 20px;
+  }
+
+  .news-article-page__content h2 {
+    margin: 30px 0 0;
+    color: #5f4744;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    line-height: 1.35;
+  }
+
+  .news-article-page__figure {
+    margin: 22px auto 0;
+    text-align: center;
+  }
+
+  .news-article-page__figure img {
+    width: min(100%, 1024px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(73, 56, 52, 0.12);
+  }
+
+  .news-article-page__figure--wide img {
+    width: min(100%, 1200px);
+  }
+
+  .news-article-page__figure--results img {
+    width: min(100%, 724px);
+  }
+
+  .news-article-page__figure figcaption {
+    margin-top: 14px;
+    color: #5f4744;
+    font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.7;
+  }
+
+  .news-article-page__notice {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(196, 184, 173, 0.65);
+    color: #6d5d58;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .news-article-page__notice a {
+    color: #be342d;
+    word-break: break-all;
+  }
+
+  .news-article-page__share {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(196, 184, 173, 0.48);
+  }
+
+  .news-article-page__share-label {
+    min-width: 42px;
+    color: #5f4744;
+    font-weight: 700;
+    line-height: 2;
+  }
+
+  .news-article-page__share-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .news-article-page__share-list span {
+    padding: 8px 14px;
+    border: 1px solid rgba(190, 52, 45, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    color: #755d58;
+    font-size: 0.93rem;
+    line-height: 1.2;
+  }
+
+  .news-article-page__pager {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(196, 184, 173, 0.65);
+  }
+
+  .news-article-page__pager a {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid rgba(190, 52, 45, 0.18);
+    background: rgba(255, 255, 255, 0.86);
+    color: #5b4744;
+    line-height: 1.6;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .news-article-page__pager a:hover {
+    border-color: rgba(190, 52, 45, 0.42);
+    box-shadow: 0 10px 24px rgba(102, 79, 76, 0.09);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .news-article-page {
+      padding: 22px 0 56px;
+    }
+
+    .news-article-page__shell {
+      width: calc(100vw - 24px);
+    }
+
+    .news-article-page__article {
+      padding-inline: 16px;
+    }
+
+    .news-article-page__share {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .news-article-page__pager {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .news-article-page__content p {
+      line-height: 1.86;
+    }
+
+    .news-article-page__content h2 {
+      margin-top: 24px;
+    }
+
+    .news-article-page__figure {
+      margin-top: 18px;
+    }
+
+    .news-article-page__figure figcaption {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .news-article-page__share-list {
+      gap: 8px;
+    }
+
+    .news-article-page__share-list span {
+      padding: 7px 12px;
+      font-size: 0.88rem;
+    }
+  }
+</style>

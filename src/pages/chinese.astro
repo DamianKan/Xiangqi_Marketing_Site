@@ -1,0 +1,18 @@
+---
+import ReplicaLayout from "../layouts/ReplicaLayout.astro";
+
+const page = {
+  title: "中文短语 - 相弈象棋",
+  description: "相弈象棋中文短语页面，按源站极简结构复刻。",
+  route: "/chinese/",
+  locale: "zh-CN" as const
+};
+---
+
+<ReplicaLayout title={page.title} description={page.description} route={page.route} locale={page.locale}>
+  <section class="replica-chinese-page" aria-labelledby="chinese-page-title">
+    <div class="replica-chinese-page__inner">
+      <h1 id="chinese-page-title" class="replica-chinese-page__title">中文短语</h1>
+    </div>
+  </section>
+</ReplicaLayout>

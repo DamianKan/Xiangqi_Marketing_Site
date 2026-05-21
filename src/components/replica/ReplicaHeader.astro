@@ -27,11 +27,8 @@ const menuLabel =
 <header class="replica-header">
   <div class="replica-header__inner">
     <a class="replica-brand" href={currentLocale.route} aria-label="Xiangqi.com">
-      <span class="replica-brand__seal" aria-hidden="true">相</span>
-      <span class="replica-brand__wordmark">
-        <strong>Xiangqi.com</strong>
-        <em>{locale === "zh-Hant" ? "相弈象棋" : locale === "en" ? "Play Xiangqi" : locale === "vi" ? "Co tuong online" : "相弈象棋"}</em>
-      </span>
+      <img class="replica-brand__icon" src="/source-privacy/mobile-logo.png" alt="" aria-hidden="true" />
+      <span class="replica-brand__title">Xiangqi.com 相弈象棋</span>
     </a>
 
     <button class="replica-menu-toggle" type="button" aria-expanded="false" aria-controls="replicaNav" aria-label={menuLabel}>
