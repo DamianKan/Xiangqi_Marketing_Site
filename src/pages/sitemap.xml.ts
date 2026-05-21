@@ -17,7 +17,6 @@ const sitemapEntries: SitemapEntry[] = [
   { path: "/tournament/", priority: "0.8", lastmod: liveLastmod, changefreq: "always" },
   { path: "/mobile/", priority: "0.8", lastmod: liveLastmod, changefreq: "always" },
   { path: "/how-to-play-xiangqi/", priority: "0.8", lastmod: liveLastmod, changefreq: "always" },
-  { path: "/tcn/", priority: "0.8", lastmod: liveLastmod, changefreq: "always" },
   { path: "/h-col-139.html", priority: "0.8", lastmod: liveLastmod, changefreq: "always" },
   { path: "/contact/", priority: "0.8", lastmod: liveLastmod, changefreq: "always" },
   { path: "/roadmap/", priority: "0.8", lastmod: liveLastmod, changefreq: "always" },

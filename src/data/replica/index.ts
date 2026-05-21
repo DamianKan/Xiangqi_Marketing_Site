@@ -241,7 +241,9 @@ export const replicaPages: ReplicaPage[] = [
   ...earthReplicaPages,
   ...enReplicaPages,
   ...viReplicaPages
-].map(normalizePage);
+]
+  .map(normalizePage)
+  .filter((page) => !page.route.startsWith("/tcn/"));
 
 export const replicaPagesByRoute = new Map(replicaPages.map((page) => [page.route, page]));
 

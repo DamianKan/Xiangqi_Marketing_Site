@@ -4,6 +4,9 @@ import { howToAuthors } from "../../data/replica/howto-authors";
 import { zhTeamGroups } from "../../data/replica/team";
 import type { ReplicaPage } from "../../data/replica/types";
 
+const githubReleaseApkUrl =
+  "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk";
+
 const { page } = Astro.props as { page: ReplicaPage };
 const isHome = page.type === "home";
 const playCtas = page.ctas || [];
@@ -418,7 +421,7 @@ const xiangqiPieces = [
           <details class="slash-header__dropdown slash-header__dropdown--language">
             <summary>简中</summary>
             <div class="slash-header__menu">
-              <a href="/tcn/">繁中</a>
+              <a href="https://www.zh.xiangqi.com/tcn/" {...linkAttrs(true)}>繁中</a>
               <a href="/en/">English</a>
               <a href="/vi/">Tiếng Việt</a>
             </div>
@@ -506,7 +509,7 @@ const xiangqiPieces = [
           <a href="https://play.google.com/store/apps/details?id=com.xiangqimobile" target="_blank" rel="noreferrer">
             <img src={replicaAssets.downloadBadgeGoogle} alt="Google Play 下载按钮" loading="lazy" />
           </a>
-          <a href="/apk/Xiangqi-v2.1.4-signed-China.apk">
+          <a href={githubReleaseApkUrl} target="_blank" rel="noreferrer">
             <img src={replicaAssets.downloadBadgeApk} alt="安卓 APK 下载按钮" loading="lazy" />
           </a>
           <a href="https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460" target="_blank" rel="noreferrer">
@@ -555,7 +558,7 @@ const xiangqiPieces = [
           <details class="slash-header__dropdown slash-header__dropdown--language">
             <summary>简中</summary>
             <div class="slash-header__menu">
-              <a href="/tcn/">繁中</a>
+              <a href="https://www.zh.xiangqi.com/tcn/" {...linkAttrs(true)}>繁中</a>
               <a href="/en/">English</a>
               <a href="/vi/">Tiếng Việt</a>
             </div>
@@ -625,7 +628,7 @@ const xiangqiPieces = [
           <a href="https://play.google.com/store/apps/details?id=com.xiangqimobile" target="_blank" rel="noreferrer">
             <img src={replicaAssets.downloadBadgeGoogle} alt="Google Play 下载按钮" loading="lazy" />
           </a>
-          <a href="/apk/Xiangqi-v2.1.4-signed-China.apk">
+          <a href={githubReleaseApkUrl} target="_blank" rel="noreferrer">
             <img src={replicaAssets.downloadBadgeApk} alt="安卓 APK 下载按钮" loading="lazy" />
           </a>
           <a href="https://apps.apple.com/app/xiangqi-com-chinese-chess/id1557911460" target="_blank" rel="noreferrer">
@@ -1608,7 +1611,7 @@ const xiangqiPieces = [
         <h1>{page.heroTitle}</h1>
         {page.heroSubtitle && <p class="replica-howto-page__lede">{page.heroSubtitle}</p>}
         <div class="replica-howto-page__langlinks">
-          <a href="/tcn/how-to-play-xiangqi/">繁體中文</a>
+          <a href="https://www.zh.xiangqi.com/tcn/how-to-play-xiangqi/" {...linkAttrs(true)}>繁體中文</a>
           <a href="https://www.xiangqi.com/how-to-play-xiangqi" {...linkAttrs(true)}>English</a>
           <a href="https://www.xiangqi.com/es/how-to-play-xiangqi" {...linkAttrs(true)}>Español</a>
         </div>
@@ -2705,21 +2708,6 @@ const xiangqiPieces = [
         </article>
       )}
 
-      {page.sections[3] && (
-        <article class="replica-help-doc__section replica-help-doc__section--rating-search">
-          <h3 class="replica-help-doc__subheading">{page.sections[3].title}</h3>
-          <form class="replica-rating-search-form" action="/support-home/" method="get">
-            <input
-              class="replica-rating-search"
-              type="search"
-              name="q"
-              placeholder="请输入关键字"
-              aria-label="搜索获取更多相关文章"
-            />
-            <button class="replica-rating-search-button" type="submit">搜索</button>
-          </form>
-        </article>
-      )}
     </div>
   </section>
 ) : isMarkPage ? (
