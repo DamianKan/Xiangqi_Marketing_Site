@@ -1,0 +1,39 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+
+const page = {
+  title: "管理员 - 相弈象棋",
+  description:
+    "用户名旁带有黄色星号的用户拥有“管理员”权限。管理员的职责是协助我们维护网站的友好氛围，让大家可以在这里结识新朋友并提高棋艺。如果碰到管理员，就和他们打声招呼吧！如对网站有任何问题，也可随时询问他们。",
+  route: "/tcn/admins/",
+  locale: "zh-Hant" as const
+};
+---
+
+<ReplicaLayout title={page.title} description={page.description} route={page.route} locale={page.locale}>
+  <section class="replica-admins-page">
+    <div class="replica-admins-page__inner">
+      <h1 class="replica-admins-page__title">管理员</h1>
+
+      <div class="replica-admins-page__body">
+        <p>
+          用户名旁带有黄色星号的用户拥有“管理员”权限。管理员的职责是协助我们维护网站的友好氛围，让大家可以在这里结识新朋友并提高棋艺。如果碰到管理员，就和他们打声招呼吧！如对网站有任何问题，也可随时询问他们。不过，管理员有权对违反
+          <a href="/tcn/fair-play/">公平对弈准则</a>
+          的玩家作出禁言或封号惩罚。全网禁言意味着其他玩家将无法收到您发出的信息。封号则意味着您的账号被停用，如需重返游戏平台，必须用新的个人资料重新创建账号。
+        </p>
+      </div>
+
+      <div class="replica-admins-search" aria-label="搜索相关文章">
+        <p class="replica-admins-search__label">搜索获取更多相关文章：</p>
+        <div class="replica-admins-search__field" aria-hidden="true">
+          <input type="text" placeholder="请输入关键字" disabled />
+          <span class="replica-admins-search__icon">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M17.78 16.72 14.53 13.47a.53.53 0 0 0-.1-.06 7 7 0 1 0-1 1 .53.53 0 0 0 .06.1l3.25 3.25a.75.75 0 0 0 1.06 0 .75.75 0 0 0-.02-1.04ZM9 14.65A5.65 5.65 0 1 1 14.65 9 5.66 5.66 0 0 1 9 14.65Z" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</ReplicaLayout>

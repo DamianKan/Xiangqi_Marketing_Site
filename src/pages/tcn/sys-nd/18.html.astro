@@ -1,0 +1,504 @@
+---
+import ReplicaLayout from "../../../layouts/ReplicaLayout.astro";
+
+const title = "马来西亚象棋盛会 · 两代棋王组合夺冠 - 象棋新闻";
+const description =
+  "马来西亚象棋盛会 · 两代棋王组合夺冠。2024年《拿督黄鸿圣市长杯》象棋公开双人赛于6月1日至6月2日在马来西亚砂拉越古晋成功举办，吸引来自中国、新加坡及马来西亚的优秀棋手同场竞技。";
+
+const shareItems = [
+  "微信",
+  "新浪微博",
+  "QQ",
+  "QQ空间",
+  "豆瓣网",
+  "百度贴吧",
+  "领英",
+  "脸书",
+  "X",
+  "复制链接"
+] as const;
+
+const articleImages = [
+  {
+    src: "/mirror/sys-nd-18/opening-ceremony-1.jpg",
+    alt: "DSC03835.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/opening-ceremony-2.jpg",
+    alt: "DSC03861.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/snapshot-weng-wenlong.jpg",
+    alt: "DSC03908.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/snapshot-cheng-minghong.jpg",
+    alt: "DSC03912.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/snapshot-masters.jpg",
+    alt: "赛事剪影",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/snapshot-shen-yihao.jpg",
+    alt: "DSC03921.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/snapshot-non-chinese-player.jpg",
+    alt: "DSC03931.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/snapshot-woman-player.jpg",
+    alt: "DSC03942.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/snapshot-student-player.jpg",
+    alt: "DSC03946.jpg",
+    width: 750
+  },
+  {
+    src: "/mirror/sys-nd-18/closing-podium-top2.png",
+    alt: "冠军与亚军队伍",
+    width: 547
+  },
+  {
+    src: "/mirror/sys-nd-18/closing-podium-runnerup.png",
+    alt: "亚军队伍",
+    width: 608
+  },
+  {
+    src: "/mirror/sys-nd-18/closing-third-place.png",
+    alt: "图片_20240611203621.png",
+    width: 612
+  },
+  {
+    src: "/mirror/sys-nd-18/results-summary.png",
+    alt: "图片_20240611203628.png",
+    width: 624
+  }
+] as const;
+---
+
+<ReplicaLayout
+  title={title}
+  description={description}
+  route="/tcn/sys-nd/18.html"
+  locale="zh-Hant"
+  image="/mirror/sys-nd-18/closing-podium-top2.png"
+>
+  <section class="news-article-page">
+    <div class="news-article-page__shell">
+      <article class="news-article-page__article">
+        <header class="news-article-page__header">
+          <p class="news-article-page__eyebrow">象棋资讯</p>
+          <h1>马来西亚象棋盛会 · 两代棋王组合夺冠</h1>
+        </header>
+
+        <div class="news-article-page__content">
+          <p class="news-article-page__lead-title">马来西亚象棋盛会 · 两代棋王组合夺冠</p>
+
+          <p>
+            <strong>2024年《拿督黄鸿圣市长杯》象棋公开双人赛</strong>
+            于6月1日至6月2日在马来西亚砂拉越古晋成功举办。此次比赛吸引了来自中国、新加坡的优秀棋手，以及马来西亚的象棋国际大师们，共有24组队伍（48人）参赛，争夺冠军6000令吉（约9000人民币）的奖励。
+          </p>
+
+          <h2>开幕仪式</h2>
+
+          <p>
+            古晋南市市长拿督黄鸿圣希望通过象棋比赛，能够激发更多人对象棋的兴趣和热爱，让这项传统文化瑰宝得到更广泛的传播和传承。
+          </p>
+          <p>
+            他指出，象棋能教会大家在纷繁复杂的局势中，如何冷静思考、科学决策；教会大家在困境中如何保持坚韧不拔的精神，寻找突破口。
+          </p>
+          <p>
+            他期望全体选手都能认真对待每一局棋、努力拼搏，超越自我。他希望参赛者能够秉承“友谊第一，比赛第二”的原则，赛出风格，赛出水平，充分展现象棋的魅力和风采。
+          </p>
+
+          <figure class="news-article-page__figure news-article-page__figure--wide">
+            <img
+              src={articleImages[0].src}
+              alt={articleImages[0].alt}
+              width={articleImages[0].width}
+              loading="eager"
+            />
+            <figcaption>古晋南市市长拿督黄鸿圣致开幕词</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure news-article-page__figure--wide">
+            <img
+              src={articleImages[1].src}
+              alt={articleImages[1].alt}
+              width={articleImages[1].width}
+              loading="lazy"
+            />
+            <figcaption>
+              挂帅仪式
+              <br />
+              右二，古晋南市市长拿督黄鸿圣、右一，古晋象棋公会会长甲必丹拿督刘思乐
+              <br />
+              左二，筹委会主席林向荣、左一，古晋象棋公会主席余欣如国际大师
+            </figcaption>
+          </figure>
+
+          <h2>赛事剪影</h2>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[2].src}
+              alt={articleImages[2].alt}
+              width={articleImages[2].width}
+              loading="lazy"
+            />
+            <figcaption>世界象棋联合会学务主任，翁文龙</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[3].src}
+              alt={articleImages[3].alt}
+              width={articleImages[3].width}
+              loading="lazy"
+            />
+            <figcaption>仪征象棋协会会长，成明宏</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[4].src}
+              alt={articleImages[4].alt}
+              width={articleImages[4].width}
+              loading="lazy"
+            />
+            <figcaption>两组象棋大师相遇，众人围观</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[5].src}
+              alt={articleImages[5].alt}
+              width={articleImages[5].width}
+              loading="lazy"
+            />
+            <figcaption>象棋国际大师沈毅豪</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[6].src}
+              alt={articleImages[6].alt}
+              width={articleImages[6].width}
+              loading="lazy"
+            />
+            <figcaption>非华裔棋手</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[7].src}
+              alt={articleImages[7].alt}
+              width={articleImages[7].width}
+              loading="lazy"
+            />
+            <figcaption>女子棋手</figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[8].src}
+              alt={articleImages[8].alt}
+              width={articleImages[8].width}
+              loading="lazy"
+            />
+            <figcaption>中小学生棋手</figcaption>
+          </figure>
+
+          <h2>闭幕仪式</h2>
+
+          <figure class="news-article-page__figure news-article-page__figure--award">
+            <img
+              src={articleImages[9].src}
+              alt={articleImages[9].alt}
+              width={articleImages[9].width}
+              loading="lazy"
+            />
+            <figcaption>
+              冠军队伍，南兰象棋俱乐部
+              <br />
+              叶乃传象棋国际棋联大师、刘大滔世界象棋锦标赛U16选手
+            </figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure news-article-page__figure--award">
+            <img
+              src={articleImages[10].src}
+              alt={articleImages[10].alt}
+              width={articleImages[10].width}
+              loading="lazy"
+            />
+            <figcaption>
+              亚军队伍，三马拉汉省象棋公会A队
+              <br />
+              曾令威象棋国际大师、吴俊鸿亚洲象棋锦标赛选手
+            </figcaption>
+          </figure>
+
+          <figure class="news-article-page__figure news-article-page__figure--award">
+            <img
+              src={articleImages[11].src}
+              alt={articleImages[11].alt}
+              width={articleImages[11].width}
+              loading="lazy"
+            />
+            <figcaption>
+              季军队伍，创星国术
+              <br />
+              沈毅豪象棋国际大师、许翰斌世界象棋锦标赛选手
+            </figcaption>
+          </figure>
+
+          <h2>成绩及奖励</h2>
+
+          <figure class="news-article-page__figure news-article-page__figure--results">
+            <img
+              src={articleImages[12].src}
+              alt={articleImages[12].alt}
+              width={articleImages[12].width}
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div class="news-article-page__notice">
+          <span>声明：此篇为相弈象棋 Xiangqi.com 原创文章，转载请标明出处链接：</span>
+          <a href="https://www.zh.xiangqi.com/tcn/sys-nd/18.html" target="_blank" rel="noreferrer">
+            https://www.zh.xiangqi.com/tcn/sys-nd/18.html
+          </a>
+        </div>
+
+        <div class="news-article-page__share">
+          <span class="news-article-page__share-label">分享</span>
+          <div class="news-article-page__share-list">
+            {shareItems.map((item) => (
+              <span>{item}</span>
+            ))}
+          </div>
+        </div>
+
+        <nav class="news-article-page__pager" aria-label="文章分页">
+          <a href="/tcn/sys-nd/19.html">上一篇：马来西亚冠军州际赛 黎德志全胜获最佳个人</a>
+          <a href="/tcn/sys-nd/17.html">下一篇：日本小将凛人凌云路 直冲少年棋坛成明星</a>
+        </nav>
+      </article>
+    </div>
+  </section>
+</ReplicaLayout>
+
+<style is:global>
+  body[data-route="/tcn/sys-nd/18.html"] {
+    background: #ede8e0;
+  }
+
+  body[data-route="/tcn/sys-nd/18.html"] main {
+    min-height: 0;
+  }
+
+  .news-article-page {
+    padding: 34px 0 72px;
+    background:
+      linear-gradient(180deg, rgba(237, 232, 224, 0.96) 0%, rgba(237, 232, 224, 1) 100%);
+  }
+
+  .news-article-page__shell {
+    width: min(1240px, calc(100vw - 32px));
+    margin: 0 auto;
+  }
+
+  .news-article-page__article {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 54px) clamp(18px, 3vw, 44px) clamp(28px, 4vw, 44px);
+    background: #f8f4ef;
+    border: 1px solid rgba(204, 192, 181, 0.55);
+    box-shadow: 0 16px 48px rgba(102, 79, 76, 0.08);
+  }
+
+  .news-article-page__header h1 {
+    margin: 0;
+    color: #664f4c;
+    font-size: clamp(1.95rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .news-article-page__eyebrow {
+    margin: 0 0 12px;
+    color: #be342d;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .news-article-page__content {
+    margin-top: clamp(22px, 3vw, 30px);
+    color: #4c403c;
+  }
+
+  .news-article-page__lead-title {
+    margin-bottom: 22px;
+    text-align: center;
+    color: #201818;
+    font-size: clamp(1.65rem, 2.8vw, 2.15rem);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .news-article-page__content p {
+    margin: 0;
+    font-size: clamp(1rem, 1.35vw, 1.125rem);
+    line-height: 2;
+  }
+
+  .news-article-page__content p + p,
+  .news-article-page__content figure + p,
+  .news-article-page__content h2 + p,
+  .news-article-page__content p + h2,
+  .news-article-page__content figure + h2 {
+    margin-top: 18px;
+  }
+
+  .news-article-page__content h2 {
+    margin: 34px 0 0;
+    color: #201818;
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+    line-height: 1.35;
+  }
+
+  .news-article-page__figure {
+    margin: 26px auto 0;
+    text-align: center;
+  }
+
+  .news-article-page__figure img {
+    display: block;
+    width: min(100%, var(--image-max, 750px));
+    margin: 0 auto;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 12px 28px rgba(86, 66, 63, 0.12);
+  }
+
+  .news-article-page__figure--wide img {
+    --image-max: 900px;
+  }
+
+  .news-article-page__figure--award img {
+    --image-max: 680px;
+  }
+
+  .news-article-page__figure--results img {
+    --image-max: 760px;
+  }
+
+  .news-article-page__figure figcaption {
+    margin-top: 14px;
+    color: #201818;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    line-height: 1.85;
+    font-weight: 700;
+  }
+
+  .news-article-page__notice {
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.18);
+    color: #6a5752;
+    font-size: 0.98rem;
+    line-height: 1.85;
+  }
+
+  .news-article-page__notice a {
+    color: #be342d;
+    word-break: break-all;
+  }
+
+  .news-article-page__share {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.12);
+  }
+
+  .news-article-page__share-label {
+    color: #664f4c;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .news-article-page__share-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .news-article-page__share-list span {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(190, 52, 45, 0.08);
+    color: #7b2d28;
+    font-size: 0.92rem;
+  }
+
+  .news-article-page__pager {
+    display: grid;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.12);
+  }
+
+  .news-article-page__pager a {
+    color: #664f4c;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .news-article-page__pager a:hover {
+    color: #be342d;
+  }
+
+  @media (max-width: 720px) {
+    .news-article-page {
+      padding: 18px 0 52px;
+    }
+
+    .news-article-page__article {
+      padding-inline: 16px;
+    }
+
+    .news-article-page__share {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .news-article-page__figure {
+      margin-top: 22px;
+    }
+
+    .news-article-page__figure figcaption {
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+  }
+</style>

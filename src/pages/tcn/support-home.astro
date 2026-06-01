@@ -1,0 +1,176 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+
+const topicLinks = [
+  { label: "象棋规则", href: "/tcn/how-to-play/" },
+  { label: "棋子与走法", href: "/tcn/how-to-play-xiangqi/" },
+  { label: "开始第一盘对局", href: "/tcn/first-game/" },
+  { label: "AI 复盘", href: "/tcn/analysis/" },
+  { label: "邀请好友对弈", href: "/tcn/invite/" },
+  { label: "好友对战", href: "/tcn/play-with-a-friend/" },
+  { label: "人机对战", href: "/tcn/computer/" },
+  { label: "在线比赛", href: "/tcn/tournament/" },
+  { label: "象棋徽章", href: "/tcn/badges/" },
+  { label: "自定义残局", href: "/tcn/how-to-create-puzzle/" },
+  { label: "下载APP", href: "/tcn/mobile/" },
+  { label: "象棋等级分系统", href: "/tcn/rating/" }
+] as const;
+
+const policyLinks = [
+  { label: "行棋限制", href: "/tcn/limits/" },
+  { label: "公平对弈政策", href: "/tcn/fair-play/" },
+  { label: "文明守则", href: "/tcn/polite/" }
+] as const;
+---
+
+<ReplicaLayout
+  title="救兵来啦！ - 相弈象棋"
+  description="复刻源站当前 support-home 页面，完整展示帮助入口、网站条例、新手步骤与相关说明。"
+  route="/tcn/support-home/"
+  locale="zh-Hant"
+>
+  <main class="support-home">
+    <h1>救兵来啦！</h1>
+
+    <ul class="support-home__topicList">
+      {topicLinks.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+
+    <h2>网站条例</h2>
+    <ul class="support-home__topicList support-home__topicList--compact">
+      {policyLinks.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+
+    <h2>开启象棋之旅</h2>
+    <ol class="support-home__steps">
+      <li>
+        <a href="https://play.xiangqi.com/account/signup" target="_blank" rel="noreferrer">注册</a>
+      </li>
+      <li>
+        输入用户名、邮箱、密码和国家/地区。上传头像，写一段简短的自我介绍，向平台上的其他玩家介绍自己。
+        （示例：<a href="https://play.xiangqi.com/@/paul" target="_blank" rel="noreferrer">@paul 的个人页面</a>。）
+      </li>
+      <li>打开收件箱，点击链接验证邮箱地址，随后登录账号。</li>
+      <li>
+        登录后进入<a href="https://play.xiangqi.com/" target="_blank" rel="noreferrer">游戏大厅</a>：
+        <div class="support-home__subline">创建对局或选择等待对手加入的公开对局。</div>
+        <div class="support-home__subline">观看正在进行的对弈。</div>
+        <div class="support-home__subline">与平台上的其他棋手聊天。</div>
+      </li>
+      <li>
+        大家在畅玩时也要注意<a href="/tcn/polite/">文明礼貌</a>哦！快邀请好友来下棋吧！如需更详细的说明，请点击此处了解
+        <a href="/tcn/first-game/">如何开始第一盘对局</a>，并点击此处了解<a href="/tcn/invite/">如何邀请好友对战</a>。
+      </li>
+    </ol>
+
+    <h2>更多信息</h2>
+    <p>如需了解我们当前的发展方向，请参阅<a href="/tcn/roadmap/">产品路线图</a>。</p>
+    <p>如需联系我们，请查看我们的<a href="/tcn/contact/">联系方式</a>。</p>
+    <p>
+      如有需要，请参阅我们的<a href="/tcn/terms/">服务条款</a>和<a href="/tcn/privacy/">隐私政策</a>。
+    </p>
+
+  </main>
+</ReplicaLayout>
+
+<style>
+  .support-home {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 46px 12.4% 72px;
+    background: #ede8e0;
+    color: #444;
+    line-height: 2;
+    box-sizing: border-box;
+  }
+
+  .support-home h1,
+  .support-home h2 {
+    margin: 0;
+    font-weight: 700;
+    color: #664f4c;
+  }
+
+  .support-home h1 {
+    margin-top: 4px;
+    font-size: clamp(2.4rem, 4vw, 3.125rem);
+    line-height: 1.2;
+  }
+
+  .support-home h2 {
+    margin-top: 26px;
+    font-size: 2rem;
+    line-height: 1.35;
+  }
+
+  .support-home p,
+  .support-home li {
+    font-size: 1.125rem;
+    color: #333;
+  }
+
+  .support-home a {
+    color: #be342d;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+  }
+
+  .support-home__topicList,
+  .support-home__steps {
+    margin: 18px 0 0;
+    padding-left: 1.4em;
+  }
+
+  .support-home__topicList li,
+  .support-home__steps li {
+    margin: 0 0 6px;
+  }
+
+  .support-home__topicList--compact {
+    margin-top: 10px;
+  }
+
+  .support-home__subline {
+    margin-left: 1.1em;
+  }
+
+  .support-home__subline::before {
+    content: "— ";
+  }
+
+  @media (max-width: 900px) {
+    .support-home {
+      padding: 36px 9% 60px;
+    }
+
+    .support-home h2 {
+      font-size: 1.7rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .support-home {
+      padding: 28px 20px 52px;
+      line-height: 1.85;
+    }
+
+    .support-home p,
+    .support-home li {
+      font-size: 1rem;
+    }
+
+    .support-home h2 {
+      margin-top: 22px;
+      font-size: 1.45rem;
+    }
+  }
+</style>

@@ -1,0 +1,262 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+
+const page = {
+  title: "中国象棋的历史和起源",
+  description:
+    "象棋为何使用红子和黑子？为何红棋先走而黑棋后走？为什么将、帅不能碰面？刘邦、项羽和象棋有甚么关系？我们可以从象棋棋盘、棋子、规则和战术学到很多背后的历史和传说知识。",
+  route: "/tcn/history/",
+  locale: "zh-Hant" as const,
+  image: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg3M3TqQYokKrqjAEwiwM46AI.jpg"
+};
+---
+
+<ReplicaLayout
+  title={page.title}
+  description={page.description}
+  route={page.route}
+  locale={page.locale}
+  image={page.image}
+>
+  <section class="history-page">
+    <div class="history-shell">
+      <div class="history-intro">
+        <h1>{page.title}</h1>
+        <p>我们可以从棋盘、棋子、规则和战术背后的历史和传说中学到很多关于游戏规则的知识。</p>
+      </div>
+
+      <section class="history-feature">
+        <figure class="history-feature__media">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg3M3TqQYokKrqjAEwiwM46AI.jpg"
+            alt="象棋棋子的历史配图"
+            loading="eager"
+          />
+        </figure>
+        <div class="history-feature__copy">
+          <h2>象棋棋子的历史</h2>
+          <p>
+            象棋为何使用红子和黑子？刘邦率领起义军推翻秦朝，登基成为汉高祖。秦王的军队身穿黑色军服出征，败给了穿红衣的刘邦军队。传说有一晚刘邦喝得酩酊大醉，不顾众人警告，决意要穿过一片危险的沼泽。他醉醺醺地走在其中，迎面遇到一条大白蛇。他把蛇斩死，随后便在不远处昏睡过去。第二天，一位老妇人为死去的蛇悲痛不已，说那正是她的儿子。他原是白帝之子，昨夜化作白蛇上山游玩。老妇人接着说，她的儿子（即白蛇）是被“赤帝”杀死的。刘邦听闻此事，便在军中改用红色。
+          </p>
+        </div>
+      </section>
+
+      <section class="history-story">
+        <div class="history-story__copy">
+          <h2>象棋棋子</h2>
+          <p>以下是每个棋子的名称、中文发音、对应的分值以及走法讲解。</p>
+
+          <h3>最为尊贵的名号</h3>
+          <p>
+            红子比黑子更显尊贵。这是为何？
+          </p>
+          <p>
+            根据历史记载，攻占关中时，刘邦率领的起义军较弱、规模较小，而对手秦军则兵强马壮。当时刘邦的死对头项羽也在抗秦，但与生性残暴的项羽不同，刘邦更多的是通过外交策略赢得胜利，用仁义使秦兵归顺。
+            但不同于历史故事中的强弱对决，棋盘上的象棋对弈是公平的。双方棋子可能略有不同，且颜色不一定是红色和黑色。但不用担心，游戏规则是一样的。
+          </p>
+        </div>
+        <figure class="history-story__media">
+          <img
+            src="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgqM-TqQYojJ7T7AEw2AM41gM.jpg"
+            alt="项羽人物配图"
+            loading="lazy"
+          />
+          <figcaption>项羽 —— 军事家、西楚霸王、象棋相关人物之一</figcaption>
+        </figure>
+      </section>
+
+      <section class="history-rules">
+        <h2><span>白脸将</span></h2>
+        <h3>为什么将、帅不能碰面？</h3>
+        <p>
+          在广武山对峙中，刘邦对着项羽破口大骂。
+          项羽一怒之下，拿起弓箭，“嗖的”一箭射中了刘邦。
+          有了这次濒死经历后，刘邦吓坏了，退到了牢牢保护他的军阵中。
+          因此，将、帅不碰面是为了保持战场文明，同时也是为了避免己方棋子被致命冷箭射中。
+        </p>
+      </section>
+
+      <section class="history-more">
+        <h3>更多关于象棋规则的帮助信息：</h3>
+        <p class="history-more__label">基本要点</p>
+        <p class="history-more__links">
+          <a href="/tcn/pieces-and-moves/">棋子与走法</a>
+          <span>☝️</span>
+          <a href="/tcn/rating/">象棋等级分系统</a>
+        </p>
+      </section>
+    </div>
+  </section>
+</ReplicaLayout>
+
+<style>
+  .history-page {
+    background: rgb(237, 232, 224);
+    color: #664f4c;
+  }
+
+  .history-shell {
+    width: min(100%, 1440px);
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 6vw, 12.4%);
+  }
+
+  .history-intro,
+  .history-rules,
+  .history-more {
+    border-bottom: 1px solid #000;
+  }
+
+  .history-intro {
+    padding: clamp(2.5rem, 6vw, 5rem) 0 1.25rem;
+  }
+
+  .history-intro h1 {
+    margin: 0 0 1rem;
+    color: #664f4c;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .history-intro p,
+  .history-feature p,
+  .history-story p,
+  .history-rules p,
+  .history-more p {
+    margin: 0;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    line-height: 2;
+  }
+
+  .history-feature,
+  .history-story {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: start;
+    padding: clamp(2rem, 5vw, 4.5rem) 0;
+  }
+
+  .history-story {
+    border-bottom: 1px solid #000;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
+    padding-bottom: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .history-feature__media,
+  .history-story__media {
+    margin: 0;
+  }
+
+  .history-feature__media img,
+  .history-story__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .history-feature__copy h2,
+  .history-story__copy h2,
+  .history-rules h2,
+  .history-more h3 {
+    margin: 0 0 1rem;
+    color: #664f4c;
+    font-size: clamp(1.8rem, 3vw, 2.25rem);
+    line-height: 1.35;
+  }
+
+  .history-story__copy h3,
+  .history-rules h3 {
+    margin: 1.25rem 0 0.75rem;
+    color: #664f4c;
+    font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+    line-height: 1.35;
+  }
+
+  .history-story__copy p + p,
+  .history-rules p + p {
+    margin-top: 0.5rem;
+  }
+
+  .history-story__media figcaption {
+    margin-top: 0.8rem;
+    color: #664f4c;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .history-rules {
+    padding: clamp(2rem, 4vw, 2.9rem) 0;
+  }
+
+  .history-rules h2 span {
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+  }
+
+  .history-more {
+    padding: clamp(2rem, 4vw, 2.9rem) 0 clamp(3rem, 5vw, 4.75rem);
+  }
+
+  .history-more__label {
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .history-more__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+  }
+
+  .history-more__links a {
+    color: rgb(190, 52, 45);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .history-more__links a:hover {
+    color: #8e221d;
+  }
+
+  @media (max-width: 900px) {
+    .history-feature,
+    .history-story {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .history-story__media {
+      max-width: 34rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .history-shell {
+      padding-inline: 1.2rem;
+    }
+
+    .history-intro {
+      padding-top: 2rem;
+    }
+
+    .history-intro p,
+    .history-feature p,
+    .history-story p,
+    .history-rules p,
+    .history-more p {
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .history-more__links {
+      gap: 0.45rem;
+      font-size: 1rem;
+    }
+  }
+</style>

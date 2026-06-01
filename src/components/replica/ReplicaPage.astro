@@ -8,25 +8,28 @@ const githubReleaseApkUrl =
   "https://github.com/Littline/xiangqi_apk/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk";
 
 const { page } = Astro.props as { page: ReplicaPage };
+const isSimplifiedChineseReplica = page.locale === "zh-CN";
 const isHome = page.type === "home";
 const playCtas = page.ctas || [];
 const isDownloadPage = page.type === "download";
-const isJourneyHelpPage = page.id === "ZH-002";
-const isPlayWithFriendPage = page.id === "ZH-007";
-const isFirstGamePage = page.id === "ZH-006";
-const isNewUserPage = page.id === "ZH-020";
-const isSysSignupPage = page.id === "ZH-036" || page.route === "/sys-signup/";
-const isVerifiedPage = page.id === "ZH-035";
-const isPieceGuidePage = page.id === "ZH-004";
-const isHowToPlayGuidePage = page.id === "ZH-028";
-const isOpeningPrinciplesArticlePage = page.id === "ZH-029";
-const isMidgamePrinciplesArticlePage = page.id === "ZH-030";
-const isEndgamePrinciplesArticlePage = page.id === "ZH-031";
-const isSituationEvaluationArticlePage = page.id === "ZH-032";
-const isTenWaysImproveArticlePage = page.id === "ZH-034";
-const isSmotheredCannonPage = page.id === "ZH-040" || page.route === "/smothered-cannon/";
-const isWhiteFacedGeneralPage = page.id === "ZH-041" || page.route === "/white-faced-general/";
-const isEarthPage = page.id === "ZH-042" || page.route === "/earth/";
+const isJourneyHelpPage = isSimplifiedChineseReplica && page.id === "ZH-002";
+const isPlayWithFriendPage = isSimplifiedChineseReplica && page.id === "ZH-007";
+const isFirstGamePage = isSimplifiedChineseReplica && page.id === "ZH-006";
+const isNewUserPage = isSimplifiedChineseReplica && page.id === "ZH-020";
+const isSysSignupPage = isSimplifiedChineseReplica && (page.id === "ZH-036" || page.route === "/sys-signup/");
+const isVerifiedPage = isSimplifiedChineseReplica && page.id === "ZH-035";
+const isPieceGuidePage = isSimplifiedChineseReplica && page.id === "ZH-004";
+const isHowToPlayGuidePage = isSimplifiedChineseReplica && page.id === "ZH-028";
+const isOpeningPrinciplesArticlePage = isSimplifiedChineseReplica && page.id === "ZH-029";
+const isMidgamePrinciplesArticlePage = isSimplifiedChineseReplica && page.id === "ZH-030";
+const isEndgamePrinciplesArticlePage = isSimplifiedChineseReplica && page.id === "ZH-031";
+const isSituationEvaluationArticlePage = isSimplifiedChineseReplica && page.id === "ZH-032";
+const isTenWaysImproveArticlePage = isSimplifiedChineseReplica && page.id === "ZH-034";
+const isSmotheredCannonPage =
+  (isSimplifiedChineseReplica && page.id === "ZH-040") || page.route === "/smothered-cannon/";
+const isWhiteFacedGeneralPage =
+  (isSimplifiedChineseReplica && page.id === "ZH-041") || page.route === "/white-faced-general/";
+const isEarthPage = (isSimplifiedChineseReplica && page.id === "ZH-042") || page.route === "/earth/";
 const isKillPatternHelpPage = isSmotheredCannonPage || isWhiteFacedGeneralPage;
 const isLongformArticlePage =
   isOpeningPrinciplesArticlePage ||
@@ -34,29 +37,30 @@ const isLongformArticlePage =
   isEndgamePrinciplesArticlePage ||
   isSituationEvaluationArticlePage ||
   isTenWaysImproveArticlePage;
-const isTeamPage = page.id === "ZH-018";
-const isFairPlayPage = page.id === "ZH-024";
-const isRulesPage = page.id === "ZH-005";
-const isLimitsPage = page.id === "ZH-021";
-const isRatingPage = page.id === "ZH-012";
-const isMarkPage = page.id === "ZH-011A" || page.route === "/mark/";
-const isMarkersHelpPage = page.id === "ZH-011" || page.route === "/help/markers/" || page.route === "/help/markers.html";
-const isAnnotationHelpPage = page.id === "ZH-043" || page.route === "/help/annotation.html";
-const isPuzzlePage = page.id === "ZH-008";
-const isTournamentPage = page.id === "ZH-009";
-const isInviteGuidePage = page.id === "ZH-010";
-const isAnalysisPage = page.id === "ZH-010A";
-const isProductUpdatePage = page.id === "ZH-016";
-const isNewInterfacePage = page.id === "ZH-017";
-const isReleasesPage = page.id === "ZH-026";
-const isRoadmapPage = page.id === "ZH-019" || page.id === "TCN-010";
-const isComputerPage = page.id === "ZH-027" || page.route === "/computer/";
-const isPolitePage = page.id === "ZH-025";
-const isBugsPage = page.id === "ZH-037" || page.route === "/bugs/";
-const isReportPage = page.id === "ZH-038" || page.route === "/report/";
-const isSlashPage = page.id === "ZH-039" || page.route === "/slash/";
-const isContributorsPage = page.id === "ZH-044" || page.route === "/contributors/";
-const isShopPage = page.id === "ZH-022" || page.id === "TCN-014";
+const isTeamPage = isSimplifiedChineseReplica && page.id === "ZH-018";
+const isFairPlayPage = isSimplifiedChineseReplica && page.id === "ZH-024";
+const isRulesPage = isSimplifiedChineseReplica && page.id === "ZH-005";
+const isLimitsPage = isSimplifiedChineseReplica && page.id === "ZH-021";
+const isRatingPage = isSimplifiedChineseReplica && page.id === "ZH-012";
+const isMarkPage = (isSimplifiedChineseReplica && page.id === "ZH-011A") || page.route === "/mark/";
+const isMarkersHelpPage =
+  (isSimplifiedChineseReplica && page.id === "ZH-011") || page.route === "/help/markers/" || page.route === "/help/markers.html";
+const isAnnotationHelpPage = (isSimplifiedChineseReplica && page.id === "ZH-043") || page.route === "/help/annotation.html";
+const isPuzzlePage = isSimplifiedChineseReplica && page.id === "ZH-008";
+const isTournamentPage = isSimplifiedChineseReplica && page.id === "ZH-009";
+const isInviteGuidePage = isSimplifiedChineseReplica && page.id === "ZH-010";
+const isAnalysisPage = isSimplifiedChineseReplica && page.id === "ZH-010A";
+const isProductUpdatePage = isSimplifiedChineseReplica && page.id === "ZH-016";
+const isNewInterfacePage = isSimplifiedChineseReplica && page.id === "ZH-017";
+const isReleasesPage = isSimplifiedChineseReplica && page.id === "ZH-026";
+const isRoadmapPage = isSimplifiedChineseReplica && page.id === "ZH-019";
+const isComputerPage = (isSimplifiedChineseReplica && page.id === "ZH-027") || page.route === "/computer/";
+const isPolitePage = isSimplifiedChineseReplica && page.id === "ZH-025";
+const isBugsPage = (isSimplifiedChineseReplica && page.id === "ZH-037") || page.route === "/bugs/";
+const isReportPage = (isSimplifiedChineseReplica && page.id === "ZH-038") || page.route === "/report/";
+const isSlashPage = (isSimplifiedChineseReplica && page.id === "ZH-039") || page.route === "/slash/";
+const isContributorsPage = (isSimplifiedChineseReplica && page.id === "ZH-044") || page.route === "/contributors/";
+const isShopPage = isSimplifiedChineseReplica && page.id === "ZH-022";
 const isResourcesPage = page.route === "/resources/";
 const isArticleIndexPage = page.route === "/sys-nr/";
 const howToAuthorProfiles = isHowToPlayGuidePage ? howToAuthors[page.id as keyof typeof howToAuthors] ?? [] : [];
@@ -144,7 +148,13 @@ const articleReadMoreLabel =
         : "阅读更多";
 
 const articleIndexHref =
-  page.locale === "en" ? "/news/" : page.locale === "vi" ? "/vi/" : "/sys-nr/";
+  page.locale === "en"
+    ? "/news/"
+    : page.locale === "vi"
+      ? "/vi/"
+      : page.locale === "zh-Hant"
+        ? "/tcn/sys-nr/"
+        : "/sys-nr/";
 
 const linkAttrs = (external?: boolean) =>
   external ? { target: "_blank", rel: "noreferrer" } : {};

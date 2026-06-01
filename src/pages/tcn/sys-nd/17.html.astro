@@ -1,0 +1,346 @@
+---
+import ReplicaLayout from "../../../layouts/ReplicaLayout.astro";
+
+const title = "2024越南全国象棋个人赛-武国达爆冷夺冠 - 象棋新闻";
+const description =
+  "黑马出击，爆冷连场。记2024年越南全国个人赛（4月13至22日在巴地头顿市举行），武国达以7胜2和积8分顺利夺冠。";
+
+const shareItems = [
+  "微信",
+  "新浪微博",
+  "QQ",
+  "QQ空间",
+  "豆瓣网",
+  "百度贴吧",
+  "复制链接",
+  "脸书",
+  "X",
+  "领英"
+] as const;
+
+const articleImages = [
+  {
+    src: "/mirror/sys-nd-17/standings-rounds.png",
+    alt: "赛事战况图",
+    width: 390
+  },
+  {
+    src: "/mirror/sys-nd-17/match-photo-1.png",
+    alt: "比赛现场图一",
+    width: 714
+  },
+  {
+    src: "/mirror/sys-nd-17/match-photo-2.png",
+    alt: "比赛现场图二",
+    width: 447
+  },
+  {
+    src: "/mirror/sys-nd-17/champion-photo.png",
+    alt: "冠军武国达",
+    width: 705
+  }
+] as const;
+---
+
+<ReplicaLayout
+  title={title}
+  description={description}
+  route="/tcn/sys-nd/17.html"
+  locale="zh-Hant"
+  image="/mirror/sys-nd-17/champion-photo.png"
+>
+  <section class="news-article-page">
+    <div class="news-article-page__shell">
+      <article class="news-article-page__article">
+        <header class="news-article-page__header">
+          <p class="news-article-page__eyebrow">象棋资讯</p>
+          <h1>2024越南全国象棋个人赛-武国达爆冷夺冠</h1>
+        </header>
+
+        <div class="news-article-page__content news-article-page__content--narrative">
+          <p class="news-article-page__lead-title">黑马出击,爆冷連场</p>
+          <p class="news-article-page__subtitle">记2024年越南全国个人赛(4月13至22日在巴地头顿市举行)</p>
+
+          <p>
+            越南全国个人锦标赛，自1992年始，是全国最高水平比赛，也是多地区为签约运动员提供津贴待遇的专业依据。近年来，象棋直播盛行，比赛更是获得各地广大象棋爱好者的瞩目。因此，每届比赛都竞争激烈，各队赛前会作周密计划集训准备。本届比赛亦不例外，各路高手包括夺标大热门：赖理兄、阮成保、阮明日光等悉数登场，还有近年风头正劲的何文进等高手。
+          </p>
+
+          <figure class="news-article-page__figure news-article-page__figure--compact">
+            <img
+              src={articleImages[0].src}
+              alt={articleImages[0].alt}
+              width={articleImages[0].width}
+              loading="eager"
+            />
+          </figure>
+
+          <p>
+            首轮虽有个别和棋，但所有大热门选手都成功晋级。然而，次轮比赛风云突变，赖理兄竟然输给了90后选手费孟强。费孟强虽然早年就显示出了出色的棋艺，在青少年时期就频频取得佳绩，近年来加入广宁队并兼职教练。尽管如此，在比赛前，很少有人预料到他会击败赖理兄。这也许是因为赖理兄对费孟强的评估不足，他采取了后手列炮的布局，在中局时勉强出击，最终导致了失败。在接下来的几轮比赛中，费孟强甚至击败了何文进，但这是另一个故事了。
+          </p>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[1].src}
+              alt={articleImages[1].alt}
+              width={articleImages[1].width}
+              loading="lazy"
+            />
+          </figure>
+
+          <p>
+            阮明日光和阮成保因为和局而在积分榜上稍稍落后。然而，在第四轮的比赛中，胡志明市的“黑马”棋手 --- 武国达，状态神勇。他迎战何文进，抓住了机会，在关键时刻取得了胜利。此时，四连胜的武国达暂居榜首。
+          </p>
+
+          <figure class="news-article-page__figure news-article-page__figure--compact">
+            <img
+              src={articleImages[2].src}
+              alt={articleImages[2].alt}
+              width={articleImages[2].width}
+              loading="lazy"
+            />
+          </figure>
+
+          <p>
+            随后赖理兄赶上，执先奋力一搏，以期动摇武榜首之位，但武国达沉着应对，化解赖各种攻势，最终达成和局。赖经过这场战斗后，感觉积分难以追赶，影响了心态，后来还下了几局和棋，退出了竞争行列。
+          </p>
+
+          <figure class="news-article-page__figure">
+            <img
+              src={articleImages[3].src}
+              alt={articleImages[3].alt}
+              width={articleImages[3].width}
+              loading="lazy"
+            />
+          </figure>
+
+          <p>
+            <strong>赛制与队友，助武国达夺冠</strong>
+            。往年采用晋级决赛的赛制（8+1, 7+2, 5+4），即开始时积分落后，都有积分反追、晋级决赛的机会。然而，今年主办方改用积分编排（瑞士制）9轮制，前段下得不好，中段积分赶不上者，大多感到竞争乏力，无心恋战。其次，武囯达队友也发挥良佳，占据高分区，他们都具实力，跟其他竞争对手下盘和棋，拖住分数完全可行。所以接下来的比赛，武国达也不用过于强求，发挥正常，以7胜2和，积8分，顺利夺冠（金牌）。此时另一位老牌冠军武明一7胜2负，积7分刚好赶得亚军（银牌）。阮明日光，陶囯兴同为6,5分,列第三，四名，按照赛会规定，同为铜牌。
+          </p>
+
+          <p class="news-article-page__highlight-link">
+            <a href="https://play.xiangqi.com/note/create/eq8mKL" target="_blank" rel="noreferrer">
+              点击链接，查看比赛精彩对局
+            </a>
+          </p>
+        </div>
+
+        <div class="news-article-page__notice">
+          <span>声明：此篇为相弈象棋 Xiangqi.com 原创文章，转载请标明出处链接：</span>
+          <a href="https://www.zh.xiangqi.com/tcn/sys-nd/17.html" target="_blank" rel="noreferrer">
+            https://www.zh.xiangqi.com/tcn/sys-nd/17.html
+          </a>
+        </div>
+
+        <div class="news-article-page__share">
+          <span class="news-article-page__share-label">分享</span>
+          <div class="news-article-page__share-list">
+            {shareItems.map((item) => (
+              <span>{item}</span>
+            ))}
+          </div>
+        </div>
+
+        <nav class="news-article-page__pager" aria-label="文章分页">
+          <a href="/tcn/sys-nd/18.html">上一篇：马来西亚象棋盛会 · 两代棋王组合夺冠</a>
+          <a href="/tcn/opening-elephant.html">下一篇：飞相布局主流变化简介 - 相弈象棋</a>
+        </nav>
+      </article>
+    </div>
+  </section>
+</ReplicaLayout>
+
+<style is:global>
+  body[data-route="/tcn/sys-nd/17.html"] {
+    background: #ede8e0;
+  }
+
+  body[data-route="/tcn/sys-nd/17.html"] main {
+    min-height: 0;
+  }
+
+  .news-article-page {
+    padding: 34px 0 72px;
+    background:
+      linear-gradient(180deg, rgba(237, 232, 224, 0.96) 0%, rgba(237, 232, 224, 1) 100%);
+  }
+
+  .news-article-page__shell {
+    width: min(1240px, calc(100vw - 32px));
+    margin: 0 auto;
+  }
+
+  .news-article-page__article {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 54px) clamp(18px, 3vw, 44px) clamp(28px, 4vw, 44px);
+    background: #f8f4ef;
+    border: 1px solid rgba(204, 192, 181, 0.55);
+    box-shadow: 0 16px 48px rgba(102, 79, 76, 0.08);
+  }
+
+  .news-article-page__header h1 {
+    margin: 0;
+    color: #664f4c;
+    font-size: clamp(1.95rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .news-article-page__eyebrow {
+    margin: 0 0 12px;
+    color: #be342d;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .news-article-page__content {
+    margin-top: clamp(22px, 3vw, 30px);
+    color: #4c403c;
+  }
+
+  .news-article-page__content p {
+    margin: 0;
+    font-size: clamp(1rem, 1.35vw, 1.125rem);
+    line-height: 2;
+  }
+
+  .news-article-page__content--narrative p {
+    text-align: justify;
+  }
+
+  .news-article-page__lead-title {
+    text-align: center !important;
+    color: #201818;
+    font-size: clamp(1.7rem, 2.9vw, 2.2rem) !important;
+    font-weight: 700;
+    line-height: 1.45 !important;
+  }
+
+  .news-article-page__subtitle {
+    margin-top: 6px !important;
+    text-align: center !important;
+    color: #5f4f49;
+    font-size: clamp(1rem, 1.45vw, 1.15rem) !important;
+  }
+
+  .news-article-page__content p + p,
+  .news-article-page__content figure + p,
+  .news-article-page__content p + figure {
+    margin-top: 18px;
+  }
+
+  .news-article-page__figure {
+    margin: 26px auto 0;
+    text-align: center;
+  }
+
+  .news-article-page__figure img {
+    display: block;
+    width: min(100%, var(--image-max, 760px));
+    margin: 0 auto;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 12px 28px rgba(86, 66, 63, 0.12);
+  }
+
+  .news-article-page__figure--compact img {
+    --image-max: 520px;
+  }
+
+  .news-article-page__highlight-link {
+    margin-top: 26px !important;
+    text-align: center !important;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem) !important;
+    font-weight: 700;
+  }
+
+  .news-article-page__highlight-link a {
+    color: #be342d;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .news-article-page__notice {
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.18);
+    color: #6a5752;
+    font-size: 0.98rem;
+    line-height: 1.85;
+  }
+
+  .news-article-page__notice a {
+    color: #be342d;
+    word-break: break-all;
+  }
+
+  .news-article-page__share {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.12);
+  }
+
+  .news-article-page__share-label {
+    color: #664f4c;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .news-article-page__share-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .news-article-page__share-list span {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(190, 52, 45, 0.08);
+    color: #7b2d28;
+    font-size: 0.92rem;
+  }
+
+  .news-article-page__pager {
+    display: grid;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.12);
+  }
+
+  .news-article-page__pager a {
+    color: #664f4c;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .news-article-page__pager a:hover {
+    color: #be342d;
+  }
+
+  @media (max-width: 720px) {
+    .news-article-page {
+      padding: 18px 0 52px;
+    }
+
+    .news-article-page__article {
+      padding-inline: 16px;
+    }
+
+    .news-article-page__share {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .news-article-page__figure {
+      margin-top: 22px;
+    }
+  }
+</style>

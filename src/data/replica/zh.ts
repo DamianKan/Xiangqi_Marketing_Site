@@ -739,11 +739,93 @@ const pages: ReplicaPage[] = [
     sourceUrl: "https://www.zh.xiangqi.com/support-home/",
     route: "/support-home/",
     type: "help-index",
-    title: "帮助搜索 - 相弈象棋",
-    description: "通过帮助搜索快速找到规则、对局、下载、比赛、残局、邀请和等级分说明。",
-    heroTitle: "帮助搜索",
+    title: "救兵来啦！ - 相弈象棋",
+    description: "复刻源站当前 support-home 页面，完整展示帮助入口、网站条例、新手步骤与相关说明。",
+    heroTitle: "救兵来啦！",
     cta: [{ label: "返回帮助中心", href: "/help/", variant: "primary" }],
-    sections: helpIndexSections(zhHelpMenu, "搜索结果项目"),
+    sections: [
+      {
+        id: "support-links",
+        kind: "article",
+        title: "帮助入口",
+        body: [],
+        list: [
+          "象棋规则",
+          "棋子与走法",
+          "开启第一盘对局",
+          "AI 复盘",
+          "邀请好友对弈",
+          "好友对战",
+          "人机对战",
+          "在线比赛",
+          "象棋徽章",
+          "自定义残局",
+          "下载APP",
+          "象棋等级分系统"
+        ],
+        links: [
+          { label: "象棋规则", href: "/how-to-play/" },
+          { label: "棋子与走法", href: "/how-to-play-xiangqi/" },
+          { label: "开启第一盘对局", href: "/first-game/" },
+          { label: "AI 复盘", href: "/analysis/" },
+          { label: "邀请好友对弈", href: "/invite/" },
+          { label: "好友对战", href: "/play-with-a-friend/" },
+          { label: "人机对战", href: "/computer/" },
+          { label: "在线比赛", href: "/tournament/" },
+          { label: "象棋徽章", href: "/badges/" },
+          { label: "自定义残局", href: "/how-to-create-puzzle/" },
+          { label: "下载APP", href: "/mobile/" },
+          { label: "象棋等级分系统", href: "/rating/" }
+        ]
+      },
+      {
+        id: "support-policies",
+        kind: "article",
+        title: "网站条例",
+        body: [],
+        links: [
+          { label: "行棋限制", href: "/limits/" },
+          { label: "公平对弈政策", href: "/fair-play/" },
+          { label: "文明守则", href: "/polite/" }
+        ]
+      },
+      {
+        id: "support-start",
+        kind: "article",
+        title: "开启象棋之旅",
+        body: [],
+        list: [
+          "注册。",
+          "输入用户名、邮箱、密码和国家/地区。上传头像，写一段简短的自我介绍，向平台上的其他玩家介绍自己。",
+          "打开收件箱，点击链接验证邮箱地址，随后登录账号。",
+          "登录后进入游戏大厅，创建对局、观看对局，或与平台上的其他棋手聊天。",
+          "大家在畅玩时也要注意文明礼貌；如需更详细的说明，可进一步查看如何开始第一盘对局与如何邀请好友对战。"
+        ],
+        links: [
+          { label: "注册", href: "https://play.xiangqi.com/account/signup", external: true },
+          { label: "@paul 的个人页面", href: "https://play.xiangqi.com/@/paul", external: true },
+          { label: "游戏大厅", href: "https://play.xiangqi.com/", external: true },
+          { label: "如何开始第一盘对局", href: "/first-game/" },
+          { label: "如何邀请好友对战", href: "/invite/" }
+        ]
+      },
+      {
+        id: "support-more",
+        kind: "article",
+        title: "更多信息",
+        body: [
+          "如需了解我们当前的发展方向，请参阅产品路线图。",
+          "如需联系我们，请查看我们的联系方式。",
+          "如有需要，请参阅我们的服务条款和隐私政策。"
+        ],
+        links: [
+          { label: "产品路线图", href: "/roadmap/" },
+          { label: "联系方式", href: "/contact/" },
+          { label: "服务条款", href: "/terms/" },
+          { label: "隐私政策", href: "/privacy/" }
+        ]
+      }
+    ],
   },
   {
     id: "ZH-020",
@@ -791,10 +873,20 @@ const pages: ReplicaPage[] = [
     route: "/sys-nr/",
     type: "article-list",
     title: "教学文章 - 相弈象棋",
-    description: "浏览棋谱导入的格式说明、产品更新与新界面等相弈象棋相关文章。",
+    description: "复刻相弈象棋源站当前 sys-nr 页面内容，包含新闻动态与教学文章列表、搜索筛选以及本地可用的正确跳转。",
     heroTitle: "教学文章",
     cta: [{ label: "如何下象棋", href: "/how-to-play-xiangqi/", variant: "primary" }],
-    sections: [articleListSection],
+    sections: [
+      {
+        id: "article-index-intro",
+        kind: "article",
+        title: "教学文章",
+        body: [
+          "本页汇总棋谱导入的格式说明、产品更新、新界面、赛事资讯与开局教学文章。",
+          "支持按标题、摘要、日期和标签进行搜索筛选。"
+        ]
+      }
+    ],
     articleCards: zhArticleCards,
   },
   {
@@ -969,125 +1061,7 @@ const pages: ReplicaPage[] = [
       }
     ],
     faq: []
-  },
-  {
-    id: "TCN-001",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/",
-    route: "/tcn/",
-    type: "home",
-    title: "Xiangqi.com 相弈象棋 - 中國象棋線上玩",
-    description: "繁中首頁按源站結構承接線上對弈、下載、教學文章、FAQ、SEO 長文和多裝置體驗。",
-    heroTitle: "馬上進行中國象棋\n線上對戰吧！",
-    cta: [tcnPlayCta, { label: "下載 App", href: "/tcn/mobile/", variant: "secondary" }],
-    sections: [
-      { id: "home-hero", kind: "hero", title: "繁中首頁首屏", body: ["紅色導航、主視覺、棋盤和兩個 CTA 對照繁中源站復刻。"] },
-      ...tcnHomeSeoSections,
-      {
-        ...articleListSection,
-        title: "教學文章",
-        body: ["繁中首頁保留教學文章卡片、日期、摘要與更多入口。"],
-      },
-    ],
-    faq: tcnFaq,
-    articleCards: zhArticleCards.map((card) => ({
-      ...card,
-      title: card.title.replace("棋谱", "棋譜").replace("产品", "產品").replace("新界面", "新介面"),
-    })),
-  },
-  {
-    id: "TCN-002",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/support-home/",
-    route: "/tcn/support-home/",
-    type: "help-index",
-    title: "幫助搜尋 - 相弈象棋",
-    description: "繁中幫助搜尋頁，展示第一盤、比賽、等級分、下載和象棋規則等項目。",
-    heroTitle: "幫助搜尋",
-    cta: [{ label: "查看幫助項目", href: "/tcn/support-home/", variant: "primary" }],
-    sections: helpIndexSections(tcnHelpMenu, "繁中幫助項目"),
-    faq: tcnFaq,
-  },
-  {
-    id: "TCN-003",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/first-game/",
-    route: "/tcn/first-game/",
-    type: "help-detail",
-    title: "開始第一盤對局 - 相弈象棋幫助",
-    description: "繁中第一盤教程，說明登入、進入大廳、選擇模式和完成首局。",
-    heroTitle: "開始第一盤對局",
-    cta: [tcnPlayCta],
-    sections: detailSections("開始第一盤對局", ["進入對弈大廳或人機練習。", "選擇局時、先後手和評分設定。", "完成走子並在賽後查看復盤。"]),
-  },
-  {
-    id: "TCN-004",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/tournament/",
-    route: "/tcn/tournament/",
-    type: "help-detail",
-    title: "比賽 - 相弈象棋幫助",
-    description: "繁中比賽教程，包含報名、簽到、配對、積分和排行榜。",
-    heroTitle: "線上比賽",
-    cta: [{ label: "進入比賽大廳", href: "https://play.xiangqi.com/", variant: "primary", external: true }],
-    sections: detailSections("線上比賽", ["查看賽事列表與規則。", "在報名時間內完成報名。", "開賽前簽到並等待配對。", "賽後查看積分和名次。"]),
-    faq: [{ question: "比賽是否需要簽到？", answer: "多數賽事需要在開賽前完成簽到，否則可能無法配對。" }],
-  },
-  {
-    id: "TCN-005",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/rating/",
-    route: "/tcn/rating/",
-    type: "help-detail",
-    title: "等級分系統 - 相弈象棋幫助",
-    description: "繁中等級分頁，說明 Elo 評分、評分局、排行榜和配對參考。",
-    heroTitle: "等級分系統",
-    cta: [{ label: "查看排行榜", href: "https://play.xiangqi.com/", variant: "primary", external: true }],
-    sections: detailSections("等級分系統", ["參加評分對局。", "系統依據雙方分差和結果調整分數。", "分數用於排行榜與配對參考。"]),
-    faq: tcnFaq.slice(2),
-  },
-  {
-    id: "TCN-006",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/mobile/",
-    route: "/tcn/mobile/",
-    type: "download",
-    title: "下載 App - 相弈象棋",
-    description: "繁中下載頁，保留 APK、Google Play、App Store 入口和安裝說明。",
-    heroTitle: "下載相弈象棋 App",
-    cta: [{ label: "進入網頁版", href: "https://play.xiangqi.com/", variant: "primary", external: true }],
-    sections: zhDownloadSections.map((section) => ({
-      ...section,
-      title: section.title.replace("下载", "下載").replace("安装", "安裝"),
-      body: section.body.map((text) =>
-        text
-          .replaceAll("下载", "下載")
-          .replaceAll("移动端", "行動端")
-          .replaceAll("网页版", "網頁版")
-          .replaceAll("对弈", "對弈")
-          .replaceAll("帐号", "帳號")
-      ),
-    })),
-    faq: [{ question: "沒有 App 可以玩嗎？", answer: "可以，網頁版支援免安裝線上對弈。" }],
-  },
-  {
-    id: "TCN-007",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/how-to-play/",
-    route: "/tcn/how-to-play/",
-    type: "tutorial",
-    title: "象棋規則和入門教程 - 相弈象棋",
-    description: "繁中規則教程，介紹棋盤、棋子走法、將軍、勝負和第一盤實戰。",
-    heroTitle: "象棋規則",
-    cta: [{ label: "開始第一盤", href: "/tcn/first-game/", variant: "primary" }],
-    sections: tutorialSections("象棋規則", [
-      { title: "棋盤擺放", body: "紅黑雙方隔河相對，將帥位於九宮中央底線，車馬相士、炮和兵卒按固定位置排列。" },
-      { title: "棋子走法", body: "車走直線，馬走日字，炮隔子吃子，象走田且不過河，士走斜線，兵卒過河後可橫走。" },
-      { title: "將軍與應將", body: "被將軍時必須立即化解，可以移動將帥、吃掉攻擊棋子、墊子或阻斷線路。" },
-      { title: "開始實戰", body: "新手可先用人機低難度熟悉規則，再進入真人匹配或朋友對局。" },
-    ]),
-    faq: tcnFaq,
-  },
+  }
 ];
 
 export const zhReplicaPages = pages;

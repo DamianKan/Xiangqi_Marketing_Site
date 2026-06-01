@@ -1,0 +1,717 @@
+---
+const helpLinks = [
+  { label: "开启象棋之旅", href: "/tcn/help/" },
+  { label: "好友对战", href: "/tcn/play-with-a-friend/" },
+  { label: "自定义残局", href: "/tcn/how-to-create-puzzle/" },
+  { label: "比赛", href: "/tcn/tournament/" }
+];
+
+const languageLinks = [
+  { label: "繁中", href: "/tcn/" },
+  { label: "English", href: "https://www.xiangqi.com/" },
+  { label: "Tiếng Việt", href: "https://www.vn.xiangqi.com/" }
+];
+
+const footerColumns = [
+  {
+    title: "关于",
+    links: [
+      { label: "我们的故事", href: "/tcn/about/" },
+      { label: "我们的团队", href: "/tcn/team/" },
+      { label: "产品路线图", href: "/tcn/roadmap/" },
+      { label: "联系我们", href: "/tcn/contact/" }
+    ]
+  },
+  {
+    title: "帮助",
+    links: [
+      { label: "象棋规则", href: "/tcn/how-to-play/" },
+      { label: "棋子与走法", href: "/tcn/pieces-and-moves/" },
+      { label: "等级分系统", href: "/tcn/rating/" },
+      { label: "象棋走法限制", href: "/tcn/limits/" }
+    ]
+  },
+  {
+    title: "更多",
+    links: [
+      { label: "商品周边", href: "/tcn/shop/" },
+      { label: "资源", href: "/tcn/resources/" },
+      { label: "公平对弈政策", href: "/tcn/fair-play/" },
+      { label: "文明政策", href: "/tcn/polite/" },
+      { label: "服务条款", href: "/tcn/terms/" },
+      { label: "隐私政策", href: "/tcn/privacy/" }
+    ]
+  }
+];
+
+const socialLinks = [
+  { label: "知乎", href: "https://www.zhihu.com/people/-xiangqi-com" },
+  { label: "微信公众号", href: "https://mp.weixin.qq.com/s/SM9sHQp_9DeZG-vEvD-M7A" },
+  { label: "哔哩哔哩", href: "https://space.bilibili.com/3493257524808089?spm_id_from=333.337.search-card.all.click" },
+  { label: "小红书", href: "https://www.xiaohongshu.com/user/profile/624012d80000000021025494" }
+];
+---
+
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>留言板 - 相弈象棋</title>
+    <meta
+      name="description"
+      content="相弈象棋留言板页面，包含姓名、邮箱、电话、内容输入项与全部留言空状态展示。"
+    />
+    <link rel="icon" href="/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico" />
+  </head>
+  <body class="msgboard-page">
+    <header class="msgboard-header">
+      <div class="msgboard-header__inner">
+        <a class="msgboard-header__brand" href="/tcn/" aria-label="相弈象棋首页">
+          <span class="msgboard-brand-mark" aria-hidden="true">相</span>
+          <span class="msgboard-brand-copy">
+            <strong>Xiangqi.com</strong>
+            <span>相弈象棋</span>
+          </span>
+        </a>
+
+        <button
+          class="msgboard-header__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="msgboard-nav"
+          aria-label="切换导航菜单"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="msgboard-nav" class="msgboard-header__nav" aria-label="主导航">
+          <details class="msgboard-dropdown">
+            <summary>帮助</summary>
+            <div class="msgboard-dropdown__menu">
+              {helpLinks.map((item) => (
+                <a href={item.href}>{item.label}</a>
+              ))}
+            </div>
+          </details>
+
+          <a href="/tcn/mobile/">下载APP</a>
+          <a href="/tcn/how-to-play-xiangqi/">如何下象棋</a>
+
+          <details class="msgboard-dropdown msgboard-dropdown--language">
+            <summary>简中</summary>
+            <div class="msgboard-dropdown__menu">
+              {languageLinks.map((item) => (
+                <a href={item.href}>{item.label}</a>
+              ))}
+            </div>
+          </details>
+        </nav>
+      </div>
+    </header>
+
+    <main class="msgboard-main">
+      <div class="msgboard-shell">
+        <section class="msgboard-board" aria-label="留言板表单与列表">
+          <div class="msgboard-form">
+            <div class="msgboard-field">
+              <h2>
+                姓名
+                <span aria-hidden="true">*</span>
+              </h2>
+              <input type="text" maxlength="100" placeholder="请输入姓名" />
+            </div>
+
+            <div class="msgboard-field">
+              <h2>邮箱</h2>
+              <input type="email" maxlength="100" placeholder="请输入邮箱" />
+            </div>
+
+            <div class="msgboard-field">
+              <h2>电话</h2>
+              <input type="text" maxlength="100" placeholder="请输入电话" />
+            </div>
+
+            <div class="msgboard-field msgboard-field--textarea">
+              <h2>内容</h2>
+              <textarea maxlength="1000" placeholder="留言需审核后才会显示"></textarea>
+            </div>
+
+            <button class="msgboard-submit" type="button">提交留言</button>
+          </div>
+
+          <section class="msgboard-comments" aria-label="全部留言">
+            <h2>全部留言</h2>
+            <div class="msgboard-empty">
+              <span class="msgboard-empty__icon" aria-hidden="true"></span>
+              <span class="msgboard-empty__text">亲 ~ 还没有留言噢！</span>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <footer class="msgboard-footer">
+      <div class="msgboard-footer__brand">Xiangqi.com 相弈象棋</div>
+
+      <div class="msgboard-footer__grid">
+        {footerColumns.map((column) => (
+          <section class="msgboard-footer__column" aria-label={column.title}>
+            <h2>{column.title}</h2>
+            <div class="msgboard-footer__links">
+              {column.links.map((link) => (
+                <a href={link.href}>{link.label}</a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <div class="msgboard-footer__meta">
+        <p>
+          关注我们：
+          {socialLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              {link.label}
+            </a>
+          ))}
+        </p>
+        <p>
+          <a href="https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5" target="_blank" rel="noreferrer">
+            来WhatsApp和我们聊天
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (() => {
+        const header = document.querySelector(".msgboard-header");
+        const nav = document.querySelector("#msgboard-nav");
+        const toggle = document.querySelector(".msgboard-header__toggle");
+        const dropdowns = Array.from(document.querySelectorAll(".msgboard-dropdown"));
+
+        const closeDropdowns = (except) => {
+          dropdowns.forEach((item) => {
+            if (item === except) return;
+            item.removeAttribute("open");
+          });
+        };
+
+        toggle?.addEventListener("click", () => {
+          const open = header?.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", String(Boolean(open)));
+        });
+
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("toggle", () => {
+            if (dropdown.open) closeDropdowns(dropdown);
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!(event.target instanceof Node)) return;
+          if (!header?.contains(event.target)) {
+            closeDropdowns();
+            header?.classList.remove("is-open");
+            toggle?.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        nav?.addEventListener("click", (event) => {
+          if (event.target instanceof HTMLAnchorElement) {
+            header?.classList.remove("is-open");
+            toggle?.setAttribute("aria-expanded", "false");
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body.msgboard-page {
+    min-height: 100vh;
+    background: #ede8e0;
+    color: #664f4c;
+    font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .msgboard-header {
+    background: #f3ede5;
+    color: #3f312a;
+    border-bottom: 1px solid rgba(102, 79, 76, 0.12);
+  }
+
+  .msgboard-header__inner {
+    width: min(100% - 2rem, 1280px);
+    margin: 0 auto;
+    padding: 1.35rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .msgboard-header__brand {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.72rem;
+    color: #7b251d;
+    text-decoration: none;
+  }
+
+  .msgboard-brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.58rem;
+    background: #b5201b;
+    color: #fff;
+    font-size: 1.65rem;
+    line-height: 1;
+    font-weight: 800;
+    box-shadow: 0 0.7rem 1.4rem rgba(181, 32, 27, 0.18);
+  }
+
+  .msgboard-brand-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.16rem;
+    line-height: 1;
+  }
+
+  .msgboard-brand-copy strong {
+    color: #7a2a22;
+    font-size: 1.28rem;
+    line-height: 1.05;
+    font-weight: 800;
+  }
+
+  .msgboard-brand-copy span {
+    color: #6d554e;
+    font-size: 0.78rem;
+    line-height: 1.05;
+    font-weight: 700;
+  }
+
+  .msgboard-header__toggle {
+    display: none;
+    margin-left: auto;
+    width: 2.9rem;
+    height: 2.9rem;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(102, 79, 76, 0.08);
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .msgboard-header__toggle span {
+    display: block;
+    width: 1.2rem;
+    height: 2px;
+    margin: 0.23rem auto;
+    background: #664f4c;
+    border-radius: 999px;
+  }
+
+  .msgboard-header__nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .msgboard-header__nav > a,
+  .msgboard-dropdown summary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0 0.3rem;
+    color: #3f312a;
+    font-size: 0.92rem;
+    line-height: 1;
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
+  .msgboard-header__nav > a:hover,
+  .msgboard-dropdown summary:hover,
+  .msgboard-dropdown[open] summary {
+    color: #8e2f22;
+  }
+
+  .msgboard-dropdown {
+    position: relative;
+  }
+
+  .msgboard-dropdown summary {
+    gap: 0.4rem;
+  }
+
+  .msgboard-dropdown summary::after {
+    content: "";
+    width: 0.32rem;
+    height: 0.32rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-0.08rem);
+  }
+
+  .msgboard-dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .msgboard-dropdown__menu {
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    left: 0;
+    z-index: 10;
+    min-width: 10.2rem;
+    padding: 0.5rem 0;
+    background: #fffaf5;
+    box-shadow: 0 12px 24px rgba(73, 30, 27, 0.12);
+    border: 1px solid rgba(102, 79, 76, 0.12);
+    border-radius: 0.5rem;
+  }
+
+  .msgboard-dropdown--language .msgboard-dropdown__menu {
+    right: 0;
+    left: auto;
+    min-width: 9rem;
+  }
+
+  .msgboard-dropdown__menu a {
+    display: block;
+    padding: 0.82rem 1rem;
+    color: #3f312a;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .msgboard-dropdown__menu a:hover {
+    background: rgba(190, 52, 45, 0.08);
+  }
+
+  .msgboard-main {
+    padding: 0 0 2.6rem;
+  }
+
+  .msgboard-shell {
+    width: min(100% - 2rem, 1120px);
+    margin: 0 auto;
+  }
+
+  .msgboard-board {
+    padding: 0.9rem 0 0;
+  }
+
+  .msgboard-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.05rem;
+  }
+
+  .msgboard-field h2,
+  .msgboard-comments h2 {
+    margin: 0 0 0.55rem;
+    color: #3f3a37;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .msgboard-field h2 span {
+    color: #c32f27;
+    font-weight: 700;
+  }
+
+  .msgboard-field input,
+  .msgboard-field textarea {
+    width: 100%;
+    border: 1px solid #d7d3cd;
+    border-radius: 2px;
+    background: #fff;
+    padding: 0.9rem 1rem;
+    color: #333;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .msgboard-field input:focus,
+  .msgboard-field textarea:focus {
+    border-color: #ef4136;
+    box-shadow: 0 0 0 3px rgba(239, 65, 54, 0.1);
+  }
+
+  .msgboard-field textarea {
+    min-height: 11.4rem;
+    resize: vertical;
+  }
+
+  .msgboard-submit {
+    width: fit-content;
+    min-width: 9.4rem;
+    border: 0;
+    border-radius: 2px;
+    background: #ef4136;
+    color: #fff;
+    padding: 0.92rem 1.8rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .msgboard-submit:hover {
+    background: #d7382d;
+  }
+
+  .msgboard-comments {
+    padding-top: 1.55rem;
+  }
+
+  .msgboard-empty {
+    min-height: 13rem;
+    border-top: 1px solid rgba(102, 79, 76, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.9rem;
+    color: #a3a0a0;
+    text-align: center;
+  }
+
+  .msgboard-empty__icon {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #d4d0ca;
+    border-radius: 50%;
+  }
+
+  .msgboard-empty__icon::before,
+  .msgboard-empty__icon::after {
+    content: "";
+    position: absolute;
+    background: #d4d0ca;
+  }
+
+  .msgboard-empty__icon::before {
+    left: 1rem;
+    top: 1.35rem;
+    width: 2rem;
+    height: 0.16rem;
+  }
+
+  .msgboard-empty__icon::after {
+    left: 1.3rem;
+    top: 2rem;
+    width: 1.4rem;
+    height: 0.16rem;
+  }
+
+  .msgboard-empty__text {
+    font-size: 0.98rem;
+  }
+
+  .msgboard-footer {
+    background: #be342d;
+    color: #fff;
+    padding: 3rem 1rem 1.5rem;
+  }
+
+  .msgboard-footer__brand,
+  .msgboard-footer__grid,
+  .msgboard-footer__meta {
+    width: min(100%, 1120px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .msgboard-footer__brand {
+    text-align: center;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .msgboard-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    padding-top: 2.25rem;
+  }
+
+  .msgboard-footer__column {
+    text-align: center;
+  }
+
+  .msgboard-footer__column h2 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+  }
+
+  .msgboard-footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.78rem;
+  }
+
+  .msgboard-footer__links a,
+  .msgboard-footer__meta a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 0.16rem;
+  }
+
+  .msgboard-footer__meta {
+    padding-top: 1.2rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  .msgboard-footer__meta p {
+    margin: 0;
+  }
+
+  .msgboard-footer__meta a {
+    margin-left: 0.5rem;
+  }
+
+  @media (max-width: 1080px) {
+    .msgboard-header__inner {
+      width: min(100% - 1.5rem, 1280px);
+    }
+
+    .msgboard-header__nav > a,
+    .msgboard-dropdown summary {
+      font-size: 0.88rem;
+    }
+  }
+
+  @media (max-width: 840px) {
+    .msgboard-header__inner {
+      width: min(100% - 1.25rem, 1280px);
+      padding: 0.9rem 0;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .msgboard-header__toggle {
+      display: block;
+    }
+
+    .msgboard-header__nav {
+      display: none;
+      width: 100%;
+      margin-left: 0;
+      padding-top: 0.35rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+
+    .msgboard-header.is-open .msgboard-header__nav {
+      display: flex;
+    }
+
+    .msgboard-header__nav > a,
+    .msgboard-dropdown summary {
+      justify-content: space-between;
+      width: 100%;
+      min-height: 3rem;
+      padding: 0.72rem 0.2rem;
+    }
+
+    .msgboard-dropdown__menu {
+      position: static;
+      min-width: 100%;
+      margin-top: 0.2rem;
+      box-shadow: none;
+      padding: 0 0 0.35rem;
+    }
+
+    .msgboard-dropdown__menu a {
+      padding-left: 1rem;
+    }
+
+    .msgboard-footer__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .msgboard-main {
+      padding-bottom: 2rem;
+    }
+
+    .msgboard-shell {
+      width: min(100% - 1.25rem, 1120px);
+    }
+
+    .msgboard-board {
+      padding-top: 0.7rem;
+    }
+
+    .msgboard-field textarea {
+      min-height: 9.8rem;
+    }
+
+    .msgboard-submit {
+      width: 100%;
+    }
+
+    .msgboard-empty {
+      min-height: 10.5rem;
+    }
+
+    .msgboard-footer {
+      padding-top: 2.3rem;
+    }
+
+    .msgboard-footer__brand {
+      font-size: 1.55rem;
+    }
+
+    .msgboard-footer__meta a {
+      display: inline-block;
+      margin-left: 0.38rem;
+      margin-right: 0.38rem;
+    }
+  }
+</style>

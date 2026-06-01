@@ -1,0 +1,231 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+---
+
+<ReplicaLayout
+  title="制作象棋视频 - 相弈象棋"
+  description="玩家可自行录制视频，在讲解行棋步骤时，视频画面可同时展示说话人和棋盘动态。详情请参照下方教程。"
+  route="/tcn/video/"
+  locale="zh-Hant"
+>
+  <section class="video-page">
+    <div class="video-page__hero">
+      <div class="replica-container replica-container--narrow">
+        <div class="video-page__hero-card">
+          <p class="video-page__eyebrow">Video</p>
+          <h1>制作象棋视频</h1>
+          <p class="video-page__lead">
+            玩家可自行录制视频，在讲解行棋步骤时，视频画面可同时展示说话人和棋盘动态。详情请参照下方教程。该教程将介绍录制象棋教学视频所需的电脑配置以及本网站自带的功能。此教程还包含录制高清视频的若干窍门，便于制作者将视频发布到Youtube或其他平台。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="replica-container replica-container--narrow">
+      <div class="video-page__sections">
+        <article class="video-page__section">
+          <h2>硬件要求</h2>
+          <ul>
+            <li>电脑内存（RAM）至少为4G(苹果或其他电脑均可)</li>
+            <li>好的处理器（英特尔酷睿i5 2代或更高版本，其他同等处理器亦可）</li>
+            <li>高清摄像头（可用电脑内置网络摄像头，但高清外置网络摄像头更佳，如罗技C920）</li>
+            <li>收音设备（可用电脑内置麦克风或外置麦克风）</li>
+            <li>建议使用辅助/外接显示器，但不强制</li>
+          </ul>
+        </article>
+
+        <article class="video-page__section">
+          <h2>软件要求</h2>
+          <ul>
+            <li>Windows、Mac或Linux</li>
+            <li>推荐使用谷歌Chrome浏览器，但火狐或其他现代浏览器均可</li>
+            <li>
+              OBS Studio软件（免费开源软件，
+              <a href="https://obsproject.com/" target="_blank" rel="noreferrer">点击此处下载</a>
+              ）
+            </li>
+          </ul>
+        </article>
+
+        <article class="video-page__section">
+          <h2>安装和设置OBS Studio</h2>
+          <ul>
+            <li>
+              关于OBS Studio的安装和设置，请参照
+              <a href="https://www.youtube.com/watch?v=EuSUPpoi0Vs" target="_blank" rel="noreferrer">
+                OBS实用教程
+              </a>
+              。（顺便给视频点个赞，支持一下作者吧！）
+            </li>
+            <li>
+              在电脑上完成OBS Studio设置后，可先录制几个视频试试水，如无问题，再正式开始录制视频。查看录制好的视频，检查音频、视频及录屏质量是否良好，随后再进行下一步。
+            </li>
+          </ul>
+        </article>
+
+        <article class="video-page__section">
+          <h2>在我们的网站界面开始录制</h2>
+          <ul>
+            <li>确保OBS录制功能已开启，并将其最小化。</li>
+            <li>关闭所有桌面通知（如WhatsApp或其他应用程序），避免视频录制中断。</li>
+            <li>
+              确保视频构图无误，并将浏览器窗口或操作系统菜单栏等无关界面排除在外。如需了解更多关于如何在视频录制时正确处理桌面的信息，请查看上述
+              <a href="https://youtu.be/EuSUPpoi0Vs?t=224" target="_blank" rel="noreferrer">
+                OBS教程的视频界面剪裁部分
+              </a>
+              。
+            </li>
+            <li>确保在开始游戏前有一段开场白，避免“直奔主题”。</li>
+            <li>确保音频清晰，无背景噪音。</li>
+            <li>确保摄像头拍摄清晰无遮挡，且人脸处于恰当位置。</li>
+            <li>
+              如需要，可提前准备脚本，在录制视频时用作参考。也可提前练习需要录制的内容，最后呈现准备充分的视频。
+            </li>
+          </ul>
+        </article>
+
+        <article class="video-page__section">
+          <h2>本网站自带功能</h2>
+          <ul>
+            <li>
+              在浏览器中打开我们的网站并登录账号。在游戏大厅开始新游戏或加入公开游戏。在进行上述操作时，可以一边录制一边讲解，也可在游戏开始后进行录制。除了实战录制外，还可使用我们的
+              <a href="https://play.xiangqi.com/editor" target="_blank" rel="noreferrer">棋盘编辑器</a>
+              或
+              <a href="https://play.xiangqi.com/puzzle-editor" target="_blank" rel="noreferrer">谜题编辑器</a>
+              。
+            </li>
+            <li>
+              若录制视频时采用网络摄像头拍摄，摄像头拍摄的画面在屏幕中的位置不应干扰视频主画面（如棋盘）。建议将摄像头拍摄的画面置于棋盘右侧的聊天区。
+            </li>
+            <li>如录制实时对局，可将摄像头拍摄的画面置于聊天区上半部分（因为玩家可能正在聊天，底部会弹出新消息）。</li>
+            <li>
+              如针对已结束的对局录制分析视频，则可将摄像头拍摄的画面置于聊天区下半部分，同时可在上半部分的空白区域投放自定义文案。
+            </li>
+          </ul>
+        </article>
+
+        <article class="video-page__section video-page__section--notice">
+          <h2>投稿说明</h2>
+          <p>
+            完成视频录制后，检查是否符合上述质量标准。检查完毕后，即可将其发送至
+            <strong>help@xiangqi.com</strong>
+            。我们后续将联系投稿人，说明视频用途，并在使用视频时署上投稿人的名字，以致谢意。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</ReplicaLayout>
+
+<style>
+  .video-page {
+    padding-bottom: 4.5rem;
+    background:
+      radial-gradient(circle at top left, rgba(227, 64, 46, 0.12), transparent 24rem),
+      linear-gradient(180deg, #fff8f2 0%, #fff 28rem);
+  }
+
+  .video-page__hero {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .video-page__hero-card {
+    border: 1px solid rgba(196, 47, 35, 0.12);
+    border-radius: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #fff7ee 100%);
+    box-shadow: 0 1.5rem 3rem rgba(126, 29, 20, 0.08);
+  }
+
+  .video-page__eyebrow {
+    margin: 0 0 0.9rem;
+    color: #c42f23;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .video-page h1 {
+    margin: 0;
+    color: #1d1d1f;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  .video-page__lead {
+    margin: 1.25rem 0 0;
+    color: #4a423e;
+    font-size: 1.05rem;
+    line-height: 1.9;
+  }
+
+  .video-page__sections {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .video-page__section {
+    border: 1px solid rgba(204, 90, 65, 0.15);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 0.75rem 1.8rem rgba(63, 21, 15, 0.05);
+  }
+
+  .video-page__section h2 {
+    margin: 0 0 1rem;
+    color: #8f1f18;
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.25;
+  }
+
+  .video-page__section p,
+  .video-page__section li {
+    color: #403735;
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  .video-page__section ul {
+    margin: 0;
+    padding-left: 1.35rem;
+  }
+
+  .video-page__section li + li {
+    margin-top: 0.6rem;
+  }
+
+  .video-page__section a {
+    color: #b82920;
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.15em;
+  }
+
+  .video-page__section a:hover {
+    color: #8f1f18;
+  }
+
+  .video-page__section--notice {
+    background: linear-gradient(135deg, rgba(196, 47, 35, 0.06), rgba(255, 241, 226, 0.92));
+  }
+
+  @media (max-width: 720px) {
+    .video-page__hero {
+      padding-top: 2rem;
+    }
+
+    .video-page__hero-card,
+    .video-page__section {
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+    }
+
+    .video-page__lead,
+    .video-page__section p,
+    .video-page__section li {
+      font-size: 0.97rem;
+    }
+  }
+</style>

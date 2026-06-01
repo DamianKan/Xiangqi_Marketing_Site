@@ -135,30 +135,41 @@ export const footerReplicaPages: ReplicaPage[] = [
     faq: []
   }),
   buildUtilityPage({
-    id: "ZH-020",
+    id: "ZH-020C",
     locale: "zh-CN",
     sourceUrl: "https://www.zh.xiangqi.com/contact/",
     route: "/contact/",
-    title: "联系我们 - 相弈象棋",
-    description: "查看相弈象棋的反馈方式、问题提交方向与合作沟通入口说明。",
-    heroTitle: "联系我们",
+    title: "联系我们 | 关注我们 - 相弈象棋",
+    description:
+      "想认识我们的团队吗？请在美东时间每周六上午9点至11点（北京时间晚上9点至11点）登录 xiangqi.com，并通过当前页提供的社交渠道、公众号二维码和邮箱与我们联系。",
+    heroTitle: "关注我们",
     sections: [
       {
-        title: "反馈内容",
+        title: "联系与关注",
         body: [
-          "如果你在使用相弈象棋时遇到页面异常、导航问题、内容错误或资源缺失，可以通过既有社区与客服渠道反馈。",
-          "本地副本页重点承接信息展示，帮助用户明确应当反馈的问题类型与对应场景。"
+          "想认识我们的团队吗？请在美东时间每周六上午9点至11点（北京时间晚上9点至11点）登录 xiangqi.com。",
+          "在我们的 Facebook、Instagram、WhatsApp、YouTube 和 Discord 上关注我们的最新动态，加入 Discord 群组结识其他玩家。"
+        ],
+        links: [
+          { label: "Facebook", href: "https://www.facebook.com/xiangqichess/", external: true },
+          { label: "Instagram", href: "http://instagram.com/xiangqichess", external: true },
+          { label: "WhatsApp", href: "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5", external: true },
+          { label: "YouTube", href: "https://www.youtube.com/c/XiangqiChineseChess", external: true },
+          { label: "Discord", href: "https://discord.gg/nDUBMUEjpc", external: true }
         ]
       },
       {
-        title: "沟通范围",
+        title: "公众号与邮箱",
         body: [
-          "常见沟通主题包括账号与对局体验、教程建议、赛事问题、下载说明以及本地化页面勘误。",
-          "若是与帮助内容相关的问题，也可先回到帮助中心或相关文章页查找对应说明。"
-        ]
+          "扫描二维码订阅我们的微信公众号。",
+          "如有任何问题或建议，请发送邮件至 help@xiangqi.com。"
+        ],
+        image: "/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAg47z6qwYo8PPjwwYwgAo4gAo.jpg",
+        imageAlt: "相弈象棋微信公众号二维码",
+        links: [{ label: "help@xiangqi.com", href: "mailto:help@xiangqi.com" }]
       }
     ],
-    ctas: [{ label: "返回帮助中心", href: "/help/", variant: "secondary" }],
+    ctas: [{ label: "返回首页", href: "/", variant: "secondary" }],
     faq: zhFooterFaq
   }),
   buildUtilityPage({
@@ -539,287 +550,5 @@ export const footerReplicaPages: ReplicaPage[] = [
       }
     ],
     faq: []
-  }),
-  buildUtilityPage({
-    id: "TCN-008",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/about/",
-    route: "/tcn/about/",
-    title: "關於相弈象棋 - Xiangqi.com",
-    description: "繁中版本的本地介紹頁，說明相弈象棋與本站重構的定位。",
-    heroTitle: "關於相弈象棋",
-    sections: [
-      {
-        title: "頁面定位",
-        body: [
-          "這裡補上繁中版本的品牌介紹頁，承接頁腳中的資訊入口，避免再次跳回源站。",
-          "頁面聚焦站點定位、內容架構與本地重構的整體目標。"
-        ]
-      },
-      {
-        title: "本地重構方向",
-        body: [
-          "繁中副本將持續補齊教學、下載、規則與政策頁面，讓使用者在本地站內完成完整瀏覽。",
-          "後續如有新增頁腳入口，也會優先建立對應的本地路由。"
-        ]
-      }
-    ],
-    faq: tcnFooterFaq
-  }),
-  buildUtilityPage({
-    id: "TCN-009",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/team/",
-    route: "/tcn/team/",
-    title: "我們的團隊 - Xiangqi.com",
-    description: "介紹繁中站點對應的內容、產品與技術協作角色。",
-    heroTitle: "我們的團隊",
-    sections: [
-      {
-        title: "協作內容",
-        body: [
-          "團隊共同維護規則說明、教學內容、賽事資訊與下載入口，確保繁中版本可以獨立承接使用流程。",
-          "本地副本頁則負責讓頁腳資訊頁同樣留在站內，不再依賴源站導航。"
-        ]
-      },
-      {
-        title: "維護原則",
-        body: [
-          "當產品導航、幫助內容或文章結構更新時，相關資訊頁也會同步調整。",
-          "這能避免使用者在繁中頁面中遇到跨站跳轉與體驗中斷。"
-        ]
-      }
-    ],
-    faq: tcnFooterFaq
-  }),
-  buildUtilityPage({
-    id: "TCN-010",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/roadmap/",
-    route: "/tcn/roadmap/",
-    title: "產品路線圖 - Xiangqi.com",
-    description: "以下是我們團隊計劃在 2024 年打造的一些高級功能，同時也會持續修復使用者回報的問題。",
-    heroTitle: "產品路線圖",
-    sections: [
-      {
-        title: "",
-        body: [
-          "以下是我們團隊計劃在2024年構建的一些高級功能。我們每周仍將持續處理用戶報告的錯誤，努力讓網站和App變得完美！:)"
-        ]
-      },
-      {
-        title: "",
-        body: [],
-        list: [
-          "使用者介面翻新：以全新而時尚的外觀提升瀏覽與遊玩體驗。",
-          "新的手機 App：支援離線人機對戰與玩家對局。",
-          "私聊功能。",
-          "多頻道公共聊天室。",
-          "自訂對局功能升級：建立公開挑戰時可限制對手等級分；建立公開挑戰後可直接挑戰線上空閒玩家。",
-          "課程功能升級：引入開局課程，提升開局知識。",
-          "初學者助手：為等級分低於一定水平的玩家高亮顯示一步內的潛在威脅與戰術機會。",
-          "玩家統計數據：全面分析對局表現，包括隨時間變化的表現、先後手對局統計、不同用時下的表現、所用開局體系分析、開局/中局/殘局表現分析、戰術機會把握率，以及優劣勢棋勝率。"
-        ]
-      },
-      {
-        title: "",
-        body: [
-          "另請參閱我們的版本發布公告。",
-          "更多絕密功能正在醞釀中——我們想用這些功能給您帶來驚喜！",
-          "如果您有其他想要的功能，請發送郵件到 help@xiangqi.com 告訴我們！"
-        ],
-        links: [
-      { label: "版本發布公告", href: "/sys-nd/22.html" },
-          { label: "help@xiangqi.com", href: "mailto:help@xiangqi.com" }
-        ]
-      }
-    ],
-    faq: []
-  }),
-  buildUtilityPage({
-    id: "TCN-011",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/contact/",
-    route: "/tcn/contact/",
-    title: "聯絡我們 - Xiangqi.com",
-    description: "說明繁中版本中可回報的問題類型與資訊頁的用途。",
-    heroTitle: "聯絡我們",
-    sections: [
-      {
-        title: "可回報問題",
-        body: [
-          "若你在繁中頁面中遇到內容錯漏、跳轉異常、版面問題或資訊不一致，可先整理具體情境再回報。",
-          "本地副本頁主要承接資訊導覽，幫助使用者明確找到對應說明頁與聯絡方向。"
-        ]
-      },
-      {
-        title: "建議做法",
-        body: [
-          "描述問題時建議附上所在頁面、裝置環境與操作步驟，能更快協助定位。",
-          "若是使用流程問題，也可先回到幫助中心或規則頁查看補充說明。"
-        ]
-      }
-    ],
-    ctas: [{ label: "返回幫助搜尋", href: "/tcn/support-home/", variant: "secondary" }],
-    faq: tcnFooterFaq
-  }),
-  buildUtilityPage({
-    id: "TCN-012",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/how-to-play-xiangqi/",
-    route: "/tcn/how-to-play-xiangqi/",
-    title: "棋子與走法 - Xiangqi.com",
-    description: "補足繁中版本中棋盤結構、棋子走法與基礎入門說明。",
-    heroTitle: "棋子與走法",
-    sections: [
-      {
-        title: "基礎認識",
-        body: [
-          "頁面用來說明棋盤結構、各類棋子的移動方式，以及新手最常遇到的基本限制。",
-          "這個入口原本在頁腳中會連回源站，現在改由本地副本頁承接。"
-        ]
-      },
-      {
-        title: "搭配閱讀",
-        body: [
-          "若想完整掌握對局規則，建議再搭配閱讀繁中版的規則頁與第一局說明頁。",
-          "這樣能從棋子認識一路接到實戰流程與平台操作。"
-        ]
-      }
-    ],
-    ctas: [{ label: "查看繁中規則頁", href: "/tcn/how-to-play/", variant: "primary" }],
-    faq: tcnFooterFaq
-  }),
-  buildUtilityPage({
-    id: "TCN-013",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/limits/",
-    route: "/tcn/limits/",
-    title: "走法限制說明 - Xiangqi.com",
-    description: "整理繁中版本中的非法著法、循環限制與常見判定補充。",
-    heroTitle: "走法限制說明",
-    sections: [
-      {
-        title: "規則限制",
-        body: [
-          "本頁補充將帥照面、長將長捉、非法走子與超時等平台常見判定。",
-          "玩家在進入評分對局、好友對戰或比賽前，都可先透過此頁快速理解限制。"
-        ]
-      },
-      {
-        title: "使用情境",
-        body: [
-          "當系統阻止落子或對局結果與預期不同時，可先回到本頁對照相關規則。",
-          "若需要完整入門內容，建議再搭配繁中規則頁與棋子走法頁一起閱讀。"
-        ]
-      }
-    ],
-    ctas: [{ label: "返回繁中規則", href: "/tcn/how-to-play/", variant: "primary" }],
-    faq: tcnFooterFaq
-  }),
-  buildUtilityPage({
-    id: "TCN-014",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/shop/",
-    route: "/tcn/shop/",
-    title: "商品周邊 - Xiangqi.com",
-    description: "復刻源站目前的商品周邊頁，展示便攜式中國象棋套裝與 Jim Png 象棋書籍內容。",
-    heroTitle: "商品周邊",
-    sections: [
-      {
-        title: "便攜式中國象棋套裝",
-        body: [
-          "源站目前商品頁的主體是一套便攜式中國象棋套裝，包含雙面棋子、棋盤、收納袋與英文說明冊。",
-          "頁面同時提供 eBay 與 Amazon 購買入口，並在下半部展示 Jim Png 的象棋書籍。"
-        ]
-      },
-      {
-        title: "Jim Png 的象棋書籍",
-        body: [
-          "源站在本頁集中展示 Jim Png 已出版的象棋書籍，並透過 Amazon 作者頁承接更多圖書資訊。",
-          "本地復刻頁僅使用目前源頁的圖片與資訊結構進行還原。"
-        ]
-      }
-    ],
-    faq: []
-  }),
-  buildUtilityPage({
-    id: "TCN-015",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/resources/",
-    route: "/tcn/resources/",
-    title: "資源中心 - Xiangqi.com",
-    description: "匯總繁中可用的幫助、文章、下載與教學入口。",
-    heroTitle: "資源中心",
-    sections: [
-      {
-        title: "內容範圍",
-        body: [
-          "資源中心適合整理規則頁、教學頁、文章頁與下載說明等知識型內容。",
-          "在本地重構站中，這些入口都已有對應的本地路由可直接訪問。"
-        ]
-      },
-      {
-        title: "閱讀路徑",
-        body: [
-          "若你偏向系統學習，可先閱讀棋子走法與規則頁；若偏向實戰操作，可再前往比賽、評分與好友對戰說明頁。",
-          "所有這些入口現在都能由頁腳直接留在本地站內完成。"
-        ]
-      }
-    ],
-    ctas: [{ label: "查看繁中文章", href: "/sys-nr/", variant: "primary" }],
-    faq: tcnFooterFaq
-  }),
-  buildUtilityPage({
-    id: "TCN-016",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/fair-play/",
-    route: "/tcn/fair-play/",
-    title: "公平對弈政策 - Xiangqi.com",
-    description: "整理繁中版本中的公平對局與賽事秩序說明。",
-    heroTitle: "公平對弈政策",
-    sections: [
-      {
-        title: "基本準則",
-        body: [
-          "公平對弈頁用於說明平台在評分對局、比賽與日常互動中的基本行為標準。",
-          "內容重點包括禁止作弊、惡意操控結果、干擾賽事流程或破壞其他玩家體驗。"
-        ]
-      },
-      {
-        title: "站內承接",
-        body: [
-          "此頁是頁腳政策入口在本地站的對應副本，可避免使用者查看規範時被帶回外部網站。",
-          "後續若政策文案擴充，也能直接在本站內同步更新。"
-        ]
-      }
-    ],
-    faq: tcnFooterFaq
-  }),
-  buildUtilityPage({
-    id: "TCN-017",
-    locale: "zh-Hant",
-    sourceUrl: "https://www.zh.xiangqi.com/tcn/polite/",
-    route: "/tcn/polite/",
-    title: "文明交流政策 - Xiangqi.com",
-    description: "說明繁中站中的社群互動禮儀與溝通規範。",
-    heroTitle: "文明交流政策",
-    sections: [
-      {
-        title: "互動禮儀",
-        body: [
-          "平台鼓勵理性討論、友善回饋與清楚表達，並反對辱罵、騷擾、惡意挑釁與洗版行為。",
-          "本頁補齊頁腳中的社群規範入口，讓政策內容能直接在本地站內查看。"
-        ]
-      },
-      {
-        title: "回報建議",
-        body: [
-          "若需要反映問題，建議搭配具體頁面、現象與操作步驟一併描述，能更快協助確認。",
-          "良好的交流方式也能幫助其他使用者更有效率地獲得支援。"
-        ]
-      }
-    ],
-    faq: tcnFooterFaq
   })
 ];

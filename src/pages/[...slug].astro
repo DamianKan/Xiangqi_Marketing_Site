@@ -4,16 +4,65 @@ import ReplicaPageView from "../components/replica/ReplicaPage.astro";
 import { replicaPages } from "../data/replica";
 
 export function getStaticPaths() {
+  const directRouteConflicts = new Set([
+    "/",
+    "/tcn/",
+    "/about/",
+    "/tcn/about/",
+    "/admins/",
+    "/tcn/admins/",
+    "/badges/",
+    "/tcn/badges/",
+    "/chinese/",
+    "/tcn/chinese/",
+    "/contact/",
+    "/tcn/contact/",
+    "/graphics/",
+    "/tcn/graphics/",
+    "/h-col-139.html/",
+    "/tcn/h-col-139.html/",
+    "/help/markers.html",
+    "/tcn/help/markers.html",
+    "/history/",
+    "/tcn/history/",
+    "/opening-angels-guide.html",
+    "/tcn/opening-angels-guide.html",
+    "/opening-central-cannon.html",
+    "/tcn/opening-central-cannon.html",
+    "/opening-elephant.html",
+    "/tcn/opening-elephant.html",
+    "/privacy/",
+    "/tcn/privacy/",
+    "/support-home/",
+    "/tcn/support-home/",
+    "/sys-login/",
+    "/tcn/sys-login/",
+    "/sys-msgBoard/",
+    "/tcn/sys-msgBoard/",
+    "/sys-nr/",
+    "/tcn/sys-nr/",
+    "/sys-pgr/",
+    "/tcn/sys-pgr/",
+    "/sys-pr/",
+    "/tcn/sys-pr/",
+    "/sys-nd/17.html",
+    "/tcn/sys-nd/17.html",
+    "/sys-nd/18.html",
+    "/tcn/sys-nd/18.html",
+    "/sys-nd/19.html",
+    "/tcn/sys-nd/19.html",
+    "/terms/",
+    "/tcn/terms/",
+    "/video/",
+    "/tcn/video/",
+    "/articles/10-xiangqi-opening-principles.html",
+    "/tcn/articles/10-xiangqi-opening-principles.html",
+    "/articles/10-xiangqi-midgame-principles.html",
+    "/tcn/articles/10-xiangqi-midgame-principles.html"
+  ]);
+
   return replicaPages
-    .filter(
-      (page) =>
-        page.route !== "/" &&
-        page.route !== "/contact/" &&
-        page.route !== "/help/markers.html" &&
-        page.route !== "/sys-nr/" &&
-        page.route !== "/articles/10-xiangqi-opening-principles.html" &&
-        page.route !== "/articles/10-xiangqi-midgame-principles.html"
-    )
+    .filter((page) => !directRouteConflicts.has(page.route))
     .map((page) => ({
       params: { slug: page.route.replace(/^\/|\/$/g, "") },
       props: { page }

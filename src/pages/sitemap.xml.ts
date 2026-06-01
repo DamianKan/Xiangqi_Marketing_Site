@@ -114,6 +114,19 @@ const sitemapEntries: SitemapEntry[] = [
   }
 ];
 
+function prefixTraditionalChinesePath(path: string) {
+  if (!path) {
+    return "/tcn/";
+  }
+
+  return path.startsWith("/tcn/") ? path : `/tcn${path}`;
+}
+
+const tcnSitemapEntries: SitemapEntry[] = sitemapEntries.map((entry) => ({
+  ...entry,
+  path: prefixTraditionalChinesePath(entry.path)
+}));
+
 function toLoc(baseUrl: string, path: string) {
   return path ? `${baseUrl}${path}` : baseUrl;
 }
@@ -134,7 +147,7 @@ export function GET() {
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>` +
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">` +
-    sitemapEntries.map((entry) => urlEntry(baseUrl, entry)).join("") +
+    [...sitemapEntries, ...tcnSitemapEntries].map((entry) => urlEntry(baseUrl, entry)).join("") +
     `</urlset>`;
 
   return new Response(body, {

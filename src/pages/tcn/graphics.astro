@@ -1,0 +1,275 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+
+const title = "象棋图标 - 相弈象棋";
+const description =
+  "通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。马上进行在线象棋对战吧！作为最国际化的线上象棋对战游戏平台，相弈象棋软件平台上有着来自世界各地超过四十个国家的棋手，是借助象棋对弈结交国际友人的最佳选择。玩家可以在网页版或手机 app 象棋在线平台根据个人喜好选择中国象棋真人对战或中国象棋人机对战进行象棋在线对弈。";
+
+const iconGallery = [
+  {
+    src: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg_PHJqQYo5NPz9AEwkQE4kQE.png",
+    alt: "象棋图标页中的小尺寸棋子图标",
+    className: "graphics-page__figure--xs"
+  },
+  {
+    src: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgvvLJqQYo6NeuvwYwxwI4bg.png",
+    alt: "象棋图标页中的中小尺寸棋子图标",
+    className: "graphics-page__figure--sm"
+  },
+  {
+    src: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgzPLJqQYooIDI4gEwgAQ4kQE.png",
+    alt: "象棋图标页中的中尺寸棋子图标",
+    className: "graphics-page__figure--md"
+  },
+  {
+    src: "/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg9-LJqQYordW_gQMw1ws4ogI.png",
+    alt: "象棋图标页中的网站顶部横幅图标",
+    className: "graphics-page__figure--lg"
+  }
+];
+
+---
+
+<ReplicaLayout
+  title={title}
+  description={description}
+  route="/tcn/graphics/"
+  locale="zh-Hant"
+  image="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAg9-LJqQYordW_gQMw1ws4ogI.png"
+>
+  <section class="graphics-page">
+    <div class="graphics-page__inner">
+      <h1 class="graphics-page__sr-only">象棋图标</h1>
+
+      <div class="graphics-page__copy graphics-page__copy--intro">
+        <p>
+          如需使用我们的象棋图标，建议前往
+          <a href="https://play.xiangqi.com/editor" target="_self">棋盘编辑器</a>
+          。在棋盘编辑器中，您可将棋子放在棋盘的任意位置。因本网站图片受版权保护（可免费使用，但需注明来源），截图发布时请务必在楚河汉界中附上本网站链接，便于受众知悉图片来源。<br />
+          如需使用整套棋子图标，请点击下方链接下载压缩文件
+        </p>
+
+        <a class="graphics-page__download" href="/mirror/Pieces.zip" download>
+          象棋图标
+        </a>
+      </div>
+
+      <div class="graphics-page__copy graphics-page__copy--detail">
+        <p>
+          棋子的中文图标采用了象棋的繁体汉字。国际图标则采用了最受欢迎的象棋英文网页
+          <a href="https://en.wikipedia.org/wiki/Xiangqi#Pieces" target="_self">维基百科象棋条目</a>
+          中的国际棋子图标。
+        </p>
+        <p>
+          本网站标题字体为
+          <a href="https://www.mianfeiziti.com/thread-3761.htm" target="_self" rel="nofollow"
+            >Averia Serif Libre</a
+          >
+          ，正文字体为
+          <a href="https://www.mianfeiziti.com/thread-177505.htm" target="_self">Poppins</a>
+          ，LOGO字体为
+          <a href="https://www.mianfeiziti.com/thread-72229.htm" target="_self">Grenze</a>
+          。
+        </p>
+        <p>以下是网站使用的其他图标，包括移动应用程序图标和网站顶部横幅：</p>
+      </div>
+
+      <div class="graphics-page__gallery" aria-label="象棋图标展示">
+        {
+          iconGallery.map((item) => (
+            <figure class:list={["graphics-page__figure", item.className]}>
+              <img src={item.src} alt={item.alt} loading="lazy" />
+            </figure>
+          ))
+        }
+      </div>
+
+    </div>
+  </section>
+</ReplicaLayout>
+
+<style>
+  .graphics-page {
+    padding: clamp(1.35rem, 2.4vw, 2.2rem) 0 clamp(4rem, 7vw, 5.8rem);
+    color: rgb(102, 79, 76);
+  }
+
+  .graphics-page__inner {
+    width: min(75.2%, 1160px);
+    margin: 0 auto;
+  }
+
+  .graphics-page__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .graphics-page__copy {
+    font-size: clamp(1rem, 1.12vw, 1.25rem);
+    line-height: 2;
+    text-align: justify;
+  }
+
+  .graphics-page__copy p {
+    margin: 0;
+  }
+
+  .graphics-page__copy a {
+    color: rgb(190, 52, 45);
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+  }
+
+  .graphics-page__copy--intro {
+    padding-top: 0.2rem;
+  }
+
+  .graphics-page__copy .graphics-page__download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 10rem;
+    min-height: 2.95rem;
+    margin-top: 1.3rem;
+    padding: 0.7rem 1.8rem;
+    border-radius: 999px;
+    background: rgb(190, 52, 45);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-underline-offset: 0;
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+
+  .graphics-page__copy .graphics-page__download:hover {
+    color: #fff;
+    background: rgb(199, 88, 81);
+    transform: translateY(-1px);
+  }
+
+  .graphics-page__copy--detail {
+    margin-top: clamp(2rem, 3.4vw, 3rem);
+    padding: clamp(1.8rem, 3vw, 2.7rem) 0 clamp(2rem, 3.2vw, 2.8rem);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.72);
+  }
+
+  .graphics-page__copy--detail p + p {
+    margin-top: 0.35rem;
+  }
+
+  .graphics-page__gallery {
+    display: grid;
+    justify-items: center;
+    gap: clamp(1rem, 1.8vw, 1.9rem);
+    padding-top: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
+  .graphics-page__figure {
+    margin: 0;
+  }
+
+  .graphics-page__figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .graphics-page__figure--xs {
+    width: min(8.4vw, 6.25rem);
+    min-width: 4.5rem;
+  }
+
+  .graphics-page__figure--sm,
+  .graphics-page__figure--md,
+  .graphics-page__figure--lg {
+    padding: clamp(0.8rem, 1.6vw, 1.25rem);
+    border-radius: 1.25rem;
+    background: rgb(190, 52, 45);
+    box-shadow: 0 12px 30px rgba(112, 31, 25, 0.16);
+  }
+
+  .graphics-page__figure--sm {
+    width: min(22vw, 16.5rem);
+    min-width: 10rem;
+  }
+
+  .graphics-page__figure--md {
+    width: min(30vw, 22rem);
+    min-width: 13rem;
+  }
+
+  .graphics-page__figure--lg {
+    width: min(45vw, 33rem);
+    min-width: 16rem;
+  }
+
+  @media (max-width: 960px) {
+    .graphics-page__inner {
+      width: min(100% - 2rem, 920px);
+    }
+
+    .graphics-page__copy {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .graphics-page {
+      padding-top: 0.9rem;
+    }
+
+    .graphics-page__inner {
+      width: min(100% - 1.25rem, 920px);
+    }
+
+    .graphics-page__copy {
+      line-height: 1.9;
+    }
+
+    .graphics-page__download {
+      width: 100%;
+      max-width: 15rem;
+    }
+
+    .graphics-page__gallery {
+      gap: 1.15rem;
+    }
+
+    .graphics-page__figure--xs,
+    .graphics-page__figure--sm,
+    .graphics-page__figure--md,
+    .graphics-page__figure--lg {
+      width: min(100%, 100%);
+      min-width: 0;
+    }
+
+    .graphics-page__figure--xs img {
+      width: min(5.5rem, 38vw);
+      margin: 0 auto;
+    }
+
+    .graphics-page__figure--sm img {
+      width: min(12rem, 70vw);
+      margin: 0 auto;
+    }
+
+    .graphics-page__figure--md img {
+      width: min(15rem, 82vw);
+      margin: 0 auto;
+    }
+
+    .graphics-page__figure--lg img {
+      width: min(19rem, 100%);
+      margin: 0 auto;
+    }
+
+  }
+</style>

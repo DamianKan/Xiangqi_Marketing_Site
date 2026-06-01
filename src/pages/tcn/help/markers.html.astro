@@ -1,0 +1,15 @@
+---
+import ReplicaLayout from "../../../layouts/ReplicaLayout.astro";
+import ReplicaPageView from "../../../components/replica/ReplicaPage.astro";
+import { getReplicaPageByRoute } from "../../../data/replica";
+
+const page = getReplicaPageByRoute("/tcn/help/markers.html");
+
+if (!page) {
+  throw new Error('Replica page not found for route "/tcn/help/markers.html"');
+}
+---
+
+<ReplicaLayout title={page.title} description={page.description} route={page.route} locale={page.locale}>
+  <ReplicaPageView page={page} />
+</ReplicaLayout>

@@ -2,7 +2,7 @@ import type { LocaleConfig, ReplicaLocale } from "./types";
 
 export const localeConfigs: LocaleConfig[] = [
   { locale: "zh-CN", label: "简中", route: "/", htmlLang: "zh-CN" },
-  { locale: "zh-Hant", label: "繁中", route: "https://www.zh.xiangqi.com/tcn/", htmlLang: "zh-Hant" },
+  { locale: "zh-Hant", label: "繁中", route: "/tcn/", htmlLang: "zh-Hant" },
   { locale: "en", label: "English", route: "/en/", htmlLang: "en" },
   { locale: "vi", label: "Tiếng Việt", route: "/vi/", htmlLang: "vi" }
 ];

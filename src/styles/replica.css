@@ -3789,6 +3789,10 @@ body[data-route="/report/"] .replica-nav__button {
   .replica-menu-toggle {
     display: inline-flex;
     margin-left: auto;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
   }
 
   .replica-nav {
@@ -3831,6 +3835,7 @@ body[data-route="/report/"] .replica-nav__button {
     padding: 0 14px;
     border-radius: 16px;
     background: rgba(159, 47, 35, 0.06);
+    color: #000;
   }
 
   .replica-dropdown {
@@ -3860,6 +3865,7 @@ body[data-route="/report/"] .replica-nav__button {
     margin-top: 8px;
     background: #fffdf9;
     box-shadow: 0 12px 24px rgba(73, 23, 20, 0.12);
+    color: #000;
   }
 
   .replica-dropdown a:first-child {

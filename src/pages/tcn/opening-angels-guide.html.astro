@@ -1,0 +1,258 @@
+---
+import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
+
+const title = "象棋开局布阵法：仙人指路布局主流变化简介 - 相弈象棋";
+const description =
+  "“仙人指路”意为试探性开局，同时保留了演变为中炮类和飞相类的两种可能，可根据对方的动向而灵活调整，因此被称为最灵活的开局。";
+
+const shareItems = [
+  "微信",
+  "新浪微博",
+  "QQ",
+  "QQ空间",
+  "豆瓣网",
+  "百度贴吧",
+  "复制链接",
+  "脸书",
+  "X",
+  "领英"
+] as const;
+---
+
+<ReplicaLayout
+  title={title}
+  description={description}
+  route="/tcn/opening-angels-guide.html"
+  locale="zh-Hant"
+  image="/mirror/31680567.s21i.faiusr.com_2_2_ABUIABACGAAgndSwrAYo0P2d9AIw4g44iQs_700x700.jpg"
+>
+  <section class="opening-article-page">
+    <div class="opening-article-page__shell">
+      <article class="opening-article-page__article">
+        <header class="opening-article-page__header">
+          <p class="opening-article-page__eyebrow">教学文章</p>
+          <h1>仙人指路布局主流变化简介 - 相弈象棋</h1>
+          <p class="opening-article-page__author">陈俊彦</p>
+        </header>
+
+        <div class="opening-article-page__content">
+          <p>
+            中国象棋的开局可以根据中路的动向，分为两大体系，一类是中炮类，在中路采取进攻态势；另一类是飞相类，在中路采取防守态势。“仙人指路”意为试探性开局，同时保留了演变为中炮类和飞相类的两种可能，可根据对方的动向而灵活调整，因此被称为最灵活的开局。
+          </p>
+
+          <p>
+            以红方第一步兵七进一为例，黑方最主流的应对走法是卒底炮（炮2平3）和对卒（卒7进1），其次是飞象（象3进5）和起马（马8进7），另外还有中炮（炮8平5）和过宫炮（炮8平4）等较冷门的应对走法。限于篇幅，本文只能简介一些较主流的变化。
+          </p>
+
+          <h2>一、卒底炮</h2>
+
+          <p>
+            仙人指路对卒底炮是一个庞大的布局体系，可与中炮对屏风马相媲美。在黑方走出卒底炮后，红方第二回合又有多种走法可选择：右中炮（炮二平五）、左中炮（炮八平五）、右相（相三进五）、左相（相七进五）、右正马（马二进三）、左边马（马八进九）、补士（士六进五）。其中右中炮是最主流、也是仙人指路布局中最复杂的变化。
+          </p>
+
+          <p>
+            在红方走出右中炮后，黑方有四种应对走法：右象（象3进5）、左象（象7进5）、顺炮（炮8平5）、起马（马8进7）。其中右象是最主流变化。
+          </p>
+
+          <p>
+            在黑方走出右象后，红方有六种主要走法：右正马（马二进三）、左边马（马八进九）、左正马（马八进七）、打中卒（炮五进四）、补士（士六进五）、边相（相七进九）。其中右正马是最主流变化。
+          </p>
+
+          <h2>二、对卒</h2>
+
+          <p>
+            在黑方走出对卒后，红方有两种主流走法：兵底炮（炮二平三）和起马（马八进七）。此外，红方还能走左中炮（炮八平五）或右中炮（炮二平五），演变为中炮开局；也可走左士角炮（炮八平六）、右相（相三进五）等，演变为散手开局。
+          </p>
+
+          <h2>三、飞象</h2>
+
+          <p>
+            飞象类似于对卒，红方可以选择局势的走向，既可以演变为中炮开局，也可以演变为散手开局。
+          </p>
+
+          <h2>四、起马</h2>
+
+          <p>
+            在黑方走出起马后，红方一般会走两头蛇（兵三进一）。之后黑方有三步虎（炮8平9）、卒底炮（炮2平3）、横车（车9进1）等变化可选。
+          </p>
+        </div>
+
+        <div class="opening-article-page__notice">
+          <span>声明：此篇为相弈象棋 Xiangqi.com 原创文章，转载请标明出处链接：</span>
+          <a href="https://www.zh.xiangqi.com/tcn/opening-angels-guide.html" target="_blank" rel="noreferrer">
+            https://www.zh.xiangqi.com/tcn/opening-angels-guide.html
+          </a>
+        </div>
+
+        <div class="opening-article-page__share">
+          <span class="opening-article-page__share-label">分享</span>
+          <div class="opening-article-page__share-list">
+            {shareItems.map((item) => (
+              <span>{item}</span>
+            ))}
+          </div>
+        </div>
+
+        <nav class="opening-article-page__pager" aria-label="文章分页">
+          <a href="/tcn/opening-central-cannon.html">上一篇：中炮布局主流变化简介 - 相弈象棋</a>
+          <a href="/tcn/articles/five-chinese-chess-deployment-tactics.html">下一篇：5个中国象棋运子战术 - 相弈象棋</a>
+        </nav>
+      </article>
+    </div>
+  </section>
+</ReplicaLayout>
+
+<style is:global>
+  body[data-route="/tcn/opening-angels-guide.html"] {
+    background: #ede8e0;
+  }
+
+  body[data-route="/tcn/opening-angels-guide.html"] main {
+    min-height: 0;
+  }
+
+  .opening-article-page {
+    padding: 34px 0 72px;
+    background: linear-gradient(180deg, rgba(237, 232, 224, 0.96) 0%, rgba(237, 232, 224, 1) 100%);
+  }
+
+  .opening-article-page__shell {
+    width: min(1240px, calc(100vw - 32px));
+    margin: 0 auto;
+  }
+
+  .opening-article-page__article {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 54px) clamp(18px, 3vw, 44px) clamp(28px, 4vw, 44px);
+    background: #f8f4ef;
+    border: 1px solid rgba(204, 192, 181, 0.55);
+    box-shadow: 0 16px 48px rgba(102, 79, 76, 0.08);
+  }
+
+  .opening-article-page__header h1 {
+    margin: 0;
+    color: #664f4c;
+    font-size: clamp(1.95rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .opening-article-page__eyebrow {
+    margin: 0 0 12px;
+    color: #be342d;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .opening-article-page__author {
+    margin: 14px 0 0;
+    color: #7e5f5a;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .opening-article-page__content {
+    margin-top: clamp(22px, 3vw, 30px);
+    color: #4c403c;
+  }
+
+  .opening-article-page__content p {
+    margin: 0;
+    font-size: clamp(1rem, 1.35vw, 1.125rem);
+    line-height: 2;
+    text-align: justify;
+  }
+
+  .opening-article-page__content p + p,
+  .opening-article-page__content h2 + p,
+  .opening-article-page__content p + h2 {
+    margin-top: 18px;
+  }
+
+  .opening-article-page__content h2 {
+    margin: 34px 0 0;
+    color: #201818;
+    font-size: clamp(1.35rem, 2.15vw, 1.85rem);
+    line-height: 1.4;
+  }
+
+  .opening-article-page__notice {
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.18);
+    color: #6a5752;
+    font-size: 0.98rem;
+    line-height: 1.85;
+  }
+
+  .opening-article-page__notice a {
+    color: #be342d;
+    word-break: break-all;
+  }
+
+  .opening-article-page__share {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.12);
+  }
+
+  .opening-article-page__share-label {
+    color: #664f4c;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .opening-article-page__share-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .opening-article-page__share-list span {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(190, 52, 45, 0.08);
+    color: #7b2d28;
+    font-size: 0.92rem;
+  }
+
+  .opening-article-page__pager {
+    display: grid;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(190, 52, 45, 0.12);
+  }
+
+  .opening-article-page__pager a {
+    color: #664f4c;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .opening-article-page__pager a:hover {
+    color: #be342d;
+  }
+
+  @media (max-width: 720px) {
+    .opening-article-page {
+      padding: 18px 0 52px;
+    }
+
+    .opening-article-page__article {
+      padding-inline: 16px;
+    }
+
+    .opening-article-page__share {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>
