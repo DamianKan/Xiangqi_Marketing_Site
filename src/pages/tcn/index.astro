@@ -1,14 +1,597 @@
 ---
 import ReplicaLayout from "../../layouts/ReplicaLayout.astro";
-import ReplicaPageView from "../../components/replica/ReplicaPage.astro";
-import { getReplicaPageByRoute } from "../../data/replica";
 
-const page = getReplicaPageByRoute("/tcn/");
-if (!page) {
-  throw new Error("Missing replica home page data");
-}
+const pageTitle = "下象棋對弈遊戲軟件 | 中國象棋在線玩免費 | 真人人機對戰 - 相弈象棋";
+const pageDescription =
+  "通過相弈象棋軟件平台便可以輕松實現線上中國象棋對弈，中國象棋在線玩，不受時間地點限制在線下象棋。馬上進行在線象棋對戰吧！作為最國際化的線上象棋對戰遊戲平台，相弈象棋軟件平台上有著來自世界各地超過四十個國家的棋手，是借助象棋對弈結交國際友人的最佳選擇。玩家可以在網頁版或手機 app 象棋在線平台根據個人喜好選擇中國象棋真人對戰或中國象棋人機對戰進行象棋在線對弈。";
+
+const sourceImages = {
+  heroDesktop: "/source-tcn/hero-desktop.webp",
+  heroMobile: "/source-tcn/hero-mobile.png",
+  introGlobe: "/source-tcn/intro-globe.png",
+  featureVersus: "/source-tcn/feature-versus.png"
+};
+
+const introParagraphs = [
+  "想要安在舒適的家中亦可以象棋遊戲在線玩嗎？通過相弈象棋軟件平台便可以輕松實現線上中國象棋對弈，不受時間地點限制，中國象棋想玩就玩。對於廣大中國象棋愛好者而言，現在只需通過智能手機或電腦，即可享受隨時隨地免費象棋在線玩的便利。相弈象棋 app 版及網頁版象棋軟件都是完全免費，免費象棋在線玩，不收取一分一毫，並設多種在線象棋功能，讓中國象棋愛好者提升棋藝水平。",
+  "走進中國象棋的世界，享受智慧的對決，立即使用相弈象棋，開啟您的中國象棋之旅！不論是為了在線下象棋消磨時間，還是為了提升象棋棋藝，相弈象棋軟件平台都是一個極佳的選擇。"
+];
+
+const featureLead = {
+  title: "雙人在線象棋對戰",
+  body: [
+    "創建中國象棋雙人聯機對局及加入他人已創建在線象棋對局進行中國象棋真人對戰：象棋玩家可以選擇不同局時、加秒、步時、先後手等去下象棋。除此之外，相弈象棋軟件平台亦支持雙人在線象棋對戰非即時對局功能，協助象棋玩家擺脫一般中國象棋真人對戰設有的時間限制，隨時隨地進行線上中國象棋對弈，享受象棋遊戲在線玩的樂趣。中國象棋真人對戰結束後，象棋玩家可以使用線上 AI 中國象棋分析功能進行象棋對局分析，並透過我們的「研究」功能推演中國象棋棋局，從而提升下象棋水平。"
+  ]
+};
+
+const sections = [
+  {
+    title: "中國象棋遊戲在線玩 在線下象棋提升技能",
+    body: [
+      "相弈象棋軟件平台的中國象棋在線玩提供了無限的機會來提升象棋玩家的下象棋水平和戰術能力。相弈象棋提供豐富的中國象棋學習資源，大量象棋棋譜，名局解析，讓您在娛樂中學習，提高棋力。象棋在線玩不僅是娛樂，更是一個充滿學習中國象棋機會的寶庫。"
+    ]
+  },
+  {
+    title: "中國象棋促進邏輯思維能力",
+    body: [
+      "中國象棋是一種高智商的策略遊戲，需要象棋玩家具備深思熟慮、邏輯推理和戰略規劃的能力。通過中國象棋在線玩經常進行中國象棋對局，象棋玩家可以鍛煉自己的思維能力，提高自己的邏輯思維和戰略規劃能力。象棋在線玩中的鍛煉不僅能夠在象棋遊戲中得到體現，還能夠在現實生活中產生積極的影響，使象棋玩家在日常生活中更加理性、條理清晰，幫助他們更好地應對各種複雜的情況和問題。"
+    ]
+  },
+  {
+    title: "中國象棋人機對戰",
+    body: [
+      "中國象棋人機對戰是象棋在線玩的起點，以及中國象棋真人對戰的重要前哨。相弈象棋軟件平台精心設計的中國象棋人機對戰功能，設有五個從易到難的不同等級供象棋玩家逐級挑戰與電腦進行中國象棋對弈，為中國象棋真人對戰做好准備。中國象棋人機對戰中初級的電腦對手下象棋水平並不高，是初學象棋者熟習中國象棋對弈的良伴。當象棋玩家能擊敗初級難度後，便可挑戰下一級的電腦對手，進行更高水平的線上中國象棋人機對戰。"
+    ]
+  },
+  {
+    title: "難度適宜的中國象棋挑戰",
+    body: [
+      "中國象棋遊戲在線玩可以根據玩家的水平匹配象棋對手，確保每場中國象棋對弈都是具有挑戰性的。無論是初學象棋者還是中國象棋高手，都能夠找到合適的象棋對手進行對弈。對於初學象棋者來說，他們可以逐漸提升自己的中國象棋棋藝，而對於中國象棋高手來說，他們可以與同等水平甚至更高水平的象棋玩家展開激烈的較量，從中獲得更多的挑戰和成長。"
+    ]
+  },
+  {
+    title: "中國象棋殘局遊戲",
+    body: [
+      "精選中國象棋殘局闖關，透過相弈象棋軟件平台在線玩中國象棋殘局小遊戲提升下象棋水平。相弈象棋軟件平台題庫包括大量中國象棋殘局題目，匯聚了從初級到高級的各種中國象棋殘局挑戰，覆蓋各種經典或罕見的象棋棋局情況，讓中國象棋遊戲愛好者一方面享受在線象棋遊戲闖關的樂趣，另一方面透過象棋線上殘局小遊戲練習中國象棋對戰戰術。除此之外，象棋玩家還可使用自定義象棋殘局功能在相弈象棋軟件平台上自行設計及命名屬於自己的在線中國象棋殘局題目，然後分享予他人挑戰。"
+    ]
+  },
+  {
+    title: "全球象棋在線賽事",
+    body: [
+      "參與象棋在線賽事，和全球中國象棋高手進行中國象棋對弈決一高下！相弈象棋軟件平台的在線象棋賽事為棋手們提供了一個展示實力與交流棋藝的舞台，相弈象棋會每周舉辦中國象棋在線比賽，吸引了大量的中國象棋愛好者參與。在線象棋賽事分為不同的級別，包括業餘組組、專業組等，象棋玩家可以根據自己的象棋水平選擇參賽。在線象棋系統采用現實中國象棋賽事常見的積分循環制，配備象棋對手自動配對及排名功能，是在線玩中國象棋網上比賽的好去處。"
+    ]
+  },
+  {
+    title: "象棋等級分及排行榜",
+    body: [
+      "象棋玩家在相弈象棋在線平台完成一局雙人在線象棋評分對戰後，在線象棋系統會根據 elo 等級分系統進行增加或減少象棋玩家的等級分。當象棋玩家的等級分到達相弈象棋全平台或所屬國家前二十名時，就能夠登上相弈象棋的全球象棋玩家排行榜或各國象棋玩家排行榜，成為全平台矚目的焦點象棋玩家。"
+    ]
+  },
+  {
+    title: "國際化的象棋網上社群",
+    body: [
+      "相弈象棋的使命是向國際推廣中國象棋此一源遠流長的中華文化瑰寶，並提供象棋在線平台讓來自世界各國的中國象棋愛好者學習、享受、及交流。相弈象棋是網上唯一一個同時提供簡體中文、繁體中文、英文、及越南文界面的網頁版及 app 的中國象棋在線對弈平台，讓世界各地的中國象棋愛好者都可以在此無語言障礙享受象棋線上對弈的樂趣。相弈象棋軟件平台另外亦提供圖形棋子選項，協助不諳漢字的國際友人學習中國象棋。"
+    ]
+  },
+  {
+    title: "向高水平象棋選手學習",
+    body: [
+      "中國象棋博大精深，觀看高水平象棋選手的對局是提高象棋水平的有效途徑之一。在相弈象棋平台上，象棋玩家可以通過觀看中國象棋大師級別的對局，學習他們的開局、中局和殘局技巧，領悟他們的思維方式和決策過程。象棋高手的每一步棋都可能蘊含深意，觀看並分析他們的中國象棋對局可以幫助你開闊視野，見識不同的戰術組合和變化，並提高自己的象棋戰術和戰略意識。每個象棋高手也有自己獨特的棋風和戰術偏好，象棋玩家可以選擇一些自己欣賞和喜愛的高水平象棋選手，模仿他們的棋風和戰術，在象棋對局中應用並逐步融入自己的棋局風格之中。"
+    ]
+  },
+  {
+    title: "不同設備，同樣在線象棋享受",
+    body: [
+      "相弈象棋提供免安裝的網頁版象棋遊戲在線玩，象棋玩家可使用桌上及手提電腦、平板電腦、智能手機在瀏覽器直接打開象棋在線平台盡情線上 online 免費暢玩中國象棋電腦版去下象棋。不過，如果平板電腦及智能手機用戶想有更好的在線象棋遊玩體驗，也可到 Google Play Store 或 App Store 下載我們的中國象棋 app。相弈象棋 App 和網頁版有著完全一樣的中國象棋雙人對弈、人機對戰、殘局小遊戲功能，象棋玩家可在 App 上享用和網頁版一樣的中國象棋體驗。"
+    ]
+  },
+  {
+    title: "免實名登記注冊",
+    body: [
+      "象棋玩家能夠以訪客身份直接進入象棋遊戲大廳與電腦對戰中國象棋及觀看其他玩家之間的象棋對弈。如果希望使用相弈象棋軟件平台更多功能，例如跟其他棋手進行 online 即時或非即時中國象棋雙人對戰、線上挑戰中國象棋殘局小遊戲、參與在線中國象棋賽事、使用 AI 引擎分析覆盤等，則需要使用電子郵件注冊帳號。"
+    ]
+  },
+  {
+    title: "中國象棋在線玩的禮儀",
+    body: [
+      "在中國象棋遊戲在線玩中，遵守禮儀是建立良好遊戲環境和維護玩家間尊重的關鍵。中國象棋中除了基本的體育精神和公平競爭外，還有一些特定的禮儀准則可以幫助確保象棋遊戲的順利進行和象棋玩家間的良好互動。",
+      "首先，在中國象棋中尊重對手是至關重要的。無論是贏是輸，都要尊重對手。盡管在激烈的中國象棋比賽中情緒可能會高漲，但要保持冷靜和理智，避免情緒失控影響象棋遊戲進行和玩家間的互動，要注意言行舉止，避免使用攻擊性或不適當的語言，也要保持體面和禮貌，避免使用侮辱性言語或挑釁行為。其次，遵守遊戲規則是中國象棋遊戲在線玩的基本原則之一，不得作弊獲取不正當優勢。如果遇到作弊行為或不當舉動，可以向平台管理員投訴，而不是采取個人報複或惡言相向。相弈象棋平台會采取措施來檢測和懲罰作弊行為，確保所有人都能公平、愉快地享受中國象棋對戰。"
+    ]
+  },
+  {
+    title: "在線下象棋的未來趨勢",
+    body: [
+      "隨著人工智能和機器學習技術的迅速發展，中國象棋的生態也有所改變，我們可以預見這些技術將在在線下象棋中發揮越來越重要的作用。智能算法可以幫助象棋玩家分析棋局、制定戰術，並提供個性化的中國象棋學習建議。此外，人工智能還可以用於創建更加智能和逼真的虛擬象棋對手，為象棋玩家提供更具挑戰性的象棋遊戲體驗。",
+      "除了傳統的中國象棋對局模式，未來的在線下象棋可能會引入更多的社交互動和團隊對戰功能。象棋玩家可以與好友組成團隊，共同參加比賽，分享棋局分析和策略。象棋團隊對戰的形式將增加象棋遊戲的趣味性和社交性，吸引更多的象棋玩家加入。",
+      "此外，隨著全球化進程的不斷推進，在線下象棋將更加多元化和國際化。象棋玩家可以與來自世界各地的象棋對手進行比賽，了解不同文化背景下的象棋風格和策略。中國象棋全球化的發展將為玩家提供更廣闊的視野和學習機會，推動在線下象棋的持續發展和壯大。"
+    ]
+  }
+];
+
+const articleCards = [
+  {
+    title: "2024越南全国象棋个人赛-武国达爆冷夺冠",
+    href: "/tcn/sys-nd/17.html",
+    image: "/source-tcn/article-vn-champ.png",
+    excerpt:
+      "黑馬出击,爆冷連场记2024年越南全国个人赛(4月13至22日在巴地头顿市举行) 越南全国个人锦标赛，自1992年始，是全国最高水平比赛，也是多地区为签约运动员提供津贴待遇的专业依据。"
+  },
+  {
+    title: "飛相布局主流變化簡介",
+    href: "/tcn/opening-elephant.html",
+    image: "/source-tcn/article-elephant.jpg",
+    excerpt:
+      "飛相布局第一步加固中路，並基本上排除後補中炮的可能，在中路采取防守態勢，旨在先鞏固陣型再伺機進攻。"
+  },
+  {
+    title: "中炮布局主流變化簡介",
+    href: "/tcn/opening-central-cannon.html",
+    image: "/source-tcn/article-central-cannon.jpg",
+    excerpt:
+      "中炮布局第一步便瞄准黑方中卒，對黑將形成遠程威懾，是進攻性最強的布局。"
+  }
+];
+
+const faqs = [
+  {
+    question: "下中國象棋有什麼好處？",
+    answer:
+      "下中國象棋對於象棋玩家的身心都有多方面的好處。以下是一些主要的下象棋益處：提高智力，下象棋需要持續的邏輯推理和決策制定，有助於提高邏輯思維能力；提升記憶力，經常下象棋可以鍛煉短期和長期記憶力；注意力集中，下象棋需要持續的注意力；耐心練習，中國象棋棋局可能持續很長時間；情緒管理，下象棋贏棋時要保持謙遜，輸棋時要學會控制情緒；社交互動，與不同的人下象棋可以增進社交技能和跨文化交流；預防老年癡呆，下象棋保持長期的腦力活動有助於延緩或預防老年癡呆等腦部退化性疾病。"
+  },
+  {
+    question: "為什麼選擇象棋在線玩？",
+    answer:
+      "隨著互聯網的普及和數字化技術的發展，在繁忙的現代生活中越來越多象棋愛好者傾向於選擇象棋在線玩，這並非偶然。象棋遊戲在線玩讓人們能夠隨時隨地享受中國象棋這個曆史悠久的遊戲，只需打開電腦或手機，即可開始一場令人興奮的中國象棋對弈。不同於傳統的中國象棋桌面遊戲，在線象棋平台通常提供各種各樣的象棋遊戲模式，包括快速象棋對局、定時賽和團隊比賽，滿足不同玩家需求，並提供棋譜分析、視頻教程、棋局回放等學習資源。"
+  },
+  {
+    question: "想在線下象棋，有哪些好用的中國象棋 app 或中國象棋網頁版對戰平台推薦？",
+    answer:
+      "中國象棋是一個既能鍛煉思維、又可愉悅身心的益智遊戲，在東亞已廣受歡迎過千年之久。作為最國際化的線上象棋遊戲對戰平台，相弈象棋上有著來自世界各地超過四十個國家的象棋棋手，是借助象棋對弈結交國際友人的最佳選擇。象棋玩家可以在網頁版或手機 app 中國象棋平台根據個人喜好選擇在線中國象棋真人對戰或中國象棋人機對戰進行在線象棋對弈，中國象棋對弈結束後，亦可使用平台的對戰後分析功能進行覆盤查找不足。"
+  },
+  {
+    question: "有沒有不限時間的中國象棋 app 或中國象棋網頁版的在線象棋對戰？",
+    answer:
+      "相弈象棋 app 版及網頁版象棋軟件提供非即時象棋在線對戰功能，已注冊玩家可以創建或加入沒有局時的在線中國象棋對局，從而不受時間空間所限享受在線象棋對弈的樂趣。雖然非即時象棋對戰沒有步時，但創建非即時象棋在線雙人對戰時，玩家還是需要選擇對戰的步時。相弈象棋非即時象棋雙人對戰的步時最少為一日，最多是十四日。"
+  },
+  {
+    question: "相弈象棋有可以用電腦玩的免安裝網頁版象棋遊戲嗎？",
+    answer:
+      "相弈象棋提供免安裝網頁版象棋遊戲，象棋玩家可使用桌上及手提電腦、平板電腦、智能手機在瀏覽器直接打開平台盡情線上 online 暢玩中國象棋。不過，如果平板電腦及智能手機用戶想有更好的象棋遊戲遊玩體驗，也可到 Google Play Store 或 App Store 下載中國象棋 app。"
+  },
+  {
+    question: "如何在相弈象棋遊戲平台和其他玩家進行中國象棋真人對戰及雙人象棋對弈？",
+    answer:
+      "注冊及驗證帳戶後，你可以在象棋遊戲大廳創建中國象棋線上對局等待其他玩家加入、加入遊戲大廳上已創建的中國象棋對局，或者向其他玩家發送象棋在線遊戲對局邀請進行在線象棋對戰。如果你想在與真人進行線上象棋對弈前多加准備，亦可在遊戲大廳上選擇與電腦進行中國象棋人機對戰。"
+  },
+  {
+    question: "我可以觀看其他象棋玩家的在線象棋對戰嗎？",
+    answer:
+      "可以。相弈象棋軟件平台提供觀看其他玩家在線象棋對戰的功能，除非該象棋玩家設定了免打擾的私人在線象棋對戰模式，否則您可以觀察象棋高手的象棋對弈，學習他們的象棋策略和戰術。平台提供觀戰區，您可以查看不同中國象棋對局的信息，包括棋手等級、對局狀態等，並實時觀看每一步走棋。"
+  },
+  {
+    question: "我可以進行免打擾的私人在線象棋對戰嗎？",
+    answer:
+      "可以。相弈象棋軟件平台提供私人在線象棋雙人對戰功能，象棋玩家在相弈象棋遊戲大廳創建在線象棋對局時，可以選擇私人在線象棋對弈的選項。私人象棋對戰並不會向其他象棋玩家展示，因此可以在不受打擾的情況下進行象棋線上對弈。不過，由於私人象棋對戰不會在相弈象棋遊戲大廳展示，因此對局創建者需要直接向其他用戶發送象棋遊戲邀請。"
+  },
+  {
+    question: "中國象棋遊戲在線玩如何找到適合我程度的象棋對手？",
+    answer:
+      "相弈象棋遊戲平台上的中國象棋遊戲在線玩有不同程度和不同水平的象棋玩家，您可以根據自己的象棋水平選擇合適的象棋對手進行在線象棋對戰。此外，平台還提供智能匹配系統，可以自動根據您的象棋水平和偏好為您尋找及匹配合適的象棋對手。"
+  },
+  {
+    question: "相弈象棋平台有什麼特色象棋遊戲功能？",
+    answer:
+      "為豐富象棋遊戲在線玩的體驗，相弈象棋平台提供多種特色象棋遊戲功能。在相弈象棋平台進行在線象棋對戰時，象棋玩家可以使用「預設走子」功能在象棋對手走子前輸入預設象棋招法；象棋玩家及象棋觀戰者亦可設置「棋盤方向」翻轉象棋棋盤。為了協助非華語象棋玩家入門中國象棋，平台在傳統漢字棋子外，亦提供圖形象棋棋子選項。"
+  },
+  {
+    question: "我下象棋老是輸棋，應該怎麼辦？",
+    answer:
+      "下象棋老是輸棋與象棋棋藝不夠熟練有關，應該循序漸進改善象棋棋藝。首先，你應該閱讀相弈象棋網頁上的中國象棋新手入門教學，了解開局、中局、殘局三個階段的戰術手段、戰略原則及學習方法。然後，你可以在平台中的中國象棋人機對戰功能選擇適合自己的難度進行練習。最後，在每次中國象棋真人對戰結束後，可以使用在線象棋 AI 複盤功能分析自己的棋局。"
+  },
+  {
+    question: "相弈象棋平台的在線象棋 AI 複盤功能使用了什麼技術？",
+    answer:
+      "我們的在線象棋 AI 複盤功能使用了目前最先進的中國象棋 NNUE 神經網絡技術。NNUE 神經網絡通過不斷學習大量的中國象棋棋局數據，以達到不斷提高分析質量。NNUE 能夠快速適應中國象棋棋局的變化，對棋局進行實時評估，即使在棋局中發生微小變化時也能做出高效更新，並提供更加接近人類直覺的棋局分析。"
+  },
+  {
+    question: "象棋在線玩有沒有年齡限制？",
+    answer:
+      "下象棋是有益身心的活動，象棋在線玩對玩家的年齡並沒有具體的限制，無論年紀大小，都可以在相弈象棋平台上享受下象棋的樂趣。然而，考慮到互聯網的開放性和未成年人的保護問題，如果象棋玩家未滿特定年齡，需要家長或監護人同意才能在平台創建賬戶。"
+  },
+  {
+    question: "相弈象棋在線平台有什麼社交功能？",
+    answer:
+      "相弈象棋在線平台提供多種社交功能，例如添加好友、聊天室和討論區等，讓象棋玩家可以與其他中國象棋愛好者交流，分享象棋心得和結交志同道合的中國象棋愛好者。"
+  },
+  {
+    question: "我可以在象棋遊戲在線玩上與世界各地的中國象棋愛好者及象棋玩家對戰嗎？",
+    answer:
+      "可以。在相弈象棋在線平台裏有來自世界各地的中國象棋愛好者及象棋玩家，您可以與他們進行中國象棋對弈，與不同國家的中國象棋愛好者及象棋玩家下象棋可以體驗不同地方和文化的象棋對弈風格和策略。"
+  },
+  {
+    question: "在在線象棋對戰進行時，我如何與象棋對手交流？",
+    answer:
+      "相弈象棋軟件平台提供內建的聊天功能，讓象棋玩家可以在在線象棋對戰進行時與對手進行文字聊天。這個功能可以用於交流中國象棋對弈中的策略、禮貌聊天和建立友誼。"
+  },
+  {
+    question: "我可以在相弈象棋軟件平台上建立自己的中國象棋棋譜庫嗎？",
+    answer:
+      "可以。相弈象棋軟件平台提供建立個人中國象棋棋譜庫的功能，讓象棋玩家可以存儲和管理自己及其他玩家的在線象棋對戰記錄，有助於回顧和分析自己及別人的中國象棋對弈表現，找出改進的空間並加速棋藝成長。"
+  },
+  {
+    question: "中國象棋遊戲在線玩是否提供排行榜功能？",
+    answer:
+      "中國象棋遊戲在線玩有提供排行榜功能，讓象棋玩家可以查看自己在象棋在線平台上的排名和積分情況，並與其他象棋玩家進行比較，激勵象棋玩家努力提升自己的下象棋水平，並追求更高的排名。對於國際象棋玩家，我們也會提供不同國家或地區的排行榜。"
+  },
+  {
+    question: "相弈象棋在線平台支持什麼語言？",
+    answer:
+      "相弈象棋在線平台致力於為全球用戶提供服務，提供多語言界面的象棋遊戲內容，包括簡體中文、繁體中文、英文及越南文，讓象棋玩家可以選擇使用自己熟悉的語言進行象棋遊戲在線玩。"
+  },
+  {
+    question: "如果我在在線下象棋時中遇到問題該怎麼辦？",
+    answer:
+      "如果您在在線下象棋時遇到任何問題，可以點擊查看相弈象棋平台的幫助中心或者聯系客服支持，以獲得幫助和解決方案。如果對於在線下象棋有任何意見，也歡迎聯絡我們，我們會力確保玩家下象棋時體驗良好，流暢無誤。"
+  }
+];
 ---
 
-<ReplicaLayout title={page.title} description={page.description} route={page.route} locale={page.locale}>
-  <ReplicaPageView page={page} />
+<ReplicaLayout
+  title={pageTitle}
+  description={pageDescription}
+  route="/tcn/"
+  locale="zh-Hant"
+  image="/mirror/31680567.s21i.faiusr.com_4_2_ABUIABAEGAAgxJiQqYortvS7AMw7w448gQ.png"
+>
+  <div class="tcn-home">
+    <section class="tcn-hero">
+      <picture class="tcn-hero__art">
+        <source media="(max-width: 768px)" srcset={sourceImages.heroMobile} />
+        <img src={sourceImages.heroDesktop} alt="" />
+      </picture>
+      <div class="tcn-hero__content">
+        <h1>馬上進行中國象棋<br />在線對戰吧！</h1>
+        <div class="tcn-hero__actions">
+          <a class="tcn-button" href="https://play.xiangqi.com/lobby?lang=zh-Hans" target="_blank" rel="noreferrer">開始遊戲</a>
+          <a class="tcn-button" href="https://play.xiangqi.com/account/signin?lang=zh-Hans" target="_blank" rel="noreferrer">登錄/註冊</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tcn-band">
+      <div class="tcn-shell tcn-band__grid">
+        <div class="tcn-band__image">
+          <img src={sourceImages.introGlobe} alt="免費象棋在線玩示意圖" loading="lazy" />
+        </div>
+        <div class="tcn-band__copy">
+          <h2>免費象棋在線玩</h2>
+          {introParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="tcn-shell tcn-feature">
+      <div class="tcn-feature__copy">
+        <h2>{featureLead.title}</h2>
+        {featureLead.body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <div class="tcn-feature__image">
+        <img src={sourceImages.featureVersus} alt="中國象棋雙人對戰示意圖" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="tcn-shell tcn-sections">
+      {sections.map((section, index) => (
+        <article class="tcn-section">
+          <div class="tcn-section__copy">
+            <h2>{section.title}</h2>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="tcn-articles">
+      <div class="tcn-shell">
+        <div class="tcn-section-heading">
+          <h2>教學文章</h2>
+          <a href="/tcn/sys-nr/">更多</a>
+        </div>
+        <div class="tcn-article-grid">
+          {articleCards.map((card) => (
+            <a class="tcn-article-card" href={card.href}>
+              <img src={card.image} alt={card.title} loading="lazy" />
+              <div class="tcn-article-card__body">
+                <h3>{card.title}</h3>
+                <p>{card.excerpt}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="tcn-faq">
+      <div class="tcn-shell">
+        <h2>常見問題</h2>
+        <div class="tcn-faq__list">
+          {faqs.map((item, index) => (
+            <details class="tcn-faq__item" open={index === 0}>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
 </ReplicaLayout>
+
+<style>
+  :global(body[data-route="/tcn/"]) {
+    background: #ede8e0;
+    color: #664f4c;
+  }
+
+  .tcn-home {
+    --tcn-red: #be342d;
+    --tcn-red-dark: #8f261f;
+    --tcn-paper: #ede8e0;
+    --tcn-text: #664f4c;
+    --tcn-shell: min(1120px, calc(100vw - 2rem));
+  }
+
+  .tcn-shell {
+    width: var(--tcn-shell);
+    margin: 0 auto;
+  }
+
+  .tcn-hero {
+    position: relative;
+    min-height: 470px;
+    overflow: clip;
+    background: linear-gradient(180deg, #f0ebe4 0%, #f0ebe4 58%, #e6ddd1 100%);
+  }
+
+  .tcn-hero__art {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .tcn-hero__art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .tcn-hero__content {
+    position: relative;
+    z-index: 1;
+    width: var(--tcn-shell);
+    margin: 0 auto;
+    padding: 6.25rem 0 4.25rem;
+    text-align: center;
+  }
+
+  .tcn-hero h1 {
+    margin: 0;
+    font-size: clamp(2.3rem, 4.8vw, 4.35rem);
+    line-height: 1.12;
+    color: var(--tcn-text);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  .tcn-hero__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .tcn-button {
+    min-width: 168px;
+    padding: 0.95rem 1.8rem;
+    border: 5px solid #fff;
+    border-radius: 999px;
+    background: #be342d;
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(95, 21, 18, 0.18);
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .tcn-button:hover {
+    transform: translateY(-2px);
+    background: #c75851;
+  }
+
+  .tcn-band {
+    background: var(--tcn-red);
+    color: #fff;
+    padding: 4rem 0 4.5rem;
+  }
+
+  .tcn-band__grid,
+  .tcn-feature {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(0, 1.15fr);
+    gap: clamp(1.5rem, 4vw, 4.25rem);
+    align-items: center;
+  }
+
+  .tcn-band__image img,
+  .tcn-feature__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .tcn-band__copy h2,
+  .tcn-feature__copy h2,
+  .tcn-section h2,
+  .tcn-section-heading h2,
+  .tcn-faq h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    line-height: 1.16;
+  }
+
+  .tcn-band__copy p,
+  .tcn-feature__copy p,
+  .tcn-section p,
+  .tcn-faq p {
+    margin: 0 0 1rem;
+    font-size: 1.08rem;
+    line-height: 2;
+  }
+
+  .tcn-feature {
+    padding: 4rem 0 2rem;
+  }
+
+  .tcn-sections {
+    padding: 0.5rem 0 3rem;
+  }
+
+  .tcn-section {
+    padding: 1.35rem 0;
+  }
+
+  .tcn-articles {
+    border-top: 1px solid rgba(102, 79, 76, 0.35);
+    padding: 3.5rem 0 4rem;
+  }
+
+  .tcn-section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tcn-section-heading a {
+    color: var(--tcn-text);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .tcn-article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tcn-article-card {
+    display: block;
+    overflow: hidden;
+    background: #f5f0e7;
+    border: 1px solid rgba(102, 79, 76, 0.12);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .tcn-article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(83, 55, 47, 0.12);
+  }
+
+  .tcn-article-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tcn-article-card__body {
+    padding: 1rem 1rem 1.25rem;
+  }
+
+  .tcn-article-card__body h3 {
+    margin: 0 0 0.7rem;
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+
+  .tcn-article-card__body p {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.8;
+  }
+
+  .tcn-faq {
+    border-top: 1px solid rgba(102, 79, 76, 0.35);
+    padding: 3.75rem 0 4.5rem;
+  }
+
+  .tcn-faq__list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .tcn-faq__item {
+    border-bottom: 1px solid rgba(102, 79, 76, 0.18);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .tcn-faq__item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .tcn-faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .tcn-faq__item p {
+    padding: 0 0 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .tcn-band__grid,
+    .tcn-feature,
+    .tcn-article-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tcn-hero {
+      min-height: 360px;
+    }
+
+    .tcn-hero__content {
+      padding: 4.5rem 0 3rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tcn-home {
+      --tcn-shell: calc(100vw - 1.25rem);
+    }
+
+    .tcn-band {
+      padding: 3rem 0 3.25rem;
+    }
+
+    .tcn-band__copy p,
+    .tcn-feature__copy p,
+    .tcn-section p,
+    .tcn-faq p {
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .tcn-button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>
