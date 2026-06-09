@@ -20,6 +20,13 @@ jobs:
             mkdir -p ~/.ssh
             ssh-keyscan -H 47.118.30.206 >> ~/.ssh/known_hosts
 
+      
+      - run:
+          name: Install rsync
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y rsync
+
       - run:
           name: Deploy
           command: |
