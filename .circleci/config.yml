@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Deploy
           command: |
-            scp -r dist/* root@47.118.30.206:/var/www/xiangqi/
+            rsync -az --delete dist/ root@47.118.30.206:/var/www/xiangqi/
 
 workflows:
   deploy:
