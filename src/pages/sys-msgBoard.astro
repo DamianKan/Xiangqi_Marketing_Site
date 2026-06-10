@@ -1,4 +1,16 @@
 ---
+import StructuredData from "../components/StructuredData.astro";
+import { buildWebPageStructuredData } from "../utils/structuredData";
+
+const pageTitle = "留言板 - 相弈象棋";
+const pageDescription = "相弈象棋留言板页面，包含姓名、邮箱、电话、内容输入项与全部留言空状态展示。";
+const pageStructuredData = buildWebPageStructuredData({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "https://www.zh.xiangqi.com/sys-msgBoard/",
+  imageUrl: "https://www.zh.xiangqi.com/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico"
+});
+
 const helpLinks = [
   { label: "开启象棋之旅", href: "/help/" },
   { label: "好友对战", href: "/play-with-a-friend/" },
@@ -57,12 +69,13 @@ const socialLinks = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>留言板 - 相弈象棋</title>
+    <title>{pageTitle}</title>
     <meta
       name="description"
-      content="相弈象棋留言板页面，包含姓名、邮箱、电话、内容输入项与全部留言空状态展示。"
+      content={pageDescription}
     />
     <link rel="icon" href="/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico" />
+    <StructuredData data={pageStructuredData} />
   </head>
   <body class="msgboard-page">
     <header class="msgboard-header">

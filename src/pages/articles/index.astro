@@ -1,5 +1,14 @@
 ---
+import StructuredData from "../../components/StructuredData.astro";
+import { buildWebPageStructuredData } from "../../utils/structuredData";
+
 const target = "/sys-nr/";
+const pageTitle = "正在跳转 - 相弈象棋";
+const pageStructuredData = buildWebPageStructuredData({
+  title: pageTitle,
+  description: "相弈象棋教学文章页跳转入口。",
+  canonical: "https://www.zh.xiangqi.com/articles/"
+});
 ---
 
 <!doctype html>
@@ -8,7 +17,8 @@ const target = "/sys-nr/";
     <meta charset="utf-8" />
     <meta http-equiv="refresh" content={`0; url=${target}`} />
     <link rel="canonical" href={target} />
-    <title>正在跳转 - 相弈象棋</title>
+    <title>{pageTitle}</title>
+    <StructuredData data={pageStructuredData} />
   </head>
   <body>
     <p><a href={target}>前往教学文章页</a></p>

@@ -1,7 +1,18 @@
 ---
 import ReplicaHeader from "../../components/replica/ReplicaHeader.astro";
+import StructuredData from "../../components/StructuredData.astro";
+import { buildWebPageStructuredData } from "../../utils/structuredData";
 import "../../styles/replica.css";
 import "../../styles/privacy-source.css";
+
+const pageTitle = "隐私政策 - 相弈象棋";
+const pageDescription = "通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。";
+const pageStructuredData = buildWebPageStructuredData({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "https://www.zh.xiangqi.com/tcn/privacy/",
+  imageUrl: "https://www.zh.xiangqi.com/source-privacy/zh-logo.png"
+});
 
 const githubReleaseApkUrl =
   "https://github.com/Littline/xiangqi_apk/tcn/releases/download/v1.0/Xiangqi-v2.1.4-signed-China.apk";
@@ -114,21 +125,22 @@ const socialLinks = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>隐私政策 - 相弈象棋</title>
+    <title>{pageTitle}</title>
     <meta name="keywords" content="隐私条款,用户信息,用户数据" />
     <meta
       name="description"
-      content="通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。"
+      content={pageDescription}
     />
-    <link rel="canonical" href="https://zh.xiangqi.local/tcn/privacy/" />
-    <meta property="og:title" content="隐私政策 - 相弈象棋" />
+    <link rel="canonical" href="https://www.zh.xiangqi.com/tcn/privacy/" />
+    <meta property="og:title" content={pageTitle} />
     <meta
       property="og:description"
-      content="通过相弈象棋软件平台便可以轻松实现线上中国象棋对弈，中国象棋在线玩，不受时间地点限制在线下象棋。"
+      content={pageDescription}
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/source-privacy/zh-logo.png" />
     <link rel="icon" href="/source-privacy/mobile-logo.png" />
+    <StructuredData data={pageStructuredData} />
   </head>
   <body class="privacy-source-page privacy-source-page--zh">
     <ReplicaHeader locale="zh-Hant" />

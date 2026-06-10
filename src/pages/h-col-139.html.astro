@@ -1,10 +1,18 @@
 ---
 import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
+import StructuredData from "../components/StructuredData.astro";
 import { replicaAssets } from "../data/replica/assets";
+import { buildWebPageStructuredData } from "../utils/structuredData";
 import "../styles/replica.css";
 
 const pageTitle = "Xiangqi.com 相弈象棋";
 const pageDescription = "Xiangqi.com 页脚导航页面。";
+const pageStructuredData = buildWebPageStructuredData({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "https://www.zh.xiangqi.com/h-col-139.html",
+  imageUrl: "https://www.zh.xiangqi.com/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico"
+});
 
 const footerColumns = [
   {
@@ -73,8 +81,9 @@ const whatsappHref = "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <link rel="canonical" href="https://zh.xiangqi.local/h-col-139.html" />
+    <link rel="canonical" href="https://www.zh.xiangqi.com/h-col-139.html" />
     <link rel="icon" href="/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico" />
+    <StructuredData data={pageStructuredData} />
     <style>
       :root {
         --page-bg: #ca362c;

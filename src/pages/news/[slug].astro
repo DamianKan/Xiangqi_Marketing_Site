@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import articles from "../../data/articles.json";
+import site from "../../data/site.json";
+import { buildArticleStructuredData } from "../../utils/structuredData";
 
 export function getStaticPaths() {
   return articles.map((article) => ({
@@ -10,9 +12,25 @@ export function getStaticPaths() {
 }
 
 const { article } = Astro.props;
+const canonicalPath = `/news/${article.slug}/`;
+const canonical = new URL(canonicalPath, site.siteUrl).toString();
+const articleStructuredData = buildArticleStructuredData({
+  title: `${article.title} - 相弈象棋`,
+  description: article.description,
+  canonical,
+  imageUrl: new URL("/images/xiangqi-og.svg", site.siteUrl).toString(),
+  datePublished: article.date,
+  dateModified: article.updatedAt || article.updated,
+  authorName: article.author
+});
 ---
 
-<BaseLayout title={`${article.title} - 相弈象棋`} description={article.description} canonicalPath={`/news/${article.slug}/`}>
+<BaseLayout
+  title={`${article.title} - 相弈象棋`}
+  description={article.description}
+  canonicalPath={canonicalPath}
+  structuredData={articleStructuredData}
+>
   <article class="section">
     <div class="container content-panel">
       <p class="eyebrow">News</p>

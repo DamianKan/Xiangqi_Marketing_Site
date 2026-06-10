@@ -2,6 +2,7 @@
 import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
 import ReplicaFooter from "../components/replica/ReplicaFooter.astro";
 import StructuredData from "../components/StructuredData.astro";
+import { buildWebPageStructuredData, compactStructuredData } from "../utils/structuredData";
 import "../styles/global.css";
 import "../styles/replica.css";
 import site from "../data/site.json";
@@ -27,6 +28,11 @@ const {
 
 const canonical = new URL(canonicalPath, site.siteUrl).toString();
 const imageUrl = new URL(image, site.siteUrl).toString();
+const structuredDataItems = compactStructuredData(structuredData);
+const pageStructuredData =
+  structuredDataItems.length > 0
+    ? structuredDataItems
+    : buildWebPageStructuredData({ title, description, canonical, imageUrl });
 ---
 
 <!doctype html>
@@ -49,7 +55,7 @@ const imageUrl = new URL(image, site.siteUrl).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    {structuredData && <StructuredData data={structuredData} />}
+    <StructuredData data={pageStructuredData} />
   </head>
   <body data-locale="zh-CN" data-route={canonicalPath}>
     <ReplicaHeader locale="zh-CN" />
