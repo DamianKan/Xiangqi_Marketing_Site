@@ -1,51 +1,39 @@
 name: Build and Deploy
 
 on:
-  pull_request:
   push:
     branches:
       - main
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
         run: npm install
 
-      - name: Check Astro types
-        run: npm run check
-
-      - name: Build static site
+      - name: Build
         run: npm run build
 
-      - name: Upload preview artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: astro-dist
-          path: dist
-
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: astro-dist
-          path: dist
-
-      - name: Placeholder deploy step
+      - name: Setup SSH
         run: |
-          echo "在这里接入香港源站或 OSS 的正式发布脚本"
-          echo "发布完成后执行 CDN 刷新或缓存预热"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H 47.118.30.206 >> ~/.ssh/known_hosts
+
+      - name: Deploy
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o ServerAliveInterval=30" \
+            dist/ root@47.118.30.206:/var/www/xiangqi/
