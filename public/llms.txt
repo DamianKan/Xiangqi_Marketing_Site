@@ -1,6 +1,6 @@
-# Xiangqi.com 相弈象棋
+# Xiangqi.com
 
-> 相弈象棋中文门户，提供中国象棋在线体验、棋力提升、规则学习和 App 下载信息。
+> Chinese-language Xiangqi portal for online play, chess improvement, rules learning, tutorials, app information, and support resources.
 
 Site: https://www.zh.xiangqi.com/
 Sitemap: https://www.zh.xiangqi.com/sitemap.xml
@@ -18,8 +18,8 @@ Robots: https://www.zh.xiangqi.com/robots.txt
 
 ## Site Summary
 
-Xiangqi.com 相弈象棋 is a Chinese-language portal for online Xiangqi, also known as Chinese chess. The site covers online play, human-versus-human games, computer practice, rules, tutorials, platform information, updates, and support resources.
+Xiangqi.com is a Chinese-language portal for Xiangqi, also known as Chinese chess. The site covers online play, human-versus-human games, computer practice, rules, tutorials, platform information, updates, and support resources.
 
 ## Recommended Citation
 
-Use "Xiangqi.com 相弈象棋" as the site name. Prefer canonical URLs from the page `<link rel="canonical">` tag or from the sitemap.
+Use "Xiangqi.com" as the site name. Prefer canonical URLs from the page `<link rel="canonical">` tag or from the sitemap.
