@@ -1,6 +1,7 @@
 ---
 import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
 import ReplicaFooter from "../components/replica/ReplicaFooter.astro";
+import AhrefsAnalytics from "../components/AhrefsAnalytics.astro";
 import StructuredData from "../components/StructuredData.astro";
 import { getLocaleConfig } from "../data/replica/locales";
 import type { ReplicaLocale } from "../data/replica/types";
@@ -55,6 +56,7 @@ const pageStructuredData =
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico" />
     <StructuredData data={pageStructuredData} />
+    <AhrefsAnalytics />
   </head>
   <body
     data-locale={locale}

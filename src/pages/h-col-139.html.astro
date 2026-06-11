@@ -1,5 +1,6 @@
 ---
 import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
+import AhrefsAnalytics from "../components/AhrefsAnalytics.astro";
 import StructuredData from "../components/StructuredData.astro";
 import { replicaAssets } from "../data/replica/assets";
 import { buildWebPageStructuredData } from "../utils/structuredData";
@@ -84,6 +85,7 @@ const whatsappHref = "https://chat.whatsapp.com/FwV8PQjH1xVKKfocOGgKl5";
     <link rel="canonical" href="https://www.zh.xiangqi.com/h-col-139.html" />
     <link rel="icon" href="/mirror/31680567.s21i.faiusr.com_5_2_ABUIABAFGAAgwIXIqQYo5KSiSDCRATiRAQ.ico" />
     <StructuredData data={pageStructuredData} />
+    <AhrefsAnalytics />
     <style>
       :root {
         --page-bg: #ca362c;

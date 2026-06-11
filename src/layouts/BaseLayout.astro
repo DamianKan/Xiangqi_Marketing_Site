@@ -1,6 +1,7 @@
 ---
 import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
 import ReplicaFooter from "../components/replica/ReplicaFooter.astro";
+import AhrefsAnalytics from "../components/AhrefsAnalytics.astro";
 import StructuredData from "../components/StructuredData.astro";
 import { buildWebPageStructuredData, compactStructuredData } from "../utils/structuredData";
 import "../styles/global.css";
@@ -56,6 +57,7 @@ const pageStructuredData =
     <meta name="twitter:image" content={imageUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <StructuredData data={pageStructuredData} />
+    <AhrefsAnalytics />
   </head>
   <body data-locale="zh-CN" data-route={canonicalPath}>
     <ReplicaHeader locale="zh-CN" />

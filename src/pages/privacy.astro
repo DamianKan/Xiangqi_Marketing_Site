@@ -1,5 +1,6 @@
 ---
 import ReplicaHeader from "../components/replica/ReplicaHeader.astro";
+import AhrefsAnalytics from "../components/AhrefsAnalytics.astro";
 import StructuredData from "../components/StructuredData.astro";
 import { buildWebPageStructuredData } from "../utils/structuredData";
 import "../styles/replica.css";
@@ -141,6 +142,7 @@ const socialLinks = [
     <meta property="og:image" content="/source-privacy/zh-logo.png" />
     <link rel="icon" href="/source-privacy/mobile-logo.png" />
     <StructuredData data={pageStructuredData} />
+    <AhrefsAnalytics />
   </head>
   <body class="privacy-source-page privacy-source-page--zh">
     <ReplicaHeader locale="zh-CN" />

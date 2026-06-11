@@ -1,4 +1,5 @@
 ---
+import AhrefsAnalytics from "../../components/AhrefsAnalytics.astro";
 import StructuredData from "../../components/StructuredData.astro";
 import { buildWebPageStructuredData } from "../../utils/structuredData";
 
@@ -19,6 +20,7 @@ const pageStructuredData = buildWebPageStructuredData({
     <link rel="canonical" href={target} />
     <title>{pageTitle}</title>
     <StructuredData data={pageStructuredData} />
+    <AhrefsAnalytics />
   </head>
   <body>
     <p><a href={target}>前往教学文章页</a></p>
