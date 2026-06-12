@@ -1,0 +1,38 @@
+version: 2.1
+
+jobs:
+  build_and_deploy:
+    docker:
+      - image: cimg/node:22.17
+
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:SQ73d9cC4dBMHh0w6nMR6DplajbuzQhmVhC7Z2QWp00"
+
+      - run:
+          name: Trust server
+          command: |
+            mkdir -p ~/.ssh
+            ssh-keyscan -H 111.228.13.17 >> ~/.ssh/known_hosts
+
+      
+      - run:
+          name: Install rsync
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y rsync
+
+      - run:
+          name: Deploy
+          command: |
+            rsync -az --delete dist/ root@111.228.13.17:/var/www/blog/
+
+workflows:
+  deploy:
+    jobs:
+      - build_and_deploy
