@@ -16,7 +16,6 @@
 - `src/data/`：结构化内容文件
 - `public/`：静态资源
 - `docs/`：交付文档、迁移表、发布说明
-- `.github/workflows/`：CI / CD 示例
 
 ## 本地开发
 
@@ -31,10 +30,3 @@ npm run dev
 npm run build
 ```
 
-## 交付物
-
-- URL 迁移表：`docs/url-mapping.csv`
-- 发布检查表：`docs/release-checklist.md`
-- 内容维护说明：`docs/content-editing-guide.md`
-- 部署说明：`docs/deployment-runbook.md`
-- 大陆测速模板：`docs/mainland-performance-log-template.md`
