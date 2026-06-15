@@ -12,13 +12,13 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:+2D0lcOXWJGE+eSJMhvLYSTowBYsv+A3kQUSoOU9b/s"
+            - "SHA256:NBbJ86F9P1DNkhlO3OP5E+wLu0uFnm7i1JHGgGWorb0"
 
       - run:
           name: Trust server
           command: |
             mkdir -p ~/.ssh
-            ssh-keyscan -H 47.118.30.206 >> ~/.ssh/known_hosts
+            ssh-keyscan -H xiangqi-host-on-alibaba-cloud >> ~/.ssh/known_hosts
 
       
       - run:
@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Deploy
           command: |
-            rsync -az --delete dist/ root@47.118.30.206:/var/www/xiangqi/
+            rsync -az --delete dist/ root@8.210.70.140:/var/www/xiangqi/
 
 workflows:
   deploy:
