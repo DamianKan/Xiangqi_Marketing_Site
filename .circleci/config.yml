@@ -20,7 +20,6 @@ jobs:
             mkdir -p ~/.ssh
             ssh-keyscan -H 8.210.70.140 >> ~/.ssh/known_hosts
 
-      
       - run:
           name: Install rsync
           command: |
@@ -28,8 +27,15 @@ jobs:
             sudo apt-get install -y rsync
 
       - run:
-          name: Deploy
+          name: Backup and deploy
           command: |
+            ssh root@8.210.70.140 "
+              if [ -d /var/www/xiangqi ]; then
+                rm -rf /var/www/xiangqi_backup
+                cp -a /var/www/xiangqi /var/www/xiangqi_backup
+              fi
+            "
+
             rsync -az --delete dist/ root@8.210.70.140:/var/www/xiangqi/
 
 workflows:
